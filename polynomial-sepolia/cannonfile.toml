@@ -1,0 +1,97 @@
+name = "polynomial-sepolia"
+version = "1"
+description = "Andromeda dev deployment"
+preset = "main"
+include = [
+    "tomls/core.toml",                                              # Provision the core system
+    "tomls/settings.toml",                                          # Apply minimum liquidity ratio and withdrawal timeout
+    "tomls/permissions.toml",                                       # Allow deployer to create pools
+    "tomls/permit-deniers.toml",                                    # Add feature flag deniers to perps and core systems
+    "tomls/pools/main-pool.toml",                             # Create Spartan Council Pool
+    "tomls/markets/spot-factory.toml",
+    "tomls/markets/perps-factory.toml",
+    "tomls/polynomial-sepolia-andromeda/spot/usdc.toml",          # sUSDC spot market/wrapper, mock for USDC
+    "tomls/permit-all-perps-perpsSystem.toml",                      # Enable perps market
+    "tomls/polynomial-sepolia-andromeda/perps/referrers.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/global.toml",       # Global perps settings
+    "tomls/oracles/perps-keeper-cost.toml",                         # Add gas oracle for keeper fees
+    # "tomls/blast-sepolia-andromeda/perps/feeCollector.toml",
+    # Collaterals
+    "tomls/polynomial-sepolia-andromeda/collaterals/susdc.toml",
+    "tomls/collaterals/susdc.toml",
+    # BTC
+    "tomls/polynomial-sepolia-andromeda/perps/btc-invokes.toml",
+    "tomls/oracles/pyth-btc.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/btc.toml",
+    # ETH
+    "tomls/polynomial-sepolia-andromeda/perps/eth-invokes.toml",
+    "tomls/oracles/pyth-eth.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/eth.toml",
+]
+
+[setting.commitmentPriceDelay]
+defaultValue = "2"
+
+[setting.bigCapSettlementDelay]
+defaultValue = "2"
+
+[setting.snx_package]
+defaultValue = "polynomial-core:1.0.0"
+
+[setting.perps_keeper_cost_package]
+defaultValue = "op-gas-price-oracle:3.3.17"
+
+[setting.spot_market_package]
+defaultValue = "polynomial-spot-market:1.0.0"
+
+[setting.perps_market_package]
+defaultValue = "polynomial-perps-market:1.0.0"
+
+# [setting.buyback_snx_package]
+# defaultValue = "buyback-snx:3.3.14" # Do not update! This package isn't upgradeable. A version change will deploy a new contract.
+
+[setting.salt]
+defaultValue = "andromeda-dev"
+
+[setting.target_preset]
+defaultValue = "main" # Preset assigned to provisioned packages
+
+[setting.pyth_price_verification_address]
+# https://docs.pyth.network/documentation/pythnet-price-feeds/evm
+defaultValue = "0x23f0e8FAeE7bbb405E7A7C3d60138FCfd43d7509"
+
+[provision.pyth_erc7412_wrapper]
+source = "pyth-erc7412-wrapper:3.3.17"
+targetPreset = "<%= settings.target_preset %>"
+options.salt = "<%= settings.salt %>"
+options.pythAddress = "<%= settings.pyth_price_verification_address %>"
+
+[setting.owner]
+defaultValue = "0x2b02AAd6f1694E7D9c934B7b3Ec444541286cF0f"
+
+[setting.deployer]
+defaultValue = "0x2b02AAd6f1694E7D9c934B7b3Ec444541286cF0f"
+
+[setting.minimum_liquidity_ratio]
+defaultValue = "<%= parseEther('1.25') %>" # 125% min market collateralization
+
+[setting.account_timeout_withdraw]
+defaultValue = "86400" # 1 day
+
+[setting.main_pool_id]
+defaultValue = "1"
+
+[setting.pool_owner]
+defaultValue = "0x2b02AAd6f1694E7D9c934B7b3Ec444541286cF0f"
+
+[invoke.setMainPoolConfig]
+target = ["system.CoreProxy"]
+fromCall.func = "getPoolOwner"
+fromCall.args = ["<%= settings.main_pool_id %>"]
+func = "setPoolConfiguration"
+args = [
+    "<%= settings.main_pool_id %>",
+    [
+        { marketId = "<%= imports.perpsFactory.extras.superMarketId %>", weightD18 = 1, maxDebtShareValueD18 = "<%= parseEther('1') %>" },
+    ],
+]
