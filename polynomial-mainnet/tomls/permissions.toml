@@ -1,0 +1,7 @@
+[setting.deployer]
+
+[invoke.permitCreatePool]
+target = ["system.CoreProxy"]
+fromCall.func = "owner"
+func = "addToFeatureFlagAllowlist"
+args = ["<%= formatBytes32String('createPool') %>", "<%= settings.deployer %>"]

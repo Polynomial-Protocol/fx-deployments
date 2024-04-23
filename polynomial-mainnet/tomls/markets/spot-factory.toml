@@ -1,0 +1,8 @@
+[setting.spot_market_package]
+
+[provision.spotFactory]
+source = "<%= settings.spot_market_package %>"
+targetPreset = "<%= settings.target_preset %>"
+options.owner = "<%= settings.owner %>"
+options.salt = "<%= settings.salt %>"
+depends = ["provision.system"]
