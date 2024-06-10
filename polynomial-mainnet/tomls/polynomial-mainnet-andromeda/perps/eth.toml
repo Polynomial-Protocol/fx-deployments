@@ -12,19 +12,19 @@ defaultValue = "10000000"
 defaultValue = "9"
 
 [setting.perpsEthMakerFeeRatio]
-defaultValue = "0.0002"
-
-[setting.perpsEthTakerFeeRatio]
 defaultValue = "0.0005"
 
+[setting.perpsEthTakerFeeRatio]
+defaultValue = "0.0008"
+
 [setting.perpsEthMaxMarketSize]
-defaultValue = "5250"
+defaultValue = "5000"
 
 [setting.perpsEthMaxMarketValue]
-defaultValue = "18000000"
+defaultValue = "20000000"
 
 [setting.perpsEthInitialMarginRatio]
-defaultValue = "8.92"
+defaultValue = "1.16"
 
 [setting.perpsEthMinimumInitialMarginRatio]
 defaultValue = "0.02"
@@ -42,7 +42,7 @@ defaultValue = "1.5"
 defaultValue = "30"
 
 [setting.perpsEthMinimumPositionMargin]
-defaultValue = "50"
+defaultValue = "100"
 
 [setting.perpsEthLockedOiRatio]
 defaultValue = "0.5"
