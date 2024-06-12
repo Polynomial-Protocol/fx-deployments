@@ -5,7 +5,7 @@ defaultValue = "1"
 defaultValue = "30000"
 
 [setting.perps_keeper_l2_cost_settle_gas_units]
-defaultValue = "1500000"
+defaultValue = "2450000"
 
 [setting.perps_keeper_l1_cost_flag_gas_units]
 defaultValue = "31000"
@@ -32,13 +32,13 @@ defaultValue = "100"
 defaultValue = "0.3"
 
 [setting.perps_low_util_gradient]
-defaultValue = "0.000025"
+defaultValue = "0"
 
 [setting.perps_gradient_breakpoint]
-defaultValue = "0.80"
+defaultValue = "0"
 
 [setting.perps_high_util_gradient]
-defaultValue = "0.01"
+defaultValue = "0"
 
 [invoke.setPerpsLiquidationRewardGuards]
 target = ["perpsFactory.PerpsMarketProxy"]
