@@ -1,0 +1,46 @@
+# This registers a staleness node that looks to Pyth for a fresh enough price, or otherwise reverts with an ERC-7412 compatible error
+# Latest Pyth Price
+[setting.pythSdaiFeedId]
+# https://pyth.network/developers/price-feed-ids
+defaultValue = "0x710659c5a68e2416ce4264ca8d50d34acc20041d91289110eea152c52ff3dc39"
+
+
+[invoke.registerPythSdaiOracleNode]
+target = ["system.oracle_manager.Proxy"]
+func = "registerNode"
+args = [
+    5, # 5 = pyth aggregator type
+    "<%= defaultAbiCoder.encode(['address', 'bytes32', 'bool'], [settings.pyth_price_verification_address, settings.pythSdaiFeedId, false]) %>",
+    [
+    ],
+]
+extra.sdai_pyth_oracle_id.event = "NodeRegistered"
+extra.sdai_pyth_oracle_id.arg = 0
+
+# Pyth Off-chain Lookup
+[invoke.registerLookupSdaiOracleNode]
+target = ["system.oracle_manager.Proxy"]
+func = "registerNode"
+args = [
+    9, # 9 = PythOffchainLookupNode
+    "<%= defaultAbiCoder.encode(['address', 'bytes32', 'uint256'], [imports.pyth_erc7412_wrapper.contracts.PythERC7412Wrapper.address, settings.pythSdaiFeedId, settings.bigCapDefaultStalenessTolerance]) %>",
+    [
+    ],
+]
+extra.sdai_lookup_oracle_id.event = "NodeRegistered"
+extra.sdai_lookup_oracle_id.arg = 0
+
+# Staleness Node
+[invoke.registerSdaiOracleNode]
+target = ["system.oracle_manager.Proxy"]
+func = "registerNode"
+args = [
+    7, # 7 = staleness circuit breaker
+    "<%= defaultAbiCoder.encode(['uint256'], [settings.bigCapDefaultStalenessTolerance]) %>",
+    [
+        "<%= extras.sdai_pyth_oracle_id %>",
+        "<%= extras.sdai_lookup_oracle_id %>",
+    ],
+]
+extra.sdai_oracle_id.event = "NodeRegistered"
+extra.sdai_oracle_id.arg = 0
