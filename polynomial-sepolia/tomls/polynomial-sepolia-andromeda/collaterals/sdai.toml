@@ -2,7 +2,7 @@
 defaultValue = "<%= MaxUint256 %>"
 
 [setting.sdai_liquidation_ratio]
-defaultValue = "<%= parseEther('1.02') %>"
+defaultValue = "<%= parseEther('1.2') %>"
 
 [setting.sdai_liquidation_reward]
 defaultValue = "<%= parseEther('1') %>"
