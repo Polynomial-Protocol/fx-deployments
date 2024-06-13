@@ -6,3 +6,4 @@ target = ["perpsFactory.PerpsMarketProxy"]
 fromCall.func = "owner"
 func = "updateReferrerShare"
 args = ["0x38D4200767628f4197C5d5FdDA24927C28dDadeF", "<%= settings.referrerFee %>"]
+depends = ["provision.perpsFactory", "settings.referrerFee"]

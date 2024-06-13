@@ -50,30 +50,41 @@ args = [
     "<%= parseEther(settings.perps_liquidation_max_keeper_reward_usd) %>",
     "<%= parseEther(settings.perps_liquidation_max_keeper_scaling_ratio_d18) %>",
 ]
+depends = [
+    "provision.perpsFactory",
+    "settings.perps_liquidation_min_keeper_reward_usd",
+    "settings.perps_liquidation_min_keeper_profit_ratio_d18",
+    "settings.perps_liquidation_max_keeper_reward_usd",
+    "settings.perps_liquidation_max_keeper_scaling_ratio_d18"
+]
 
 [invoke.setPerpsMaxCollateralForSnxUsd]
 target = ["perpsFactory.PerpsMarketProxy"]
 fromCall.func = "owner"
 func = "setCollateralConfiguration"
 args = ["0", "<%= MaxUint256 %>"]
+depends = ["provision.perpsFactory"]
 
 [invoke.setPerpsSynthDeductionPriority]
 target = ["perpsFactory.PerpsMarketProxy"]
 fromCall.func = "owner"
 func = "setSynthDeductionPriority"
 args = [["0"]]
+depends = ["provision.perpsFactory"]
 
 [invoke.setPerAccountCapsPerps]
 target = ["perpsFactory.PerpsMarketProxy"]
 fromCall.func = "owner"
 func = "setPerAccountCaps"
 args = ["2", "1"]
+depends = ["provision.perpsFactory"]
 
 [invoke.setPerpsMarketKeeperCostNodeId]
 target = ["perpsFactory.PerpsMarketProxy"]
 fromCall.func = "owner"
 func = "updateKeeperCostNodeId"
 args = ["<%= extras.perps_keeper_cost_usd_oracle_id %>"]
+depends = ["provision.perpsFactory", "invoke.registerPerps_KeeperCostUsdOracleNode"]
 
 [invoke.setInterestRateParams]
 target = ["perpsFactory.PerpsMarketProxy"]
@@ -83,4 +94,10 @@ args = [
     "<%= parseEther(settings.perps_low_util_gradient) %>",
     "<%= parseEther(settings.perps_gradient_breakpoint) %>",
     "<%= parseEther(settings.perps_high_util_gradient) %>",
+]
+depends = [
+    "provision.perpsFactory",
+    "settings.perps_low_util_gradient",
+    "settings.perps_gradient_breakpoint",
+    "settings.perps_high_util_gradient"
 ]

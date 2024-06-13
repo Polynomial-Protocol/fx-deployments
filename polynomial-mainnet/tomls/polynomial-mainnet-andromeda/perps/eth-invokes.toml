@@ -33,6 +33,11 @@ target = ["perpsFactory.PerpsMarketProxy"]
 fromCall.func = "owner"
 func = "createMarket"
 args = ["<%= settings.ethPerpsMarketId %>", "Ethereum", "ETH"]
+depends = [
+    "provision.system",
+    "provision.perpsFactory",
+    "settings.ethPerpsMarketId"
+]
 
 [invoke.setPerpsPriceEth]
 target = ["perpsFactory.PerpsMarketProxy"]

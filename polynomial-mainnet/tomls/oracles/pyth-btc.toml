@@ -9,6 +9,7 @@ args = [
     [
     ],
 ]
+depends = ["provision.system"]
 extra.btc_pyth_oracle_id.event = "NodeRegistered"
 extra.btc_pyth_oracle_id.arg = 0
 
@@ -22,6 +23,7 @@ args = [
     [
     ],
 ]
+depends = ["provision.system"]
 extra.btc_lookup_oracle_id.event = "NodeRegistered"
 extra.btc_lookup_oracle_id.arg = 0
 
@@ -37,5 +39,6 @@ args = [
         "<%= extras.btc_lookup_oracle_id %>",
     ],
 ]
+depends = ["provision.system"]
 extra.btc_oracle_id.event = "NodeRegistered"
 extra.btc_oracle_id.arg = 0

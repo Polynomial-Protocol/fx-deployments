@@ -31,6 +31,11 @@ target = ["perpsFactory.PerpsMarketProxy"]
 fromCall.func = "owner"
 func = "createMarket"
 args = ["<%= settings.btcPerpsMarketId %>", "Bitcoin", "BTC"]
+depends = [
+    "provision.system",
+    "provision.perpsFactory",
+    "settings.btcPerpsMarketId"
+]
 
 [invoke.setPerpsPriceBtc]
 target = ["perpsFactory.PerpsMarketProxy"]

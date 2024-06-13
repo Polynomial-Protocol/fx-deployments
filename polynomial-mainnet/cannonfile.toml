@@ -10,6 +10,7 @@ include = [
     "tomls/pools/main-pool.toml",                              # Create Main Pool
     "tomls/markets/spot-factory.toml",
     "tomls/markets/perps-factory.toml",
+    "tomls/markets/common/bigcap-settings.toml",
     "tomls/polynomial-mainnet-andromeda/spot/usdc.toml",       # sUSDC spot market/wrapper, mock for USDC
     "tomls/permit-all-perps-perpsSystem.toml",                 # Enable perps market
     "tomls/polynomial-mainnet-andromeda/perps/referrers.toml",

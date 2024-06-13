@@ -9,6 +9,7 @@ args = [
     [
     ],
 ]
+depends = ["provision.system"]
 extra.eth_pyth_oracle_id.event = "NodeRegistered"
 extra.eth_pyth_oracle_id.arg = 0
 
@@ -22,6 +23,7 @@ args = [
     [
     ],
 ]
+depends = ["provision.system"]
 extra.eth_lookup_oracle_id.event = "NodeRegistered"
 extra.eth_lookup_oracle_id.arg = 0
 
@@ -37,5 +39,6 @@ args = [
         "<%= extras.eth_lookup_oracle_id %>",
     ],
 ]
+depends = ["provision.system"]
 extra.eth_oracle_id.event = "NodeRegistered"
 extra.eth_oracle_id.arg = 0
