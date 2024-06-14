@@ -1,0 +1,13 @@
+[invoke.configure_sdai_collateral]
+target = ["system.CoreProxy"]
+fromCall.func = "owner"
+func = "configureCollateral"  # "args" see below in the multiline block
+
+[[invoke.configure_sdai_collateral.args]]
+tokenAddress = "<%= settings.sdai_token_address %>"
+oracleNodeId = "<%= extras.sdai_oracle_id %>"
+issuanceRatioD18 = "<%= settings.sdai_issuance_ratio %>"
+liquidationRatioD18 = "<%= settings.sdai_liquidation_ratio %>"
+liquidationRewardD18 = "<%= settings.sdai_liquidation_reward %>"
+minDelegationD18 = "<%= settings.sdai_min_delegation %>"
+depositingEnabled = true
