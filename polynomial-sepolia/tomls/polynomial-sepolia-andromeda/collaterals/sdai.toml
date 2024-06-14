@@ -11,4 +11,4 @@ defaultValue = "<%= parseEther('1') %>"
 defaultValue = "<%= parseEther('100') %>"
 
 [setting.sdai_token_address]
-defaultValue = "0x5781aF1672e267De8802ADc89f6D56b2657B2a13"
+defaultValue = "0x7f4F2599408b1146950Fa177fB482E9D91e0952f"
