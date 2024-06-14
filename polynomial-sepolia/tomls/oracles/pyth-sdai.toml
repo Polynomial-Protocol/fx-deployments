@@ -16,6 +16,7 @@ args = [
 ]
 extra.sdai_pyth_oracle_id.event = "NodeRegistered"
 extra.sdai_pyth_oracle_id.arg = 0
+depends = ["provision.system", "setting.pyth_price_verification_address", "setting.pythSdaiFeedId"]
 
 # Pyth Off-chain Lookup
 [invoke.registerLookupSdaiOracleNode]
@@ -29,6 +30,12 @@ args = [
 ]
 extra.sdai_lookup_oracle_id.event = "NodeRegistered"
 extra.sdai_lookup_oracle_id.arg = 0
+depends = [
+    "provision.system",
+    "provision.pyth_erc7412_wrapper",
+    "setting.pythSdaiFeedId",
+    "setting.bigCapDefaultStalenessTolerance"
+]
 
 # Staleness Node
 [invoke.registerSdaiOracleNode]
@@ -42,5 +49,5 @@ args = [
         "<%= extras.sdai_lookup_oracle_id %>",
     ],
 ]
-extra.sdai_oracle_id.event = "NodeRegistered"
-extra.sdai_oracle_id.arg = 0
+extra.sdai_staleness_oracle_id.event = "NodeRegistered"
+extra.sdai_staleness_oracle_id.arg = 0
