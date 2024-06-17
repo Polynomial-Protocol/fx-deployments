@@ -46,7 +46,7 @@ defaultValue = "fx-op-gas-price-oracle:3.3.18"
 defaultValue = "fx-spot-market:3.3.18"
 
 [setting.perps_market_package]
-defaultValue = "fx-perps-market:3.318"
+defaultValue = "fx-perps-market:3.3.18"
 
 # [setting.buyback_snx_package]
 # defaultValue = "buyback-snx:3.3.14" # Do not update! This package isn't upgradeable. A version change will deploy a new contract.
