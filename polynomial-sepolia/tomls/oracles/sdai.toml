@@ -5,7 +5,7 @@ args = [
     # 1 = reducer node
     1,
     # 1 parameters: 1 operation = 6 for division
-    "<%= defaultAbiCoder.encode(['uint256'], [6]) %>",
+    "<%= defaultAbiCoder.encode(['uint256'], [8]) %>",
     # 2 parent: 1 is sdai pyth node , 2 is usdc pyth node
     ["<%= extras.sdai_staleness_oracle_id %>", "<%= extras.USDC_staleness_oracle_id %>"],
 ]
