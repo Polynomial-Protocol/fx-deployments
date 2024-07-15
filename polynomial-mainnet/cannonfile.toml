@@ -37,16 +37,16 @@ defaultValue = "2"
 defaultValue = "2"
 
 [setting.snx_package]
-defaultValue = "polynomial-core:3.3.18"
+defaultValue = "polynomial-core:3.4.1"
 
 [setting.perps_keeper_cost_package]
-defaultValue = "fx-op-gas-price-oracle:3.3.18"
+defaultValue = "fx-op-gas-price-oracle:3.4.0"
 
 [setting.spot_market_package]
-defaultValue = "fx-spot-market:3.3.18"
+defaultValue = "fx-spot-market:3.4.1"
 
 [setting.perps_market_package]
-defaultValue = "fx-perps-market:3.3.18"
+defaultValue = "fx-perps-market:3.4.1"
 
 # [setting.buyback_snx_package]
 # defaultValue = "buyback-snx:3.3.14" # Do not update! This package isn't upgradeable. A version change will deploy a new contract.
@@ -59,19 +59,19 @@ defaultValue = "main" # Preset assigned to provisioned packages
 
 [setting.pyth_price_verification_address]
 # https://docs.pyth.network/documentation/pythnet-price-feeds/evm
-defaultValue = "0x23f0e8FAeE7bbb405E7A7C3d60138FCfd43d7509"
+defaultValue = "0x2880aB155794e7179c9eE2e38200202908C17B43"
 
 [provision.pyth_erc7412_wrapper]
-source = "fx-pyth-erc7412-wrapper:3.3.18"
+source = "fx-pyth-erc7412-wrapper:3.4.0"
 targetPreset = "<%= settings.target_preset %>"
 options.salt = "<%= settings.salt %>"
 options.pythAddress = "<%= settings.pyth_price_verification_address %>"
 
 [setting.owner]
-defaultValue = "0x2b02AAd6f1694E7D9c934B7b3Ec444541286cF0f"
+defaultValue = "0x66E1C0734A6e1351F7401219E4Ec9CF6a91a50cd"
 
 [setting.deployer]
-defaultValue = "0x2b02AAd6f1694E7D9c934B7b3Ec444541286cF0f"
+defaultValue = "0x9f76043B23125024Ce5f0Fb4AE707482107dd2a8"
 
 [setting.minimum_liquidity_ratio]
 defaultValue = "<%= parseEther('1.25') %>" # 125% min market collateralization
@@ -83,7 +83,7 @@ defaultValue = "86400" # 1 day
 defaultValue = "1"
 
 [setting.pool_owner]
-defaultValue = "0x2b02AAd6f1694E7D9c934B7b3Ec444541286cF0f"
+defaultValue = "0x66E1C0734A6e1351F7401219E4Ec9CF6a91a50cd"
 
 [invoke.setMainPoolConfig]
 target = ["system.CoreProxy"]
@@ -98,4 +98,4 @@ args = [
 ]
 
 [setting.usdc_address]
-defaultValue = "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913"
+defaultValue = "0x17C9D8Cef7Ef072844EEaEdE1F9f54C7E3fa8743"
