@@ -68,7 +68,7 @@ options.salt = "<%= settings.salt %>"
 options.pythAddress = "<%= settings.pyth_price_verification_address %>"
 
 [setting.owner]
-defaultValue = "0x66E1C0734A6e1351F7401219E4Ec9CF6a91a50cd"
+defaultValue = "0x9f76043B23125024Ce5f0Fb4AE707482107dd2a8"
 
 [setting.deployer]
 defaultValue = "0x9f76043B23125024Ce5f0Fb4AE707482107dd2a8"
@@ -83,7 +83,7 @@ defaultValue = "86400" # 1 day
 defaultValue = "1"
 
 [setting.pool_owner]
-defaultValue = "0x66E1C0734A6e1351F7401219E4Ec9CF6a91a50cd"
+defaultValue = "0x9f76043B23125024Ce5f0Fb4AE707482107dd2a8"
 
 [invoke.setMainPoolConfig]
 target = ["system.CoreProxy"]
