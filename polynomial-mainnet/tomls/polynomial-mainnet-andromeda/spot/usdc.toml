@@ -13,7 +13,7 @@ extra.synth_usdc_market_id.event = "SynthRegistered"
 extra.synth_usdc_market_id.arg = 0
 extra.synth_usdc_token_address.event = "SynthRegistered"
 extra.synth_usdc_token_address.arg = 1
-depends = ["provision.spotFactory", "settings.owner"]
+depends = ["provision.spotFactory"]
 
 [invoke.setSynthPriceUsdc]
 target = ["spotFactory.SpotMarketProxy"]
@@ -26,7 +26,9 @@ args = [
     "<%= imports.system.extras.const_one_oracle_id %>",
     "<%= settings.spotStrictStalenessTolerance %>",
 ]
-depends = ["provision.spotFactory", "settings.spotStrictStalenessTolerance"] # Mostly it is provision.system, but spotFactory has system has a dependency
+depends = [
+    "provision.spotFactory",
+] # Mostly it is provision.system, but spotFactory has system has a dependency
 
 [invoke.setSynthMaxMarketCollateralUsdc]
 target = ["system.CoreProxy"]
@@ -38,11 +40,7 @@ args = [
     "<%= setting.usdc_address %>",
     "<%= settings.synthUsdcMaxMarketCollateral %>",
 ]
-depends = [
-    "provision.spotFactory",
-    "setting.usdc_address",
-    "settings.synthUsdcMaxMarketCollateral"
-]
+depends = ["provision.spotFactory", "setting.usdc_address"]
 
 [invoke.configureSynthWrapperUsdc]
 target = ["spotFactory.SpotMarketProxy"]
@@ -58,17 +56,13 @@ depends = [
     "provision.spotFactory",
     "invoke.createUsdcSynth",
     "setting.usdc_address",
-    "settings.synthUsdcMaxMarketCollateral"
 ]
 
 [invoke.configure_usdc_collateral]
 target = ["system.CoreProxy"]
 fromCall.func = "owner"
-func = "configureCollateral"  # "args" see below in the multiline block
-depends = [
-    "provision.spotFactory",
-    "setting.usdc_address",
-]
+func = "configureCollateral"                                # "args" see below in the multiline block
+depends = ["provision.spotFactory"]
 
 [[invoke.configure_usdc_collateral.args]]
 tokenAddress = "<%= setting.usdc_address %>"

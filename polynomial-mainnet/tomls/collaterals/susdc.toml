@@ -3,15 +3,11 @@
 [invoke.configure_susdc_collateral]
 target = ["system.CoreProxy"]
 fromCall.func = "owner"
-func = "configureCollateral"  # "args" see below in the multiline block
+func = "configureCollateral" # "args" see below in the multiline block
 depends = [
     "provision.system",
     "provision.spotFactory",
     "invoke.createUsdcSynth",
-    "settings.susdc_issuance_ratio",
-    "settings.susdc_liquidation_ratio",
-    "settings.susdc_liquidation_reward",
-    "settings.susdc_min_delegation"
 ]
 
 [[invoke.configure_susdc_collateral.args]]

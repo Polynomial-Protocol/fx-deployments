@@ -2,22 +2,31 @@
 defaultValue = "1"
 
 [setting.perps_keeper_l1_cost_settle_gas_units]
-defaultValue = "30000"
+defaultValue = "<%= String(60_000) %>"
 
 [setting.perps_keeper_l2_cost_settle_gas_units]
-defaultValue = "2450000"
+defaultValue = "<%= String(5_500_000) %>"
 
 [setting.perps_keeper_l1_cost_flag_gas_units]
-defaultValue = "31000"
+defaultValue = "<%= String(62_000) %>"
 
 [setting.perps_keeper_l2_cost_flag_gas_units]
-defaultValue = "1160000"
+defaultValue = "<%= String(2_320_000) %>"
 
 [setting.perps_keeper_l1_cost_liquidate_gas_units]
-defaultValue = "5500"
+defaultValue = "<%= String(11_000) %>"
 
 [setting.perps_keeper_l2_cost_liquidate_gas_units]
-defaultValue = "600000"
+defaultValue = "<%= String(1_200_000) %>"
+
+[setting.perps_keeper_settle_tx_size]
+defaultValue = "<%= String(10_000) %>"
+
+[setting.perps_keeper_flag_tx_size]
+defaultValue = "<%= String(6_200) %>"
+
+[setting.perps_keeper_liquidate_tx_size]
+defaultValue = "<%= String(2_200) %>"
 
 [setting.perps_liquidation_min_keeper_reward_usd]
 defaultValue = "5"
@@ -50,13 +59,7 @@ args = [
     "<%= parseEther(settings.perps_liquidation_max_keeper_reward_usd) %>",
     "<%= parseEther(settings.perps_liquidation_max_keeper_scaling_ratio_d18) %>",
 ]
-depends = [
-    "provision.perpsFactory",
-    "settings.perps_liquidation_min_keeper_reward_usd",
-    "settings.perps_liquidation_min_keeper_profit_ratio_d18",
-    "settings.perps_liquidation_max_keeper_reward_usd",
-    "settings.perps_liquidation_max_keeper_scaling_ratio_d18"
-]
+depends = ["provision.perpsFactory"]
 
 [invoke.setPerpsMaxCollateralForSnxUsd]
 target = ["perpsFactory.PerpsMarketProxy"]
@@ -84,7 +87,10 @@ target = ["perpsFactory.PerpsMarketProxy"]
 fromCall.func = "owner"
 func = "updateKeeperCostNodeId"
 args = ["<%= extras.perps_keeper_cost_usd_oracle_id %>"]
-depends = ["provision.perpsFactory", "invoke.registerPerps_KeeperCostUsdOracleNode"]
+depends = [
+    "provision.perpsFactory",
+    "invoke.registerPerps_KeeperCostUsdOracleNode",
+]
 
 [invoke.setInterestRateParams]
 target = ["perpsFactory.PerpsMarketProxy"]
@@ -95,9 +101,4 @@ args = [
     "<%= parseEther(settings.perps_gradient_breakpoint) %>",
     "<%= parseEther(settings.perps_high_util_gradient) %>",
 ]
-depends = [
-    "provision.perpsFactory",
-    "settings.perps_low_util_gradient",
-    "settings.perps_gradient_breakpoint",
-    "settings.perps_high_util_gradient"
-]
+depends = ["provision.perpsFactory"]

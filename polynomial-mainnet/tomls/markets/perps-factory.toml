@@ -20,4 +20,4 @@ target = ["perpsFactory.PerpsMarketProxy"]
 fromCall.func = "owner"
 func = "setPerpsMarketName"
 args = ["<%= settings.perps_super_market_name %>"]
-depends = ["provision.perpsFactory", "settings.perps_super_market_name"]
+depends = ["provision.perpsFactory"]
