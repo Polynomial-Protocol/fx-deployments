@@ -4,6 +4,8 @@ defaultValue = "<%= parseEther(String(250_000_000)) %>"
 [setting.spotStrictStalenessTolerance]
 defaultValue = "60"
 
+[setting.usdc_address]
+
 [invoke.createUsdcSynth]
 target = ["spotFactory.SpotMarketProxy"]
 fromCall.func = "owner"
@@ -37,7 +39,7 @@ fromCall.args = []
 func = "configureMaximumMarketCollateral"
 args = [
     "<%= extras.synth_usdc_market_id %>",
-    "<%= setting.usdc_address %>",
+    "<%= settings.usdc_address %>",
     "<%= settings.synthUsdcMaxMarketCollateral %>",
 ]
 depends = ["provision.spotFactory", "setting.usdc_address"]
@@ -49,7 +51,7 @@ fromCall.args = ["<%= extras.synth_usdc_market_id %>"]
 func = "setWrapper"
 args = [
     "<%= extras.synth_usdc_market_id %>",
-    "<%= setting.usdc_address %>",
+     "<%= settings.usdc_address %>",
     "<%= settings.synthUsdcMaxMarketCollateral %>",
 ]
 depends = [
@@ -65,7 +67,7 @@ func = "configureCollateral"                                # "args" see below i
 depends = ["provision.spotFactory"]
 
 [[invoke.configure_usdc_collateral.args]]
-tokenAddress = "<%= setting.usdc_address %>"
+tokenAddress =  "<%= settings.usdc_address %>"
 oracleNodeId = "<%= imports.system.extras.const_one_oracle_id %>"
 issuanceRatioD18 = "<%= MaxUint256 %>"
 liquidationRatioD18 = "<%= parseEther('1.005') %>"
