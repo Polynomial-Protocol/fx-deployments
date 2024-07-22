@@ -1,0 +1,14 @@
+[setting.SUSDE_issuance_ratio]
+defaultValue = "<%= MaxUint256 %>"
+
+[setting.SUSDE_liquidation_ratio]
+defaultValue = "<%= parseEther('1.2') %>"
+
+[setting.SUSDE_liquidation_reward]
+defaultValue = "<%= parseEther('1') %>"
+
+[setting.SUSDE_min_delegation]
+defaultValue = "<%= parseEther('100') %>"
+
+[setting.SUSDE_token_address]
+defaultValue = "0x2A06DEAc3E863c23DD6a89Eeacd80aBA9E08B77B"

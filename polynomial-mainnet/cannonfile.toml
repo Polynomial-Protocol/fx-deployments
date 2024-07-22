@@ -20,6 +20,15 @@ include = [
     # Collaterals
     "tomls/polynomial-mainnet-andromeda/collaterals/susdc.toml",
     "tomls/collaterals/susdc.toml",
+    "tomls/polynomial-mainnet-andromeda/collaterals/sdai.toml",
+    "tomls/oracles/pyth-sdai.toml",
+    "tomls/oracles/pyth-usdc.toml",
+    "tomls/oracles/sdai.toml",
+    "tomls/collaterals/sdai.toml",
+    "tomls/polynomial-mainnet-andromeda/collaterals/susde.toml",
+    "tomls/oracles/pyth-susde.toml",
+    "tomls/oracles/susde.toml",
+    "tomls/collaterals/susde.toml",
     # BTC
     "tomls/polynomial-mainnet-andromeda/perps/btc-invokes.toml",
     "tomls/oracles/pyth-btc.toml",
