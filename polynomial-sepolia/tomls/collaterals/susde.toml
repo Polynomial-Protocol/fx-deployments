@@ -1,0 +1,13 @@
+[invoke.configure_SUSDE_collateral]
+target = ["system.CoreProxy"]
+fromCall.func = "owner"
+func = "configureCollateral"  # "args" see below in the multiline block
+
+[[invoke.configure_SUSDE_collateral.args]]
+tokenAddress = "<%= settings.SUSDE_token_address %>"
+oracleNodeId = "<%= extras.SUSDE_oracle_id %>"
+issuanceRatioD18 = "<%= settings.SUSDE_issuance_ratio %>"
+liquidationRatioD18 = "<%= settings.SUSDE_liquidation_ratio %>"
+liquidationRewardD18 = "<%= settings.SUSDE_liquidation_reward %>"
+minDelegationD18 = "<%= settings.SUSDE_min_delegation %>"
+depositingEnabled = true
