@@ -13,8 +13,8 @@ args = [
     "<%= defaultAbiCoder.encode(['address', 'bytes32', 'bool'], [settings.pyth_price_verification_address, settings.pythSUSDEFeedId, false]) %>",
     [],
 ]
-extra.susde_pyth_oracle_id.event = "NodeRegistered"
-extra.susde_pyth_oracle_id.arg = 0
+extra.SUSDE_pyth_oracle_id.event = "NodeRegistered"
+extra.SUSDE_pyth_oracle_id.arg = 0
 
 depends = ["provision.system", "setting.pyth_price_verification_address", "setting.pythSUSDEFeedId"]
 
@@ -34,7 +34,7 @@ depends = [
     "provision.system",
     "provision.pyth_erc7412_wrapper",
     "setting.pythSUSDEFeedId",
-    "setting.bigCapDefaultStale"
+    "setting.bigCapDefaultStalenessTolerance"
 ]
 
 # Staleness Node
@@ -43,7 +43,7 @@ target = ["system.oracle_manager.Proxy"]
 func = "registerNode"
 args = [
     7, # 7 = staleness circuit breaker
-    "<%= defaultAbiCoder.encode(['uint256'], [snessToleranceettings.bigCapDefaultStalenessTolerance]) %>",
+    "<%= defaultAbiCoder.encode(['uint256'], [settings.bigCapDefaultStalenessTolerance]) %>",
     [
         "<%= extras.SUSDE_pyth_oracle_id %>",
         "<%= extras.SUSDE_lookup_oracle_id %>",
