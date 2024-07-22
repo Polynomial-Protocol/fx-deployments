@@ -1,0 +1,14 @@
+[setting.sdai_issuance_ratio]
+defaultValue = "<%= MaxUint256 %>"
+
+[setting.sdai_liquidation_ratio]
+defaultValue = "<%= parseEther('1.2') %>"
+
+[setting.sdai_liquidation_reward]
+defaultValue = "<%= parseEther('1') %>"
+
+[setting.sdai_min_delegation]
+defaultValue = "<%= parseEther('100') %>"
+
+[setting.sdai_token_address]
+defaultValue = "0x615172e47c0C5A6dA8ea959632Ac0166f7a59eDc"

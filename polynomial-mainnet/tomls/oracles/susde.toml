@@ -1,0 +1,13 @@
+[invoke.registerSUSDEOracle]
+target = ["system.oracle_manager.Proxy"]
+func = "registerNode"
+args = [
+    # 1 = reducer node
+    1,
+    # 1 parameters: 1 operation = 8 for division decimal
+    "<%= defaultAbiCoder.encode(['uint256'], [8]) %>",
+    # 2 parent: 1 is SUSDE pyth node , 2 is usdc pyth node
+    ["<%= extras.SUSDE_staleness_oracle_id %>", "<%= extras.USDC_staleness_oracle_id %>"],
+]
+extra.SUSDE_oracle_id.event = "NodeRegistered"
+extra.SUSDE_oracle_id.arg = 0
