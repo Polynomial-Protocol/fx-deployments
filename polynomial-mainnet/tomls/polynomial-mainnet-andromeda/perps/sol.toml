@@ -1,0 +1,57 @@
+[setting.pythSolFeedId]
+# https://pyth.network/developers/price-feed-ids
+defaultValue = "0xef0d8b6fda2ceba41da15d4095d1da392a0d2f8ed0c6c7bc0f4cfac8c280b56d"
+
+[setting.solPerpsMarketId]
+defaultValue = "300"
+
+[setting.perpsSolSkewScale]
+defaultValue = "11100000"
+
+[setting.perpsSolMaxFundingVelocity]
+defaultValue = "9"
+
+[setting.perpsSolMakerFeeRatio]
+defaultValue = "0.0005"
+
+[setting.perpsSolTakerFeeRatio]
+defaultValue = "0.0008"
+
+[setting.perpsSolMaxMarketSize]
+defaultValue = "6800"
+
+[setting.perpsSolMaxMarketValue]
+defaultValue = "1000000"
+
+[setting.perpsSolInitialMarginRatio]
+defaultValue = "4.9"
+
+[setting.perpsSolMinimumInitialMarginRatio]
+defaultValue = "0.02"
+
+[setting.perpsSolMaintenanceMarginScalar]
+defaultValue = "0.33"
+
+[setting.perpsSolFlagRewardRatioD18]
+defaultValue = "0.0003"
+
+[setting.perpsSolMaxLiquidationLimitAccumulationMultiplier]
+defaultValue = "1.5"
+
+[setting.perpsSolMaxSecondsInLiquidationWindow]
+defaultValue = "30"
+
+[setting.perpsSolMinimumPositionMargin]
+defaultValue = "100"
+
+[setting.perpsSolLockedOiRatio]
+defaultValue = "0.5"
+
+[setting.perpsSolSynthMaxCollateralAmount]
+defaultValue = "<%= MaxUint256 %>"
+
+[setting.perpsSolMaxLiquidationPd]
+defaultValue = "0.0005"
+
+[setting.perpsSolEndorsedLiquidator]
+defaultValue = "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"
