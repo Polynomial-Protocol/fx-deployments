@@ -6,7 +6,7 @@ defaultValue = "0xe62df6c8b4a85fe1a67db44dc12de5db330f7ac66b72dc658afedf0f4a415b
 defaultValue = "200"
 
 [setting.perpsBtcSkewScale]
-defaultValue = "<%= String(100_000) %>"
+defaultValue = "<%= String(133_000) %>"
 
 [setting.perpsBtcMaxFundingVelocity]
 defaultValue = "9"
@@ -55,3 +55,9 @@ defaultValue = "0.0005"
 
 [setting.perpsBtcEndorsedLiquidator]
 defaultValue = "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"
+
+[setting.commitmentPriceDelay]
+defaultValue = "2"
+
+[setting.bigCapSettlementDelay]
+defaultValue = "2"
