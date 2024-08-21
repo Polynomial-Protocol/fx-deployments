@@ -37,6 +37,10 @@ include = [
     "tomls/polynomial-mainnet-andromeda/perps/eth-invokes.toml",
     "tomls/oracles/pyth-eth.toml",
     "tomls/polynomial-mainnet-andromeda/perps/eth.toml",
+    # Sol
+    "tomls/polynomial-mainnet-andromeda/perps/sol-invokes.toml",
+    "tomls/oracles/pyth-sol.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/sol.toml",
 ]
 
 [setting.commitmentPriceDelay]
