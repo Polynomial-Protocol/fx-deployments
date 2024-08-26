@@ -55,7 +55,7 @@ depends = [
     "setting.perps_liquidation_min_keeper_reward_usd",
     "setting.perps_liquidation_min_keeper_profit_ratio_d18",
     "setting.perps_liquidation_max_keeper_reward_usd",
-    "setting.perps_liquidation_max_keeper_scaling_ratio_d18"
+    "setting.perps_liquidation_max_keeper_scaling_ratio_d18",
 ]
 
 [invoke.setPerpsMaxCollateralForSnxUsd]
@@ -74,7 +74,7 @@ args = [["0"]]
 target = ["perpsFactory.PerpsMarketProxy"]
 fromCall.func = "owner"
 func = "setPerAccountCaps"
-args = ["2", "1"]
+args = ["3", "1"]
 
 [invoke.setPerpsMarketKeeperCostNodeId]
 target = ["perpsFactory.PerpsMarketProxy"]
@@ -95,5 +95,5 @@ depends = [
     "provision.perpsFactory",
     "setting.perps_low_util_gradient",
     "setting.perps_gradient_breakpoint",
-    "setting.perps_high_util_gradient"
+    "setting.perps_high_util_gradient",
 ]

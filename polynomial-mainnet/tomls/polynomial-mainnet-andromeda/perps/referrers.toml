@@ -1,5 +1,5 @@
 [setting.referrerFee]
-defaultValue = "<%= parseEther('0.2') %>"
+defaultValue = "<%= parseEther('0.4') %>"
 
 [invoke.setPolynomialAsReferrerOnPerpsMarket]
 target = ["perpsFactory.PerpsMarketProxy"]
