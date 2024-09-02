@@ -1,0 +1,63 @@
+[setting.pythPepeFeedId]
+# https://pyth.network/developers/price-feed-ids
+defaultValue = "0xd69731a2e74ac1ce884fc3890f7ee324b6deb66147055249568869ed700882e4"
+
+[setting.pepePerpsMarketId]
+defaultValue = "400"
+
+[setting.perpsPepeSkewScale]
+defaultValue = "<%= String(1_000_000_000_000) %>"
+
+[setting.perpsPepeMaxFundingVelocity]
+defaultValue = "9"
+
+[setting.perpsPepeMakerFeeRatio]
+defaultValue = "0.0005"
+
+[setting.perpsPepeTakerFeeRatio]
+defaultValue = "0.0008"
+
+[setting.perpsPepeMaxMarketSize]
+defaultValue = "6000000"
+
+[setting.perpsPepeMaxMarketValue]
+defaultValue = "350000"
+
+[setting.perpsPepeInitialMarginRatio]
+defaultValue = "4.88"
+
+[setting.perpsPepeMaintenanceMarginScalar]
+defaultValue = "0.43"
+
+[setting.perpsPepeMinimumInitialMarginRatio]
+defaultValue = "0.04"
+
+[setting.perpsPepeFlagRewardRatioD18]
+defaultValue = "0.0003"
+
+[setting.perpsPepeMaxLiquidationLimitAccumulationMultiplier]
+defaultValue = "1.5"
+
+[setting.perpsPepeMaxSecondsInLiquidationWindow]
+defaultValue = "30"
+
+[setting.perpsPepeMinimumPositionMargin]
+defaultValue = "50"
+
+[setting.perpsPepeLockedOiRatio]
+defaultValue = "0.5"
+
+[setting.perpsPepeSynthMaxCollateralAmount]
+defaultValue = "<%= MaxUint256 %>"
+
+[setting.perpsPepeMaxLiquidationPd]
+defaultValue = "0.0005"
+
+[setting.perpsPepeEndorsedLiquidator]
+defaultValue = "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"
+
+[setting.commitmentPriceDelay]
+defaultValue = "2"
+
+[setting.bigCapSettlementDelay]
+defaultValue = "2"
