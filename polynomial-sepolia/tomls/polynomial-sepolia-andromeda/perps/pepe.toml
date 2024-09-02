@@ -18,7 +18,7 @@ defaultValue = "0.0005"
 defaultValue = "0.0008"
 
 [setting.perpsPepeMaxMarketSize]
-defaultValue = "6000000"
+defaultValue = "50000000000"
 
 [setting.perpsPepeMaxMarketValue]
 defaultValue = "350000"
