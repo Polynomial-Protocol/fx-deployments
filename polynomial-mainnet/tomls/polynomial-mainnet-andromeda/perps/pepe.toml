@@ -9,7 +9,7 @@ defaultValue = "400"
 defaultValue = "<%= String(1_000_000_000_000) %>"
 
 [setting.perpsPepeMaxFundingVelocity]
-defaultValue = "9"
+defaultValue = "24"
 
 [setting.perpsPepeMakerFeeRatio]
 defaultValue = "0.0005"
