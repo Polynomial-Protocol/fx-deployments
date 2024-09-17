@@ -58,16 +58,16 @@ defaultValue = "2"
 defaultValue = "2"
 
 [setting.snx_package]
-defaultValue = "polynomial-core:1.0.0"
+defaultValue = "polynomial-core:3.6.1"
 
 [setting.perps_keeper_cost_package]
-defaultValue = "op-gas-price-oracle:3.3.17"
+defaultValue = "fx-op-gas-price-oracle:3.6.1"
 
 [setting.spot_market_package]
-defaultValue = "polynomial-spot-market:1.0.0"
+defaultValue = "fx-spot-market:3.6.1"
 
 [setting.perps_market_package]
-defaultValue = "polynomial-perps-market:1.0.0"
+defaultValue = "fx-perps-market:3.6.1"
 
 # [setting.buyback_snx_package]
 # defaultValue = "buyback-snx:3.3.14" # Do not update! This package isn't upgradeable. A version change will deploy a new contract.
