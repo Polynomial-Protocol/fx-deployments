@@ -1,0 +1,5 @@
+[invoke.setEndorsedFeeTierUpdater]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setEndorsedFeeTierUpdater"
+args = ["0x9f76043B23125024Ce5f0Fb4AE707482107dd2a8"]
