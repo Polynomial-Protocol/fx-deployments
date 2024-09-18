@@ -1,0 +1,63 @@
+[setting.pythSuiFeedId]
+# https://pyth.network/developers/price-feed-ids
+defaultValue = "0x23d7315113f5b1d3ba7a83604c44b94d79f4fd69af77f804fc7f920a6dc65744"
+
+[setting.suiPerpsMarketId]
+defaultValue = "600"
+
+[setting.perpsSuiSkewScale]
+defaultValue = "<%= String(120_000_000) %>"
+
+[setting.perpsSuiMaxFundingVelocity]
+defaultValue = "24"
+
+[setting.perpsSuiMakerFeeRatio]
+defaultValue = "0.0005"
+
+[setting.perpsSuiTakerFeeRatio]
+defaultValue = "0.0008"
+
+[setting.perpsSuiMaxMarketSize]
+defaultValue = "210000"
+
+[setting.perpsSuiMaxMarketValue]
+defaultValue = "250000"
+
+[setting.perpsSuiInitialMarginRatio]
+defaultValue = "2.27"
+
+[setting.perpsSuiMaintenanceMarginScalar]
+defaultValue = "0.38"
+
+[setting.perpsSuiMinimumInitialMarginRatio]
+defaultValue = "0.04"
+
+[setting.perpsSuiFlagRewardRatioD18]
+defaultValue = "0.0003"
+
+[setting.perpsSuiMaxLiquidationLimitAccumulationMultiplier]
+defaultValue = "1.5"
+
+[setting.perpsSuiMaxSecondsInLiquidationWindow]
+defaultValue = "30"
+
+[setting.perpsSuiMinimumPositionMargin]
+defaultValue = "50"
+
+[setting.perpsSuiLockedOiRatio]
+defaultValue = "0.5"
+
+[setting.perpsSuiSynthMaxCollateralAmount]
+defaultValue = "<%= MaxUint256 %>"
+
+[setting.perpsSuiMaxLiquidationPd]
+defaultValue = "0.0005"
+
+[setting.perpsSuiEndorsedLiquidator]
+defaultValue = "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"
+
+[setting.commitmentPriceDelay]
+defaultValue = "2"
+
+[setting.bigCapSettlementDelay]
+defaultValue = "2"
