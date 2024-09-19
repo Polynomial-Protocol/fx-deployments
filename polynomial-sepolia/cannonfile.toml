@@ -29,7 +29,8 @@ include = [
     "tomls/oracles/pyth-susde.toml",
     "tomls/oracles/susde.toml",
     "tomls/collaterals/susde.toml",
-
+    # Perps Collaterals
+    "tomls/polynomial-sepolia-andromeda/perps/collaterals/usd.toml",
     # BTC
     "tomls/polynomial-sepolia-andromeda/perps/btc-invokes.toml",
     "tomls/oracles/pyth-btc.toml",

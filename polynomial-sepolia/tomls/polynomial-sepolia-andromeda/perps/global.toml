@@ -67,12 +67,6 @@ depends = [
     "setting.perps_liquidation_max_keeper_scaling_ratio_d18",
 ]
 
-[invoke.setPerpsMaxCollateralForSnxUsd]
-target = ["perpsFactory.PerpsMarketProxy"]
-fromCall.func = "owner"
-func = "setCollateralConfiguration"
-args = ["0", "<%= MaxUint256 %>"]
-
 [invoke.setPerpsSynthDeductionPriority]
 target = ["perpsFactory.PerpsMarketProxy"]
 fromCall.func = "owner"
