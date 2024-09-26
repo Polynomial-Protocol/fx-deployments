@@ -59,6 +59,10 @@ include = [
     "tomls/polynomial-sepolia-andromeda/perps/sui-invokes.toml",
     "tomls/oracles/pyth-sui.toml",
     "tomls/polynomial-sepolia-andromeda/perps/sui.toml",
+    # AAVE
+    "tomls/polynomial-sepolia-andromeda/perps/aave-invokes.toml",
+    "tomls/oracles/pyth-aave.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/aave.toml",
 ]
 
 [setting.commitmentPriceDelay]
