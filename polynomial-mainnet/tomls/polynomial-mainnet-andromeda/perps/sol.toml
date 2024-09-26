@@ -6,7 +6,7 @@ defaultValue = "0xef0d8b6fda2ceba41da15d4095d1da392a0d2f8ed0c6c7bc0f4cfac8c280b5
 defaultValue = "300"
 
 [setting.perpsSolSkewScale]
-defaultValue = "1000000"
+defaultValue = "<%= String(1_000_000) %>"
 
 [setting.perpsSolMaxFundingVelocity]
 defaultValue = "9"
@@ -18,10 +18,10 @@ defaultValue = "0.0005"
 defaultValue = "0.0008"
 
 [setting.perpsSolMaxMarketSize]
-defaultValue = "2000"
+defaultValue = "1800"
 
 [setting.perpsSolMaxMarketValue]
-defaultValue = "250000"
+defaultValue = "275000"
 
 [setting.perpsSolInitialMarginRatio]
 defaultValue = "4.9"
