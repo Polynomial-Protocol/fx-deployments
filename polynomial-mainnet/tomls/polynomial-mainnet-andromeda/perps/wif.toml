@@ -18,10 +18,10 @@ defaultValue = "0.0005"
 defaultValue = "0.0008"
 
 [setting.perpsWifMaxMarketSize]
-defaultValue = "80000"
+defaultValue = "90000"
 
 [setting.perpsWifMaxMarketValue]
-defaultValue = "180000"
+defaultValue = "150000"
 
 [setting.perpsWifInitialMarginRatio]
 defaultValue = "5.99"
