@@ -57,6 +57,10 @@ include = [
     "tomls/polynomial-mainnet-andromeda/perps/aave-invokes.toml",
     "tomls/oracles/pyth-aave.toml",
     "tomls/polynomial-mainnet-andromeda/perps/aave.toml",
+    # OP
+    "tomls/polynomial-mainnet-andromeda/perps/op-invokes.toml",
+    "tomls/oracles/pyth-op.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/op.toml",
 ]
 
 [setting.commitmentPriceDelay]
