@@ -32,6 +32,10 @@ include = [
     "tomls/oracles/pyth-susde.toml",
     "tomls/oracles/susde.toml",
     "tomls/collaterals/susde.toml",
+    "tomls/polynomial-sepolia-andromeda/collaterals/usd0++.toml",
+    "tomls/oracles/pyth-usd0++.toml",
+    "tomls/oracles/usd0++.toml",
+    "tomls/collaterals/usd0++.toml",
     # Perps Collaterals
     "tomls/polynomial-sepolia-andromeda/perps/collaterals/usd.toml",
     "tomls/polynomial-sepolia-andromeda/perps/collaterals/eth.toml",
