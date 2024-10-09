@@ -61,13 +61,6 @@ args = [
 ]
 depends = ["provision.perpsFactory"]
 
-[invoke.setPerpsMaxCollateralForSnxUsd]
-target = ["perpsFactory.PerpsMarketProxy"]
-fromCall.func = "owner"
-func = "setCollateralConfiguration"
-args = ["0", "<%= MaxUint256 %>"]
-depends = ["provision.perpsFactory"]
-
 [invoke.setPerpsSynthDeductionPriority]
 target = ["perpsFactory.PerpsMarketProxy"]
 fromCall.func = "owner"
