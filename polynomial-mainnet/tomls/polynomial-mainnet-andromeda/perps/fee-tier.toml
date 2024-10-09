@@ -1,0 +1,59 @@
+[invoke.setEndorsedFeeTierUpdater]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setEndorsedFeeTierUpdater"
+args = ["0x7AF6F5F8bc0103fcaB892C3d1efbE38ed8cF775E"]
+
+[invoke.setFeeTier1]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setFeeTier"
+args = ["1", "4000", "1250"]
+
+[invoke.setFeeTier2]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setFeeTier"
+args = ["2", "4500", "1875"]
+
+[invoke.setFeeTier3]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setFeeTier"
+args = ["3", "5000", "2500"]
+
+[invoke.setFeeTier4]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setFeeTier"
+args = ["4", "6000", "3750"]
+
+[invoke.setFeeTier5]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setFeeTier"
+args = ["5", "7000", "4375"]
+
+[invoke.setFeeTier6]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setFeeTier"
+args = ["6", "7500", "5000"]
+
+[invoke.setFeeTier7]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setFeeTier"
+args = ["7", "8000", "6250"]
+
+[invoke.setFeeTier8]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setFeeTier"
+args = ["8", "9000", "6875"]
+
+[invoke.setFeeTier9]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setFeeTier"
+args = ["9", "10000", "7500"]
