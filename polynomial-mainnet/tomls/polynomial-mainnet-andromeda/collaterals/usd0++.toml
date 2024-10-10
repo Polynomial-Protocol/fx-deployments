@@ -11,4 +11,4 @@ defaultValue = "<%= parseEther('1') %>"
 defaultValue = "<%= parseEther('100') %>"
 
 [setting.usd0_token_address]
-defaultValue = "0x0000000000000000000000000000000000000000"
+defaultValue = "0x6224dC817dC4D5c53fcF3eb08A4f84C456F9f38f"
