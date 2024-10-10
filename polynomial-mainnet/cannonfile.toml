@@ -15,6 +15,7 @@ include = [
     "tomls/permit-all-perps-perpsSystem.toml",                 # Enable perps market
     "tomls/polynomial-mainnet-andromeda/perps/referrers.toml",
     "tomls/polynomial-mainnet-andromeda/perps/global.toml",    # Global perps settings
+    "tomls/polynomial-mainnet-andromeda/perps/fee-tier.toml",  # Fee tier
     "tomls/oracles/perps-keeper-cost.toml",                    # Add gas oracle for keeper fees
     # "tomls/blast-sepolia-andromeda/perps/feeCollector.toml",
     # Collaterals
@@ -33,6 +34,8 @@ include = [
     "tomls/oracles/pyth-usd0++.toml",
     "tomls/oracles/usd0++.toml",
     "tomls/collaterals/usd0++.toml",
+    # Perps Collaterals
+    "tomls/polynomial-mainnet-andromeda/perps/collaterals/usd.toml",
     # BTC
     "tomls/polynomial-mainnet-andromeda/perps/btc-invokes.toml",
     "tomls/oracles/pyth-btc.toml",
@@ -65,6 +68,10 @@ include = [
     "tomls/polynomial-mainnet-andromeda/perps/op-invokes.toml",
     "tomls/oracles/pyth-op.toml",
     "tomls/polynomial-mainnet-andromeda/perps/op.toml",
+    # BONK
+    "tomls/polynomial-mainnet-andromeda/perps/bonk-invokes.toml",
+    "tomls/oracles/pyth-bonk.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/bonk.toml",
 ]
 
 [setting.commitmentPriceDelay]
@@ -74,16 +81,16 @@ defaultValue = "2"
 defaultValue = "2"
 
 [setting.snx_package]
-defaultValue = "polynomial-core:3.4.2"
+defaultValue = "polynomial-core:3.6.1"
 
 [setting.perps_keeper_cost_package]
-defaultValue = "fx-op-gas-price-oracle:3.4.0"
+defaultValue = "fx-op-gas-price-oracle:3.6.1"
 
 [setting.spot_market_package]
-defaultValue = "fx-spot-market:3.4.2"
+defaultValue = "fx-spot-market:3.6.1"
 
 [setting.perps_market_package]
-defaultValue = "fx-perps-market:3.4.2"
+defaultValue = "fx-perps-market:3.6.2"
 
 # [setting.buyback_snx_package]
 # defaultValue = "buyback-snx:3.3.14" # Do not update! This package isn't upgradeable. A version change will deploy a new contract.
