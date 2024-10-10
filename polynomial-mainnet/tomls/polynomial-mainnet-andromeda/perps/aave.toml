@@ -18,7 +18,7 @@ defaultValue = "0.0005"
 defaultValue = "0.0008"
 
 [setting.perpsAaveMaxMarketSize]
-defaultValue = "1000"
+defaultValue = "1050"
 
 [setting.perpsAaveMaxMarketValue]
 defaultValue = "150000"

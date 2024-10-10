@@ -64,6 +64,10 @@ include = [
     "tomls/polynomial-mainnet-andromeda/perps/op-invokes.toml",
     "tomls/oracles/pyth-op.toml",
     "tomls/polynomial-mainnet-andromeda/perps/op.toml",
+    # BONK
+    "tomls/polynomial-mainnet-andromeda/perps/bonk-invokes.toml",
+    "tomls/oracles/pyth-bonk.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/bonk.toml",
 ]
 
 [setting.commitmentPriceDelay]
