@@ -1,0 +1,13 @@
+[invoke.configure_usd0_collateral]
+target = ["system.CoreProxy"]
+fromCall.func = "owner"
+func = "configureCollateral"  # "args" see below in the multiline block
+
+[[invoke.configure_usd0_collateral.args]]
+tokenAddress = "<%= settings.usd0_token_address %>"
+oracleNodeId = "<%= extras.usd0_oracle_id %>"
+issuanceRatioD18 = "<%= settings.usd0_issuance_ratio %>"
+liquidationRatioD18 = "<%= settings.usd0_liquidation_ratio %>"
+liquidationRewardD18 = "<%= settings.usd0_liquidation_reward %>"
+minDelegationD18 = "<%= settings.usd0_min_delegation %>"
+depositingEnabled = true

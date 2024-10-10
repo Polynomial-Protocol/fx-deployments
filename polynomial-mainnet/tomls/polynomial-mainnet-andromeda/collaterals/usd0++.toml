@@ -1,0 +1,14 @@
+[setting.usd0_issuance_ratio]
+defaultValue = "<%= MaxUint256 %>"
+
+[setting.usd0_liquidation_ratio]
+defaultValue = "<%= parseEther('1.2') %>"
+
+[setting.usd0_liquidation_reward]
+defaultValue = "<%= parseEther('1') %>"
+
+[setting.usd0_min_delegation]
+defaultValue = "<%= parseEther('100') %>"
+
+[setting.usd0_token_address]
+defaultValue = "0x6224dC817dC4D5c53fcF3eb08A4f84C456F9f38f"
