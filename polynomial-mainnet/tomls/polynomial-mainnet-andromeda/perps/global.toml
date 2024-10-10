@@ -72,7 +72,7 @@ depends = ["provision.perpsFactory"]
 target = ["perpsFactory.PerpsMarketProxy"]
 fromCall.func = "owner"
 func = "setPerAccountCaps"
-args = ["8", "1"]
+args = ["10", "1"]
 depends = ["provision.perpsFactory"]
 
 [invoke.setPerpsMarketKeeperCostNodeId]
