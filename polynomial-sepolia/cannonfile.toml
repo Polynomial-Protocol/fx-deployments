@@ -75,6 +75,9 @@ include = [
     "tomls/polynomial-sepolia-andromeda/perps/bonk-invokes.toml",
     "tomls/oracles/pyth-bonk.toml",
     "tomls/polynomial-sepolia-andromeda/perps/bonk.toml",
+
+    ## Skibidi Pool
+    "tomls/pools/skibidi-pool.toml",
 ]
 
 [setting.commitmentPriceDelay]
@@ -128,6 +131,9 @@ defaultValue = "86400" # 1 day
 
 [setting.main_pool_id]
 defaultValue = "1"
+
+[setting.skibidi_pool_id]
+defaultValue = "69"
 
 [setting.pool_owner]
 defaultValue = "0x2b02AAd6f1694E7D9c934B7b3Ec444541286cF0f"
