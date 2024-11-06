@@ -20,7 +20,7 @@ defaultValue = "<%= String(20_000) %>"
 defaultValue = "<%= String(2_000_000) %>"
 
 [setting.perps_keeper_settle_tx_size]
-defaultValue = "<%= String(5_000) %>"
+defaultValue = "<%= String(2_500) %>"
 
 [setting.perps_keeper_flag_tx_size]
 defaultValue = "<%= String(3_000) %>"
