@@ -10,6 +10,9 @@ defaultValue = "60"
 [setting.pyth_feed_id_eth]
 defaultValue = "0xff61491a931112ddf1bd8147cd1b641375f79f5825126d665480874634fd0ace"
 
+[setting.pyth_feed_url]
+defaultValue = "https://hermes.pyth.network/v2/updates/price/latest?ids[]=<%= settings.pyth_feed_id_eth %>"
+
 [invoke.createEthSynth]
 target = ["spotFactory.SpotMarketProxy"]
 fromCall.func = "owner"

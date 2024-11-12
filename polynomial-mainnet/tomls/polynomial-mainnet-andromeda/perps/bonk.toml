@@ -6,7 +6,7 @@ defaultValue = "0x72b021217ca3fe68922a19aaf990109cb9d84e9ad004b4d2025ad6f5293144
 defaultValue = "900"
 
 [setting.perpsBonkSkewScale]
-defaultValue = "<%= String(1_000_000_000_000) %>"
+defaultValue = "<%= String(1_450_000_000_000) %>"
 
 [setting.perpsBonkMaxFundingVelocity]
 defaultValue = "36"
@@ -18,10 +18,10 @@ defaultValue = "0.0005"
 defaultValue = "0.0008"
 
 [setting.perpsBonkMaxMarketSize]
-defaultValue = "7500000000"
+defaultValue = "5200000000"
 
 [setting.perpsBonkMaxMarketValue]
-defaultValue = "150000"
+defaultValue = "175000"
 
 [setting.perpsBonkInitialMarginRatio]
 defaultValue = "2.27"
