@@ -6,7 +6,7 @@ defaultValue = "0x4ca4beeca86f0d164160323817a4e42b10010a724c2217c6ee41b54cd4cc61
 defaultValue = "500"
 
 [setting.perpsWifSkewScale]
-defaultValue = "<%= String(200_000_000) %>"
+defaultValue = "<%= String(48_000_000) %>"
 
 [setting.perpsWifMaxFundingVelocity]
 defaultValue = "24"
@@ -18,10 +18,10 @@ defaultValue = "0.0005"
 defaultValue = "0.0008"
 
 [setting.perpsWifMaxMarketSize]
-defaultValue = "160000"
+defaultValue = "54000"
 
 [setting.perpsWifMaxMarketValue]
-defaultValue = "250000"
+defaultValue = "175000"
 
 [setting.perpsWifInitialMarginRatio]
 defaultValue = "5.99"
