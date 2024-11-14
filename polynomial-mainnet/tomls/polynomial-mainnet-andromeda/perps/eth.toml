@@ -6,22 +6,22 @@ defaultValue = "0xff61491a931112ddf1bd8147cd1b641375f79f5825126d665480874634fd0a
 defaultValue = "100"
 
 [setting.perpsEthSkewScale]
-defaultValue = "<%= String(500_000) %>"
+defaultValue = "<%= String(2_000_000) %>"
 
 [setting.perpsEthMaxFundingVelocity]
 defaultValue = "9"
 
 [setting.perpsEthMakerFeeRatio]
-defaultValue = "0.0005"
+defaultValue = "0.0002"
 
 [setting.perpsEthTakerFeeRatio]
-defaultValue = "0.0008"
+defaultValue = "0.0005"
 
 [setting.perpsEthMaxMarketSize]
-defaultValue = "176"
+defaultValue = "155"
 
 [setting.perpsEthMaxMarketValue]
-defaultValue = "600000"
+defaultValue = "500000"
 
 [setting.perpsEthInitialMarginRatio]
 defaultValue = "1.16"

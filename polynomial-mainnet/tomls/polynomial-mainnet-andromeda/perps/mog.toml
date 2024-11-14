@@ -1,0 +1,63 @@
+[setting.pythMogFeedId]
+# https://pyth.network/developers/price-feed-ids
+defaultValue = "0x17894b9fff49cd07efeab94a0d02db16f158efe04e0dee1db6af5f069082ce83"
+
+[setting.mogPerpsMarketId]
+defaultValue = "1100"
+
+[setting.perpsMogSkewScale]
+defaultValue = "<%= String(833_000_000_000) %>"
+
+[setting.perpsMogMaxFundingVelocity]
+defaultValue = "48"
+
+[setting.perpsMogMakerFeeRatio]
+defaultValue = "0.0005"
+
+[setting.perpsMogTakerFeeRatio]
+defaultValue = "0.0008"
+
+[setting.perpsMogMaxMarketSize]
+defaultValue = "<%= String(21_000_000_000) %>"
+
+[setting.perpsMogMaxMarketValue]
+defaultValue = "50000"
+
+[setting.perpsMogInitialMarginRatio]
+defaultValue = "4.688"
+
+[setting.perpsMogMaintenanceMarginScalar]
+defaultValue = "0.317"
+
+[setting.perpsMogMinimumInitialMarginRatio]
+defaultValue = "0.05"
+
+[setting.perpsMogFlagRewardRatioD18]
+defaultValue = "0.0003"
+
+[setting.perpsMogMaxLiquidationLimitAccumulationMultiplier]
+defaultValue = "1.5"
+
+[setting.perpsMogMaxSecondsInLiquidationWindow]
+defaultValue = "30"
+
+[setting.perpsMogMinimumPositionMargin]
+defaultValue = "50"
+
+[setting.perpsMogLockedOiRatio]
+defaultValue = "0.5"
+
+[setting.perpsMogSynthMaxCollateralAmount]
+defaultValue = "<%= MaxUint256 %>"
+
+[setting.perpsMogMaxLiquidationPd]
+defaultValue = "0.0005"
+
+[setting.perpsMogEndorsedLiquidator]
+defaultValue = "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"
+
+[setting.commitmentPriceDelay]
+defaultValue = "2"
+
+[setting.bigCapSettlementDelay]
+defaultValue = "2"

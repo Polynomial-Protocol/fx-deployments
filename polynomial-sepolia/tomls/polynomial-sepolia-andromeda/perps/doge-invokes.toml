@@ -1,0 +1,164 @@
+include = [
+    "../../oracles/pyth-doge.toml",
+    "../../markets/common/bigcap-settings.toml",
+]
+
+[setting.dogePerpsMarketId]
+
+[setting.perpsDogeSkewScale]
+
+[setting.perpsDogeMaxFundingVelocity]
+
+[setting.perpsDogeMakerFeeRatio]
+
+[setting.perpsDogeTakerFeeRatio]
+
+[setting.perpsDogeMaxMarketSize]
+
+[setting.perpsDogeInitialMarginRatio]
+
+[setting.perpsDogeMaintenanceMarginScalar]
+
+[setting.perpsDogeFlagRewardRatioD18]
+
+[setting.perpsDogeMaxLiquidationLimitAccumulationMultiplier]
+
+[setting.perpsDogeMaxSecondsInLiquidationWindow]
+
+[setting.perpsDogeMaxLiquidationPd]
+
+[setting.perpsDogeEndorsedLiquidator]
+
+[setting.perpsDogeMinimumPositionMargin]
+
+[setting.perpsDogeLockedOiRatio]
+
+[invoke.createDogePerpsMarket]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "createMarket"
+args = ["<%= settings.dogePerpsMarketId %>", "Doge", "DOGE"]
+depends = ["provision.system", "provision.perpsFactory"]
+
+[invoke.setPerpsPriceDoge]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "updatePriceData"
+args = [
+    "<%= settings.dogePerpsMarketId %>",
+    "<%= extras.doge_oracle_id %>",
+    "<%= settings.bigCapStrictStalenessTolerance %>",
+]
+depends = ["invoke.createDogePerpsMarket"]
+
+# Do not modify this step. Edit [invoke.setPerpsDogeSettlementStrategy] instead.
+[invoke.addPerpsDogeSettlementStrategy]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "addSettlementStrategy"
+args = [
+    "<%= settings.dogePerpsMarketId %>",
+    { strategyType = "0", settlementDelay = "0", settlementWindowDuration = "1", priceVerificationContract = "0x0000000000000000000000000000000000000000", feedId = "0x0000000000000000000000000000000000000000000000000000000000000000", settlementReward = "0", disabled = false, commitmentPriceDelay = "0" },
+]
+extra.doge_pyth_settlement_strategy.event = "SettlementStrategyAdded"
+extra.doge_pyth_settlement_strategy.arg = 2
+depends = ["invoke.createDogePerpsMarket"]
+
+[invoke.setPerpsDogeSettlementStrategy]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setSettlementStrategy"
+args = [
+    "<%= settings.dogePerpsMarketId %>",
+    "<%= extras.doge_pyth_settlement_strategy %>",                                                                                                                                                                                                                                                                                                                                                                                      # Settlement Strategy ID
+    { strategyType = "0", settlementDelay = "<%= settings.bigCapSettlementDelay %>", settlementWindowDuration = "<%= settings.bigCapSettlementWindowDuration %>", priceVerificationContract = "<%= imports.pyth_erc7412_wrapper.contracts.PythERC7412Wrapper.address %>", feedId = "<%= settings.pythDogeFeedId %>", settlementReward = "<%= parseEther(settings.settlementReward) %>", disabled = false, commitmentPriceDelay = "2" },
+]
+depends = [
+    'provision.perpsFactory',
+    'setting.dogePerpsMarketId',
+    'invoke.addPerpsDogeSettlementStrategy',
+    'provision.pyth_erc7412_wrapper',
+    'setting.bigCapSettlementDelay',
+    'setting.bigCapSettlementWindowDuration',
+    'setting.pythDogeFeedId',
+    'setting.settlementReward',
+]
+
+[invoke.setPerpsDogeFundingParameters]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setFundingParameters"
+args = [
+    "<%= settings.dogePerpsMarketId %>",
+    "<%= parseEther(settings.perpsDogeSkewScale) %>",
+    "<%= parseEther(settings.perpsDogeMaxFundingVelocity) %>",
+]
+depends = ["invoke.createDogePerpsMarket"]
+
+[invoke.setPerpsDogeOrderFees]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setOrderFees"
+args = [
+    "<%= settings.dogePerpsMarketId %>",
+    "<%= parseEther(settings.perpsDogeMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsDogeTakerFeeRatio) %>",
+]
+depends = ["invoke.createDogePerpsMarket"]
+
+[invoke.setPerpsDogeMaxMarketSize]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setMaxMarketSize"
+args = [
+    "<%= settings.dogePerpsMarketId %>",
+    "<%= parseEther(settings.perpsDogeMaxMarketSize) %>",
+]
+depends = ["invoke.createDogePerpsMarket"]
+
+[invoke.setPerpsDogeMaxMarketValue]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setMaxMarketValue"
+args = [
+    "<%= settings.dogePerpsMarketId %>",
+    "<%= parseEther(settings.perpsDogeMaxMarketValue) %>",
+]
+depends = ["invoke.createDogePerpsMarket"]
+
+[invoke.setPerpsDogeMaxLiquidationParameters]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setMaxLiquidationParameters"
+args = [
+    "<%= settings.dogePerpsMarketId %>",
+    "<%= parseEther(settings.perpsDogeMaxLiquidationLimitAccumulationMultiplier) %>",
+    "<%= settings.perpsDogeMaxSecondsInLiquidationWindow %>",
+    "<%= parseEther(settings.perpsDogeMaxLiquidationPd) %>",
+    "<%= settings.perpsDogeEndorsedLiquidator %>",
+]
+depends = ["invoke.createDogePerpsMarket"]
+
+[invoke.setPerpsDogeLiquidationParameters]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setLiquidationParameters"
+args = [
+    "<%= settings.dogePerpsMarketId %>",
+    "<%= parseEther(settings.perpsDogeInitialMarginRatio) %>",
+    "<%= parseEther(settings.perpsDogeMinimumInitialMarginRatio) %>",
+    "<%= parseEther(settings.perpsDogeMaintenanceMarginScalar) %>",
+    "<%= parseEther(settings.perpsDogeFlagRewardRatioD18) %>",
+    "<%= parseEther(settings.perpsDogeMinimumPositionMargin) %>",
+]
+depends = ["invoke.createDogePerpsMarket"]
+
+[invoke.setPerpsDogeLockedOiRatio]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setLockedOiRatio"
+args = [
+    "<%= settings.dogePerpsMarketId %>",
+    "<%= parseEther(settings.perpsDogeLockedOiRatio) %>",
+]
+depends = ["invoke.createDogePerpsMarket"]

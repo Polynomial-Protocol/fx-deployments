@@ -1,0 +1,63 @@
+[setting.pythPnutFeedId]
+# https://pyth.network/developers/price-feed-ids
+defaultValue = "0x116da895807f81f6b5c5f01b109376e7f6834dc8b51365ab7cdfa66634340e54"
+
+[setting.pnutPerpsMarketId]
+defaultValue = "1000"
+
+[setting.perpsPnutSkewScale]
+defaultValue = "<%= String(8_000_000) %>"
+
+[setting.perpsPnutMaxFundingVelocity]
+defaultValue = "36"
+
+[setting.perpsPnutMakerFeeRatio]
+defaultValue = "0.0005"
+
+[setting.perpsPnutTakerFeeRatio]
+defaultValue = "0.0008"
+
+[setting.perpsPnutMaxMarketSize]
+defaultValue = "117370"
+
+[setting.perpsPnutMaxMarketValue]
+defaultValue = "250000"
+
+[setting.perpsPnutInitialMarginRatio]
+defaultValue = "4.688"
+
+[setting.perpsPnutMaintenanceMarginScalar]
+defaultValue = "0.317"
+
+[setting.perpsPnutMinimumInitialMarginRatio]
+defaultValue = "0.05"
+
+[setting.perpsPnutFlagRewardRatioD18]
+defaultValue = "0.0003"
+
+[setting.perpsPnutMaxLiquidationLimitAccumulationMultiplier]
+defaultValue = "1.5"
+
+[setting.perpsPnutMaxSecondsInLiquidationWindow]
+defaultValue = "30"
+
+[setting.perpsPnutMinimumPositionMargin]
+defaultValue = "50"
+
+[setting.perpsPnutLockedOiRatio]
+defaultValue = "0.5"
+
+[setting.perpsPnutSynthMaxCollateralAmount]
+defaultValue = "<%= MaxUint256 %>"
+
+[setting.perpsPnutMaxLiquidationPd]
+defaultValue = "0.0005"
+
+[setting.perpsPnutEndorsedLiquidator]
+defaultValue = "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"
+
+[setting.commitmentPriceDelay]
+defaultValue = "2"
+
+[setting.bigCapSettlementDelay]
+defaultValue = "2"

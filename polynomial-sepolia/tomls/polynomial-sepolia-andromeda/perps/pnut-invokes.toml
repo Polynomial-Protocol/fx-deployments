@@ -1,0 +1,164 @@
+include = [
+    "../../oracles/pyth-pnut.toml",
+    "../../markets/common/bigcap-settings.toml",
+]
+
+[setting.pnutPerpsMarketId]
+
+[setting.perpsPnutSkewScale]
+
+[setting.perpsPnutMaxFundingVelocity]
+
+[setting.perpsPnutMakerFeeRatio]
+
+[setting.perpsPnutTakerFeeRatio]
+
+[setting.perpsPnutMaxMarketSize]
+
+[setting.perpsPnutInitialMarginRatio]
+
+[setting.perpsPnutMaintenanceMarginScalar]
+
+[setting.perpsPnutFlagRewardRatioD18]
+
+[setting.perpsPnutMaxLiquidationLimitAccumulationMultiplier]
+
+[setting.perpsPnutMaxSecondsInLiquidationWindow]
+
+[setting.perpsPnutMaxLiquidationPd]
+
+[setting.perpsPnutEndorsedLiquidator]
+
+[setting.perpsPnutMinimumPositionMargin]
+
+[setting.perpsPnutLockedOiRatio]
+
+[invoke.createPnutPerpsMarket]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "createMarket"
+args = ["<%= settings.pnutPerpsMarketId %>", "Peanut the Squirrel", "PNUT"]
+depends = ["provision.system", "provision.perpsFactory"]
+
+[invoke.setPerpsPricePnut]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "updatePriceData"
+args = [
+    "<%= settings.pnutPerpsMarketId %>",
+    "<%= extras.pnut_oracle_id %>",
+    "<%= settings.bigCapStrictStalenessTolerance %>",
+]
+depends = ["invoke.createPnutPerpsMarket"]
+
+# Do not modify this step. Edit [invoke.setPerpsPnutSettlementStrategy] instead.
+[invoke.addPerpsPnutSettlementStrategy]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "addSettlementStrategy"
+args = [
+    "<%= settings.pnutPerpsMarketId %>",
+    { strategyType = "0", settlementDelay = "0", settlementWindowDuration = "1", priceVerificationContract = "0x0000000000000000000000000000000000000000", feedId = "0x0000000000000000000000000000000000000000000000000000000000000000", settlementReward = "0", disabled = false, commitmentPriceDelay = "0" },
+]
+extra.pnut_pyth_settlement_strategy.event = "SettlementStrategyAdded"
+extra.pnut_pyth_settlement_strategy.arg = 2
+depends = ["invoke.createPnutPerpsMarket"]
+
+[invoke.setPerpsPnutSettlementStrategy]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setSettlementStrategy"
+args = [
+    "<%= settings.pnutPerpsMarketId %>",
+    "<%= extras.pnut_pyth_settlement_strategy %>",                                                                                                                                                                                                                                                                                                                                                                                      # Settlement Strategy ID
+    { strategyType = "0", settlementDelay = "<%= settings.bigCapSettlementDelay %>", settlementWindowDuration = "<%= settings.bigCapSettlementWindowDuration %>", priceVerificationContract = "<%= imports.pyth_erc7412_wrapper.contracts.PythERC7412Wrapper.address %>", feedId = "<%= settings.pythPnutFeedId %>", settlementReward = "<%= parseEther(settings.settlementReward) %>", disabled = false, commitmentPriceDelay = "2" },
+]
+depends = [
+    'provision.perpsFactory',
+    'setting.pnutPerpsMarketId',
+    'invoke.addPerpsPnutSettlementStrategy',
+    'provision.pyth_erc7412_wrapper',
+    'setting.bigCapSettlementDelay',
+    'setting.bigCapSettlementWindowDuration',
+    'setting.pythPnutFeedId',
+    'setting.settlementReward',
+]
+
+[invoke.setPerpsPnutFundingParameters]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setFundingParameters"
+args = [
+    "<%= settings.pnutPerpsMarketId %>",
+    "<%= parseEther(settings.perpsPnutSkewScale) %>",
+    "<%= parseEther(settings.perpsPnutMaxFundingVelocity) %>",
+]
+depends = ["invoke.createPnutPerpsMarket"]
+
+[invoke.setPerpsPnutOrderFees]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setOrderFees"
+args = [
+    "<%= settings.pnutPerpsMarketId %>",
+    "<%= parseEther(settings.perpsPnutMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsPnutTakerFeeRatio) %>",
+]
+depends = ["invoke.createPnutPerpsMarket"]
+
+[invoke.setPerpsPnutMaxMarketSize]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setMaxMarketSize"
+args = [
+    "<%= settings.pnutPerpsMarketId %>",
+    "<%= parseEther(settings.perpsPnutMaxMarketSize) %>",
+]
+depends = ["invoke.createPnutPerpsMarket"]
+
+[invoke.setPerpsPnutMaxMarketValue]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setMaxMarketValue"
+args = [
+    "<%= settings.pnutPerpsMarketId %>",
+    "<%= parseEther(settings.perpsPnutMaxMarketValue) %>",
+]
+depends = ["invoke.createPnutPerpsMarket"]
+
+[invoke.setPerpsPnutMaxLiquidationParameters]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setMaxLiquidationParameters"
+args = [
+    "<%= settings.pnutPerpsMarketId %>",
+    "<%= parseEther(settings.perpsPnutMaxLiquidationLimitAccumulationMultiplier) %>",
+    "<%= settings.perpsPnutMaxSecondsInLiquidationWindow %>",
+    "<%= parseEther(settings.perpsPnutMaxLiquidationPd) %>",
+    "<%= settings.perpsPnutEndorsedLiquidator %>",
+]
+depends = ["invoke.createPnutPerpsMarket"]
+
+[invoke.setPerpsPnutLiquidationParameters]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setLiquidationParameters"
+args = [
+    "<%= settings.pnutPerpsMarketId %>",
+    "<%= parseEther(settings.perpsPnutInitialMarginRatio) %>",
+    "<%= parseEther(settings.perpsPnutMinimumInitialMarginRatio) %>",
+    "<%= parseEther(settings.perpsPnutMaintenanceMarginScalar) %>",
+    "<%= parseEther(settings.perpsPnutFlagRewardRatioD18) %>",
+    "<%= parseEther(settings.perpsPnutMinimumPositionMargin) %>",
+]
+depends = ["invoke.createPnutPerpsMarket"]
+
+[invoke.setPerpsPnutLockedOiRatio]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setLockedOiRatio"
+args = [
+    "<%= settings.pnutPerpsMarketId %>",
+    "<%= parseEther(settings.perpsPnutLockedOiRatio) %>",
+]
+depends = ["invoke.createPnutPerpsMarket"]

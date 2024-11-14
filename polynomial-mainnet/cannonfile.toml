@@ -72,6 +72,22 @@ include = [
     "tomls/polynomial-mainnet-andromeda/perps/bonk-invokes.toml",
     "tomls/oracles/pyth-bonk.toml",
     "tomls/polynomial-mainnet-andromeda/perps/bonk.toml",
+    # PNUT
+    "tomls/polynomial-mainnet-andromeda/perps/pnut-invokes.toml",
+    "tomls/oracles/pyth-pnut.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/pnut.toml",
+    # MOG
+    "tomls/polynomial-mainnet-andromeda/perps/mog-invokes.toml",
+    "tomls/oracles/pyth-mog.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/mog.toml",
+    # ENA
+    "tomls/polynomial-mainnet-andromeda/perps/ena-invokes.toml",
+    "tomls/oracles/pyth-ena.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/ena.toml",
+    # DOGE
+    "tomls/polynomial-mainnet-andromeda/perps/doge-invokes.toml",
+    "tomls/oracles/pyth-doge.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/doge.toml",
 ]
 
 [setting.commitmentPriceDelay]

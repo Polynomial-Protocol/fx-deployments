@@ -75,6 +75,22 @@ include = [
     "tomls/polynomial-sepolia-andromeda/perps/bonk-invokes.toml",
     "tomls/oracles/pyth-bonk.toml",
     "tomls/polynomial-sepolia-andromeda/perps/bonk.toml",
+    # PNUT
+    "tomls/polynomial-sepolia-andromeda/perps/pnut-invokes.toml",
+    "tomls/oracles/pyth-pnut.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/pnut.toml",
+    # MOG
+    "tomls/polynomial-sepolia-andromeda/perps/mog-invokes.toml",
+    "tomls/oracles/pyth-mog.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/mog.toml",
+    # ENA
+    "tomls/polynomial-sepolia-andromeda/perps/ena-invokes.toml",
+    "tomls/oracles/pyth-ena.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/ena.toml",
+    # DOGE
+    "tomls/polynomial-sepolia-andromeda/perps/doge-invokes.toml",
+    "tomls/oracles/pyth-doge.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/doge.toml",
 
     ## Skibidi Pool
     "tomls/pools/skibidi-pool.toml",
