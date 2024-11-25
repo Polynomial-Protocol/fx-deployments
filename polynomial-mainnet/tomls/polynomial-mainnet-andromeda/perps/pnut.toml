@@ -6,7 +6,7 @@ defaultValue = "0x116da895807f81f6b5c5f01b109376e7f6834dc8b51365ab7cdfa66634340e
 defaultValue = "1000"
 
 [setting.perpsPnutSkewScale]
-defaultValue = "<%= String(8_000_000) %>"
+defaultValue = "<%= String(2_000_000) %>"
 
 [setting.perpsPnutMaxFundingVelocity]
 defaultValue = "36"

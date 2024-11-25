@@ -15,9 +15,11 @@ include = [
     "tomls/permit-all-perps-perpsSystem.toml",                 # Enable perps market
     "tomls/polynomial-mainnet-andromeda/perps/referrers.toml",
     "tomls/polynomial-mainnet-andromeda/perps/global.toml",    # Global perps settings
+    "tomls/polynomial-mainnet-andromeda/spot/global.toml",     # Global spot settings
     "tomls/polynomial-mainnet-andromeda/perps/fee-tier.toml",  # Fee tier
     "tomls/oracles/perps-keeper-cost.toml",                    # Add gas oracle for keeper fees
-    # "tomls/blast-sepolia-andromeda/perps/feeCollector.toml",
+    # Spot Markets
+    "tomls/polynomial-mainnet-andromeda/spot/eth.toml",
     # Collaterals
     "tomls/polynomial-mainnet-andromeda/collaterals/susdc.toml",
     "tomls/collaterals/susdc.toml",
@@ -36,6 +38,7 @@ include = [
     "tomls/collaterals/usd0++.toml",
     # Perps Collaterals
     "tomls/polynomial-mainnet-andromeda/perps/collaterals/usd.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/collaterals/eth.toml",
     # BTC
     "tomls/polynomial-mainnet-andromeda/perps/btc-invokes.toml",
     "tomls/oracles/pyth-btc.toml",

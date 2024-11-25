@@ -6,7 +6,7 @@ defaultValue = "0x385f64d993f7b77d8182ed5003d97c60aa3361f3cecfe711544d2d59165e9b
 defaultValue = "800"
 
 [setting.perpsOpSkewScale]
-defaultValue = "<%= String(20_000_000) %>"
+defaultValue = "<%= String(10_000_000) %>"
 
 [setting.perpsOpMaxFundingVelocity]
 defaultValue = "36"
