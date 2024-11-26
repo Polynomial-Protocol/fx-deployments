@@ -1,8 +1,23 @@
 [setting.referrerFee]
 defaultValue = "<%= parseEther('0.2') %>"
 
+[setting.limitOrderRelayerShare]
+defaultValue = "<%= parseEther('0.2') %>"
+
 [invoke.setPolynomialAsReferrerOnPerpsMarket]
 target = ["perpsFactory.PerpsMarketProxy"]
 fromCall.func = "owner"
 func = "updateReferrerShare"
-args = ["0x38D4200767628f4197C5d5FdDA24927C28dDadeF", "<%= settings.referrerFee %>"]
+args = [
+    "0x38D4200767628f4197C5d5FdDA24927C28dDadeF",
+    "<%= settings.referrerFee %>",
+]
+
+[invoke.setTestRelayerShare]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "updateRelayerShare"
+args = [
+    "0x011acb73EFDbE673E41771cC227748e735A4c47c",
+    "<%= settings.limitOrderRelayerShare %>",
+]

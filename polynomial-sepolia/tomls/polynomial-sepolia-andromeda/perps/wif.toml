@@ -11,6 +11,12 @@ defaultValue = "<%= String(37_000_000) %>"
 [setting.perpsWifMaxFundingVelocity]
 defaultValue = "24"
 
+[setting.perpsWifLimitOrderMakerFeeRatio]
+defaultValue = "0.0001"
+
+[setting.perpsWifLimitOrderTakerFeeRatio]
+defaultValue = "0.0002"
+
 [setting.perpsWifMakerFeeRatio]
 defaultValue = "0.0005"
 

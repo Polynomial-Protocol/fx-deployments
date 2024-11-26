@@ -106,6 +106,17 @@ args = [
 ]
 depends = ["invoke.createBonkPerpsMarket"]
 
+[invoke.setPerpsBonkLimitOrderFees]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setLimitOrderFees"
+args = [
+    "<%= settings.bonkPerpsMarketId %>",
+    "<%= parseEther(settings.perpsBonkLimitOrderMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsBonkLimitOrderTakerFeeRatio) %>",
+]
+depends = ["invoke.createBonkPerpsMarket"]
+
 [invoke.setPerpsBonkMaxMarketSize]
 target = ["perpsFactory.PerpsMarketProxy"]
 fromCall.func = "owner"

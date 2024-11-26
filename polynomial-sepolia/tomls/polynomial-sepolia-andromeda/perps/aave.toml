@@ -11,6 +11,12 @@ defaultValue = "<%= String(162_500) %>"
 [setting.perpsAaveMaxFundingVelocity]
 defaultValue = "36"
 
+[setting.perpsAaveLimitOrderMakerFeeRatio]
+defaultValue = "0.0001"
+
+[setting.perpsAaveLimitOrderTakerFeeRatio]
+defaultValue = "0.0002"
+
 [setting.perpsAaveMakerFeeRatio]
 defaultValue = "0.0005"
 

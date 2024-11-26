@@ -106,6 +106,17 @@ args = [
 ]
 depends = ["invoke.createAavePerpsMarket"]
 
+[invoke.setPerpsAaveLimitOrderFees]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setLimitOrderFees"
+args = [
+    "<%= settings.aavePerpsMarketId %>",
+    "<%= parseEther(settings.perpsAaveLimitOrderMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsAaveLimitOrderTakerFeeRatio) %>",
+]
+depends = ["invoke.createAavePerpsMarket"]
+
 [invoke.setPerpsAaveMaxMarketSize]
 target = ["perpsFactory.PerpsMarketProxy"]
 fromCall.func = "owner"

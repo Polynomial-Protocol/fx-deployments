@@ -11,6 +11,12 @@ defaultValue = "2000000"
 [setting.perpsEthMaxFundingVelocity]
 defaultValue = "9"
 
+[setting.perpsEthLimitOrderMakerFeeRatio]
+defaultValue = "0.0001"
+
+[setting.perpsEthLimitOrderTakerFeeRatio]
+defaultValue = "0.0002"
+
 [setting.perpsEthMakerFeeRatio]
 defaultValue = "0.0002"
 

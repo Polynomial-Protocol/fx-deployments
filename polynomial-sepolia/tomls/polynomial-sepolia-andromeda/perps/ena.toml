@@ -11,6 +11,12 @@ defaultValue = "<%= String(40_000_000) %>"
 [setting.perpsEnaMaxFundingVelocity]
 defaultValue = "36"
 
+[setting.perpsEnaLimitOrderMakerFeeRatio]
+defaultValue = "0.0001"
+
+[setting.perpsEnaLimitOrderTakerFeeRatio]
+defaultValue = "0.0002"
+
 [setting.perpsEnaMakerFeeRatio]
 defaultValue = "0.0005"
 

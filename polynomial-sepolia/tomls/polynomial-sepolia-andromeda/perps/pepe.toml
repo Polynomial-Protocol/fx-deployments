@@ -11,6 +11,12 @@ defaultValue = "<%= String(2_000_000_000_000) %>"
 [setting.perpsPepeMaxFundingVelocity]
 defaultValue = "9"
 
+[setting.perpsPepeLimitOrderMakerFeeRatio]
+defaultValue = "0.0001"
+
+[setting.perpsPepeLimitOrderTakerFeeRatio]
+defaultValue = "0.0002"
+
 [setting.perpsPepeMakerFeeRatio]
 defaultValue = "0.0005"
 

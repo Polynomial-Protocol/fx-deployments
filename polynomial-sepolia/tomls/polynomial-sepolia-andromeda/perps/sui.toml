@@ -11,6 +11,12 @@ defaultValue = "<%= String(124_000_000) %>"
 [setting.perpsSuiMaxFundingVelocity]
 defaultValue = "24"
 
+[setting.perpsSuiLimitOrderMakerFeeRatio]
+defaultValue = "0.0001"
+
+[setting.perpsSuiLimitOrderTakerFeeRatio]
+defaultValue = "0.0002"
+
 [setting.perpsSuiMakerFeeRatio]
 defaultValue = "0.0005"
 
