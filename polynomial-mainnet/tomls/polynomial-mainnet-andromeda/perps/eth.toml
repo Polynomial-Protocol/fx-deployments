@@ -6,7 +6,7 @@ defaultValue = "0xff61491a931112ddf1bd8147cd1b641375f79f5825126d665480874634fd0a
 defaultValue = "100"
 
 [setting.perpsEthSkewScale]
-defaultValue = "<%= String(500_000) %>"
+defaultValue = "<%= String(400_000) %>"
 
 [setting.perpsEthMaxFundingVelocity]
 defaultValue = "9"
@@ -18,10 +18,10 @@ defaultValue = "0.0002"
 defaultValue = "0.0005"
 
 [setting.perpsEthMaxMarketSize]
-defaultValue = "155"
+defaultValue = "224"
 
 [setting.perpsEthMaxMarketValue]
-defaultValue = "500000"
+defaultValue = "800000"
 
 [setting.perpsEthInitialMarginRatio]
 defaultValue = "1.16"

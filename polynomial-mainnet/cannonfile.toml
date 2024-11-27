@@ -91,6 +91,18 @@ include = [
     "tomls/polynomial-mainnet-andromeda/perps/doge-invokes.toml",
     "tomls/oracles/pyth-doge.toml",
     "tomls/polynomial-mainnet-andromeda/perps/doge.toml",
+    # EIGEN 
+    "tomls/polynomial-mainnet-andromeda/perps/eigen-invokes.toml",
+    "tomls/oracles/pyth-eigen.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/eigen.toml",
+    # XRP
+    "tomls/polynomial-mainnet-andromeda/perps/xrp-invokes.toml",
+    "tomls/oracles/pyth-xrp.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/xrp.toml",
+    # TIA
+    "tomls/polynomial-mainnet-andromeda/perps/tia-invokes.toml",
+    "tomls/oracles/pyth-tia.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/tia.toml",
 ]
 
 [setting.commitmentPriceDelay]

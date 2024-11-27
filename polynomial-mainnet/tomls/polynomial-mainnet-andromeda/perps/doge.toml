@@ -18,7 +18,7 @@ defaultValue = "0.0005"
 defaultValue = "0.0008"
 
 [setting.perpsDogeMaxMarketSize]
-defaultValue = "436000"
+defaultValue = "621000"
 
 [setting.perpsDogeMaxMarketValue]
 defaultValue = "250000"

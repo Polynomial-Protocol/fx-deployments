@@ -1,0 +1,69 @@
+[setting.pythTiaFeedId]
+# https://pyth.network/developers/price-feed-ids
+defaultValue = "0x09f7c1d7dfbb7df2b8fe3d3d87ee94a2259d212da4f30c1f0540d066dfa44723"
+
+[setting.perpsTiaMarketId]
+defaultValue = "1600"
+
+[setting.perpsTiaSkewScale]
+defaultValue = "<%= String(5_000_000) %>"
+
+[setting.perpsTiaMaxFundingVelocity]
+defaultValue = "24"
+
+[setting.perpsTiaLimitOrderMakerFeeRatio]
+defaultValue = "0.0001"
+
+[setting.perpsTiaLimitOrderTakerFeeRatio]
+defaultValue = "0.0002"
+
+[setting.perpsTiaMakerFeeRatio]
+defaultValue = "0.0005"
+
+[setting.perpsTiaTakerFeeRatio]
+defaultValue = "0.0008"
+
+[setting.perpsTiaMaxMarketSize]
+defaultValue = "168000"
+
+[setting.perpsTiaMaxMarketValue]
+defaultValue = "250000"
+
+[setting.perpsTiaInitialMarginRatio]
+defaultValue = "2.24"
+
+[setting.perpsTiaMaintenanceMarginScalar]
+defaultValue = "0.38"
+
+[setting.perpsTiaMinimumInitialMarginRatio]
+defaultValue = "0.05"
+
+[setting.perpsTiaFlagRewardRatioD18]
+defaultValue = "0.0003"
+
+[setting.perpsTiaMaxLiquidationLimitAccumulationMultiplier]
+defaultValue = "1.5"
+
+[setting.perpsTiaMaxSecondsInLiquidationWindow]
+defaultValue = "30"
+
+[setting.perpsTiaMinimumPositionMargin]
+defaultValue = "50"
+
+[setting.perpsTiaLockedOiRatio]
+defaultValue = "0.5"
+
+[setting.perpsTiaSynthMaxCollateralAmount]
+defaultValue = "<%= MaxUint256 %>"
+
+[setting.perpsTiaMaxLiquidationPd]
+defaultValue = "0.0005"
+
+[setting.perpsTiaEndorsedLiquidator]
+defaultValue = "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"
+
+[setting.commitmentPriceDelay]
+defaultValue = "2"
+
+[setting.bigCapSettlementDelay]
+defaultValue = "2"

@@ -91,7 +91,18 @@ include = [
     "tomls/polynomial-sepolia-andromeda/perps/doge-invokes.toml",
     "tomls/oracles/pyth-doge.toml",
     "tomls/polynomial-sepolia-andromeda/perps/doge.toml",
-
+    # EIGEN 
+    "tomls/polynomial-sepolia-andromeda/perps/eigen-invokes.toml",
+    "tomls/oracles/pyth-eigen.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/eigen.toml",
+    # XRP
+    "tomls/polynomial-sepolia-andromeda/perps/xrp-invokes.toml",
+    "tomls/oracles/pyth-xrp.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/xrp.toml",
+    # TIA
+    "tomls/polynomial-sepolia-andromeda/perps/tia-invokes.toml",
+    "tomls/oracles/pyth-tia.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/tia.toml",
     ## Skibidi Pool
     "tomls/pools/skibidi-pool.toml",
 ]
