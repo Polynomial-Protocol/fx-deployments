@@ -88,6 +88,20 @@ fromCall.args = ["<%= extras.fx_eth_market_id %>"]
 func = "setAtomicFixedFee"
 args = ["<%= extras.fx_eth_market_id %>", "<%= parseEther(String(0.02)) %>"]
 
+[invoke.configure_eth_collateral]
+target = ["system.CoreProxy"]
+fromCall.func = "owner"
+func = "configureCollateral"  # "args" see below in the multiline block
+
+[[invoke.configure_eth_collateral.args]]
+tokenAddress = "<%= imports.eth_mock_collateral.contracts.MintableToken.address %>"
+oracleNodeId = "<%= extras.eth_oracle_id %>"
+issuanceRatioD18 = "<%= MaxUint256 %>"
+liquidationRatioD18 = "<%= parseEther('1.005') %>"
+liquidationRewardD18 = "<%= parseEther('0.005') %>"
+minDelegationD18 = "<%= parseEther('100') %>"
+depositingEnabled = false
+
 [provision.eth_mock_collateral]
 source = "mintable-token:1.8"
 options.name = "Fake Wrapped Ether"
