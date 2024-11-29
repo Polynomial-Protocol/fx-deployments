@@ -14,3 +14,14 @@ args = [
     "<%= settings.eth_lower_limit_discount %>",
     "<%= settings.eth_discount_scalar %>",
 ]
+
+[invoke.setSynthMaxMarketCollateralFxEth]
+target = ["system.CoreProxy"]
+fromCall.func = "owner"
+fromCall.args = []
+func = "configureMaximumMarketCollateral"
+args = [
+    "<%= imports.perpsFactory.extras.superMarketId %>",
+    "<%= extras.fx_eth_token_address %>",
+    "<%= settings.fxEthMaxMarketCollateral %>",
+]
