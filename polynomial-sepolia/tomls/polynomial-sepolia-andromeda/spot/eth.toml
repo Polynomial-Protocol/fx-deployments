@@ -96,10 +96,24 @@ func = "configureCollateral"  # "args" see below in the multiline block
 [[invoke.configure_eth_collateral.args]]
 tokenAddress = "<%= imports.eth_mock_collateral.contracts.MintableToken.address %>"
 oracleNodeId = "<%= extras.eth_oracle_id %>"
-issuanceRatioD18 = "<%= MaxUint256 %>"
-liquidationRatioD18 = "<%= parseEther('1.005') %>"
-liquidationRewardD18 = "<%= parseEther('0.005') %>"
-minDelegationD18 = "<%= parseEther('100') %>"
+issuanceRatioD18 = "<%= parseEther('2') %>"
+liquidationRatioD18 = "<%= parseEther('1.1') %>"
+liquidationRewardD18 = "<%= parseEther('0.0001') %>"
+minDelegationD18 = "<%= parseEther('0.1') %>"
+depositingEnabled = false
+
+[invoke.configure_fxeth_collateral]
+target = ["system.CoreProxy"]
+fromCall.func = "owner"
+func = "configureCollateral"  # "args" see below in the multiline block
+
+[[invoke.configure_fxeth_collateral.args]]
+tokenAddress = "<%= extras.fx_eth_token_address %>"
+oracleNodeId = "<%= extras.eth_oracle_id %>"
+issuanceRatioD18 = "<%= parseEther('2') %>"
+liquidationRatioD18 = "<%= parseEther('1.1') %>"
+liquidationRewardD18 = "<%= parseEther('0.0001') %>"
+minDelegationD18 = "<%= parseEther('0.1') %>"
 depositingEnabled = false
 
 [provision.eth_mock_collateral]
