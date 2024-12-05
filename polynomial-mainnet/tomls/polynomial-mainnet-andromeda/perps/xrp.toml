@@ -24,10 +24,10 @@ defaultValue = "0.0005"
 defaultValue = "0.0008"
 
 [setting.perpsXrpMaxMarketSize]
-defaultValue = "168000"
+defaultValue = "41666"
 
 [setting.perpsXrpMaxMarketValue]
-defaultValue = "250000"
+defaultValue = "100000"
 
 [setting.perpsXrpInitialMarginRatio]
 defaultValue = "2.57"

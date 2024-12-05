@@ -105,6 +105,18 @@ include = [
     "tomls/polynomial-sepolia-andromeda/perps/tia-invokes.toml",
     "tomls/oracles/pyth-tia.toml",
     "tomls/polynomial-sepolia-andromeda/perps/tia.toml",
+    # AVAX
+    "tomls/polynomial-sepolia-andromeda/perps/avax-invokes.toml",
+    "tomls/oracles/pyth-avax.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/avax.toml",
+    # LTC
+    "tomls/polynomial-sepolia-andromeda/perps/ltc-invokes.toml",
+    "tomls/oracles/pyth-ltc.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/ltc.toml",
+    # LINK
+    "tomls/polynomial-sepolia-andromeda/perps/link-invokes.toml",
+    "tomls/oracles/pyth-link.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/link.toml",
     ## Skibidi Pool
     "tomls/pools/skibidi-pool.toml",
 ]

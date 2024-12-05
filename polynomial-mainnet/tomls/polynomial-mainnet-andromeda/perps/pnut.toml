@@ -18,7 +18,7 @@ defaultValue = "0.0005"
 defaultValue = "0.0008"
 
 [setting.perpsPnutMaxMarketSize]
-defaultValue = "90900"
+defaultValue = "75760"
 
 [setting.perpsPnutMaxMarketValue]
 defaultValue = "100000"

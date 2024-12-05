@@ -18,10 +18,10 @@ defaultValue = "0.0005"
 defaultValue = "0.0008"
 
 [setting.perpsSuiMaxMarketSize]
-defaultValue = "59000"
+defaultValue = "25906"
 
 [setting.perpsSuiMaxMarketValue]
-defaultValue = "200000"
+defaultValue = "100000"
 
 [setting.perpsSuiInitialMarginRatio]
 defaultValue = "2.27"

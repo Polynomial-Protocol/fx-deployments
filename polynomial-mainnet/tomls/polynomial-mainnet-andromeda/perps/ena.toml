@@ -18,10 +18,10 @@ defaultValue = "0.0005"
 defaultValue = "0.0008"
 
 [setting.perpsEnaMaxMarketSize]
-defaultValue = "374000"
+defaultValue = "514000"
 
 [setting.perpsEnaMaxMarketValue]
-defaultValue = "250000"
+defaultValue = "500000"
 
 [setting.perpsEnaInitialMarginRatio]
 defaultValue = "3.46"

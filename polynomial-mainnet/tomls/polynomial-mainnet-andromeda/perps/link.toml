@@ -1,0 +1,69 @@
+[setting.pythLinkFeedId]
+# https://pyth.network/developers/price-feed-ids
+defaultValue = "0x8ac0c70fff57e9aefdf5edf44b51d62c2d433653cbb2cf5cc06bb115af04d221"
+
+[setting.perpsLinkMarketId]
+defaultValue = "1900"
+
+[setting.perpsLinkSkewScale]
+defaultValue = "<%= String(4_000_000) %>"
+
+[setting.perpsLinkMaxFundingVelocity]
+defaultValue = "24"
+
+[setting.perpsLinkLimitOrderMakerFeeRatio]
+defaultValue = "0.0001"
+
+[setting.perpsLinkLimitOrderTakerFeeRatio]
+defaultValue = "0.0002"
+
+[setting.perpsLinkMakerFeeRatio]
+defaultValue = "0.0005"
+
+[setting.perpsLinkTakerFeeRatio]
+defaultValue = "0.0008"
+
+[setting.perpsLinkMaxMarketSize]
+defaultValue = "10387"
+
+[setting.perpsLinkMaxMarketValue]
+defaultValue = "250000"
+
+[setting.perpsLinkInitialMarginRatio]
+defaultValue = "6.73"
+
+[setting.perpsLinkMaintenanceMarginScalar]
+defaultValue = "0.37"
+
+[setting.perpsLinkMinimumInitialMarginRatio]
+defaultValue = "0.02"
+
+[setting.perpsLinkFlagRewardRatioD18]
+defaultValue = "0.0003"
+
+[setting.perpsLinkMaxLiquidationLimitAccumulationMultiplier]
+defaultValue = "1.5"
+
+[setting.perpsLinkMaxSecondsInLiquidationWindow]
+defaultValue = "30"
+
+[setting.perpsLinkMinimumPositionMargin]
+defaultValue = "50"
+
+[setting.perpsLinkLockedOiRatio]
+defaultValue = "0.5"
+
+[setting.perpsLinkSynthMaxCollateralAmount]
+defaultValue = "<%= MaxUint256 %>"
+
+[setting.perpsLinkMaxLiquidationPd]
+defaultValue = "0.0005"
+
+[setting.perpsLinkEndorsedLiquidator]
+defaultValue = "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"
+
+[setting.commitmentPriceDelay]
+defaultValue = "2"
+
+[setting.bigCapSettlementDelay]
+defaultValue = "2"

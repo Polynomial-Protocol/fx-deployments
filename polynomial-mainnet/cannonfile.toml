@@ -103,6 +103,18 @@ include = [
     "tomls/polynomial-mainnet-andromeda/perps/tia-invokes.toml",
     "tomls/oracles/pyth-tia.toml",
     "tomls/polynomial-mainnet-andromeda/perps/tia.toml",
+    # AVAX
+    "tomls/polynomial-mainnet-andromeda/perps/avax-invokes.toml",
+    "tomls/oracles/pyth-avax.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/avax.toml",
+    # LTC
+    "tomls/polynomial-mainnet-andromeda/perps/ltc-invokes.toml",
+    "tomls/oracles/pyth-ltc.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/ltc.toml",
+    # LINK
+    "tomls/polynomial-mainnet-andromeda/perps/link-invokes.toml",
+    "tomls/oracles/pyth-link.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/link.toml",
 ]
 
 [setting.commitmentPriceDelay]
