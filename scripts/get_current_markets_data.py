@@ -16,7 +16,6 @@ class MarketData:
     max_market_size: float
     max_market_value: int
     skew_scale: int
-    max_funding_velocity: int
     name: str
 
 
@@ -28,7 +27,6 @@ def get_current_markets_data():
     feedRegex = ".*FeedId.*"
     marketRegex = ".*MarketId.*"
     skew_scale_regex = ".*SkewScale.*"
-    max_funding_velocity_regex = ".*MaxFundingVelocity.*"
     max_market_size_regex = ".*MaxMarketSize.*"
     max_market_value_regex = ".*MaxMarketValue.*"
     invoke_files = glob.glob(f"{data_path}/*-invokes.toml")
@@ -48,7 +46,6 @@ def get_current_markets_data():
             ][0]
 
             skew_scale = int(extract_val(data, skew_scale_regex))
-            max_funding_velocity = int(extract_val(data, max_funding_velocity_regex))
             max_market_size = float(extract_val(data, max_market_size_regex))
             max_market_value = int(extract_val(data, max_market_value_regex))
 
@@ -57,7 +54,6 @@ def get_current_markets_data():
                 max_market_size=max_market_size,
                 max_market_value=max_market_value,
                 skew_scale=skew_scale,
-                max_funding_velocity=max_funding_velocity,
                 name=name,
             )
             feed_ids_reverse[feed_id] = market_id
