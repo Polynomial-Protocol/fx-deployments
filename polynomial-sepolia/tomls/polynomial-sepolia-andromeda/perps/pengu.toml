@@ -1,0 +1,69 @@
+[setting.pythPenguFeedId]
+# https://pyth.network/developers/price-feed-ids
+defaultValue = "0xbed3097008b9b5e3c93bec20be79cb43986b85a996475589351a21e67bae9b61"
+
+[setting.penguPerpsMarketId]
+defaultValue = "2000"
+
+[setting.perpsPenguSkewScale]
+defaultValue = "<%= String(700_000_000) %>"
+
+[setting.perpsPenguMaxFundingVelocity]
+defaultValue = "36"
+
+[setting.perpsPenguLimitOrderMakerFeeRatio]
+defaultValue = "0.0001"
+
+[setting.perpsPenguLimitOrderTakerFeeRatio]
+defaultValue = "0.0002"
+
+[setting.perpsPenguMakerFeeRatio]
+defaultValue = "0.0005"
+
+[setting.perpsPenguTakerFeeRatio]
+defaultValue = "0.0008"
+
+[setting.perpsPenguMaxMarketSize]
+defaultValue = "6011421"
+
+[setting.perpsPenguMaxMarketValue]
+defaultValue = "200000"
+
+[setting.perpsPenguInitialMarginRatio]
+defaultValue = "3.38"
+
+[setting.perpsPenguMaintenanceMarginScalar]
+defaultValue = "0.38"
+
+[setting.perpsPenguMinimumInitialMarginRatio]
+defaultValue = "0.05"
+
+[setting.perpsPenguFlagRewardRatioD18]
+defaultValue = "0.0003"
+
+[setting.perpsPenguMaxLiquidationLimitAccumulationMultiplier]
+defaultValue = "1.5"
+
+[setting.perpsPenguMaxSecondsInLiquidationWindow]
+defaultValue = "30"
+
+[setting.perpsPenguMinimumPositionMargin]
+defaultValue = "25"
+
+[setting.perpsPenguLockedOiRatio]
+defaultValue = "0.5"
+
+[setting.perpsPenguSynthMaxCollateralAmount]
+defaultValue = "<%= MaxUint256 %>"
+
+[setting.perpsPenguMaxLiquidationPd]
+defaultValue = "0.0005"
+
+[setting.perpsPenguEndorsedLiquidator]
+defaultValue = "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"
+
+[setting.commitmentPriceDelay]
+defaultValue = "2"
+
+[setting.bigCapSettlementDelay]
+defaultValue = "2"

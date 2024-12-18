@@ -115,6 +115,10 @@ include = [
     "tomls/polynomial-mainnet-andromeda/perps/link-invokes.toml",
     "tomls/oracles/pyth-link.toml",
     "tomls/polynomial-mainnet-andromeda/perps/link.toml",
+    # Pengu
+    "tomls/polynomial-mainnet-andromeda/perps/pengu-invokes.toml",
+    "tomls/oracles/pyth-pengu.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/pengu.toml",
 ]
 
 [setting.commitmentPriceDelay]
@@ -133,7 +137,7 @@ defaultValue = "fx-op-gas-price-oracle:3.8.2"
 defaultValue = "fx-spot-market:3.8.2"
 
 [setting.perps_market_package]
-defaultValue = "fx-perps-market:3.9.0"
+defaultValue = "fx-perps-market:3.9.1"
 
 # [setting.buyback_snx_package]
 # defaultValue = "buyback-snx:3.3.14" # Do not update! This package isn't upgradeable. A version change will deploy a new contract.

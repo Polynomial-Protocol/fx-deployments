@@ -24,10 +24,10 @@ defaultValue = "0.0005"
 defaultValue = "0.0008"
 
 [setting.perpsTiaMaxMarketSize]
-defaultValue = "12300"
+defaultValue = "31948"
 
 [setting.perpsTiaMaxMarketValue]
-defaultValue = "100000"
+defaultValue = "200000"
 
 [setting.perpsTiaInitialMarginRatio]
 defaultValue = "2.24"
@@ -48,7 +48,7 @@ defaultValue = "1.5"
 defaultValue = "30"
 
 [setting.perpsTiaMinimumPositionMargin]
-defaultValue = "50"
+defaultValue = "25"
 
 [setting.perpsTiaLockedOiRatio]
 defaultValue = "0.5"

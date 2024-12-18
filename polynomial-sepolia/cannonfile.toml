@@ -117,6 +117,10 @@ include = [
     "tomls/polynomial-sepolia-andromeda/perps/link-invokes.toml",
     "tomls/oracles/pyth-link.toml",
     "tomls/polynomial-sepolia-andromeda/perps/link.toml",
+    # Pengu
+    "tomls/polynomial-sepolia-andromeda/perps/pengu-invokes.toml",
+    "tomls/oracles/pyth-pengu.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/pengu.toml",
     ## Skibidi Pool
     "tomls/pools/skibidi-pool.toml",
 ]

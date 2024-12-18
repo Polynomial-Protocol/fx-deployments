@@ -49,6 +49,9 @@ defaultValue = "0.80"
 [setting.perps_high_util_gradient]
 defaultValue = "0.01"
 
+[setting.commit_fee_receiver]
+defaultValue = "0x9f76043B23125024Ce5f0Fb4AE707482107dd2a8"
+
 [invoke.setPerpsLiquidationRewardGuards]
 target = ["perpsFactory.PerpsMarketProxy"]
 fromCall.func = "owner"
@@ -77,7 +80,7 @@ args = [["0"]]
 target = ["perpsFactory.PerpsMarketProxy"]
 fromCall.func = "owner"
 func = "setPerAccountCaps"
-args = ["20", "1"]
+args = ["25", "1"]
 
 [invoke.setPerpsMarketKeeperCostNodeId]
 target = ["perpsFactory.PerpsMarketProxy"]
@@ -100,3 +103,10 @@ depends = [
     "setting.perps_gradient_breakpoint",
     "setting.perps_high_util_gradient",
 ]
+
+[invoke.setCommitFeeReceiver]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setcommitFeeReciever"
+args = ["<%= settings.commit_fee_receiver %>"]
+depends = ["provision.perpsFactory"]
