@@ -1,0 +1,28 @@
+[source]
+100 = "binance"
+200 = "binance"
+300 = "binance"
+400 = "binance"
+500 = "binance"
+600 = "binance"
+700 = "binance"
+800 = "binance"
+900 = "binance"
+1000 = "binance"
+1100 = "fixed"
+1200 = "binance"
+1300 = "binance"
+1400 = "binance"
+1500 = "binance"
+1600 = "binance"
+1700 = "binance"
+1800 = "binance"
+1900 = "binance"
+
+[depth]
+1100 = 100000
+
+[max_market_value]
+100 = 0.2
+200 = 0.2
+300 = 0.1

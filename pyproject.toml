@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "polychain-deployment"
+version = "0.1.0"
+description = ""
+authors = ["mubaris <hello@mubaris.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+web3 = "^7.6.0"
+python-dotenv = "^1.0.1"
+tomli = "^2.2.1"
+requests = "^2.32.3"
+pythclient = "^0.1.24"
+asyncio = "^3.4.3"
+tomli-w = "^1.1.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
