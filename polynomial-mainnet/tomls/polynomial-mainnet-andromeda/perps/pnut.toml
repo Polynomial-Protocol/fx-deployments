@@ -11,6 +11,12 @@ defaultValue = "<%= String(2_000_000) %>"
 [setting.perpsPnutMaxFundingVelocity]
 defaultValue = "36"
 
+[setting.perpsPnutLimitOrderMakerFeeRatio]
+defaultValue = "0.0001"
+
+[setting.perpsPnutLimitOrderTakerFeeRatio]
+defaultValue = "0.0002"
+
 [setting.perpsPnutMakerFeeRatio]
 defaultValue = "0.0005"
 

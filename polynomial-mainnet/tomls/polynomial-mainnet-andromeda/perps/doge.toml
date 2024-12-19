@@ -11,6 +11,12 @@ defaultValue = "<%= String(750_000_000) %>"
 [setting.perpsDogeMaxFundingVelocity]
 defaultValue = "24"
 
+[setting.perpsDogeLimitOrderMakerFeeRatio]
+defaultValue = "0.0001"
+
+[setting.perpsDogeLimitOrderTakerFeeRatio]
+defaultValue = "0.0002"
+
 [setting.perpsDogeMakerFeeRatio]
 defaultValue = "0.0005"
 
