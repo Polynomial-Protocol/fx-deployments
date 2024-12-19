@@ -1,5 +1,4 @@
 [setting.pythEigenFeedId]
-# https://pyth.network/developers/price-feed-ids
 defaultValue = "0xc65db025687356496e8653d0d6608eec64ce2d96e2e28c530e574f0e4f712380"
 
 [setting.eigenPerpsMarketId]
@@ -24,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsEigenMaxMarketSize]
-defaultValue = "38684"
+defaultValue = "<%= String(44418.71) %>"
 
 [setting.perpsEigenMaxMarketValue]
-defaultValue = "200000"
+defaultValue = "<%= String(191_666) %>"
 
 [setting.perpsEigenInitialMarginRatio]
 defaultValue = "3.46"

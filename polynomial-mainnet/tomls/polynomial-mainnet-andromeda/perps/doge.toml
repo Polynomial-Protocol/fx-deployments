@@ -1,5 +1,4 @@
 [setting.pythDogeFeedId]
-# https://pyth.network/developers/price-feed-ids
 defaultValue = "0xdcef50dd0a4cd2dcc17e45df1676dcb336a11a61c69df7a0299b0150c672d25c"
 
 [setting.dogePerpsMarketId]
@@ -24,10 +23,10 @@ defaultValue = "0.0005"
 defaultValue = "0.0008"
 
 [setting.perpsDogeMaxMarketSize]
-defaultValue = "1035464"
+defaultValue = "<%= String(598866.41) %>"
 
 [setting.perpsDogeMaxMarketValue]
-defaultValue = "400000"
+defaultValue = "<%= String(191_666) %>"
 
 [setting.perpsDogeInitialMarginRatio]
 defaultValue = "6.9"

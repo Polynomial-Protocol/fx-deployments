@@ -1,15 +1,14 @@
 [setting.pythPepeFeedId]
-# https://pyth.network/developers/price-feed-ids
 defaultValue = "0xd69731a2e74ac1ce884fc3890f7ee324b6deb66147055249568869ed700882e4"
 
 [setting.pepePerpsMarketId]
 defaultValue = "400"
 
 [setting.perpsPepeSkewScale]
-defaultValue = "<%= String(2_000_000_000_000) %>"
+defaultValue = "<%= String(1_000_000_000_000) %>"
 
 [setting.perpsPepeMaxFundingVelocity]
-defaultValue = "9"
+defaultValue = "24"
 
 [setting.perpsPepeLimitOrderMakerFeeRatio]
 defaultValue = "0.0001"
@@ -24,10 +23,10 @@ defaultValue = "0.0005"
 defaultValue = "0.0008"
 
 [setting.perpsPepeMaxMarketSize]
-defaultValue = "10600000000"
+defaultValue = "<%= String(11006090674.87) %>"
 
 [setting.perpsPepeMaxMarketValue]
-defaultValue = "250000"
+defaultValue = "<%= String(191_666) %>"
 
 [setting.perpsPepeInitialMarginRatio]
 defaultValue = "4.88"

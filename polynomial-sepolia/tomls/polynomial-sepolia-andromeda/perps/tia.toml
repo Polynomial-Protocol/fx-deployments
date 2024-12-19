@@ -1,5 +1,4 @@
 [setting.pythTiaFeedId]
-# https://pyth.network/developers/price-feed-ids
 defaultValue = "0x09f7c1d7dfbb7df2b8fe3d3d87ee94a2259d212da4f30c1f0540d066dfa44723"
 
 [setting.perpsTiaMarketId]
@@ -24,10 +23,10 @@ defaultValue = "0.0005"
 defaultValue = "0.0008"
 
 [setting.perpsTiaMaxMarketSize]
-defaultValue = "168000"
+defaultValue = "<%= String(36856.85) %>"
 
 [setting.perpsTiaMaxMarketValue]
-defaultValue = "250000"
+defaultValue = "<%= String(191_666) %>"
 
 [setting.perpsTiaInitialMarginRatio]
 defaultValue = "2.24"

@@ -1,5 +1,4 @@
 [setting.pythOpFeedId]
-# https://pyth.network/developers/price-feed-ids
 defaultValue = "0x385f64d993f7b77d8182ed5003d97c60aa3361f3cecfe711544d2d59165e9bdf"
 
 [setting.opPerpsMarketId]
@@ -24,10 +23,10 @@ defaultValue = "0.0005"
 defaultValue = "0.0008"
 
 [setting.perpsOpMaxMarketSize]
-defaultValue = "85470"
+defaultValue = "<%= String(98696.09) %>"
 
 [setting.perpsOpMaxMarketValue]
-defaultValue = "200000"
+defaultValue = "<%= String(191_666) %>"
 
 [setting.perpsOpInitialMarginRatio]
 defaultValue = "2.27"

@@ -3,24 +3,22 @@ version = "1"
 description = "Andromeda dev deployment"
 preset = "main"
 include = [
-    "tomls/core.toml",                                         # Provision the core system
-    "tomls/settings.toml",                                     # Apply minimum liquidity ratio and withdrawal timeout
-    "tomls/permissions.toml",                                  # Allow deployer to create pools
-    "tomls/permit-deniers.toml",                               # Add feature flag deniers to perps and core systems
-    "tomls/pools/main-pool.toml",                              # Create Main Pool
+    "tomls/core.toml",
+    "tomls/settings.toml",
+    "tomls/permissions.toml",
+    "tomls/permit-deniers.toml",
+    "tomls/pools/main-pool.toml",
     "tomls/markets/spot-factory.toml",
     "tomls/markets/perps-factory.toml",
     "tomls/markets/common/bigcap-settings.toml",
-    "tomls/polynomial-mainnet-andromeda/spot/usdc.toml",       # sUSDC spot market/wrapper, mock for USDC
-    "tomls/permit-all-perps-perpsSystem.toml",                 # Enable perps market
+    "tomls/polynomial-mainnet-andromeda/spot/usdc.toml",
+    "tomls/permit-all-perps-perpsSystem.toml",
     "tomls/polynomial-mainnet-andromeda/perps/referrers.toml",
-    "tomls/polynomial-mainnet-andromeda/perps/global.toml",    # Global perps settings
-    "tomls/polynomial-mainnet-andromeda/spot/global.toml",     # Global spot settings
-    "tomls/polynomial-mainnet-andromeda/perps/fee-tier.toml",  # Fee tier
-    "tomls/oracles/perps-keeper-cost.toml",                    # Add gas oracle for keeper fees
-    # Spot Markets
+    "tomls/polynomial-mainnet-andromeda/perps/global.toml",
+    "tomls/polynomial-mainnet-andromeda/spot/global.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/fee-tier.toml",
+    "tomls/oracles/perps-keeper-cost.toml",
     "tomls/polynomial-mainnet-andromeda/spot/eth.toml",
-    # Collaterals
     "tomls/polynomial-mainnet-andromeda/collaterals/susdc.toml",
     "tomls/collaterals/susdc.toml",
     "tomls/polynomial-mainnet-andromeda/collaterals/sdai.toml",
@@ -36,89 +34,71 @@ include = [
     "tomls/oracles/pyth-usd0++.toml",
     "tomls/oracles/usd0++.toml",
     "tomls/collaterals/usd0++.toml",
-    # Perps Collaterals
     "tomls/polynomial-mainnet-andromeda/perps/collaterals/usd.toml",
     "tomls/polynomial-mainnet-andromeda/perps/collaterals/eth.toml",
-    # BTC
     "tomls/polynomial-mainnet-andromeda/perps/btc-invokes.toml",
     "tomls/oracles/pyth-btc.toml",
     "tomls/polynomial-mainnet-andromeda/perps/btc.toml",
-    # ETH
     "tomls/polynomial-mainnet-andromeda/perps/eth-invokes.toml",
     "tomls/oracles/pyth-eth.toml",
     "tomls/polynomial-mainnet-andromeda/perps/eth.toml",
-    # Sol
     "tomls/polynomial-mainnet-andromeda/perps/sol-invokes.toml",
     "tomls/oracles/pyth-sol.toml",
     "tomls/polynomial-mainnet-andromeda/perps/sol.toml",
-    # Pepe
     "tomls/polynomial-mainnet-andromeda/perps/pepe-invokes.toml",
     "tomls/oracles/pyth-pepe.toml",
     "tomls/polynomial-mainnet-andromeda/perps/pepe.toml",
-    # Wif
     "tomls/polynomial-mainnet-andromeda/perps/wif-invokes.toml",
     "tomls/oracles/pyth-wif.toml",
     "tomls/polynomial-mainnet-andromeda/perps/wif.toml",
-    # SUI
     "tomls/polynomial-mainnet-andromeda/perps/sui-invokes.toml",
     "tomls/oracles/pyth-sui.toml",
     "tomls/polynomial-mainnet-andromeda/perps/sui.toml",
-    # AAVE
     "tomls/polynomial-mainnet-andromeda/perps/aave-invokes.toml",
     "tomls/oracles/pyth-aave.toml",
     "tomls/polynomial-mainnet-andromeda/perps/aave.toml",
-    # OP
     "tomls/polynomial-mainnet-andromeda/perps/op-invokes.toml",
     "tomls/oracles/pyth-op.toml",
     "tomls/polynomial-mainnet-andromeda/perps/op.toml",
-    # BONK
     "tomls/polynomial-mainnet-andromeda/perps/bonk-invokes.toml",
     "tomls/oracles/pyth-bonk.toml",
     "tomls/polynomial-mainnet-andromeda/perps/bonk.toml",
-    # PNUT
     "tomls/polynomial-mainnet-andromeda/perps/pnut-invokes.toml",
     "tomls/oracles/pyth-pnut.toml",
     "tomls/polynomial-mainnet-andromeda/perps/pnut.toml",
-    # MOG
     "tomls/polynomial-mainnet-andromeda/perps/mog-invokes.toml",
     "tomls/oracles/pyth-mog.toml",
     "tomls/polynomial-mainnet-andromeda/perps/mog.toml",
-    # ENA
     "tomls/polynomial-mainnet-andromeda/perps/ena-invokes.toml",
     "tomls/oracles/pyth-ena.toml",
     "tomls/polynomial-mainnet-andromeda/perps/ena.toml",
-    # DOGE
     "tomls/polynomial-mainnet-andromeda/perps/doge-invokes.toml",
     "tomls/oracles/pyth-doge.toml",
     "tomls/polynomial-mainnet-andromeda/perps/doge.toml",
-    # EIGEN 
     "tomls/polynomial-mainnet-andromeda/perps/eigen-invokes.toml",
     "tomls/oracles/pyth-eigen.toml",
     "tomls/polynomial-mainnet-andromeda/perps/eigen.toml",
-    # XRP
     "tomls/polynomial-mainnet-andromeda/perps/xrp-invokes.toml",
     "tomls/oracles/pyth-xrp.toml",
     "tomls/polynomial-mainnet-andromeda/perps/xrp.toml",
-    # TIA
     "tomls/polynomial-mainnet-andromeda/perps/tia-invokes.toml",
     "tomls/oracles/pyth-tia.toml",
     "tomls/polynomial-mainnet-andromeda/perps/tia.toml",
-    # AVAX
     "tomls/polynomial-mainnet-andromeda/perps/avax-invokes.toml",
     "tomls/oracles/pyth-avax.toml",
     "tomls/polynomial-mainnet-andromeda/perps/avax.toml",
-    # LTC
     "tomls/polynomial-mainnet-andromeda/perps/ltc-invokes.toml",
     "tomls/oracles/pyth-ltc.toml",
     "tomls/polynomial-mainnet-andromeda/perps/ltc.toml",
-    # LINK
     "tomls/polynomial-mainnet-andromeda/perps/link-invokes.toml",
     "tomls/oracles/pyth-link.toml",
     "tomls/polynomial-mainnet-andromeda/perps/link.toml",
-    # Pengu
     "tomls/polynomial-mainnet-andromeda/perps/pengu-invokes.toml",
     "tomls/oracles/pyth-pengu.toml",
     "tomls/polynomial-mainnet-andromeda/perps/pengu.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/grt-invokes.toml",
+    "tomls/oracles/pyth-grt.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/grt.toml",
 ]
 
 [setting.commitmentPriceDelay]
@@ -139,24 +119,14 @@ defaultValue = "fx-spot-market:3.8.2"
 [setting.perps_market_package]
 defaultValue = "fx-perps-market:3.9.1"
 
-# [setting.buyback_snx_package]
-# defaultValue = "buyback-snx:3.3.14" # Do not update! This package isn't upgradeable. A version change will deploy a new contract.
-
 [setting.salt]
 defaultValue = "andromeda-dev"
 
 [setting.target_preset]
-defaultValue = "main" # Preset assigned to provisioned packages
+defaultValue = "main"
 
 [setting.pyth_price_verification_address]
-# https://docs.pyth.network/documentation/pythnet-price-feeds/evm
 defaultValue = "0x2880aB155794e7179c9eE2e38200202908C17B43"
-
-[provision.pyth_erc7412_wrapper]
-source = "fx-pyth-erc7412-wrapper:3.4.0"
-targetPreset = "<%= settings.target_preset %>"
-options.salt = "<%= settings.salt %>"
-options.pythAddress = "<%= settings.pyth_price_verification_address %>"
 
 [setting.owner]
 defaultValue = "0x9f76043B23125024Ce5f0Fb4AE707482107dd2a8"
@@ -165,10 +135,10 @@ defaultValue = "0x9f76043B23125024Ce5f0Fb4AE707482107dd2a8"
 defaultValue = "0x9f76043B23125024Ce5f0Fb4AE707482107dd2a8"
 
 [setting.minimum_liquidity_ratio]
-defaultValue = "<%= parseEther('1.25') %>" # 125% min market collateralization
+defaultValue = "<%= parseEther('1.25') %>"
 
 [setting.account_timeout_withdraw]
-defaultValue = "86400" # 1 day
+defaultValue = "86400"
 
 [setting.main_pool_id]
 defaultValue = "1"
@@ -176,10 +146,21 @@ defaultValue = "1"
 [setting.pool_owner]
 defaultValue = "0x9f76043B23125024Ce5f0Fb4AE707482107dd2a8"
 
+[setting.usdc_address]
+defaultValue = "0x17C9D8Cef7Ef072844EEaEdE1F9f54C7E3fa8743"
+
+[provision.pyth_erc7412_wrapper]
+source = "fx-pyth-erc7412-wrapper:3.4.0"
+targetPreset = "<%= settings.target_preset %>"
+
+[provision.pyth_erc7412_wrapper.options]
+salt = "<%= settings.salt %>"
+pythAddress = "<%= settings.pyth_price_verification_address %>"
+
 [invoke.setMainPoolConfig]
-target = ["system.CoreProxy"]
-fromCall.func = "getPoolOwner"
-fromCall.args = ["<%= settings.main_pool_id %>"]
+target = [
+    "system.CoreProxy",
+]
 func = "setPoolConfiguration"
 args = [
     "<%= settings.main_pool_id %>",
@@ -188,5 +169,8 @@ args = [
     ],
 ]
 
-[setting.usdc_address]
-defaultValue = "0x17C9D8Cef7Ef072844EEaEdE1F9f54C7E3fa8743"
+[invoke.setMainPoolConfig.fromCall]
+func = "getPoolOwner"
+args = [
+    "<%= settings.main_pool_id %>",
+]

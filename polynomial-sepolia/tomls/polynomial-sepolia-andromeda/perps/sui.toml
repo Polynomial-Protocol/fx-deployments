@@ -1,12 +1,11 @@
 [setting.pythSuiFeedId]
-# https://pyth.network/developers/price-feed-ids
 defaultValue = "0x23d7315113f5b1d3ba7a83604c44b94d79f4fd69af77f804fc7f920a6dc65744"
 
 [setting.suiPerpsMarketId]
 defaultValue = "600"
 
 [setting.perpsSuiSkewScale]
-defaultValue = "<%= String(124_000_000) %>"
+defaultValue = "<%= String(50_000_000) %>"
 
 [setting.perpsSuiMaxFundingVelocity]
 defaultValue = "24"
@@ -24,10 +23,10 @@ defaultValue = "0.0005"
 defaultValue = "0.0008"
 
 [setting.perpsSuiMaxMarketSize]
-defaultValue = "72500"
+defaultValue = "<%= String(47103.49) %>"
 
 [setting.perpsSuiMaxMarketValue]
-defaultValue = "250000"
+defaultValue = "<%= String(191_666) %>"
 
 [setting.perpsSuiInitialMarginRatio]
 defaultValue = "2.27"

@@ -1,5 +1,4 @@
 [setting.pythPnutFeedId]
-# https://pyth.network/developers/price-feed-ids
 defaultValue = "0x116da895807f81f6b5c5f01b109376e7f6834dc8b51365ab7cdfa66634340e54"
 
 [setting.pnutPerpsMarketId]
@@ -24,10 +23,10 @@ defaultValue = "0.0005"
 defaultValue = "0.0008"
 
 [setting.perpsPnutMaxMarketSize]
-defaultValue = "198019"
+defaultValue = "<%= String(273481.92) %>"
 
 [setting.perpsPnutMaxMarketValue]
-defaultValue = "200000"
+defaultValue = "<%= String(191_666) %>"
 
 [setting.perpsPnutInitialMarginRatio]
 defaultValue = "4.688"
