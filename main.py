@@ -32,7 +32,21 @@ new_market_id = get_new_market_id(market_data)
 
 market_name = input("Enter market name (e.g. 'Pudgy Penguins'): ")
 market_ticker = input("Enter market ticker (e.g. 'PUDGY'): ")
-print("Get feed id from https://pyth.network/developers/price-feed-ids")
+
+is_binance = True
+default_depth = 200000.0
+
+print("Checking Binance...")
+try:
+    client.get_avg_price(symbol=market_ticker + "USDT")
+    print("Found spot market on Binance")
+except Exception as e:
+    print("No spot market found on Binance")
+    default_depth = float(input("Enter Average Spot Depth (e.g. 200000): "))
+    is_binance = False
+
+print()
+print("Get Pyth feed id from https://pyth.network/developers/price-feed-ids")
 feed_id = input(
     "Enter Pyth feed id (e.g. '0x9a4df90b25497f66b1afb012467e316e801ca3d839456db028892fe8c70c8016'): "
 )
