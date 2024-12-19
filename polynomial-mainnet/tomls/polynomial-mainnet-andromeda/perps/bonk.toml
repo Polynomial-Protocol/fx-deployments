@@ -11,6 +11,12 @@ defaultValue = "<%= String(800_000_000_000) %>"
 [setting.perpsBonkMaxFundingVelocity]
 defaultValue = "36"
 
+[setting.perpsBonkLimitOrderMakerFeeRatio]
+defaultValue = "0.0001"
+
+[setting.perpsBonkLimitOrderTakerFeeRatio]
+defaultValue = "0.0002"
+
 [setting.perpsBonkMakerFeeRatio]
 defaultValue = "0.0005"
 
