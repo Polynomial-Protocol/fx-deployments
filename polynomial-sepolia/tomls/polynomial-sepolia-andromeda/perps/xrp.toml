@@ -48,7 +48,7 @@ defaultValue = "1.5"
 defaultValue = "30"
 
 [setting.perpsXrpMinimumPositionMargin]
-defaultValue = "50"
+defaultValue = "25"
 
 [setting.perpsXrpLockedOiRatio]
 defaultValue = "0.5"

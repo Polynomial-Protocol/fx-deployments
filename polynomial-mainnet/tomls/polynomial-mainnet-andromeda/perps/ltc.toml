@@ -24,10 +24,10 @@ defaultValue = "0.0005"
 defaultValue = "0.0008"
 
 [setting.perpsLtcMaxMarketSize]
-defaultValue = "1888"
+defaultValue = "1674"
 
 [setting.perpsLtcMaxMarketValue]
-defaultValue = "250000"
+defaultValue = "200000"
 
 [setting.perpsLtcInitialMarginRatio]
 defaultValue = "0.005"
@@ -48,7 +48,7 @@ defaultValue = "1.5"
 defaultValue = "30"
 
 [setting.perpsLtcMinimumPositionMargin]
-defaultValue = "50"
+defaultValue = "25"
 
 [setting.perpsLtcLockedOiRatio]
 defaultValue = "0.5"

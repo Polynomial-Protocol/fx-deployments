@@ -2,10 +2,10 @@
 defaultValue = "0.1"
 
 [setting.perps_keeper_l1_cost_settle_gas_units]
-defaultValue = "<%= String(20_000) %>"
+defaultValue = "<%= String(40_000) %>"
 
 [setting.perps_keeper_l2_cost_settle_gas_units]
-defaultValue = "<%= String(5_500_000) %>"
+defaultValue = "<%= String(11_000_000) %>"
 
 [setting.perps_keeper_l1_cost_flag_gas_units]
 defaultValue = "<%= String(62_000) %>"
@@ -20,7 +20,7 @@ defaultValue = "<%= String(20_000) %>"
 defaultValue = "<%= String(2_000_000) %>"
 
 [setting.perps_keeper_settle_tx_size]
-defaultValue = "<%= String(1_800) %>"
+defaultValue = "<%= String(3_600) %>"
 
 [setting.perps_keeper_flag_tx_size]
 defaultValue = "<%= String(3_000) %>"
@@ -49,6 +49,9 @@ defaultValue = "0"
 [setting.perps_high_util_gradient]
 defaultValue = "0"
 
+[setting.commit_fee_receiver]
+defaultValue = "0x66E1C0734A6e1351F7401219E4Ec9CF6a91a50cd"
+
 [invoke.setPerpsLiquidationRewardGuards]
 target = ["perpsFactory.PerpsMarketProxy"]
 fromCall.func = "owner"
@@ -72,7 +75,7 @@ depends = ["provision.perpsFactory"]
 target = ["perpsFactory.PerpsMarketProxy"]
 fromCall.func = "owner"
 func = "setPerAccountCaps"
-args = ["20", "1"]
+args = ["25", "1"]
 depends = ["provision.perpsFactory"]
 
 [invoke.setPerpsMarketKeeperCostNodeId]
@@ -94,4 +97,11 @@ args = [
     "<%= parseEther(settings.perps_gradient_breakpoint) %>",
     "<%= parseEther(settings.perps_high_util_gradient) %>",
 ]
+depends = ["provision.perpsFactory"]
+
+[invoke.setCommitFeeReceiver]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setcommitFeeReciever"
+args = ["<%= settings.commit_fee_receiver %>"]
 depends = ["provision.perpsFactory"]

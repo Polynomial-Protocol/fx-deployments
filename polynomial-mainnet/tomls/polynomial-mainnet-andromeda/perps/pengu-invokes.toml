@@ -1,0 +1,164 @@
+include = [
+    "../../oracles/pyth-pengu.toml",
+    "../../markets/common/bigcap-settings.toml",
+]
+
+[setting.penguPerpsMarketId]
+
+[setting.perpsPenguSkewScale]
+
+[setting.perpsPenguMaxFundingVelocity]
+
+[setting.perpsPenguMakerFeeRatio]
+
+[setting.perpsPenguTakerFeeRatio]
+
+[setting.perpsPenguMaxMarketSize]
+
+[setting.perpsPenguInitialMarginRatio]
+
+[setting.perpsPenguMaintenanceMarginScalar]
+
+[setting.perpsPenguFlagRewardRatioD18]
+
+[setting.perpsPenguMaxLiquidationLimitAccumulationMultiplier]
+
+[setting.perpsPenguMaxSecondsInLiquidationWindow]
+
+[setting.perpsPenguMaxLiquidationPd]
+
+[setting.perpsPenguEndorsedLiquidator]
+
+[setting.perpsPenguMinimumPositionMargin]
+
+[setting.perpsPenguLockedOiRatio]
+
+[invoke.createPenguPerpsMarket]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "createMarket"
+args = ["<%= settings.penguPerpsMarketId %>", "Pudgy Penguins", "PENGU"]
+depends = ["provision.system", "provision.perpsFactory"]
+
+[invoke.setPerpsPricePengu]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "updatePriceData"
+args = [
+    "<%= settings.penguPerpsMarketId %>",
+    "<%= extras.pengu_oracle_id %>",
+    "<%= settings.bigCapStrictStalenessTolerance %>",
+]
+depends = ["invoke.createPenguPerpsMarket"]
+
+# Do not modify this step. Edit [invoke.setPerpsPenguSettlementStrategy] instead.
+[invoke.addPerpsPenguSettlementStrategy]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "addSettlementStrategy"
+args = [
+    "<%= settings.penguPerpsMarketId %>",
+    { strategyType = "0", settlementDelay = "0", settlementWindowDuration = "1", priceVerificationContract = "0x0000000000000000000000000000000000000000", feedId = "0x0000000000000000000000000000000000000000000000000000000000000000", settlementReward = "0", disabled = false, commitmentPriceDelay = "0" },
+]
+extra.pengu_pyth_settlement_strategy.event = "SettlementStrategyAdded"
+extra.pengu_pyth_settlement_strategy.arg = 2
+depends = ["invoke.createPenguPerpsMarket"]
+
+[invoke.setPerpsPenguSettlementStrategy]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setSettlementStrategy"
+args = [
+    "<%= settings.penguPerpsMarketId %>",
+    "<%= extras.pengu_pyth_settlement_strategy %>",                                                                                                                                                                                                                                                                                                                                                                                      # Settlement Strategy ID
+    { strategyType = "0", settlementDelay = "<%= settings.bigCapSettlementDelay %>", settlementWindowDuration = "<%= settings.bigCapSettlementWindowDuration %>", priceVerificationContract = "<%= imports.pyth_erc7412_wrapper.contracts.PythERC7412Wrapper.address %>", feedId = "<%= settings.pythPenguFeedId %>", settlementReward = "<%= parseEther(settings.settlementReward) %>", disabled = false, commitmentPriceDelay = "2" },
+]
+depends = [
+    'provision.perpsFactory',
+    'setting.penguPerpsMarketId',
+    'invoke.addPerpsPenguSettlementStrategy',
+    'provision.pyth_erc7412_wrapper',
+    'setting.bigCapSettlementDelay',
+    'setting.bigCapSettlementWindowDuration',
+    'setting.pythPenguFeedId',
+    'setting.settlementReward',
+]
+
+[invoke.setPerpsPenguFundingParameters]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setFundingParameters"
+args = [
+    "<%= settings.penguPerpsMarketId %>",
+    "<%= parseEther(settings.perpsPenguSkewScale) %>",
+    "<%= parseEther(settings.perpsPenguMaxFundingVelocity) %>",
+]
+depends = ["invoke.createPenguPerpsMarket"]
+
+[invoke.setPerpsPenguOrderFees]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setOrderFees"
+args = [
+    "<%= settings.penguPerpsMarketId %>",
+    "<%= parseEther(settings.perpsPenguMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsPenguTakerFeeRatio) %>",
+]
+depends = ["invoke.createPenguPerpsMarket"]
+
+[invoke.setPerpsPenguMaxMarketSize]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setMaxMarketSize"
+args = [
+    "<%= settings.penguPerpsMarketId %>",
+    "<%= parseEther(settings.perpsPenguMaxMarketSize) %>",
+]
+depends = ["invoke.createPenguPerpsMarket"]
+
+[invoke.setPerpsPenguMaxMarketValue]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setMaxMarketValue"
+args = [
+    "<%= settings.penguPerpsMarketId %>",
+    "<%= parseEther(settings.perpsPenguMaxMarketValue) %>",
+]
+depends = ["invoke.createPenguPerpsMarket"]
+
+[invoke.setPerpsPenguMaxLiquidationParameters]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setMaxLiquidationParameters"
+args = [
+    "<%= settings.penguPerpsMarketId %>",
+    "<%= parseEther(settings.perpsPenguMaxLiquidationLimitAccumulationMultiplier) %>",
+    "<%= settings.perpsPenguMaxSecondsInLiquidationWindow %>",
+    "<%= parseEther(settings.perpsPenguMaxLiquidationPd) %>",
+    "<%= settings.perpsPenguEndorsedLiquidator %>",
+]
+depends = ["invoke.createPenguPerpsMarket"]
+
+[invoke.setPerpsPenguLiquidationParameters]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setLiquidationParameters"
+args = [
+    "<%= settings.penguPerpsMarketId %>",
+    "<%= parseEther(settings.perpsPenguInitialMarginRatio) %>",
+    "<%= parseEther(settings.perpsPenguMinimumInitialMarginRatio) %>",
+    "<%= parseEther(settings.perpsPenguMaintenanceMarginScalar) %>",
+    "<%= parseEther(settings.perpsPenguFlagRewardRatioD18) %>",
+    "<%= parseEther(settings.perpsPenguMinimumPositionMargin) %>",
+]
+depends = ["invoke.createPenguPerpsMarket"]
+
+[invoke.setPerpsPenguLockedOiRatio]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setLockedOiRatio"
+args = [
+    "<%= settings.penguPerpsMarketId %>",
+    "<%= parseEther(settings.perpsPenguLockedOiRatio) %>",
+]
+depends = ["invoke.createPenguPerpsMarket"]

@@ -24,10 +24,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsEigenMaxMarketSize]
-defaultValue = "64250"
+defaultValue = "38684"
 
 [setting.perpsEigenMaxMarketValue]
-defaultValue = "250000"
+defaultValue = "200000"
 
 [setting.perpsEigenInitialMarginRatio]
 defaultValue = "3.46"
@@ -48,7 +48,7 @@ defaultValue = "1.5"
 defaultValue = "30"
 
 [setting.perpsEigenMinimumPositionMargin]
-defaultValue = "50"
+defaultValue = "25"
 
 [setting.perpsEigenLockedOiRatio]
 defaultValue = "0.5"

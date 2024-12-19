@@ -48,7 +48,7 @@ defaultValue = "1.5"
 defaultValue = "30"
 
 [setting.perpsWifMinimumPositionMargin]
-defaultValue = "50"
+defaultValue = "25"
 
 [setting.perpsWifLockedOiRatio]
 defaultValue = "0.5"

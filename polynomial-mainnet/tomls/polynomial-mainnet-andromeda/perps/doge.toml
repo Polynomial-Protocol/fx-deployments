@@ -18,10 +18,10 @@ defaultValue = "0.0005"
 defaultValue = "0.0008"
 
 [setting.perpsDogeMaxMarketSize]
-defaultValue = "671742"
+defaultValue = "1035464"
 
 [setting.perpsDogeMaxMarketValue]
-defaultValue = "300000"
+defaultValue = "400000"
 
 [setting.perpsDogeInitialMarginRatio]
 defaultValue = "6.9"
@@ -42,7 +42,7 @@ defaultValue = "1.5"
 defaultValue = "30"
 
 [setting.perpsDogeMinimumPositionMargin]
-defaultValue = "50"
+defaultValue = "25"
 
 [setting.perpsDogeLockedOiRatio]
 defaultValue = "0.5"

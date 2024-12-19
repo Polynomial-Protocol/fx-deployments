@@ -18,10 +18,10 @@ defaultValue = "0.0005"
 defaultValue = "0.0008"
 
 [setting.perpsBonkMaxMarketSize]
-defaultValue = "2356267672"
+defaultValue = "5897965202"
 
 [setting.perpsBonkMaxMarketValue]
-defaultValue = "100000"
+defaultValue = "200000"
 
 [setting.perpsBonkInitialMarginRatio]
 defaultValue = "2.27"
@@ -42,7 +42,7 @@ defaultValue = "1.5"
 defaultValue = "30"
 
 [setting.perpsBonkMinimumPositionMargin]
-defaultValue = "50"
+defaultValue = "25"
 
 [setting.perpsBonkLockedOiRatio]
 defaultValue = "0.5"
