@@ -1,5 +1,4 @@
 [setting.pythAvaxFeedId]
-# https://pyth.network/developers/price-feed-ids
 defaultValue = "0x93da3352f9f1d105fdfe4971cfa80e9dd777bfc5d0f683ebb6e1294b92137bb7"
 
 [setting.perpsAvaxMarketId]
@@ -24,10 +23,10 @@ defaultValue = "0.0005"
 defaultValue = "0.0008"
 
 [setting.perpsAvaxMaxMarketSize]
-defaultValue = "4293"
+defaultValue = "<%= String(4867.22) %>"
 
 [setting.perpsAvaxMaxMarketValue]
-defaultValue = "200000"
+defaultValue = "<%= String(191_666) %>"
 
 [setting.perpsAvaxInitialMarginRatio]
 defaultValue = "9.08"
