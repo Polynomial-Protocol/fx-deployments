@@ -44,7 +44,7 @@ def get_current_markets_data():
                 v["defaultValue"] for k, v in data.items() if re.match(marketRegex, k)
             ][0]
 
-            raw_data[market_id] = data
+            raw_data[market_id] = {"setting": data}
 
             skew_scale = int(extract_val(data, skew_scale_regex))
             max_market_size = float(extract_val(data, max_market_size_regex))

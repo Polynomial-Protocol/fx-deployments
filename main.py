@@ -8,6 +8,7 @@ from scripts import (
     get_current_markets_data,
     get_current_tvl,
     read_constants,
+    rewrite_all,
     round_up,
     recalculate_max_market,
     get_new_market_id,
@@ -53,6 +54,14 @@ testnet_new_market = add_new_market(new_market_info, True)
 
 generate_toml_new_market(new_market_info, mainnet_new_market)
 generate_toml_new_market(new_market_info, testnet_new_market, True)
+
+print()
+print("=================================")
+print("Done!")
+
+print()
+print("Repopulating existing markets...")
+rewrite_all(raw_data, updated_market_data)
 
 print()
 print("=================================")

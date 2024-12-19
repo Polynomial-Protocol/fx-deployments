@@ -27,5 +27,4 @@ def recalculate_max_market(
             data.max_market_size = round(
                 data.max_market_value / current_prices[market_id], 2
             )
-
     return market_data, max_market_value_each
