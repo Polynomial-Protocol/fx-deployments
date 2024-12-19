@@ -8,3 +8,6 @@ from .add_new_market import add_new_market
 from .rewrite_toml import rewrite_toml
 from .replace_market_data import replace_market_data
 from .rewrite_all import rewrite_all
+from .get_depth import get_depth
+from .calculate_new_market_values import calculate_new_market_values
+from .get_new_market_id import get_new_market_id

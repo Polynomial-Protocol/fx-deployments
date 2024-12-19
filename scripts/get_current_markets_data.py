@@ -36,7 +36,6 @@ def get_current_markets_data():
         name = data_file.split("/")[-1].split(".")[0]
         with open(data_file, "rb") as f:
             data = tomli.load(f)
-            raw_data[market_id] = data
             data = data["setting"]
             feed_id = [
                 v["defaultValue"] for k, v in data.items() if re.match(feedRegex, k)
@@ -44,6 +43,8 @@ def get_current_markets_data():
             market_id = [
                 v["defaultValue"] for k, v in data.items() if re.match(marketRegex, k)
             ][0]
+
+            raw_data[market_id] = data
 
             skew_scale = int(extract_val(data, skew_scale_regex))
             max_market_size = float(extract_val(data, max_market_size_regex))

@@ -5,37 +5,47 @@ def add_new_market(market_info, is_testnet=False):
     oracle = {"invoke": {}}
 
     prefix = "perps" + market_info["ticker"].capitalize()
-    settings[f"{prefix}FeedId"] = market_info["feed_id"]
-    settings[f"{prefix}MarketId"] = market_info["market_id"]
-    settings[f"{prefix}SkewScale"] = (
-        f'<%= String({int(market_info["skew_scale"]):_}) %>'
-    )
-    settings[f"{prefix}MaxFundingVelocity"] = "24"
-    settings[f"{prefix}MakerFeeRatio"] = "0.0005"
-    settings[f"{prefix}TakerFeeRatio"] = "0.0008"
-    settings[f"{prefix}LimitOrderMakerFeeRatio"] = "0.0001"
-    settings[f"{prefix}LimitOrderTakerFeeRatio"] = "0.0002"
-    settings[f"{prefix}MaxMarketSize"] = (
-        f'<%= String({market_info["max_market_size"]:.2f}) %>'
-    )
-    settings[f"{prefix}MaxMarketValue"] = (
-        f'<%= String({int(market_info["max_market_value"]):_}) %>'
-    )
-    settings[f"{prefix}InitialMarginRatio"] = "4.88"  # TODO: Calculate this
-    settings[f"{prefix}MaintenanceMarginScalar"] = "0.43"  # TODO: Calculate this
-    settings[f"{prefix}MinimumInitialMarginRatio"] = market_info["inverse_leverage"]
-    settings[f"{prefix}FlagRewardRatioD18"] = "0.0003"
-    settings[f"{prefix}MaxLiquidationLimitAccumulationMultiplier"] = "1.5"
-    settings[f"{prefix}MaxSecondsInLiquidationWindow"] = "30"
-    settings[f"{prefix}MinimumPositionMargin"] = "25"
-    settings[f"{prefix}LockedOiRatio"] = "0.5"
-    settings[f"{prefix}SynthMaxCollateralAmount"] = "<%= MaxUint256 %>"
-    settings[f"{prefix}MaxLiquidationPd"] = "0.0005"
-    settings[f"{prefix}EndorsedLiquidator"] = (
-        "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"
-    )
-    settings["commitmentPriceDelay"] = "2"
-    settings["bigCapSettlementDelay"] = "2"
+    settings[f"{prefix}FeedId"] = {"defaultValue": market_info["feed_id"]}
+    settings[f"{prefix}MarketId"] = {"defaultValue": market_info["market_id"]}
+    settings[f"{prefix}SkewScale"] = {
+        "defaultValue": f'<%= String({int(market_info["skew_scale"]):_}) %>'
+    }
+    settings[f"{prefix}MaxFundingVelocity"] = {"defaultValue": "24"}
+    settings[f"{prefix}MakerFeeRatio"] = {"defaultValue": "0.0005"}
+    settings[f"{prefix}TakerFeeRatio"] = {"defaultValue": "0.0008"}
+    settings[f"{prefix}LimitOrderMakerFeeRatio"] = {"defaultValue": "0.0001"}
+    settings[f"{prefix}LimitOrderTakerFeeRatio"] = {"defaultValue": "0.0002"}
+    settings[f"{prefix}MaxMarketSize"] = {
+        "defaultValue": f'<%= String({market_info["max_market_size"]:.2f}) %>'
+    }
+    settings[f"{prefix}MaxMarketValue"] = {
+        "defaultValue": f'<%= String({int(market_info["max_market_value"]):_}) %>'
+    }
+    settings[f"{prefix}InitialMarginRatio"] = {
+        "defaultValue": str(market_info["initial_margin_ratio"])
+    }
+    settings[f"{prefix}MaintenanceMarginScalar"] = {
+        "defaultValue": str(market_info["maintenance_margin_scalar"])
+    }
+    settings[f"{prefix}MinimumInitialMarginRatio"] = {
+        "defaultValue": str(market_info["inverse_leverage"])
+    }
+    settings[f"{prefix}FlagRewardRatioD18"] = {"defaultValue": "0.0003"}
+    settings[f"{prefix}MaxLiquidationLimitAccumulationMultiplier"] = {
+        "defaultValue": "1.5"
+    }
+    settings[f"{prefix}MaxSecondsInLiquidationWindow"] = {"defaultValue": "30"}
+    settings[f"{prefix}MinimumPositionMargin"] = {"defaultValue": "25"}
+    settings[f"{prefix}LockedOiRatio"] = {"defaultValue": "0.5"}
+    settings[f"{prefix}SynthMaxCollateralAmount"] = {
+        "defaultValue": "<%= MaxUint256 %>"
+    }
+    settings[f"{prefix}MaxLiquidationPd"] = {"defaultValue": "0.0005"}
+    settings[f"{prefix}EndorsedLiquidator"] = {
+        "defaultValue": "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"
+    }
+    settings["commitmentPriceDelay"] = {"defaultValue": "2"}
+    settings["bigCapSettlementDelay"] = {"defaultValue": "2"}
 
     invokes["include"] = [
         f"../../oracles/pyth-{market_info['ticker']}.toml",
@@ -79,7 +89,7 @@ def add_new_market(market_info, is_testnet=False):
         "func": "updatePriceData",
         "args": [
             f"<%= settings.{prefix}MarketId %>",
-            f"<%= extras.{market_info['ticker']}_oracle_id %>",
+            f"<%= extras.{prefix}_oracle_id %>",
             "<%= settings.bigCapStrictStalenessTolerance %>",
         ],
         "depends": [f"invoke.create{prefix}Market"],
@@ -166,7 +176,7 @@ def add_new_market(market_info, is_testnet=False):
         "func": "setMaxMarketSize",
         "args": [
             f"<%= settings.{prefix}MarketId %>",
-            f"<%= settings.{prefix}MaxMarketSize %>",
+            f"<%= parseEther(settings.{prefix}MaxMarketSize) %>",
         ],
         "depends": [f"invoke.create{prefix}Market"],
     }
@@ -176,7 +186,7 @@ def add_new_market(market_info, is_testnet=False):
         "func": "setMaxMarketValue",
         "args": [
             f"<%= settings.{prefix}MarketId %>",
-            f"<%= settings.{prefix}MaxMarketValue %>",
+            f"<%= parseEther(settings.{prefix}MaxMarketValue) %>",
         ],
         "depends": [f"invoke.create{prefix}Market"],
     }
@@ -213,7 +223,7 @@ def add_new_market(market_info, is_testnet=False):
         "func": "setLockedOiRatio",
         "args": [
             f"<%= settings.{prefix}MarketId %>",
-            f"<%= settings.{prefix}LockedOiRatio %>",
+            f"<%= parseEther(settings.{prefix}LockedOiRatio) %>",
         ],
         "depends": [f"invoke.create{prefix}Market"],
     }
@@ -232,7 +242,7 @@ def add_new_market(market_info, is_testnet=False):
         }
 
     oracle["invoke"] = {
-        f"register{prefix}OracleNode": {
+        f"register{prefix}PythOracleNode": {
             "target": ["system.oracle_manager.Proxy"],
             "func": "registerNode",
             "args": [
@@ -286,6 +296,8 @@ def add_new_market(market_info, is_testnet=False):
     }
 
     data["values"]["setting"] = settings
+    data["invokes"]["include"] = invokes["include"]
+    data["invokes"]["setting"] = invokes["setting"]
     data["invokes"]["invoke"] = invoke
     data["oracle"] = oracle
     return data
