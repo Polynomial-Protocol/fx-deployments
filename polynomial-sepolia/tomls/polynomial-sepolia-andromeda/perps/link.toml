@@ -1,5 +1,4 @@
 [setting.pythLinkFeedId]
-# https://pyth.network/developers/price-feed-ids
 defaultValue = "0x8ac0c70fff57e9aefdf5edf44b51d62c2d433653cbb2cf5cc06bb115af04d221"
 
 [setting.perpsLinkMarketId]
@@ -24,10 +23,10 @@ defaultValue = "0.0005"
 defaultValue = "0.0008"
 
 [setting.perpsLinkMaxMarketSize]
-defaultValue = "10387"
+defaultValue = "<%= String(7966.31) %>"
 
 [setting.perpsLinkMaxMarketValue]
-defaultValue = "250000"
+defaultValue = "<%= String(172_368) %>"
 
 [setting.perpsLinkInitialMarginRatio]
 defaultValue = "6.73"

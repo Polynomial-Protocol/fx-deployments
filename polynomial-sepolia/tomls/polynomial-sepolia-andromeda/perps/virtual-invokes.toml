@@ -1,0 +1,255 @@
+include = [
+    "../../oracles/pyth-virtual.toml",
+    "../../markets/common/bigcap-settings.toml",
+]
+
+[setting.perpsVirtualMarketId]
+
+[setting.perpsVirtualSkewScale]
+
+[setting.perpsVirtualMaxFundingVelocity]
+
+[setting.perpsVirtualMakerFeeRatio]
+
+[setting.perpsVirtualTakerFeeRatio]
+
+[setting.perpsVirtualMaxMarketSize]
+
+[setting.perpsVirtualInitialMarginRatio]
+
+[setting.perpsVirtualMaintenanceMarginScalar]
+
+[setting.perpsVirtualMinimumInitialMarginRatio]
+
+[setting.perpsVirtualFlagRewardRatioD18]
+
+[setting.perpsVirtualMaxLiquidationLimitAccumulationMultiplier]
+
+[setting.perpsVirtualMaxSecondsInLiquidationWindow]
+
+[setting.perpsVirtualMinimumPositionMargin]
+
+[setting.perpsVirtualLockedOiRatio]
+
+[setting.perpsVirtualSynthMaxCollateralAmount]
+
+[setting.perpsVirtualMaxLiquidationPd]
+
+[setting.perpsVirtualEndorsedLiquidator]
+
+[invoke.createperpsVirtualMarket]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "createMarket"
+args = [
+    "<%= settings.perpsVirtualMarketId %>",
+    "Virtuals Protocol",
+    "VIRTUAL",
+]
+depends = [
+    "provision.system",
+    "provision.perpsFactory",
+]
+
+[invoke.createperpsVirtualMarket.fromCall]
+func = "owner"
+
+[invoke.setperpsVirtualPrice]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "updatePriceData"
+args = [
+    "<%= settings.perpsVirtualMarketId %>",
+    "<%= extras.perpsVirtual_oracle_id %>",
+    "<%= settings.bigCapStrictStalenessTolerance %>",
+]
+depends = [
+    "invoke.createperpsVirtualMarket",
+]
+
+[invoke.setperpsVirtualPrice.fromCall]
+func = "owner"
+
+[invoke.addperpsVirtualSettlementStrategy]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "addSettlementStrategy"
+args = [
+    "<%= settings.perpsVirtualMarketId %>",
+    { strategyType = "0", settlementDelay = "0", settlementWindowDuration = "1", priceVerificationContract = "0x0000000000000000000000000000000000000000", feedId = "0x0000000000000000000000000000000000000000000000000000000000000000", settlementReward = "0", disabled = false, commitmentPriceDelay = "0" },
+]
+depends = [
+    "invoke.createperpsVirtualMarket",
+]
+
+[invoke.addperpsVirtualSettlementStrategy.fromCall]
+func = "owner"
+
+[invoke.addperpsVirtualSettlementStrategy.extra.perpsVirtual_pyth_settlement_strategy]
+event = "SettlementStrategyAdded"
+arg = 2
+
+[invoke.setperpsVirtualSettlementStrategy]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setSettlementStrategy"
+args = [
+    "<%= settings.pepePerpsMarketId %>",
+    "<%= extras.pepe_pyth_settlement_strategy %>",
+    { strategyType = "0", settlementDelay = "<%= settings.bigCapSettlementDelay %>", settlementWindowDuration = "<%= settings.bigCapSettlementWindowDuration %>", priceVerificationContract = "<%= imports.pyth_erc7412_wrapper.contracts.PythERC7412Wrapper.address %>", feedId = "<%= settings.perpsVirtualFeedId %>", settlementReward = "<%= parseEther(settings.settlementReward) %>", disabled = false, commitmentPriceDelay = "2" },
+]
+depends = [
+    "provision.perpsFactory",
+    "setting.perpsVirtualMarketId",
+    "invoke.addperpsVirtualSettlementStrategy",
+    "provision.pyth_erc7412_wrapper",
+    "setting.bigCapSettlementDelay",
+    "setting.bigCapSettlementWindowDuration",
+    "setting.perpsVirtualFeedId",
+    "setting.settlementReward",
+]
+
+[invoke.setperpsVirtualSettlementStrategy.fromCall]
+func = "owner"
+
+[invoke.setperpsVirtualFundingParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setFundingParameters"
+args = [
+    "<%= settings.perpsVirtualMarketId %>",
+    "<%= parseEther(settings.perpsVirtualSkewScale) %>",
+    "<%= parseEther(settings.perpsVirtualMaxFundingVelocity) %>",
+]
+depends = [
+    "invoke.createperpsVirtualMarket",
+]
+
+[invoke.setperpsVirtualFundingParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsVirtualOrderFees]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setOrderFees"
+args = [
+    "<%= settings.perpsVirtualMarketId %>",
+    "<%= parseEther(settings.perpsVirtualMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsVirtualTakerFeeRatio) %>",
+]
+depends = [
+    "invoke.createperpsVirtualMarket",
+]
+
+[invoke.setperpsVirtualOrderFees.fromCall]
+func = "owner"
+
+[invoke.setperpsVirtualMaxMarketSize]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxMarketSize"
+args = [
+    "<%= settings.perpsVirtualMarketId %>",
+    "<%= parseEther(settings.perpsVirtualMaxMarketSize) %>",
+]
+depends = [
+    "invoke.createperpsVirtualMarket",
+]
+
+[invoke.setperpsVirtualMaxMarketSize.fromCall]
+func = "owner"
+
+[invoke.setperpsVirtualMaxMarketValue]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxMarketValue"
+args = [
+    "<%= settings.perpsVirtualMarketId %>",
+    "<%= parseEther(settings.perpsVirtualMaxMarketValue) %>",
+]
+depends = [
+    "invoke.createperpsVirtualMarket",
+]
+
+[invoke.setperpsVirtualMaxMarketValue.fromCall]
+func = "owner"
+
+[invoke.setperpsVirtualMaxLiquidationParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxLiquidationParameters"
+args = [
+    "<%= settings.perpsVirtualMarketId %>",
+    "<%= parseEther(settings.perpsVirtualMaxLiquidationLimitAccumulationMultiplier) %>",
+    "<%= settings.perpsVirtualMaxSecondsInLiquidationWindow %>",
+    "<%= parseEther(settings.perpsVirtualMaxLiquidationPd) %>",
+    "<%= settings.perpsVirtualEndorsedLiquidator %>",
+]
+depends = [
+    "invoke.createperpsVirtualMarket",
+]
+
+[invoke.setperpsVirtualMaxLiquidationParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsVirtualLiquidationParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLiquidationParameters"
+args = [
+    "<%= settings.perpsVirtualMarketId %>",
+    "<%= parseEther(settings.perpsVirtualInitialMarginRatio) %>",
+    "<%= parseEther(settings.perpsVirtualMinimumInitialMarginRatio) %>",
+    "<%= parseEther(settings.perpsVirtualMaintenanceMarginScalar) %>",
+    "<%= parseEther(settings.perpsVirtualFlagRewardRatioD18) %>",
+    "<%= parseEther(settings.perpsVirtualMinimumPositionMargin) %>",
+]
+depends = [
+    "invoke.createperpsVirtualMarket",
+]
+
+[invoke.setperpsVirtualLiquidationParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsVirtualLockedOiRatio]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLockedOiRatio"
+args = [
+    "<%= settings.perpsVirtualMarketId %>",
+    "<%= parseEther(settings.perpsVirtualLockedOiRatio) %>",
+]
+depends = [
+    "invoke.createperpsVirtualMarket",
+]
+
+[invoke.setperpsVirtualLockedOiRatio.fromCall]
+func = "owner"
+
+[invoke.setPerpsXrpLimitOrderFees]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLimitOrderFees"
+args = [
+    "<%= settings.perpsVirtualMarketId %>",
+    "<%= parseEther(settings.perpsVirtualLimitOrderMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsVirtualLimitOrderTakerFeeRatio) %>",
+]
+depends = [
+    "invoke.createperpsVirtualMarket",
+]
+
+[invoke.setPerpsXrpLimitOrderFees.fromCall]
+func = "owner"

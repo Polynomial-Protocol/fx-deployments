@@ -1,5 +1,4 @@
 [setting.pythAaveFeedId]
-# https://pyth.network/developers/price-feed-ids
 defaultValue = "0x2b9ab1e972a281585084148ba1389800799bd4be63b957507db1349314e47445"
 
 [setting.aavePerpsMarketId]
@@ -24,10 +23,10 @@ defaultValue = "0.0005"
 defaultValue = "0.0008"
 
 [setting.perpsAaveMaxMarketSize]
-defaultValue = "542"
+defaultValue = "<%= String(586.57) %>"
 
 [setting.perpsAaveMaxMarketValue]
-defaultValue = "200000"
+defaultValue = "<%= String(172_368) %>"
 
 [setting.perpsAaveInitialMarginRatio]
 defaultValue = "3.38"

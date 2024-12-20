@@ -1,5 +1,4 @@
 [setting.pythMogFeedId]
-# https://pyth.network/developers/price-feed-ids
 defaultValue = "0x17894b9fff49cd07efeab94a0d02db16f158efe04e0dee1db6af5f069082ce83"
 
 [setting.mogPerpsMarketId]
@@ -24,10 +23,10 @@ defaultValue = "0.0005"
 defaultValue = "0.0008"
 
 [setting.perpsMogMaxMarketSize]
-defaultValue = "<%= String(72_124_053_371) %>"
+defaultValue = "<%= String(79940855989.34) %>"
 
 [setting.perpsMogMaxMarketValue]
-defaultValue = "200000"
+defaultValue = "<%= String(172_368) %>"
 
 [setting.perpsMogInitialMarginRatio]
 defaultValue = "4.688"

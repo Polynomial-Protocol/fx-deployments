@@ -1,5 +1,4 @@
 [setting.pythXrpFeedId]
-# https://pyth.network/developers/price-feed-ids
 defaultValue = "0xec5d399846a9209f3fe5881d70aae9268c94339ff9817e8d18ff19fa05eea1c8"
 
 [setting.xrpPerpsMarketId]
@@ -24,10 +23,10 @@ defaultValue = "0.0005"
 defaultValue = "0.0008"
 
 [setting.perpsXrpMaxMarketSize]
-defaultValue = "79365"
+defaultValue = "<%= String(79508.79) %>"
 
 [setting.perpsXrpMaxMarketValue]
-defaultValue = "200000"
+defaultValue = "<%= String(172_368) %>"
 
 [setting.perpsXrpInitialMarginRatio]
 defaultValue = "2.57"

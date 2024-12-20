@@ -1,12 +1,11 @@
 [setting.pythEnaFeedId]
-# https://pyth.network/developers/price-feed-ids
 defaultValue = "0xb7910ba7322db020416fcac28b48c01212fd9cc8fbcbaf7d30477ed8605f6bd4"
 
 [setting.enaPerpsMarketId]
 defaultValue = "1200"
 
 [setting.perpsEnaSkewScale]
-defaultValue = "<%= String(40_000_000) %>"
+defaultValue = "<%= String(10_000_000) %>"
 
 [setting.perpsEnaMaxFundingVelocity]
 defaultValue = "36"
@@ -24,10 +23,10 @@ defaultValue = "0.0005"
 defaultValue = "0.0008"
 
 [setting.perpsEnaMaxMarketSize]
-defaultValue = "436000"
+defaultValue = "<%= String(172610.28) %>"
 
 [setting.perpsEnaMaxMarketValue]
-defaultValue = "250000"
+defaultValue = "<%= String(172_368) %>"
 
 [setting.perpsEnaInitialMarginRatio]
 defaultValue = "3.46"

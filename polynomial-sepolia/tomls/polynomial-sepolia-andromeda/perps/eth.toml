@@ -1,12 +1,11 @@
 [setting.pythEthFeedId]
-# https://pyth.network/developers/price-feed-ids
 defaultValue = "0xff61491a931112ddf1bd8147cd1b641375f79f5825126d665480874634fd0ace"
 
 [setting.ethPerpsMarketId]
 defaultValue = "100"
 
 [setting.perpsEthSkewScale]
-defaultValue = "2000000"
+defaultValue = "<%= String(400_000) %>"
 
 [setting.perpsEthMaxFundingVelocity]
 defaultValue = "9"
@@ -24,13 +23,13 @@ defaultValue = "0.0002"
 defaultValue = "0.0005"
 
 [setting.perpsEthMaxMarketSize]
-defaultValue = "155"
+defaultValue = "<%= String(402.11) %>"
 
 [setting.perpsEthMaxMarketValue]
-defaultValue = "500000"
+defaultValue = "<%= String(1_320_000) %>"
 
 [setting.perpsEthInitialMarginRatio]
-defaultValue = "8.92"
+defaultValue = "1.16"
 
 [setting.perpsEthMinimumInitialMarginRatio]
 defaultValue = "0.02"
@@ -61,9 +60,3 @@ defaultValue = "0.0005"
 
 [setting.perpsEthEndorsedLiquidator]
 defaultValue = "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"
-
-[setting.commitmentPriceDelay]
-defaultValue = "2"
-
-[setting.bigCapSettlementDelay]
-defaultValue = "2"

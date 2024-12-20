@@ -61,6 +61,8 @@ new_market_info = calculate_new_market_values(
     feed_id,
     new_market_id,
     client,
+    is_binance,
+    default_depth,
 )
 
 mainnet_new_market = add_new_market(new_market_info)

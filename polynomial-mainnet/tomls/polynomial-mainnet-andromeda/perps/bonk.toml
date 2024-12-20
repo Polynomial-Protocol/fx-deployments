@@ -1,5 +1,4 @@
 [setting.pythBonkFeedId]
-# https://pyth.network/developers/price-feed-ids
 defaultValue = "0x72b021217ca3fe68922a19aaf990109cb9d84e9ad004b4d2025ad6f529314419"
 
 [setting.bonkPerpsMarketId]
@@ -24,10 +23,10 @@ defaultValue = "0.0005"
 defaultValue = "0.0008"
 
 [setting.perpsBonkMaxMarketSize]
-defaultValue = "5897965202"
+defaultValue = "<%= String(6222127016.85) %>"
 
 [setting.perpsBonkMaxMarketValue]
-defaultValue = "200000"
+defaultValue = "<%= String(172_368) %>"
 
 [setting.perpsBonkInitialMarginRatio]
 defaultValue = "2.27"

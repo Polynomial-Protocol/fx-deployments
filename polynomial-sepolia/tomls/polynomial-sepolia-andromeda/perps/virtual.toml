@@ -1,0 +1,68 @@
+[setting.perpsVirtualFeedId]
+defaultValue = "0x8132e3eb1dac3e56939a16ff83848d194345f6688bff97eb1c8bd462d558802b"
+
+[setting.perpsVirtualMarketId]
+defaultValue = "2100"
+
+[setting.perpsVirtualSkewScale]
+defaultValue = "<%= String(5_956_253) %>"
+
+[setting.perpsVirtualMaxFundingVelocity]
+defaultValue = "24"
+
+[setting.perpsVirtualMakerFeeRatio]
+defaultValue = "0.0005"
+
+[setting.perpsVirtualTakerFeeRatio]
+defaultValue = "0.0008"
+
+[setting.perpsVirtualLimitOrderMakerFeeRatio]
+defaultValue = "0.0001"
+
+[setting.perpsVirtualLimitOrderTakerFeeRatio]
+defaultValue = "0.0002"
+
+[setting.perpsVirtualMaxMarketSize]
+defaultValue = "<%= String(76542.02) %>"
+
+[setting.perpsVirtualMaxMarketValue]
+defaultValue = "<%= String(172_368) %>"
+
+[setting.perpsVirtualInitialMarginRatio]
+defaultValue = "4.1104861111111095"
+
+[setting.perpsVirtualMaintenanceMarginScalar]
+defaultValue = "0.317"
+
+[setting.perpsVirtualMinimumInitialMarginRatio]
+defaultValue = "0.05"
+
+[setting.perpsVirtualFlagRewardRatioD18]
+defaultValue = "0.0003"
+
+[setting.perpsVirtualMaxLiquidationLimitAccumulationMultiplier]
+defaultValue = "1.5"
+
+[setting.perpsVirtualMaxSecondsInLiquidationWindow]
+defaultValue = "30"
+
+[setting.perpsVirtualMinimumPositionMargin]
+defaultValue = "25"
+
+[setting.perpsVirtualLockedOiRatio]
+defaultValue = "0.5"
+
+[setting.perpsVirtualSynthMaxCollateralAmount]
+defaultValue = "<%= MaxUint256 %>"
+
+[setting.perpsVirtualMaxLiquidationPd]
+defaultValue = "0.0005"
+
+[setting.perpsVirtualEndorsedLiquidator]
+defaultValue = "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"
+
+[setting.commitmentPriceDelay]
+defaultValue = "2"
+
+[setting.bigCapSettlementDelay]
+defaultValue = "2"
