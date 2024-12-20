@@ -38,52 +38,35 @@ include = [
 [setting.perpsVirtualEndorsedLiquidator]
 
 [invoke.createperpsVirtualMarket]
-target = [
-    "perpsFactory.PerpsMarketProxy",
-]
+target = ["perpsFactory.PerpsMarketProxy"]
 func = "createMarket"
-args = [
-    "<%= settings.perpsVirtualMarketId %>",
-    "Virtuals Protocol",
-    "VIRTUAL",
-]
-depends = [
-    "provision.system",
-    "provision.perpsFactory",
-]
+args = ["<%= settings.perpsVirtualMarketId %>", "Virtuals Protocol", "VIRTUAL"]
+depends = ["provision.system", "provision.perpsFactory"]
 
 [invoke.createperpsVirtualMarket.fromCall]
 func = "owner"
 
 [invoke.setperpsVirtualPrice]
-target = [
-    "perpsFactory.PerpsMarketProxy",
-]
+target = ["perpsFactory.PerpsMarketProxy"]
 func = "updatePriceData"
 args = [
     "<%= settings.perpsVirtualMarketId %>",
     "<%= extras.perpsVirtual_oracle_id %>",
     "<%= settings.bigCapStrictStalenessTolerance %>",
 ]
-depends = [
-    "invoke.createperpsVirtualMarket",
-]
+depends = ["invoke.createperpsVirtualMarket"]
 
 [invoke.setperpsVirtualPrice.fromCall]
 func = "owner"
 
 [invoke.addperpsVirtualSettlementStrategy]
-target = [
-    "perpsFactory.PerpsMarketProxy",
-]
+target = ["perpsFactory.PerpsMarketProxy"]
 func = "addSettlementStrategy"
 args = [
     "<%= settings.perpsVirtualMarketId %>",
     { strategyType = "0", settlementDelay = "0", settlementWindowDuration = "1", priceVerificationContract = "0x0000000000000000000000000000000000000000", feedId = "0x0000000000000000000000000000000000000000000000000000000000000000", settlementReward = "0", disabled = false, commitmentPriceDelay = "0" },
 ]
-depends = [
-    "invoke.createperpsVirtualMarket",
-]
+depends = ["invoke.createperpsVirtualMarket"]
 
 [invoke.addperpsVirtualSettlementStrategy.fromCall]
 func = "owner"
@@ -93,13 +76,11 @@ event = "SettlementStrategyAdded"
 arg = 2
 
 [invoke.setperpsVirtualSettlementStrategy]
-target = [
-    "perpsFactory.PerpsMarketProxy",
-]
+target = ["perpsFactory.PerpsMarketProxy"]
 func = "setSettlementStrategy"
 args = [
-    "<%= settings.pepePerpsMarketId %>",
-    "<%= extras.pepe_pyth_settlement_strategy %>",
+    "<%= settings.perpsVirtualMarketId %>",
+    "<%= extras.perpsVirtual_pyth_settlement_strategy %>",
     { strategyType = "0", settlementDelay = "<%= settings.bigCapSettlementDelay %>", settlementWindowDuration = "<%= settings.bigCapSettlementWindowDuration %>", priceVerificationContract = "<%= imports.pyth_erc7412_wrapper.contracts.PythERC7412Wrapper.address %>", feedId = "<%= settings.perpsVirtualFeedId %>", settlementReward = "<%= parseEther(settings.settlementReward) %>", disabled = false, commitmentPriceDelay = "2" },
 ]
 depends = [
@@ -117,75 +98,57 @@ depends = [
 func = "owner"
 
 [invoke.setperpsVirtualFundingParameters]
-target = [
-    "perpsFactory.PerpsMarketProxy",
-]
+target = ["perpsFactory.PerpsMarketProxy"]
 func = "setFundingParameters"
 args = [
     "<%= settings.perpsVirtualMarketId %>",
     "<%= parseEther(settings.perpsVirtualSkewScale) %>",
     "<%= parseEther(settings.perpsVirtualMaxFundingVelocity) %>",
 ]
-depends = [
-    "invoke.createperpsVirtualMarket",
-]
+depends = ["invoke.createperpsVirtualMarket"]
 
 [invoke.setperpsVirtualFundingParameters.fromCall]
 func = "owner"
 
 [invoke.setperpsVirtualOrderFees]
-target = [
-    "perpsFactory.PerpsMarketProxy",
-]
+target = ["perpsFactory.PerpsMarketProxy"]
 func = "setOrderFees"
 args = [
     "<%= settings.perpsVirtualMarketId %>",
     "<%= parseEther(settings.perpsVirtualMakerFeeRatio) %>",
     "<%= parseEther(settings.perpsVirtualTakerFeeRatio) %>",
 ]
-depends = [
-    "invoke.createperpsVirtualMarket",
-]
+depends = ["invoke.createperpsVirtualMarket"]
 
 [invoke.setperpsVirtualOrderFees.fromCall]
 func = "owner"
 
 [invoke.setperpsVirtualMaxMarketSize]
-target = [
-    "perpsFactory.PerpsMarketProxy",
-]
+target = ["perpsFactory.PerpsMarketProxy"]
 func = "setMaxMarketSize"
 args = [
     "<%= settings.perpsVirtualMarketId %>",
     "<%= parseEther(settings.perpsVirtualMaxMarketSize) %>",
 ]
-depends = [
-    "invoke.createperpsVirtualMarket",
-]
+depends = ["invoke.createperpsVirtualMarket"]
 
 [invoke.setperpsVirtualMaxMarketSize.fromCall]
 func = "owner"
 
 [invoke.setperpsVirtualMaxMarketValue]
-target = [
-    "perpsFactory.PerpsMarketProxy",
-]
+target = ["perpsFactory.PerpsMarketProxy"]
 func = "setMaxMarketValue"
 args = [
     "<%= settings.perpsVirtualMarketId %>",
     "<%= parseEther(settings.perpsVirtualMaxMarketValue) %>",
 ]
-depends = [
-    "invoke.createperpsVirtualMarket",
-]
+depends = ["invoke.createperpsVirtualMarket"]
 
 [invoke.setperpsVirtualMaxMarketValue.fromCall]
 func = "owner"
 
 [invoke.setperpsVirtualMaxLiquidationParameters]
-target = [
-    "perpsFactory.PerpsMarketProxy",
-]
+target = ["perpsFactory.PerpsMarketProxy"]
 func = "setMaxLiquidationParameters"
 args = [
     "<%= settings.perpsVirtualMarketId %>",
@@ -194,17 +157,13 @@ args = [
     "<%= parseEther(settings.perpsVirtualMaxLiquidationPd) %>",
     "<%= settings.perpsVirtualEndorsedLiquidator %>",
 ]
-depends = [
-    "invoke.createperpsVirtualMarket",
-]
+depends = ["invoke.createperpsVirtualMarket"]
 
 [invoke.setperpsVirtualMaxLiquidationParameters.fromCall]
 func = "owner"
 
 [invoke.setperpsVirtualLiquidationParameters]
-target = [
-    "perpsFactory.PerpsMarketProxy",
-]
+target = ["perpsFactory.PerpsMarketProxy"]
 func = "setLiquidationParameters"
 args = [
     "<%= settings.perpsVirtualMarketId %>",
@@ -214,25 +173,19 @@ args = [
     "<%= parseEther(settings.perpsVirtualFlagRewardRatioD18) %>",
     "<%= parseEther(settings.perpsVirtualMinimumPositionMargin) %>",
 ]
-depends = [
-    "invoke.createperpsVirtualMarket",
-]
+depends = ["invoke.createperpsVirtualMarket"]
 
 [invoke.setperpsVirtualLiquidationParameters.fromCall]
 func = "owner"
 
 [invoke.setperpsVirtualLockedOiRatio]
-target = [
-    "perpsFactory.PerpsMarketProxy",
-]
+target = ["perpsFactory.PerpsMarketProxy"]
 func = "setLockedOiRatio"
 args = [
     "<%= settings.perpsVirtualMarketId %>",
     "<%= parseEther(settings.perpsVirtualLockedOiRatio) %>",
 ]
-depends = [
-    "invoke.createperpsVirtualMarket",
-]
+depends = ["invoke.createperpsVirtualMarket"]
 
 [invoke.setperpsVirtualLockedOiRatio.fromCall]
 func = "owner"
