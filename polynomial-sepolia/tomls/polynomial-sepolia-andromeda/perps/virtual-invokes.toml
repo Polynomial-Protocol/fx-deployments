@@ -190,7 +190,7 @@ depends = ["invoke.createperpsVirtualMarket"]
 [invoke.setperpsVirtualLockedOiRatio.fromCall]
 func = "owner"
 
-[invoke.setPerpsXrpLimitOrderFees]
+[invoke.setPerpsVirtualLimitOrderFees]
 target = ["perpsFactory.PerpsMarketProxy"]
 func = "setLimitOrderFees"
 args = [
@@ -200,5 +200,5 @@ args = [
 ]
 depends = ["invoke.createperpsVirtualMarket"]
 
-[invoke.setPerpsXrpLimitOrderFees.fromCall]
+[invoke.setPerpsVirtualLimitOrderFees.fromCall]
 func = "owner"

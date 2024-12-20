@@ -229,7 +229,7 @@ def add_new_market(market_info, is_testnet=False):
     }
 
     if is_testnet:
-        invoke[f"setPerpsXrpLimitOrderFees"] = {
+        invoke[f"set{prefix}LimitOrderFees"] = {
             "target": ["perpsFactory.PerpsMarketProxy"],
             "fromCall": {"func": "owner"},
             "func": "setLimitOrderFees",
