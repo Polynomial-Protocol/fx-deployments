@@ -1,12 +1,11 @@
 [setting.pythBtcFeedId]
-# https://pyth.network/developers/price-feed-ids
 defaultValue = "0xe62df6c8b4a85fe1a67db44dc12de5db330f7ac66b72dc658afedf0f4a415b43"
 
 [setting.btcPerpsMarketId]
 defaultValue = "200"
 
 [setting.perpsBtcSkewScale]
-defaultValue = "<%= String(120_000) %>"
+defaultValue = "<%= String(20_000) %>"
 
 [setting.perpsBtcMaxFundingVelocity]
 defaultValue = "9"
@@ -18,19 +17,19 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsBtcMakerFeeRatio]
-defaultValue = "0.0002"
-
-[setting.perpsBtcTakerFeeRatio]
 defaultValue = "0.0005"
 
+[setting.perpsBtcTakerFeeRatio]
+defaultValue = "0.0008"
+
 [setting.perpsBtcMaxMarketSize]
-defaultValue = "5.5"
+defaultValue = "<%= String(13.91) %>"
 
 [setting.perpsBtcMaxMarketValue]
-defaultValue = "500000"
+defaultValue = "<%= String(1_320_000) %>"
 
 [setting.perpsBtcInitialMarginRatio]
-defaultValue = "13.35"
+defaultValue = "1.54"
 
 [setting.perpsBtcMaintenanceMarginScalar]
 defaultValue = "0.28"
@@ -61,9 +60,3 @@ defaultValue = "0.0005"
 
 [setting.perpsBtcEndorsedLiquidator]
 defaultValue = "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"
-
-[setting.commitmentPriceDelay]
-defaultValue = "2"
-
-[setting.bigCapSettlementDelay]
-defaultValue = "2"

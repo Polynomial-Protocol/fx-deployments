@@ -1,12 +1,11 @@
 [setting.pythWifFeedId]
-# https://pyth.network/developers/price-feed-ids
 defaultValue = "0x4ca4beeca86f0d164160323817a4e42b10010a724c2217c6ee41b54cd4cc61fc"
 
 [setting.wifPerpsMarketId]
 defaultValue = "500"
 
 [setting.perpsWifSkewScale]
-defaultValue = "<%= String(37_000_000) %>"
+defaultValue = "<%= String(10_000_000) %>"
 
 [setting.perpsWifMaxFundingVelocity]
 defaultValue = "24"
@@ -24,10 +23,10 @@ defaultValue = "0.0005"
 defaultValue = "0.0008"
 
 [setting.perpsWifMaxMarketSize]
-defaultValue = "11750"
+defaultValue = "<%= String(93014.96) %>"
 
 [setting.perpsWifMaxMarketValue]
-defaultValue = "50000"
+defaultValue = "<%= String(172_368) %>"
 
 [setting.perpsWifInitialMarginRatio]
 defaultValue = "5.99"

@@ -1,5 +1,4 @@
 [setting.pythLtcFeedId]
-# https://pyth.network/developers/price-feed-ids
 defaultValue = "0x6e3f3fa8253588df9326580180233eb791e03b443a3ba7a1d892e73874e19a54"
 
 [setting.perpsLtcMarketId]
@@ -24,10 +23,10 @@ defaultValue = "0.0005"
 defaultValue = "0.0008"
 
 [setting.perpsLtcMaxMarketSize]
-defaultValue = "1888"
+defaultValue = "<%= String(1839.44) %>"
 
 [setting.perpsLtcMaxMarketValue]
-defaultValue = "250000"
+defaultValue = "<%= String(172_368) %>"
 
 [setting.perpsLtcInitialMarginRatio]
 defaultValue = "0.005"

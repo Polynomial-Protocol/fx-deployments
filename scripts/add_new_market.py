@@ -124,8 +124,8 @@ def add_new_market(market_info, is_testnet=False):
         "fromCall": {"func": "owner"},
         "func": "setSettlementStrategy",
         "args": [
-            "<%= settings.pepePerpsMarketId %>",
-            "<%= extras.pepe_pyth_settlement_strategy %>",
+            f"<%= settings.{prefix}MarketId %>",
+            f"<%= extras.{prefix}_pyth_settlement_strategy %>",
             {
                 "strategyType": "0",
                 "settlementDelay": "<%= settings.bigCapSettlementDelay %>",
@@ -229,7 +229,7 @@ def add_new_market(market_info, is_testnet=False):
     }
 
     if is_testnet:
-        invoke[f"setPerpsXrpLimitOrderFees"] = {
+        invoke[f"set{prefix}LimitOrderFees"] = {
             "target": ["perpsFactory.PerpsMarketProxy"],
             "fromCall": {"func": "owner"},
             "func": "setLimitOrderFees",

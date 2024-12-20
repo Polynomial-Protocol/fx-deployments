@@ -1,5 +1,4 @@
 [setting.pythEthFeedId]
-# https://pyth.network/developers/price-feed-ids
 defaultValue = "0xff61491a931112ddf1bd8147cd1b641375f79f5825126d665480874634fd0ace"
 
 [setting.ethPerpsMarketId]
@@ -24,10 +23,10 @@ defaultValue = "0.0002"
 defaultValue = "0.0005"
 
 [setting.perpsEthMaxMarketSize]
-defaultValue = "310"
+defaultValue = "<%= String(402.11) %>"
 
 [setting.perpsEthMaxMarketValue]
-defaultValue = "1200000"
+defaultValue = "<%= String(1_320_000) %>"
 
 [setting.perpsEthInitialMarginRatio]
 defaultValue = "1.16"
