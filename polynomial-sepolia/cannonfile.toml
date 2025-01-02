@@ -103,6 +103,15 @@ include = [
     "tomls/polynomial-sepolia-andromeda/perps/hype-invokes.toml",
     "tomls/oracles/pyth-hype.toml",
     "tomls/polynomial-sepolia-andromeda/perps/hype.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/fartcoin-invokes.toml",
+    "tomls/oracles/pyth-fartcoin.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/fartcoin.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/move-invokes.toml",
+    "tomls/oracles/pyth-move.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/move.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/ai16z-invokes.toml",
+    "tomls/oracles/pyth-ai16z.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/ai16z.toml",
 ]
 
 [setting.commitmentPriceDelay]

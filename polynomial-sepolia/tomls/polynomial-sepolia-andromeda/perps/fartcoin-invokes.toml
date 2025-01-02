@@ -1,0 +1,255 @@
+include = [
+    "../../oracles/pyth-fartcoin.toml",
+    "../../markets/common/bigcap-settings.toml",
+]
+
+[setting.perpsFartcoinMarketId]
+
+[setting.perpsFartcoinSkewScale]
+
+[setting.perpsFartcoinMaxFundingVelocity]
+
+[setting.perpsFartcoinMakerFeeRatio]
+
+[setting.perpsFartcoinTakerFeeRatio]
+
+[setting.perpsFartcoinMaxMarketSize]
+
+[setting.perpsFartcoinInitialMarginRatio]
+
+[setting.perpsFartcoinMaintenanceMarginScalar]
+
+[setting.perpsFartcoinMinimumInitialMarginRatio]
+
+[setting.perpsFartcoinFlagRewardRatioD18]
+
+[setting.perpsFartcoinMaxLiquidationLimitAccumulationMultiplier]
+
+[setting.perpsFartcoinMaxSecondsInLiquidationWindow]
+
+[setting.perpsFartcoinMinimumPositionMargin]
+
+[setting.perpsFartcoinLockedOiRatio]
+
+[setting.perpsFartcoinSynthMaxCollateralAmount]
+
+[setting.perpsFartcoinMaxLiquidationPd]
+
+[setting.perpsFartcoinEndorsedLiquidator]
+
+[invoke.createperpsFartcoinMarket]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "createMarket"
+args = [
+    "<%= settings.perpsFartcoinMarketId %>",
+    "Fartcoin",
+    "FARTCOIN",
+]
+depends = [
+    "provision.system",
+    "provision.perpsFactory",
+]
+
+[invoke.createperpsFartcoinMarket.fromCall]
+func = "owner"
+
+[invoke.setperpsFartcoinPrice]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "updatePriceData"
+args = [
+    "<%= settings.perpsFartcoinMarketId %>",
+    "<%= extras.perpsFartcoin_oracle_id %>",
+    "<%= settings.bigCapStrictStalenessTolerance %>",
+]
+depends = [
+    "invoke.createperpsFartcoinMarket",
+]
+
+[invoke.setperpsFartcoinPrice.fromCall]
+func = "owner"
+
+[invoke.addperpsFartcoinSettlementStrategy]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "addSettlementStrategy"
+args = [
+    "<%= settings.perpsFartcoinMarketId %>",
+    { strategyType = "0", settlementDelay = "0", settlementWindowDuration = "1", priceVerificationContract = "0x0000000000000000000000000000000000000000", feedId = "0x0000000000000000000000000000000000000000000000000000000000000000", settlementReward = "0", disabled = false, commitmentPriceDelay = "0" },
+]
+depends = [
+    "invoke.createperpsFartcoinMarket",
+]
+
+[invoke.addperpsFartcoinSettlementStrategy.fromCall]
+func = "owner"
+
+[invoke.addperpsFartcoinSettlementStrategy.extra.perpsFartcoin_pyth_settlement_strategy]
+event = "SettlementStrategyAdded"
+arg = 2
+
+[invoke.setperpsFartcoinSettlementStrategy]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setSettlementStrategy"
+args = [
+    "<%= settings.perpsFartcoinMarketId %>",
+    "<%= extras.perpsFartcoin_pyth_settlement_strategy %>",
+    { strategyType = "0", settlementDelay = "<%= settings.bigCapSettlementDelay %>", settlementWindowDuration = "<%= settings.bigCapSettlementWindowDuration %>", priceVerificationContract = "<%= imports.pyth_erc7412_wrapper.contracts.PythERC7412Wrapper.address %>", feedId = "<%= settings.perpsFartcoinFeedId %>", settlementReward = "<%= parseEther(settings.settlementReward) %>", disabled = false, commitmentPriceDelay = "2" },
+]
+depends = [
+    "provision.perpsFactory",
+    "setting.perpsFartcoinMarketId",
+    "invoke.addperpsFartcoinSettlementStrategy",
+    "provision.pyth_erc7412_wrapper",
+    "setting.bigCapSettlementDelay",
+    "setting.bigCapSettlementWindowDuration",
+    "setting.perpsFartcoinFeedId",
+    "setting.settlementReward",
+]
+
+[invoke.setperpsFartcoinSettlementStrategy.fromCall]
+func = "owner"
+
+[invoke.setperpsFartcoinFundingParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setFundingParameters"
+args = [
+    "<%= settings.perpsFartcoinMarketId %>",
+    "<%= parseEther(settings.perpsFartcoinSkewScale) %>",
+    "<%= parseEther(settings.perpsFartcoinMaxFundingVelocity) %>",
+]
+depends = [
+    "invoke.createperpsFartcoinMarket",
+]
+
+[invoke.setperpsFartcoinFundingParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsFartcoinOrderFees]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setOrderFees"
+args = [
+    "<%= settings.perpsFartcoinMarketId %>",
+    "<%= parseEther(settings.perpsFartcoinMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsFartcoinTakerFeeRatio) %>",
+]
+depends = [
+    "invoke.createperpsFartcoinMarket",
+]
+
+[invoke.setperpsFartcoinOrderFees.fromCall]
+func = "owner"
+
+[invoke.setperpsFartcoinMaxMarketSize]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxMarketSize"
+args = [
+    "<%= settings.perpsFartcoinMarketId %>",
+    "<%= parseEther(settings.perpsFartcoinMaxMarketSize) %>",
+]
+depends = [
+    "invoke.createperpsFartcoinMarket",
+]
+
+[invoke.setperpsFartcoinMaxMarketSize.fromCall]
+func = "owner"
+
+[invoke.setperpsFartcoinMaxMarketValue]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxMarketValue"
+args = [
+    "<%= settings.perpsFartcoinMarketId %>",
+    "<%= parseEther(settings.perpsFartcoinMaxMarketValue) %>",
+]
+depends = [
+    "invoke.createperpsFartcoinMarket",
+]
+
+[invoke.setperpsFartcoinMaxMarketValue.fromCall]
+func = "owner"
+
+[invoke.setperpsFartcoinMaxLiquidationParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxLiquidationParameters"
+args = [
+    "<%= settings.perpsFartcoinMarketId %>",
+    "<%= parseEther(settings.perpsFartcoinMaxLiquidationLimitAccumulationMultiplier) %>",
+    "<%= settings.perpsFartcoinMaxSecondsInLiquidationWindow %>",
+    "<%= parseEther(settings.perpsFartcoinMaxLiquidationPd) %>",
+    "<%= settings.perpsFartcoinEndorsedLiquidator %>",
+]
+depends = [
+    "invoke.createperpsFartcoinMarket",
+]
+
+[invoke.setperpsFartcoinMaxLiquidationParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsFartcoinLiquidationParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLiquidationParameters"
+args = [
+    "<%= settings.perpsFartcoinMarketId %>",
+    "<%= parseEther(settings.perpsFartcoinInitialMarginRatio) %>",
+    "<%= parseEther(settings.perpsFartcoinMinimumInitialMarginRatio) %>",
+    "<%= parseEther(settings.perpsFartcoinMaintenanceMarginScalar) %>",
+    "<%= parseEther(settings.perpsFartcoinFlagRewardRatioD18) %>",
+    "<%= parseEther(settings.perpsFartcoinMinimumPositionMargin) %>",
+]
+depends = [
+    "invoke.createperpsFartcoinMarket",
+]
+
+[invoke.setperpsFartcoinLiquidationParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsFartcoinLockedOiRatio]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLockedOiRatio"
+args = [
+    "<%= settings.perpsFartcoinMarketId %>",
+    "<%= parseEther(settings.perpsFartcoinLockedOiRatio) %>",
+]
+depends = [
+    "invoke.createperpsFartcoinMarket",
+]
+
+[invoke.setperpsFartcoinLockedOiRatio.fromCall]
+func = "owner"
+
+[invoke.setperpsFartcoinLimitOrderFees]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLimitOrderFees"
+args = [
+    "<%= settings.perpsFartcoinMarketId %>",
+    "<%= parseEther(settings.perpsFartcoinLimitOrderMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsFartcoinLimitOrderTakerFeeRatio) %>",
+]
+depends = [
+    "invoke.createperpsFartcoinMarket",
+]
+
+[invoke.setperpsFartcoinLimitOrderFees.fromCall]
+func = "owner"

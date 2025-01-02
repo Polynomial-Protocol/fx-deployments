@@ -1,0 +1,68 @@
+[setting.perpsFartcoinFeedId]
+defaultValue = "0x58cd29ef0e714c5affc44f269b2c1899a52da4169d7acc147b9da692e6953608"
+
+[setting.perpsFartcoinMarketId]
+defaultValue = "2300"
+
+[setting.perpsFartcoinSkewScale]
+defaultValue = "<%= String(7_763_547) %>"
+
+[setting.perpsFartcoinMaxFundingVelocity]
+defaultValue = "24"
+
+[setting.perpsFartcoinMakerFeeRatio]
+defaultValue = "0.0005"
+
+[setting.perpsFartcoinTakerFeeRatio]
+defaultValue = "0.0008"
+
+[setting.perpsFartcoinLimitOrderMakerFeeRatio]
+defaultValue = "0.0001"
+
+[setting.perpsFartcoinLimitOrderTakerFeeRatio]
+defaultValue = "0.0002"
+
+[setting.perpsFartcoinMaxMarketSize]
+defaultValue = "<%= String(130361.65) %>"
+
+[setting.perpsFartcoinMaxMarketValue]
+defaultValue = "<%= String(167_187) %>"
+
+[setting.perpsFartcoinInitialMarginRatio]
+defaultValue = "3.0555555555555545"
+
+[setting.perpsFartcoinMaintenanceMarginScalar]
+defaultValue = "0.317"
+
+[setting.perpsFartcoinMinimumInitialMarginRatio]
+defaultValue = "0.05"
+
+[setting.perpsFartcoinFlagRewardRatioD18]
+defaultValue = "0.0003"
+
+[setting.perpsFartcoinMaxLiquidationLimitAccumulationMultiplier]
+defaultValue = "1.5"
+
+[setting.perpsFartcoinMaxSecondsInLiquidationWindow]
+defaultValue = "30"
+
+[setting.perpsFartcoinMinimumPositionMargin]
+defaultValue = "25"
+
+[setting.perpsFartcoinLockedOiRatio]
+defaultValue = "0.5"
+
+[setting.perpsFartcoinSynthMaxCollateralAmount]
+defaultValue = "<%= MaxUint256 %>"
+
+[setting.perpsFartcoinMaxLiquidationPd]
+defaultValue = "0.0005"
+
+[setting.perpsFartcoinEndorsedLiquidator]
+defaultValue = "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"
+
+[setting.commitmentPriceDelay]
+defaultValue = "2"
+
+[setting.bigCapSettlementDelay]
+defaultValue = "2"

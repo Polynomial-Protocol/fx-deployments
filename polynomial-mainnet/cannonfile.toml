@@ -102,6 +102,15 @@ include = [
     "tomls/polynomial-mainnet-andromeda/perps/hype-invokes.toml",
     "tomls/oracles/pyth-hype.toml",
     "tomls/polynomial-mainnet-andromeda/perps/hype.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/fartcoin-invokes.toml",
+    "tomls/oracles/pyth-fartcoin.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/fartcoin.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/move-invokes.toml",
+    "tomls/oracles/pyth-move.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/move.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/ai16z-invokes.toml",
+    "tomls/oracles/pyth-ai16z.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/ai16z.toml",
 ]
 
 [setting.commitmentPriceDelay]
