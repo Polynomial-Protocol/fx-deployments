@@ -1,0 +1,65 @@
+[provision.RewardsDistributor_fxeth_liquidation_rewards]
+source = "fx-rewards-dist-ext:3.8.1"
+target = "fx-rewards-dist-ext:3.8.1@perps-fxeth"
+options.salt = "<%= settings.salt %>"
+options.rewardManager = "<%= imports.system.contracts.CoreProxy.address %>"
+options.poolId = "<%= settings.main_pool_id %>"
+options.payoutToken = "<%= extras.fx_eth_token_address %>"
+options.payoutTokenDecimals = "18"
+options.name = "Perps Wrapped ETH Liquidation Rewards"
+options.authorizedDistributor = "<%= imports.perpsFactory.contracts.PerpsMarketProxy.address %>"
+[invoke.PerpsMarketProxy_registerDistributor_synth_weth_liquidations]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "registerDistributor"
+args = [
+    "<%= extras.fx_eth_token_address %>",
+    "<%= imports.RewardsDistributor_fxeth_liquidation_rewards.contracts.RewardsDistributorExternal.address %>",
+    "<%= extras.fx_eth_market_id %>",
+    [
+        "<%= extras.synth_usdc_token_address %>",
+        "<%= settings.sdai_token_address %>",
+        "<%= settings.SUSDE_token_address %>",
+        "<%= settings.usd0_token_address %>",
+    ],
+]
+[invoke.CoreProxy_registerRewardsDistributor_fxeth_liquidation_rewards_for_MainPool_usdc_lp]
+target = ["system.CoreProxy"]
+fromCall.func = "getPoolOwner"
+fromCall.args = ["<%= settings.main_pool_id %>"]
+func = "registerRewardsDistributor"
+args = [
+    "<%= settings.main_pool_id %>",
+    "<%= extras.synth_usdc_token_address %>",
+    "<%= imports.RewardsDistributor_fxeth_liquidation_rewards.contracts.RewardsDistributorExternal.address %>",
+]
+[invoke.CoreProxy_registerRewardsDistributor_sweth_liquidation_rewards_for_MainPool_sdai_lp]
+target = ["system.CoreProxy"]
+fromCall.func = "getPoolOwner"
+fromCall.args = ["<%= settings.main_pool_id %>"]
+func = "registerRewardsDistributor"
+args = [
+    "<%= settings.main_pool_id %>",
+    "<%= settings.sdai_token_address %>",
+    "<%= imports.RewardsDistributor_fxeth_liquidation_rewards.contracts.RewardsDistributorExternal.address %>",
+]
+[invoke.CoreProxy_registerRewardsDistributor_sweth_liquidation_rewards_for_MainPool_susde_lp]
+target = ["system.CoreProxy"]
+fromCall.func = "getPoolOwner"
+fromCall.args = ["<%= settings.main_pool_id %>"]
+func = "registerRewardsDistributor"
+args = [
+    "<%= settings.main_pool_id %>",
+    "<%= settings.SUSDE_token_address %>",
+    "<%= imports.RewardsDistributor_fxeth_liquidation_rewards.contracts.RewardsDistributorExternal.address %>",
+]
+[invoke.CoreProxy_registerRewardsDistributor_sweth_liquidation_rewards_for_MainPool_usd0_lp]
+target = ["system.CoreProxy"]
+fromCall.func = "getPoolOwner"
+fromCall.args = ["<%= settings.main_pool_id %>"]
+func = "registerRewardsDistributor"
+args = [
+    "<%= settings.main_pool_id %>",
+    "<%= settings.usd0_token_address %>",
+    "<%= imports.RewardsDistributor_fxeth_liquidation_rewards.contracts.RewardsDistributorExternal.address %>",
+]

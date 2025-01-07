@@ -36,6 +36,7 @@ include = [
     "tomls/collaterals/usd0++.toml",
     "tomls/polynomial-mainnet-andromeda/perps/collaterals/usd.toml",
     "tomls/polynomial-mainnet-andromeda/perps/collaterals/eth.toml",
+    "tomls/polynomial-mainnet-andromeda/rewards/fxeth_perps_liquidations_rewards.toml",
     "tomls/polynomial-mainnet-andromeda/perps/btc-invokes.toml",
     "tomls/oracles/pyth-btc.toml",
     "tomls/polynomial-mainnet-andromeda/perps/btc.toml",
@@ -170,9 +171,7 @@ salt = "<%= settings.salt %>"
 pythAddress = "<%= settings.pyth_price_verification_address %>"
 
 [invoke.setMainPoolConfig]
-target = [
-    "system.CoreProxy",
-]
+target = ["system.CoreProxy"]
 func = "setPoolConfiguration"
 args = [
     "<%= settings.main_pool_id %>",
@@ -183,6 +182,4 @@ args = [
 
 [invoke.setMainPoolConfig.fromCall]
 func = "getPoolOwner"
-args = [
-    "<%= settings.main_pool_id %>",
-]
+args = ["<%= settings.main_pool_id %>"]
