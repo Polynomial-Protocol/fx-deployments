@@ -14,7 +14,7 @@ defaultValue = "0xff61491a931112ddf1bd8147cd1b641375f79f5825126d665480874634fd0a
 defaultValue = "https://hermes.pyth.network/v2/updates/price/latest?ids[]=<%= settings.pyth_feed_id_eth %>"
 
 [setting.weth_address]
-defaultValue = "0x4200000000000000000000000000000000000006"
+defaultValue = "0x6225bC323f277e3D342Ec600d132aCc7beDA1fc0"
 
 [invoke.createEthSynth]
 target = ["spotFactory.SpotMarketProxy"]
@@ -90,3 +90,31 @@ fromCall.func = "getMarketOwner"
 fromCall.args = ["<%= extras.fx_eth_market_id %>"]
 func = "setAtomicFixedFee"
 args = ["<%= extras.fx_eth_market_id %>", "<%= parseEther(String(0.02)) %>"]
+
+[invoke.configure_eth_collateral]
+target = ["system.CoreProxy"]
+fromCall.func = "owner"
+func = "configureCollateral"  # "args" see below in the multiline block
+
+[[invoke.configure_eth_collateral.args]]
+tokenAddress = "<%= settings.weth_address %>"
+oracleNodeId = "<%= extras.eth_oracle_id %>"
+issuanceRatioD18 = "<%= parseEther('2') %>"
+liquidationRatioD18 = "<%= parseEther('1.1') %>"
+liquidationRewardD18 = "<%= parseEther('0.0001') %>"
+minDelegationD18 = "<%= parseEther('0.01') %>"
+depositingEnabled = false
+
+[invoke.configure_fxeth_collateral]
+target = ["system.CoreProxy"]
+fromCall.func = "owner"
+func = "configureCollateral"  # "args" see below in the multiline block
+
+[[invoke.configure_fxeth_collateral.args]]
+tokenAddress = "<%= extras.fx_eth_token_address %>"
+oracleNodeId = "<%= extras.eth_oracle_id %>"
+issuanceRatioD18 = "<%= parseEther('2') %>"
+liquidationRatioD18 = "<%= parseEther('1.1') %>"
+liquidationRewardD18 = "<%= parseEther('0.0001') %>"
+minDelegationD18 = "<%= parseEther('0.01') %>"
+depositingEnabled = false
