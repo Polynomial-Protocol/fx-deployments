@@ -1,0 +1,68 @@
+[setting.perpsSnxFeedId]
+defaultValue = "0x39d020f60982ed892abbcd4a06a276a9f9b7bfbce003204c110b6e488f502da3"
+
+[setting.perpsSnxMarketId]
+defaultValue = "2600"
+
+[setting.perpsSnxSkewScale]
+defaultValue = "<%= String(3_429_958) %>"
+
+[setting.perpsSnxMaxFundingVelocity]
+defaultValue = "24"
+
+[setting.perpsSnxMakerFeeRatio]
+defaultValue = "0.0005"
+
+[setting.perpsSnxTakerFeeRatio]
+defaultValue = "0.0008"
+
+[setting.perpsSnxLimitOrderMakerFeeRatio]
+defaultValue = "0.0001"
+
+[setting.perpsSnxLimitOrderTakerFeeRatio]
+defaultValue = "0.0002"
+
+[setting.perpsSnxMaxMarketSize]
+defaultValue = "<%= String(84377.79) %>"
+
+[setting.perpsSnxMaxMarketValue]
+defaultValue = "<%= String(158_609) %>"
+
+[setting.perpsSnxInitialMarginRatio]
+defaultValue = "1.9699094410416658"
+
+[setting.perpsSnxMaintenanceMarginScalar]
+defaultValue = "0.317"
+
+[setting.perpsSnxMinimumInitialMarginRatio]
+defaultValue = "0.05"
+
+[setting.perpsSnxFlagRewardRatioD18]
+defaultValue = "0.0003"
+
+[setting.perpsSnxMaxLiquidationLimitAccumulationMultiplier]
+defaultValue = "1.5"
+
+[setting.perpsSnxMaxSecondsInLiquidationWindow]
+defaultValue = "30"
+
+[setting.perpsSnxMinimumPositionMargin]
+defaultValue = "25"
+
+[setting.perpsSnxLockedOiRatio]
+defaultValue = "0.5"
+
+[setting.perpsSnxSynthMaxCollateralAmount]
+defaultValue = "<%= MaxUint256 %>"
+
+[setting.perpsSnxMaxLiquidationPd]
+defaultValue = "0.0005"
+
+[setting.perpsSnxEndorsedLiquidator]
+defaultValue = "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"
+
+[setting.commitmentPriceDelay]
+defaultValue = "2"
+
+[setting.bigCapSettlementDelay]
+defaultValue = "2"

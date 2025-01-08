@@ -112,6 +112,15 @@ include = [
     "tomls/polynomial-sepolia-andromeda/perps/ai16z-invokes.toml",
     "tomls/oracles/pyth-ai16z.toml",
     "tomls/polynomial-sepolia-andromeda/perps/ai16z.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/snx-invokes.toml",
+    "tomls/oracles/pyth-snx.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/snx.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/pyth-invokes.toml",
+    "tomls/oracles/pyth-pyth.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/pyth.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/spx-invokes.toml",
+    "tomls/oracles/pyth-spx.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/spx.toml",
 ]
 
 [setting.commitmentPriceDelay]
