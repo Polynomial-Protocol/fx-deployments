@@ -29,7 +29,7 @@ defaultValue = "<%= String(3_700) %>"
 defaultValue = "<%= String(1_300) %>"
 
 [setting.perps_liquidation_min_keeper_reward_usd]
-defaultValue = "5"
+defaultValue = "7.5"
 
 [setting.perps_liquidation_min_keeper_profit_ratio_d18]
 defaultValue = "0.30"
@@ -80,7 +80,7 @@ args = [["0"]]
 target = ["perpsFactory.PerpsMarketProxy"]
 fromCall.func = "owner"
 func = "setPerAccountCaps"
-args = ["25", "1"]
+args = ["30", "1"]
 
 [invoke.setPerpsMarketKeeperCostNodeId]
 target = ["perpsFactory.PerpsMarketProxy"]

@@ -23,10 +23,10 @@ defaultValue = "0.0005"
 defaultValue = "0.0008"
 
 [setting.perpsTiaMaxMarketSize]
-defaultValue = "<%= String(33168.58) %>"
+defaultValue = "<%= String(34035.06) %>"
 
 [setting.perpsTiaMaxMarketValue]
-defaultValue = "<%= String(167_187) %>"
+defaultValue = "<%= String(158_609) %>"
 
 [setting.perpsTiaInitialMarginRatio]
 defaultValue = "2.24"

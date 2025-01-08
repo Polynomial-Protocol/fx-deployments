@@ -23,10 +23,10 @@ defaultValue = "0.0005"
 defaultValue = "0.0008"
 
 [setting.perpsLinkMaxMarketSize]
-defaultValue = "<%= String(7578.50) %>"
+defaultValue = "<%= String(7595.59) %>"
 
 [setting.perpsLinkMaxMarketValue]
-defaultValue = "<%= String(167_187) %>"
+defaultValue = "<%= String(158_609) %>"
 
 [setting.perpsLinkInitialMarginRatio]
 defaultValue = "6.73"
