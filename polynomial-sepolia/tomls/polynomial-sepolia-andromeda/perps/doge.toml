@@ -23,10 +23,10 @@ defaultValue = "0.0005"
 defaultValue = "0.0008"
 
 [setting.perpsDogeMaxMarketSize]
-defaultValue = "<%= String(455850.26) %>"
+defaultValue = "<%= String(315357.71) %>"
 
 [setting.perpsDogeMaxMarketValue]
-defaultValue = "<%= String(158_609) %>"
+defaultValue = "<%= String(125_668) %>"
 
 [setting.perpsDogeInitialMarginRatio]
 defaultValue = "6.9"

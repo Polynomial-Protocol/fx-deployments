@@ -1,0 +1,68 @@
+[setting.perpsTrumpFeedId]
+defaultValue = "0x879551021853eec7a7dc827578e8e69da7e4fa8148339aa0d3d5296405be4b1a"
+
+[setting.perpsTrumpMarketId]
+defaultValue = "2900"
+
+[setting.perpsTrumpSkewScale]
+defaultValue = "<%= String(360_261) %>"
+
+[setting.perpsTrumpMaxFundingVelocity]
+defaultValue = "24"
+
+[setting.perpsTrumpMakerFeeRatio]
+defaultValue = "0.0005"
+
+[setting.perpsTrumpTakerFeeRatio]
+defaultValue = "0.0008"
+
+[setting.perpsTrumpLimitOrderMakerFeeRatio]
+defaultValue = "0.0001"
+
+[setting.perpsTrumpLimitOrderTakerFeeRatio]
+defaultValue = "0.0002"
+
+[setting.perpsTrumpMaxMarketSize]
+defaultValue = "<%= String(4527.36) %>"
+
+[setting.perpsTrumpMaxMarketValue]
+defaultValue = "<%= String(125_668) %>"
+
+[setting.perpsTrumpInitialMarginRatio]
+defaultValue = "3.055555555555555"
+
+[setting.perpsTrumpMaintenanceMarginScalar]
+defaultValue = "0.317"
+
+[setting.perpsTrumpMinimumInitialMarginRatio]
+defaultValue = "0.05"
+
+[setting.perpsTrumpFlagRewardRatioD18]
+defaultValue = "0.0003"
+
+[setting.perpsTrumpMaxLiquidationLimitAccumulationMultiplier]
+defaultValue = "1.5"
+
+[setting.perpsTrumpMaxSecondsInLiquidationWindow]
+defaultValue = "30"
+
+[setting.perpsTrumpMinimumPositionMargin]
+defaultValue = "25"
+
+[setting.perpsTrumpLockedOiRatio]
+defaultValue = "0.5"
+
+[setting.perpsTrumpSynthMaxCollateralAmount]
+defaultValue = "<%= MaxUint256 %>"
+
+[setting.perpsTrumpMaxLiquidationPd]
+defaultValue = "0.0005"
+
+[setting.perpsTrumpEndorsedLiquidator]
+defaultValue = "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"
+
+[setting.commitmentPriceDelay]
+defaultValue = "2"
+
+[setting.bigCapSettlementDelay]
+defaultValue = "2"
