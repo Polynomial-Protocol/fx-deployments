@@ -121,6 +121,9 @@ include = [
     "tomls/polynomial-sepolia-andromeda/perps/spx-invokes.toml",
     "tomls/oracles/pyth-spx.toml",
     "tomls/polynomial-sepolia-andromeda/perps/spx.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/trump-invokes.toml",
+    "tomls/oracles/pyth-trump.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/trump.toml",
 ]
 
 [setting.commitmentPriceDelay]

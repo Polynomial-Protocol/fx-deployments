@@ -1,0 +1,255 @@
+include = [
+    "../../oracles/pyth-trump.toml",
+    "../../markets/common/bigcap-settings.toml",
+]
+
+[setting.perpsTrumpMarketId]
+
+[setting.perpsTrumpSkewScale]
+
+[setting.perpsTrumpMaxFundingVelocity]
+
+[setting.perpsTrumpMakerFeeRatio]
+
+[setting.perpsTrumpTakerFeeRatio]
+
+[setting.perpsTrumpMaxMarketSize]
+
+[setting.perpsTrumpInitialMarginRatio]
+
+[setting.perpsTrumpMaintenanceMarginScalar]
+
+[setting.perpsTrumpMinimumInitialMarginRatio]
+
+[setting.perpsTrumpFlagRewardRatioD18]
+
+[setting.perpsTrumpMaxLiquidationLimitAccumulationMultiplier]
+
+[setting.perpsTrumpMaxSecondsInLiquidationWindow]
+
+[setting.perpsTrumpMinimumPositionMargin]
+
+[setting.perpsTrumpLockedOiRatio]
+
+[setting.perpsTrumpSynthMaxCollateralAmount]
+
+[setting.perpsTrumpMaxLiquidationPd]
+
+[setting.perpsTrumpEndorsedLiquidator]
+
+[invoke.createperpsTrumpMarket]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "createMarket"
+args = [
+    "<%= settings.perpsTrumpMarketId %>",
+    "Official Trump",
+    "TRUMP",
+]
+depends = [
+    "provision.system",
+    "provision.perpsFactory",
+]
+
+[invoke.createperpsTrumpMarket.fromCall]
+func = "owner"
+
+[invoke.setperpsTrumpPrice]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "updatePriceData"
+args = [
+    "<%= settings.perpsTrumpMarketId %>",
+    "<%= extras.perpsTrump_oracle_id %>",
+    "<%= settings.bigCapStrictStalenessTolerance %>",
+]
+depends = [
+    "invoke.createperpsTrumpMarket",
+]
+
+[invoke.setperpsTrumpPrice.fromCall]
+func = "owner"
+
+[invoke.addperpsTrumpSettlementStrategy]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "addSettlementStrategy"
+args = [
+    "<%= settings.perpsTrumpMarketId %>",
+    { strategyType = "0", settlementDelay = "0", settlementWindowDuration = "1", priceVerificationContract = "0x0000000000000000000000000000000000000000", feedId = "0x0000000000000000000000000000000000000000000000000000000000000000", settlementReward = "0", disabled = false, commitmentPriceDelay = "0" },
+]
+depends = [
+    "invoke.createperpsTrumpMarket",
+]
+
+[invoke.addperpsTrumpSettlementStrategy.fromCall]
+func = "owner"
+
+[invoke.addperpsTrumpSettlementStrategy.extra.perpsTrump_pyth_settlement_strategy]
+event = "SettlementStrategyAdded"
+arg = 2
+
+[invoke.setperpsTrumpSettlementStrategy]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setSettlementStrategy"
+args = [
+    "<%= settings.perpsTrumpMarketId %>",
+    "<%= extras.perpsTrump_pyth_settlement_strategy %>",
+    { strategyType = "0", settlementDelay = "<%= settings.bigCapSettlementDelay %>", settlementWindowDuration = "<%= settings.bigCapSettlementWindowDuration %>", priceVerificationContract = "<%= imports.pyth_erc7412_wrapper.contracts.PythERC7412Wrapper.address %>", feedId = "<%= settings.perpsTrumpFeedId %>", settlementReward = "<%= parseEther(settings.settlementReward) %>", disabled = false, commitmentPriceDelay = "2" },
+]
+depends = [
+    "provision.perpsFactory",
+    "setting.perpsTrumpMarketId",
+    "invoke.addperpsTrumpSettlementStrategy",
+    "provision.pyth_erc7412_wrapper",
+    "setting.bigCapSettlementDelay",
+    "setting.bigCapSettlementWindowDuration",
+    "setting.perpsTrumpFeedId",
+    "setting.settlementReward",
+]
+
+[invoke.setperpsTrumpSettlementStrategy.fromCall]
+func = "owner"
+
+[invoke.setperpsTrumpFundingParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setFundingParameters"
+args = [
+    "<%= settings.perpsTrumpMarketId %>",
+    "<%= parseEther(settings.perpsTrumpSkewScale) %>",
+    "<%= parseEther(settings.perpsTrumpMaxFundingVelocity) %>",
+]
+depends = [
+    "invoke.createperpsTrumpMarket",
+]
+
+[invoke.setperpsTrumpFundingParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsTrumpOrderFees]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setOrderFees"
+args = [
+    "<%= settings.perpsTrumpMarketId %>",
+    "<%= parseEther(settings.perpsTrumpMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsTrumpTakerFeeRatio) %>",
+]
+depends = [
+    "invoke.createperpsTrumpMarket",
+]
+
+[invoke.setperpsTrumpOrderFees.fromCall]
+func = "owner"
+
+[invoke.setperpsTrumpMaxMarketSize]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxMarketSize"
+args = [
+    "<%= settings.perpsTrumpMarketId %>",
+    "<%= parseEther(settings.perpsTrumpMaxMarketSize) %>",
+]
+depends = [
+    "invoke.createperpsTrumpMarket",
+]
+
+[invoke.setperpsTrumpMaxMarketSize.fromCall]
+func = "owner"
+
+[invoke.setperpsTrumpMaxMarketValue]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxMarketValue"
+args = [
+    "<%= settings.perpsTrumpMarketId %>",
+    "<%= parseEther(settings.perpsTrumpMaxMarketValue) %>",
+]
+depends = [
+    "invoke.createperpsTrumpMarket",
+]
+
+[invoke.setperpsTrumpMaxMarketValue.fromCall]
+func = "owner"
+
+[invoke.setperpsTrumpMaxLiquidationParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxLiquidationParameters"
+args = [
+    "<%= settings.perpsTrumpMarketId %>",
+    "<%= parseEther(settings.perpsTrumpMaxLiquidationLimitAccumulationMultiplier) %>",
+    "<%= settings.perpsTrumpMaxSecondsInLiquidationWindow %>",
+    "<%= parseEther(settings.perpsTrumpMaxLiquidationPd) %>",
+    "<%= settings.perpsTrumpEndorsedLiquidator %>",
+]
+depends = [
+    "invoke.createperpsTrumpMarket",
+]
+
+[invoke.setperpsTrumpMaxLiquidationParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsTrumpLiquidationParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLiquidationParameters"
+args = [
+    "<%= settings.perpsTrumpMarketId %>",
+    "<%= parseEther(settings.perpsTrumpInitialMarginRatio) %>",
+    "<%= parseEther(settings.perpsTrumpMinimumInitialMarginRatio) %>",
+    "<%= parseEther(settings.perpsTrumpMaintenanceMarginScalar) %>",
+    "<%= parseEther(settings.perpsTrumpFlagRewardRatioD18) %>",
+    "<%= parseEther(settings.perpsTrumpMinimumPositionMargin) %>",
+]
+depends = [
+    "invoke.createperpsTrumpMarket",
+]
+
+[invoke.setperpsTrumpLiquidationParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsTrumpLockedOiRatio]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLockedOiRatio"
+args = [
+    "<%= settings.perpsTrumpMarketId %>",
+    "<%= parseEther(settings.perpsTrumpLockedOiRatio) %>",
+]
+depends = [
+    "invoke.createperpsTrumpMarket",
+]
+
+[invoke.setperpsTrumpLockedOiRatio.fromCall]
+func = "owner"
+
+[invoke.setperpsTrumpLimitOrderFees]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLimitOrderFees"
+args = [
+    "<%= settings.perpsTrumpMarketId %>",
+    "<%= parseEther(settings.perpsTrumpLimitOrderMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsTrumpLimitOrderTakerFeeRatio) %>",
+]
+depends = [
+    "invoke.createperpsTrumpMarket",
+]
+
+[invoke.setperpsTrumpLimitOrderFees.fromCall]
+func = "owner"
