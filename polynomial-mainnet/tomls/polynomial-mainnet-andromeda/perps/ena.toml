@@ -47,7 +47,7 @@ defaultValue = "1.5"
 defaultValue = "30"
 
 [setting.perpsEnaMinimumPositionMargin]
-defaultValue = "25"
+defaultValue = "50"
 
 [setting.perpsEnaLockedOiRatio]
 defaultValue = "0.5"

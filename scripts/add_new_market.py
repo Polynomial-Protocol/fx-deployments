@@ -35,7 +35,7 @@ def add_new_market(market_info, is_testnet=False):
         "defaultValue": "1.5"
     }
     settings[f"{prefix}MaxSecondsInLiquidationWindow"] = {"defaultValue": "30"}
-    settings[f"{prefix}MinimumPositionMargin"] = {"defaultValue": "25"}
+    settings[f"{prefix}MinimumPositionMargin"] = {"defaultValue": "50"}
     settings[f"{prefix}LockedOiRatio"] = {"defaultValue": "0.5"}
     settings[f"{prefix}SynthMaxCollateralAmount"] = {
         "defaultValue": "<%= MaxUint256 %>"

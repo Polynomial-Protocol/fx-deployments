@@ -47,7 +47,7 @@ defaultValue = "1.5"
 defaultValue = "30"
 
 [setting.perpsMogMinimumPositionMargin]
-defaultValue = "25"
+defaultValue = "50"
 
 [setting.perpsMogLockedOiRatio]
 defaultValue = "0.5"

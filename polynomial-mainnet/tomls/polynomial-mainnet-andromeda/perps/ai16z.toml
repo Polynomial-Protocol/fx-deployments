@@ -47,7 +47,7 @@ defaultValue = "1.5"
 defaultValue = "30"
 
 [setting.perpsAi16zMinimumPositionMargin]
-defaultValue = "25"
+defaultValue = "50"
 
 [setting.perpsAi16zLockedOiRatio]
 defaultValue = "0.5"

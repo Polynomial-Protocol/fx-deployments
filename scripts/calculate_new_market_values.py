@@ -33,7 +33,7 @@ def calculate_new_market_values(
     inverse_leverage = 0.05
     maintenance_margin_scalar = 0.317
 
-    min_margin = 25
+    min_margin = 50
     expected_lev = 18
     notional = 10000
     size_10k = notional / current_price
