@@ -142,7 +142,7 @@ defaultValue = "fx-op-gas-price-oracle:3.8.2"
 defaultValue = "fx-spot-market:3.8.2"
 
 [setting.perps_market_package]
-defaultValue = "fx-perps-market:3.9.1"
+defaultValue = "fx-perps-market:3.9.2"
 
 [setting.salt]
 defaultValue = "andromeda-dev"
@@ -183,9 +183,7 @@ salt = "<%= settings.salt %>"
 pythAddress = "<%= settings.pyth_price_verification_address %>"
 
 [invoke.setMainPoolConfig]
-target = [
-    "system.CoreProxy",
-]
+target = ["system.CoreProxy"]
 func = "setPoolConfiguration"
 args = [
     "<%= settings.main_pool_id %>",
@@ -196,6 +194,4 @@ args = [
 
 [invoke.setMainPoolConfig.fromCall]
 func = "getPoolOwner"
-args = [
-    "<%= settings.main_pool_id %>",
-]
+args = ["<%= settings.main_pool_id %>"]
