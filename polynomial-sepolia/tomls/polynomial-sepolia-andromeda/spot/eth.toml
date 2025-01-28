@@ -45,7 +45,7 @@ fromCall.args = []
 func = "configureMaximumMarketCollateral"
 args = [
     "<%= extras.fx_eth_market_id %>",
-    "<%= imports.eth_mock_collateral.contracts.MintableToken.address %>",
+    "<%= settings.weth_address %>",
     "<%= settings.fxEthMaxMarketCollateral %>",
 ]
 
@@ -56,7 +56,7 @@ fromCall.args = ["<%= extras.fx_eth_market_id %>"]
 func = "setWrapper"
 args = [
     "<%= extras.fx_eth_market_id %>",
-    "<%= imports.eth_mock_collateral.contracts.MintableToken.address %>",
+    "<%= settings.weth_address %>",
     "<%= settings.fxEthMaxMarketCollateral %>",
 ]
 
@@ -97,7 +97,7 @@ fromCall.func = "owner"
 func = "configureCollateral"  # "args" see below in the multiline block
 
 [[invoke.configure_eth_collateral.args]]
-tokenAddress = "<%= imports.eth_mock_collateral.contracts.MintableToken.address %>"
+tokenAddress = "<%= settings.weth_address %>"
 oracleNodeId = "<%= extras.eth_oracle_id %>"
 issuanceRatioD18 = "<%= parseEther('2') %>"
 liquidationRatioD18 = "<%= parseEther('1.1') %>"
@@ -119,9 +119,9 @@ liquidationRewardD18 = "<%= parseEther('0.0001') %>"
 minDelegationD18 = "<%= parseEther('0.1') %>"
 depositingEnabled = false
 
-[provision.eth_mock_collateral]
-source = "mintable-token:1.8"
-options.name = "Fake Wrapped Ether"
-options.symbol = "fwETH"
-options.owner = "<%= settings.owner %>"
-options.decimals = "18"
+# [provision.eth_mock_collateral]
+# source = "mintable-token:1.8"
+# options.name = "Fake Wrapped Ether"
+# options.symbol = "fwETH"
+# options.owner = "<%= settings.owner %>"
+# options.decimals = "18"
