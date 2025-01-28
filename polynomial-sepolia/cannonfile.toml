@@ -139,7 +139,7 @@ defaultValue = "polynomial-core:3.8.2"
 defaultValue = "fx-op-gas-price-oracle:3.8.2"
 
 [setting.spot_market_package]
-defaultValue = "fx-spot-market:3.8.2"
+defaultValue = "fx-spot-market:3.8.3"
 
 [setting.perps_market_package]
 defaultValue = "fx-perps-market:3.9.2"

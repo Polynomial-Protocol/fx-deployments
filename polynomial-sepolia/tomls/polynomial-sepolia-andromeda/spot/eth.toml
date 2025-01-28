@@ -5,13 +5,16 @@ defaultValue = "<%= parseEther(String(2500)) %>"
 defaultValue = "<%= parseEther(String(350_000)) %>"
 
 [setting.spotStrictStalenessTolerance]
-defaultValue = "60"
+defaultValue = "300"
 
 [setting.pyth_feed_id_eth]
 defaultValue = "0xff61491a931112ddf1bd8147cd1b641375f79f5825126d665480874634fd0ace"
 
 [setting.pyth_feed_url]
 defaultValue = "https://hermes.pyth.network/v2/updates/price/latest?ids[]=<%= settings.pyth_feed_id_eth %>"
+
+[setting.weth_address]
+defaultValue = "0xaD365D06aAC3f54F0E671fe4A54f7a8E82795ca4"
 
 [invoke.createEthSynth]
 target = ["spotFactory.SpotMarketProxy"]
