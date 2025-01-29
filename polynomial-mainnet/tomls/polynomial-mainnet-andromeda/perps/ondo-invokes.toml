@@ -1,0 +1,238 @@
+include = [
+    "../../oracles/pyth-ondo.toml",
+    "../../markets/common/bigcap-settings.toml",
+]
+
+[setting.perpsOndoMarketId]
+
+[setting.perpsOndoSkewScale]
+
+[setting.perpsOndoMaxFundingVelocity]
+
+[setting.perpsOndoMakerFeeRatio]
+
+[setting.perpsOndoTakerFeeRatio]
+
+[setting.perpsOndoMaxMarketSize]
+
+[setting.perpsOndoInitialMarginRatio]
+
+[setting.perpsOndoMaintenanceMarginScalar]
+
+[setting.perpsOndoMinimumInitialMarginRatio]
+
+[setting.perpsOndoFlagRewardRatioD18]
+
+[setting.perpsOndoMaxLiquidationLimitAccumulationMultiplier]
+
+[setting.perpsOndoMaxSecondsInLiquidationWindow]
+
+[setting.perpsOndoMinimumPositionMargin]
+
+[setting.perpsOndoLockedOiRatio]
+
+[setting.perpsOndoSynthMaxCollateralAmount]
+
+[setting.perpsOndoMaxLiquidationPd]
+
+[setting.perpsOndoEndorsedLiquidator]
+
+[invoke.createperpsOndoMarket]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "createMarket"
+args = [
+    "<%= settings.perpsOndoMarketId %>",
+    "Ondo",
+    "ONDO",
+]
+depends = [
+    "provision.system",
+    "provision.perpsFactory",
+]
+
+[invoke.createperpsOndoMarket.fromCall]
+func = "owner"
+
+[invoke.setperpsOndoPrice]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "updatePriceData"
+args = [
+    "<%= settings.perpsOndoMarketId %>",
+    "<%= extras.perpsOndo_oracle_id %>",
+    "<%= settings.bigCapStrictStalenessTolerance %>",
+]
+depends = [
+    "invoke.createperpsOndoMarket",
+]
+
+[invoke.setperpsOndoPrice.fromCall]
+func = "owner"
+
+[invoke.addperpsOndoSettlementStrategy]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "addSettlementStrategy"
+args = [
+    "<%= settings.perpsOndoMarketId %>",
+    { strategyType = "0", settlementDelay = "0", settlementWindowDuration = "1", priceVerificationContract = "0x0000000000000000000000000000000000000000", feedId = "0x0000000000000000000000000000000000000000000000000000000000000000", settlementReward = "0", disabled = false, commitmentPriceDelay = "0" },
+]
+depends = [
+    "invoke.createperpsOndoMarket",
+]
+
+[invoke.addperpsOndoSettlementStrategy.fromCall]
+func = "owner"
+
+[invoke.addperpsOndoSettlementStrategy.extra.perpsOndo_pyth_settlement_strategy]
+event = "SettlementStrategyAdded"
+arg = 2
+
+[invoke.setperpsOndoSettlementStrategy]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setSettlementStrategy"
+args = [
+    "<%= settings.perpsOndoMarketId %>",
+    "<%= extras.perpsOndo_pyth_settlement_strategy %>",
+    { strategyType = "0", settlementDelay = "<%= settings.bigCapSettlementDelay %>", settlementWindowDuration = "<%= settings.bigCapSettlementWindowDuration %>", priceVerificationContract = "<%= imports.pyth_erc7412_wrapper.contracts.PythERC7412Wrapper.address %>", feedId = "<%= settings.perpsOndoFeedId %>", settlementReward = "<%= parseEther(settings.settlementReward) %>", disabled = false, commitmentPriceDelay = "2" },
+]
+depends = [
+    "provision.perpsFactory",
+    "setting.perpsOndoMarketId",
+    "invoke.addperpsOndoSettlementStrategy",
+    "provision.pyth_erc7412_wrapper",
+    "setting.bigCapSettlementDelay",
+    "setting.bigCapSettlementWindowDuration",
+    "setting.perpsOndoFeedId",
+    "setting.settlementReward",
+]
+
+[invoke.setperpsOndoSettlementStrategy.fromCall]
+func = "owner"
+
+[invoke.setperpsOndoFundingParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setFundingParameters"
+args = [
+    "<%= settings.perpsOndoMarketId %>",
+    "<%= parseEther(settings.perpsOndoSkewScale) %>",
+    "<%= parseEther(settings.perpsOndoMaxFundingVelocity) %>",
+]
+depends = [
+    "invoke.createperpsOndoMarket",
+]
+
+[invoke.setperpsOndoFundingParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsOndoOrderFees]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setOrderFees"
+args = [
+    "<%= settings.perpsOndoMarketId %>",
+    "<%= parseEther(settings.perpsOndoMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsOndoTakerFeeRatio) %>",
+]
+depends = [
+    "invoke.createperpsOndoMarket",
+]
+
+[invoke.setperpsOndoOrderFees.fromCall]
+func = "owner"
+
+[invoke.setperpsOndoMaxMarketSize]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxMarketSize"
+args = [
+    "<%= settings.perpsOndoMarketId %>",
+    "<%= parseEther(settings.perpsOndoMaxMarketSize) %>",
+]
+depends = [
+    "invoke.createperpsOndoMarket",
+]
+
+[invoke.setperpsOndoMaxMarketSize.fromCall]
+func = "owner"
+
+[invoke.setperpsOndoMaxMarketValue]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxMarketValue"
+args = [
+    "<%= settings.perpsOndoMarketId %>",
+    "<%= parseEther(settings.perpsOndoMaxMarketValue) %>",
+]
+depends = [
+    "invoke.createperpsOndoMarket",
+]
+
+[invoke.setperpsOndoMaxMarketValue.fromCall]
+func = "owner"
+
+[invoke.setperpsOndoMaxLiquidationParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxLiquidationParameters"
+args = [
+    "<%= settings.perpsOndoMarketId %>",
+    "<%= parseEther(settings.perpsOndoMaxLiquidationLimitAccumulationMultiplier) %>",
+    "<%= settings.perpsOndoMaxSecondsInLiquidationWindow %>",
+    "<%= parseEther(settings.perpsOndoMaxLiquidationPd) %>",
+    "<%= settings.perpsOndoEndorsedLiquidator %>",
+]
+depends = [
+    "invoke.createperpsOndoMarket",
+]
+
+[invoke.setperpsOndoMaxLiquidationParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsOndoLiquidationParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLiquidationParameters"
+args = [
+    "<%= settings.perpsOndoMarketId %>",
+    "<%= parseEther(settings.perpsOndoInitialMarginRatio) %>",
+    "<%= parseEther(settings.perpsOndoMinimumInitialMarginRatio) %>",
+    "<%= parseEther(settings.perpsOndoMaintenanceMarginScalar) %>",
+    "<%= parseEther(settings.perpsOndoFlagRewardRatioD18) %>",
+    "<%= parseEther(settings.perpsOndoMinimumPositionMargin) %>",
+]
+depends = [
+    "invoke.createperpsOndoMarket",
+]
+
+[invoke.setperpsOndoLiquidationParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsOndoLockedOiRatio]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLockedOiRatio"
+args = [
+    "<%= settings.perpsOndoMarketId %>",
+    "<%= parseEther(settings.perpsOndoLockedOiRatio) %>",
+]
+depends = [
+    "invoke.createperpsOndoMarket",
+]
+
+[invoke.setperpsOndoLockedOiRatio.fromCall]
+func = "owner"

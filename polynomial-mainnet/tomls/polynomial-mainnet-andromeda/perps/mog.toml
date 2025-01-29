@@ -23,10 +23,10 @@ defaultValue = "0.0005"
 defaultValue = "0.0008"
 
 [setting.perpsMogMaxMarketSize]
-defaultValue = "<%= String(70014346203.13) %>"
+defaultValue = "<%= String(84670922234.72) %>"
 
 [setting.perpsMogMaxMarketValue]
-defaultValue = "<%= String(125_668) %>"
+defaultValue = "<%= String(101_495) %>"
 
 [setting.perpsMogInitialMarginRatio]
 defaultValue = "4.688"

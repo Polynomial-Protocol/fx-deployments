@@ -124,6 +124,15 @@ include = [
     "tomls/polynomial-mainnet-andromeda/perps/trump-invokes.toml",
     "tomls/oracles/pyth-trump.toml",
     "tomls/polynomial-mainnet-andromeda/perps/trump.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/s-invokes.toml",
+    "tomls/oracles/pyth-s.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/s.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/ondo-invokes.toml",
+    "tomls/oracles/pyth-ondo.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/ondo.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/jup-invokes.toml",
+    "tomls/oracles/pyth-jup.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/jup.toml",
 ]
 
 [setting.commitmentPriceDelay]

@@ -124,6 +124,15 @@ include = [
     "tomls/polynomial-sepolia-andromeda/perps/trump-invokes.toml",
     "tomls/oracles/pyth-trump.toml",
     "tomls/polynomial-sepolia-andromeda/perps/trump.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/s-invokes.toml",
+    "tomls/oracles/pyth-s.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/s.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/ondo-invokes.toml",
+    "tomls/oracles/pyth-ondo.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/ondo.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/jup-invokes.toml",
+    "tomls/oracles/pyth-jup.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/jup.toml",
 ]
 
 [setting.commitmentPriceDelay]
@@ -183,7 +192,9 @@ salt = "<%= settings.salt %>"
 pythAddress = "<%= settings.pyth_price_verification_address %>"
 
 [invoke.setMainPoolConfig]
-target = ["system.CoreProxy"]
+target = [
+    "system.CoreProxy",
+]
 func = "setPoolConfiguration"
 args = [
     "<%= settings.main_pool_id %>",
@@ -194,4 +205,6 @@ args = [
 
 [invoke.setMainPoolConfig.fromCall]
 func = "getPoolOwner"
-args = ["<%= settings.main_pool_id %>"]
+args = [
+    "<%= settings.main_pool_id %>",
+]
