@@ -23,10 +23,10 @@ defaultValue = "0.0005"
 defaultValue = "0.0008"
 
 [setting.perpsAaveMaxMarketSize]
-defaultValue = "<%= String(399.97) %>"
+defaultValue = "<%= String(342.74) %>"
 
 [setting.perpsAaveMaxMarketValue]
-defaultValue = "<%= String(125_668) %>"
+defaultValue = "<%= String(101_495) %>"
 
 [setting.perpsAaveInitialMarginRatio]
 defaultValue = "3.38"
@@ -47,7 +47,7 @@ defaultValue = "1.5"
 defaultValue = "30"
 
 [setting.perpsAaveMinimumPositionMargin]
-defaultValue = "25"
+defaultValue = "50"
 
 [setting.perpsAaveLockedOiRatio]
 defaultValue = "0.5"

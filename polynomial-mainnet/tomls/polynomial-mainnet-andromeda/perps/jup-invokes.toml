@@ -1,0 +1,238 @@
+include = [
+    "../../oracles/pyth-jup.toml",
+    "../../markets/common/bigcap-settings.toml",
+]
+
+[setting.perpsJupMarketId]
+
+[setting.perpsJupSkewScale]
+
+[setting.perpsJupMaxFundingVelocity]
+
+[setting.perpsJupMakerFeeRatio]
+
+[setting.perpsJupTakerFeeRatio]
+
+[setting.perpsJupMaxMarketSize]
+
+[setting.perpsJupInitialMarginRatio]
+
+[setting.perpsJupMaintenanceMarginScalar]
+
+[setting.perpsJupMinimumInitialMarginRatio]
+
+[setting.perpsJupFlagRewardRatioD18]
+
+[setting.perpsJupMaxLiquidationLimitAccumulationMultiplier]
+
+[setting.perpsJupMaxSecondsInLiquidationWindow]
+
+[setting.perpsJupMinimumPositionMargin]
+
+[setting.perpsJupLockedOiRatio]
+
+[setting.perpsJupSynthMaxCollateralAmount]
+
+[setting.perpsJupMaxLiquidationPd]
+
+[setting.perpsJupEndorsedLiquidator]
+
+[invoke.createperpsJupMarket]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "createMarket"
+args = [
+    "<%= settings.perpsJupMarketId %>",
+    "Jupiter",
+    "JUP",
+]
+depends = [
+    "provision.system",
+    "provision.perpsFactory",
+]
+
+[invoke.createperpsJupMarket.fromCall]
+func = "owner"
+
+[invoke.setperpsJupPrice]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "updatePriceData"
+args = [
+    "<%= settings.perpsJupMarketId %>",
+    "<%= extras.perpsJup_oracle_id %>",
+    "<%= settings.bigCapStrictStalenessTolerance %>",
+]
+depends = [
+    "invoke.createperpsJupMarket",
+]
+
+[invoke.setperpsJupPrice.fromCall]
+func = "owner"
+
+[invoke.addperpsJupSettlementStrategy]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "addSettlementStrategy"
+args = [
+    "<%= settings.perpsJupMarketId %>",
+    { strategyType = "0", settlementDelay = "0", settlementWindowDuration = "1", priceVerificationContract = "0x0000000000000000000000000000000000000000", feedId = "0x0000000000000000000000000000000000000000000000000000000000000000", settlementReward = "0", disabled = false, commitmentPriceDelay = "0" },
+]
+depends = [
+    "invoke.createperpsJupMarket",
+]
+
+[invoke.addperpsJupSettlementStrategy.fromCall]
+func = "owner"
+
+[invoke.addperpsJupSettlementStrategy.extra.perpsJup_pyth_settlement_strategy]
+event = "SettlementStrategyAdded"
+arg = 2
+
+[invoke.setperpsJupSettlementStrategy]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setSettlementStrategy"
+args = [
+    "<%= settings.perpsJupMarketId %>",
+    "<%= extras.perpsJup_pyth_settlement_strategy %>",
+    { strategyType = "0", settlementDelay = "<%= settings.bigCapSettlementDelay %>", settlementWindowDuration = "<%= settings.bigCapSettlementWindowDuration %>", priceVerificationContract = "<%= imports.pyth_erc7412_wrapper.contracts.PythERC7412Wrapper.address %>", feedId = "<%= settings.perpsJupFeedId %>", settlementReward = "<%= parseEther(settings.settlementReward) %>", disabled = false, commitmentPriceDelay = "2" },
+]
+depends = [
+    "provision.perpsFactory",
+    "setting.perpsJupMarketId",
+    "invoke.addperpsJupSettlementStrategy",
+    "provision.pyth_erc7412_wrapper",
+    "setting.bigCapSettlementDelay",
+    "setting.bigCapSettlementWindowDuration",
+    "setting.perpsJupFeedId",
+    "setting.settlementReward",
+]
+
+[invoke.setperpsJupSettlementStrategy.fromCall]
+func = "owner"
+
+[invoke.setperpsJupFundingParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setFundingParameters"
+args = [
+    "<%= settings.perpsJupMarketId %>",
+    "<%= parseEther(settings.perpsJupSkewScale) %>",
+    "<%= parseEther(settings.perpsJupMaxFundingVelocity) %>",
+]
+depends = [
+    "invoke.createperpsJupMarket",
+]
+
+[invoke.setperpsJupFundingParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsJupOrderFees]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setOrderFees"
+args = [
+    "<%= settings.perpsJupMarketId %>",
+    "<%= parseEther(settings.perpsJupMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsJupTakerFeeRatio) %>",
+]
+depends = [
+    "invoke.createperpsJupMarket",
+]
+
+[invoke.setperpsJupOrderFees.fromCall]
+func = "owner"
+
+[invoke.setperpsJupMaxMarketSize]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxMarketSize"
+args = [
+    "<%= settings.perpsJupMarketId %>",
+    "<%= parseEther(settings.perpsJupMaxMarketSize) %>",
+]
+depends = [
+    "invoke.createperpsJupMarket",
+]
+
+[invoke.setperpsJupMaxMarketSize.fromCall]
+func = "owner"
+
+[invoke.setperpsJupMaxMarketValue]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxMarketValue"
+args = [
+    "<%= settings.perpsJupMarketId %>",
+    "<%= parseEther(settings.perpsJupMaxMarketValue) %>",
+]
+depends = [
+    "invoke.createperpsJupMarket",
+]
+
+[invoke.setperpsJupMaxMarketValue.fromCall]
+func = "owner"
+
+[invoke.setperpsJupMaxLiquidationParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxLiquidationParameters"
+args = [
+    "<%= settings.perpsJupMarketId %>",
+    "<%= parseEther(settings.perpsJupMaxLiquidationLimitAccumulationMultiplier) %>",
+    "<%= settings.perpsJupMaxSecondsInLiquidationWindow %>",
+    "<%= parseEther(settings.perpsJupMaxLiquidationPd) %>",
+    "<%= settings.perpsJupEndorsedLiquidator %>",
+]
+depends = [
+    "invoke.createperpsJupMarket",
+]
+
+[invoke.setperpsJupMaxLiquidationParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsJupLiquidationParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLiquidationParameters"
+args = [
+    "<%= settings.perpsJupMarketId %>",
+    "<%= parseEther(settings.perpsJupInitialMarginRatio) %>",
+    "<%= parseEther(settings.perpsJupMinimumInitialMarginRatio) %>",
+    "<%= parseEther(settings.perpsJupMaintenanceMarginScalar) %>",
+    "<%= parseEther(settings.perpsJupFlagRewardRatioD18) %>",
+    "<%= parseEther(settings.perpsJupMinimumPositionMargin) %>",
+]
+depends = [
+    "invoke.createperpsJupMarket",
+]
+
+[invoke.setperpsJupLiquidationParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsJupLockedOiRatio]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLockedOiRatio"
+args = [
+    "<%= settings.perpsJupMarketId %>",
+    "<%= parseEther(settings.perpsJupLockedOiRatio) %>",
+]
+depends = [
+    "invoke.createperpsJupMarket",
+]
+
+[invoke.setperpsJupLockedOiRatio.fromCall]
+func = "owner"
