@@ -1,0 +1,68 @@
+[setting.perpsBeraFeedId]
+defaultValue = "0x962088abcfdbdb6e30db2e340c8cf887d9efb311b1f2f17b155a63dbb6d40265"
+
+[setting.perpsBeraMarketId]
+defaultValue = "3400"
+
+[setting.perpsBeraSkewScale]
+defaultValue = "<%= String(1_017_540) %>"
+
+[setting.perpsBeraMaxFundingVelocity]
+defaultValue = "24"
+
+[setting.perpsBeraMakerFeeRatio]
+defaultValue = "0.0005"
+
+[setting.perpsBeraTakerFeeRatio]
+defaultValue = "0.0008"
+
+[setting.perpsBeraLimitOrderMakerFeeRatio]
+defaultValue = "0.0001"
+
+[setting.perpsBeraLimitOrderTakerFeeRatio]
+defaultValue = "0.0002"
+
+[setting.perpsBeraMaxMarketSize]
+defaultValue = "<%= String(9300.61) %>"
+
+[setting.perpsBeraMaxMarketValue]
+defaultValue = "<%= String(106_777) %>"
+
+[setting.perpsBeraInitialMarginRatio]
+defaultValue = "0.6490037609541629"
+
+[setting.perpsBeraMaintenanceMarginScalar]
+defaultValue = "0.317"
+
+[setting.perpsBeraMinimumInitialMarginRatio]
+defaultValue = "0.05"
+
+[setting.perpsBeraFlagRewardRatioD18]
+defaultValue = "0.0003"
+
+[setting.perpsBeraMaxLiquidationLimitAccumulationMultiplier]
+defaultValue = "1.5"
+
+[setting.perpsBeraMaxSecondsInLiquidationWindow]
+defaultValue = "30"
+
+[setting.perpsBeraMinimumPositionMargin]
+defaultValue = "50"
+
+[setting.perpsBeraLockedOiRatio]
+defaultValue = "0.5"
+
+[setting.perpsBeraSynthMaxCollateralAmount]
+defaultValue = "<%= MaxUint256 %>"
+
+[setting.perpsBeraMaxLiquidationPd]
+defaultValue = "0.0005"
+
+[setting.perpsBeraEndorsedLiquidator]
+defaultValue = "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"
+
+[setting.commitmentPriceDelay]
+defaultValue = "2"
+
+[setting.bigCapSettlementDelay]
+defaultValue = "2"

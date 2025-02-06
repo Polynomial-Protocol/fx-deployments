@@ -133,6 +133,9 @@ include = [
     "tomls/polynomial-mainnet-andromeda/perps/jup-invokes.toml",
     "tomls/oracles/pyth-jup.toml",
     "tomls/polynomial-mainnet-andromeda/perps/jup.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/bera-invokes.toml",
+    "tomls/oracles/pyth-bera.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/bera.toml",
 ]
 
 [setting.commitmentPriceDelay]
