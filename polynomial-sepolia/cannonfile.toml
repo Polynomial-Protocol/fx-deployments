@@ -136,6 +136,15 @@ include = [
     "tomls/polynomial-sepolia-andromeda/perps/bera-invokes.toml",
     "tomls/oracles/pyth-bera.toml",
     "tomls/polynomial-sepolia-andromeda/perps/bera.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/ada-invokes.toml",
+    "tomls/oracles/pyth-ada.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/ada.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/bnb-invokes.toml",
+    "tomls/oracles/pyth-bnb.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/bnb.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/arb-invokes.toml",
+    "tomls/oracles/pyth-arb.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/arb.toml",
 ]
 
 [setting.commitmentPriceDelay]

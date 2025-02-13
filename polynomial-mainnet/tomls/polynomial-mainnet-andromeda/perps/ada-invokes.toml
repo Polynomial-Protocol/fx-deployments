@@ -1,0 +1,238 @@
+include = [
+    "../../oracles/pyth-ada.toml",
+    "../../markets/common/bigcap-settings.toml",
+]
+
+[setting.perpsAdaMarketId]
+
+[setting.perpsAdaSkewScale]
+
+[setting.perpsAdaMaxFundingVelocity]
+
+[setting.perpsAdaMakerFeeRatio]
+
+[setting.perpsAdaTakerFeeRatio]
+
+[setting.perpsAdaMaxMarketSize]
+
+[setting.perpsAdaInitialMarginRatio]
+
+[setting.perpsAdaMaintenanceMarginScalar]
+
+[setting.perpsAdaMinimumInitialMarginRatio]
+
+[setting.perpsAdaFlagRewardRatioD18]
+
+[setting.perpsAdaMaxLiquidationLimitAccumulationMultiplier]
+
+[setting.perpsAdaMaxSecondsInLiquidationWindow]
+
+[setting.perpsAdaMinimumPositionMargin]
+
+[setting.perpsAdaLockedOiRatio]
+
+[setting.perpsAdaSynthMaxCollateralAmount]
+
+[setting.perpsAdaMaxLiquidationPd]
+
+[setting.perpsAdaEndorsedLiquidator]
+
+[invoke.createperpsAdaMarket]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "createMarket"
+args = [
+    "<%= settings.perpsAdaMarketId %>",
+    "Cardano",
+    "ADA",
+]
+depends = [
+    "provision.system",
+    "provision.perpsFactory",
+]
+
+[invoke.createperpsAdaMarket.fromCall]
+func = "owner"
+
+[invoke.setperpsAdaPrice]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "updatePriceData"
+args = [
+    "<%= settings.perpsAdaMarketId %>",
+    "<%= extras.perpsAda_oracle_id %>",
+    "<%= settings.bigCapStrictStalenessTolerance %>",
+]
+depends = [
+    "invoke.createperpsAdaMarket",
+]
+
+[invoke.setperpsAdaPrice.fromCall]
+func = "owner"
+
+[invoke.addperpsAdaSettlementStrategy]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "addSettlementStrategy"
+args = [
+    "<%= settings.perpsAdaMarketId %>",
+    { strategyType = "0", settlementDelay = "0", settlementWindowDuration = "1", priceVerificationContract = "0x0000000000000000000000000000000000000000", feedId = "0x0000000000000000000000000000000000000000000000000000000000000000", settlementReward = "0", disabled = false, commitmentPriceDelay = "0" },
+]
+depends = [
+    "invoke.createperpsAdaMarket",
+]
+
+[invoke.addperpsAdaSettlementStrategy.fromCall]
+func = "owner"
+
+[invoke.addperpsAdaSettlementStrategy.extra.perpsAda_pyth_settlement_strategy]
+event = "SettlementStrategyAdded"
+arg = 2
+
+[invoke.setperpsAdaSettlementStrategy]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setSettlementStrategy"
+args = [
+    "<%= settings.perpsAdaMarketId %>",
+    "<%= extras.perpsAda_pyth_settlement_strategy %>",
+    { strategyType = "0", settlementDelay = "<%= settings.bigCapSettlementDelay %>", settlementWindowDuration = "<%= settings.bigCapSettlementWindowDuration %>", priceVerificationContract = "<%= imports.pyth_erc7412_wrapper.contracts.PythERC7412Wrapper.address %>", feedId = "<%= settings.perpsAdaFeedId %>", settlementReward = "<%= parseEther(settings.settlementReward) %>", disabled = false, commitmentPriceDelay = "2" },
+]
+depends = [
+    "provision.perpsFactory",
+    "setting.perpsAdaMarketId",
+    "invoke.addperpsAdaSettlementStrategy",
+    "provision.pyth_erc7412_wrapper",
+    "setting.bigCapSettlementDelay",
+    "setting.bigCapSettlementWindowDuration",
+    "setting.perpsAdaFeedId",
+    "setting.settlementReward",
+]
+
+[invoke.setperpsAdaSettlementStrategy.fromCall]
+func = "owner"
+
+[invoke.setperpsAdaFundingParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setFundingParameters"
+args = [
+    "<%= settings.perpsAdaMarketId %>",
+    "<%= parseEther(settings.perpsAdaSkewScale) %>",
+    "<%= parseEther(settings.perpsAdaMaxFundingVelocity) %>",
+]
+depends = [
+    "invoke.createperpsAdaMarket",
+]
+
+[invoke.setperpsAdaFundingParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsAdaOrderFees]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setOrderFees"
+args = [
+    "<%= settings.perpsAdaMarketId %>",
+    "<%= parseEther(settings.perpsAdaMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsAdaTakerFeeRatio) %>",
+]
+depends = [
+    "invoke.createperpsAdaMarket",
+]
+
+[invoke.setperpsAdaOrderFees.fromCall]
+func = "owner"
+
+[invoke.setperpsAdaMaxMarketSize]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxMarketSize"
+args = [
+    "<%= settings.perpsAdaMarketId %>",
+    "<%= parseEther(settings.perpsAdaMaxMarketSize) %>",
+]
+depends = [
+    "invoke.createperpsAdaMarket",
+]
+
+[invoke.setperpsAdaMaxMarketSize.fromCall]
+func = "owner"
+
+[invoke.setperpsAdaMaxMarketValue]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxMarketValue"
+args = [
+    "<%= settings.perpsAdaMarketId %>",
+    "<%= parseEther(settings.perpsAdaMaxMarketValue) %>",
+]
+depends = [
+    "invoke.createperpsAdaMarket",
+]
+
+[invoke.setperpsAdaMaxMarketValue.fromCall]
+func = "owner"
+
+[invoke.setperpsAdaMaxLiquidationParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxLiquidationParameters"
+args = [
+    "<%= settings.perpsAdaMarketId %>",
+    "<%= parseEther(settings.perpsAdaMaxLiquidationLimitAccumulationMultiplier) %>",
+    "<%= settings.perpsAdaMaxSecondsInLiquidationWindow %>",
+    "<%= parseEther(settings.perpsAdaMaxLiquidationPd) %>",
+    "<%= settings.perpsAdaEndorsedLiquidator %>",
+]
+depends = [
+    "invoke.createperpsAdaMarket",
+]
+
+[invoke.setperpsAdaMaxLiquidationParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsAdaLiquidationParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLiquidationParameters"
+args = [
+    "<%= settings.perpsAdaMarketId %>",
+    "<%= parseEther(settings.perpsAdaInitialMarginRatio) %>",
+    "<%= parseEther(settings.perpsAdaMinimumInitialMarginRatio) %>",
+    "<%= parseEther(settings.perpsAdaMaintenanceMarginScalar) %>",
+    "<%= parseEther(settings.perpsAdaFlagRewardRatioD18) %>",
+    "<%= parseEther(settings.perpsAdaMinimumPositionMargin) %>",
+]
+depends = [
+    "invoke.createperpsAdaMarket",
+]
+
+[invoke.setperpsAdaLiquidationParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsAdaLockedOiRatio]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLockedOiRatio"
+args = [
+    "<%= settings.perpsAdaMarketId %>",
+    "<%= parseEther(settings.perpsAdaLockedOiRatio) %>",
+]
+depends = [
+    "invoke.createperpsAdaMarket",
+]
+
+[invoke.setperpsAdaLockedOiRatio.fromCall]
+func = "owner"

@@ -1,0 +1,255 @@
+include = [
+    "../../oracles/pyth-bnb.toml",
+    "../../markets/common/bigcap-settings.toml",
+]
+
+[setting.perpsBnbMarketId]
+
+[setting.perpsBnbSkewScale]
+
+[setting.perpsBnbMaxFundingVelocity]
+
+[setting.perpsBnbMakerFeeRatio]
+
+[setting.perpsBnbTakerFeeRatio]
+
+[setting.perpsBnbMaxMarketSize]
+
+[setting.perpsBnbInitialMarginRatio]
+
+[setting.perpsBnbMaintenanceMarginScalar]
+
+[setting.perpsBnbMinimumInitialMarginRatio]
+
+[setting.perpsBnbFlagRewardRatioD18]
+
+[setting.perpsBnbMaxLiquidationLimitAccumulationMultiplier]
+
+[setting.perpsBnbMaxSecondsInLiquidationWindow]
+
+[setting.perpsBnbMinimumPositionMargin]
+
+[setting.perpsBnbLockedOiRatio]
+
+[setting.perpsBnbSynthMaxCollateralAmount]
+
+[setting.perpsBnbMaxLiquidationPd]
+
+[setting.perpsBnbEndorsedLiquidator]
+
+[invoke.createperpsBnbMarket]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "createMarket"
+args = [
+    "<%= settings.perpsBnbMarketId %>",
+    "BNB",
+    "BNB",
+]
+depends = [
+    "provision.system",
+    "provision.perpsFactory",
+]
+
+[invoke.createperpsBnbMarket.fromCall]
+func = "owner"
+
+[invoke.setperpsBnbPrice]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "updatePriceData"
+args = [
+    "<%= settings.perpsBnbMarketId %>",
+    "<%= extras.perpsBnb_oracle_id %>",
+    "<%= settings.bigCapStrictStalenessTolerance %>",
+]
+depends = [
+    "invoke.createperpsBnbMarket",
+]
+
+[invoke.setperpsBnbPrice.fromCall]
+func = "owner"
+
+[invoke.addperpsBnbSettlementStrategy]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "addSettlementStrategy"
+args = [
+    "<%= settings.perpsBnbMarketId %>",
+    { strategyType = "0", settlementDelay = "0", settlementWindowDuration = "1", priceVerificationContract = "0x0000000000000000000000000000000000000000", feedId = "0x0000000000000000000000000000000000000000000000000000000000000000", settlementReward = "0", disabled = false, commitmentPriceDelay = "0" },
+]
+depends = [
+    "invoke.createperpsBnbMarket",
+]
+
+[invoke.addperpsBnbSettlementStrategy.fromCall]
+func = "owner"
+
+[invoke.addperpsBnbSettlementStrategy.extra.perpsBnb_pyth_settlement_strategy]
+event = "SettlementStrategyAdded"
+arg = 2
+
+[invoke.setperpsBnbSettlementStrategy]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setSettlementStrategy"
+args = [
+    "<%= settings.perpsBnbMarketId %>",
+    "<%= extras.perpsBnb_pyth_settlement_strategy %>",
+    { strategyType = "0", settlementDelay = "<%= settings.bigCapSettlementDelay %>", settlementWindowDuration = "<%= settings.bigCapSettlementWindowDuration %>", priceVerificationContract = "<%= imports.pyth_erc7412_wrapper.contracts.PythERC7412Wrapper.address %>", feedId = "<%= settings.perpsBnbFeedId %>", settlementReward = "<%= parseEther(settings.settlementReward) %>", disabled = false, commitmentPriceDelay = "2" },
+]
+depends = [
+    "provision.perpsFactory",
+    "setting.perpsBnbMarketId",
+    "invoke.addperpsBnbSettlementStrategy",
+    "provision.pyth_erc7412_wrapper",
+    "setting.bigCapSettlementDelay",
+    "setting.bigCapSettlementWindowDuration",
+    "setting.perpsBnbFeedId",
+    "setting.settlementReward",
+]
+
+[invoke.setperpsBnbSettlementStrategy.fromCall]
+func = "owner"
+
+[invoke.setperpsBnbFundingParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setFundingParameters"
+args = [
+    "<%= settings.perpsBnbMarketId %>",
+    "<%= parseEther(settings.perpsBnbSkewScale) %>",
+    "<%= parseEther(settings.perpsBnbMaxFundingVelocity) %>",
+]
+depends = [
+    "invoke.createperpsBnbMarket",
+]
+
+[invoke.setperpsBnbFundingParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsBnbOrderFees]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setOrderFees"
+args = [
+    "<%= settings.perpsBnbMarketId %>",
+    "<%= parseEther(settings.perpsBnbMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsBnbTakerFeeRatio) %>",
+]
+depends = [
+    "invoke.createperpsBnbMarket",
+]
+
+[invoke.setperpsBnbOrderFees.fromCall]
+func = "owner"
+
+[invoke.setperpsBnbMaxMarketSize]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxMarketSize"
+args = [
+    "<%= settings.perpsBnbMarketId %>",
+    "<%= parseEther(settings.perpsBnbMaxMarketSize) %>",
+]
+depends = [
+    "invoke.createperpsBnbMarket",
+]
+
+[invoke.setperpsBnbMaxMarketSize.fromCall]
+func = "owner"
+
+[invoke.setperpsBnbMaxMarketValue]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxMarketValue"
+args = [
+    "<%= settings.perpsBnbMarketId %>",
+    "<%= parseEther(settings.perpsBnbMaxMarketValue) %>",
+]
+depends = [
+    "invoke.createperpsBnbMarket",
+]
+
+[invoke.setperpsBnbMaxMarketValue.fromCall]
+func = "owner"
+
+[invoke.setperpsBnbMaxLiquidationParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxLiquidationParameters"
+args = [
+    "<%= settings.perpsBnbMarketId %>",
+    "<%= parseEther(settings.perpsBnbMaxLiquidationLimitAccumulationMultiplier) %>",
+    "<%= settings.perpsBnbMaxSecondsInLiquidationWindow %>",
+    "<%= parseEther(settings.perpsBnbMaxLiquidationPd) %>",
+    "<%= settings.perpsBnbEndorsedLiquidator %>",
+]
+depends = [
+    "invoke.createperpsBnbMarket",
+]
+
+[invoke.setperpsBnbMaxLiquidationParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsBnbLiquidationParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLiquidationParameters"
+args = [
+    "<%= settings.perpsBnbMarketId %>",
+    "<%= parseEther(settings.perpsBnbInitialMarginRatio) %>",
+    "<%= parseEther(settings.perpsBnbMinimumInitialMarginRatio) %>",
+    "<%= parseEther(settings.perpsBnbMaintenanceMarginScalar) %>",
+    "<%= parseEther(settings.perpsBnbFlagRewardRatioD18) %>",
+    "<%= parseEther(settings.perpsBnbMinimumPositionMargin) %>",
+]
+depends = [
+    "invoke.createperpsBnbMarket",
+]
+
+[invoke.setperpsBnbLiquidationParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsBnbLockedOiRatio]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLockedOiRatio"
+args = [
+    "<%= settings.perpsBnbMarketId %>",
+    "<%= parseEther(settings.perpsBnbLockedOiRatio) %>",
+]
+depends = [
+    "invoke.createperpsBnbMarket",
+]
+
+[invoke.setperpsBnbLockedOiRatio.fromCall]
+func = "owner"
+
+[invoke.setperpsBnbLimitOrderFees]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLimitOrderFees"
+args = [
+    "<%= settings.perpsBnbMarketId %>",
+    "<%= parseEther(settings.perpsBnbLimitOrderMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsBnbLimitOrderTakerFeeRatio) %>",
+]
+depends = [
+    "invoke.createperpsBnbMarket",
+]
+
+[invoke.setperpsBnbLimitOrderFees.fromCall]
+func = "owner"

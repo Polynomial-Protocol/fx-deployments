@@ -1,0 +1,68 @@
+[setting.perpsBnbFeedId]
+defaultValue = "0x2f95862b045670cd22bee3114c39763a4a08beeb663b145d283c31d7d1101c4f"
+
+[setting.perpsBnbMarketId]
+defaultValue = "3600"
+
+[setting.perpsBnbSkewScale]
+defaultValue = "<%= String(341_525) %>"
+
+[setting.perpsBnbMaxFundingVelocity]
+defaultValue = "24"
+
+[setting.perpsBnbMakerFeeRatio]
+defaultValue = "0.0005"
+
+[setting.perpsBnbTakerFeeRatio]
+defaultValue = "0.0008"
+
+[setting.perpsBnbLimitOrderMakerFeeRatio]
+defaultValue = "0.0001"
+
+[setting.perpsBnbLimitOrderTakerFeeRatio]
+defaultValue = "0.0002"
+
+[setting.perpsBnbMaxMarketSize]
+defaultValue = "<%= String(158.99) %>"
+
+[setting.perpsBnbMaxMarketValue]
+defaultValue = "<%= String(112_134) %>"
+
+[setting.perpsBnbInitialMarginRatio]
+defaultValue = "13.38516484852769"
+
+[setting.perpsBnbMaintenanceMarginScalar]
+defaultValue = "0.317"
+
+[setting.perpsBnbMinimumInitialMarginRatio]
+defaultValue = "0.05"
+
+[setting.perpsBnbFlagRewardRatioD18]
+defaultValue = "0.0003"
+
+[setting.perpsBnbMaxLiquidationLimitAccumulationMultiplier]
+defaultValue = "1.5"
+
+[setting.perpsBnbMaxSecondsInLiquidationWindow]
+defaultValue = "30"
+
+[setting.perpsBnbMinimumPositionMargin]
+defaultValue = "50"
+
+[setting.perpsBnbLockedOiRatio]
+defaultValue = "0.5"
+
+[setting.perpsBnbSynthMaxCollateralAmount]
+defaultValue = "<%= MaxUint256 %>"
+
+[setting.perpsBnbMaxLiquidationPd]
+defaultValue = "0.0005"
+
+[setting.perpsBnbEndorsedLiquidator]
+defaultValue = "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"
+
+[setting.commitmentPriceDelay]
+defaultValue = "2"
+
+[setting.bigCapSettlementDelay]
+defaultValue = "2"
