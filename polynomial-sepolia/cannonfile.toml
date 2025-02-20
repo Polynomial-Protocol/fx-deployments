@@ -196,7 +196,7 @@ defaultValue = "69"
 defaultValue = "0x2b02AAd6f1694E7D9c934B7b3Ec444541286cF0f"
 
 [provision.pyth_erc7412_wrapper]
-source = "pyth-erc7412-wrapper:3.3.17"
+source = "fx-pyth-erc7412-wrapper:3.4.0"
 targetPreset = "<%= settings.target_preset %>"
 
 [provision.pyth_erc7412_wrapper.options]
