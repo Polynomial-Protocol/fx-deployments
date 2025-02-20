@@ -145,6 +145,9 @@ include = [
     "tomls/polynomial-sepolia-andromeda/perps/arb-invokes.toml",
     "tomls/oracles/pyth-arb.toml",
     "tomls/polynomial-sepolia-andromeda/perps/arb.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/kaito-invokes.toml",
+    "tomls/oracles/pyth-kaito.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/kaito.toml",
 ]
 
 [setting.commitmentPriceDelay]

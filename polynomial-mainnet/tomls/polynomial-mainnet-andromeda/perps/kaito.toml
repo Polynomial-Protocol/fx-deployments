@@ -1,0 +1,68 @@
+[setting.perpsKaitoFeedId]
+defaultValue = "0x7302dee641a08507c297a7b0c8b3efa74a48a3baa6c040acab1e5209692b7e59"
+
+[setting.perpsKaitoMarketId]
+defaultValue = "3800"
+
+[setting.perpsKaitoSkewScale]
+defaultValue = "<%= String(11_598_351) %>"
+
+[setting.perpsKaitoMaxFundingVelocity]
+defaultValue = "24"
+
+[setting.perpsKaitoMakerFeeRatio]
+defaultValue = "0.0005"
+
+[setting.perpsKaitoTakerFeeRatio]
+defaultValue = "0.0008"
+
+[setting.perpsKaitoLimitOrderMakerFeeRatio]
+defaultValue = "0.0001"
+
+[setting.perpsKaitoLimitOrderTakerFeeRatio]
+defaultValue = "0.0002"
+
+[setting.perpsKaitoMaxMarketSize]
+defaultValue = "<%= String(109454.43) %>"
+
+[setting.perpsKaitoMaxMarketValue]
+defaultValue = "<%= String(101_464) %>"
+
+[setting.perpsKaitoInitialMarginRatio]
+defaultValue = "0.5973158345972186"
+
+[setting.perpsKaitoMaintenanceMarginScalar]
+defaultValue = "0.317"
+
+[setting.perpsKaitoMinimumInitialMarginRatio]
+defaultValue = "0.05"
+
+[setting.perpsKaitoFlagRewardRatioD18]
+defaultValue = "0.0003"
+
+[setting.perpsKaitoMaxLiquidationLimitAccumulationMultiplier]
+defaultValue = "1.5"
+
+[setting.perpsKaitoMaxSecondsInLiquidationWindow]
+defaultValue = "30"
+
+[setting.perpsKaitoMinimumPositionMargin]
+defaultValue = "50"
+
+[setting.perpsKaitoLockedOiRatio]
+defaultValue = "0.5"
+
+[setting.perpsKaitoSynthMaxCollateralAmount]
+defaultValue = "<%= MaxUint256 %>"
+
+[setting.perpsKaitoMaxLiquidationPd]
+defaultValue = "0.0005"
+
+[setting.perpsKaitoEndorsedLiquidator]
+defaultValue = "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"
+
+[setting.commitmentPriceDelay]
+defaultValue = "2"
+
+[setting.bigCapSettlementDelay]
+defaultValue = "2"

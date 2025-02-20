@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsJupMaxMarketSize]
-defaultValue = "<%= String(133417.77) %>"
+defaultValue = "<%= String(132594.18) %>"
 
 [setting.perpsJupMaxMarketValue]
-defaultValue = "<%= String(112_134) %>"
+defaultValue = "<%= String(101_464) %>"
 
 [setting.perpsJupInitialMarginRatio]
 defaultValue = "2.0641494610555444"
