@@ -3,6 +3,7 @@ import os
 from pythclient.hermes import HermesClient
 
 from . import get_depth
+from . import calculate_skew_scale
 
 
 def calculate_new_market_values(
@@ -28,7 +29,7 @@ def calculate_new_market_values(
     else:
         average_depth = default_depth
 
-    skew_scale = average_depth * tier_constant / current_price
+    skew_scale = calculate_skew_scale(ticker, current_price)
     max_market_size = max_market_value_each / current_price
     inverse_leverage = 0.05
     maintenance_margin_scalar = 0.317
