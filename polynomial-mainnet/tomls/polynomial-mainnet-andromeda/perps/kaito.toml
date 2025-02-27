@@ -5,7 +5,7 @@ defaultValue = "0x7302dee641a08507c297a7b0c8b3efa74a48a3baa6c040acab1e5209692b7e
 defaultValue = "3800"
 
 [setting.perpsKaitoSkewScale]
-defaultValue = "<%= String(11_598_351) %>"
+defaultValue = "<%= String(2_531_538) %>"
 
 [setting.perpsKaitoMaxFundingVelocity]
 defaultValue = "24"
@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsKaitoMaxMarketSize]
-defaultValue = "<%= String(109454.43) %>"
+defaultValue = "<%= String(82987.55) %>"
 
 [setting.perpsKaitoMaxMarketValue]
-defaultValue = "<%= String(101_464) %>"
+defaultValue = "<%= String(200_000) %>"
 
 [setting.perpsKaitoInitialMarginRatio]
 defaultValue = "0.5973158345972186"
