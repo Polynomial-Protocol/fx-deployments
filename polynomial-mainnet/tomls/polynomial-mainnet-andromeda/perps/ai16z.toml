@@ -5,7 +5,7 @@ defaultValue = "0x2551eca7784671173def2c41e6f3e51e11cd87494863f1d208fdd8c64a1f85
 defaultValue = "2500"
 
 [setting.perpsAi16zSkewScale]
-defaultValue = "<%= String(3_120_882) %>"
+defaultValue = "<%= String(1_000_000) %>"
 
 [setting.perpsAi16zMaxFundingVelocity]
 defaultValue = "24"

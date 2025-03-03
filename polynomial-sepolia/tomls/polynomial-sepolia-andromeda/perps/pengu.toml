@@ -5,7 +5,7 @@ defaultValue = "0xbed3097008b9b5e3c93bec20be79cb43986b85a996475589351a21e67bae9b
 defaultValue = "2000"
 
 [setting.perpsPenguSkewScale]
-defaultValue = "<%= String(700_000_000) %>"
+defaultValue = "<%= String(241_953_774) %>"
 
 [setting.perpsPenguMaxFundingVelocity]
 defaultValue = "36"

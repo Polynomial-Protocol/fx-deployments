@@ -5,7 +5,7 @@ defaultValue = "0x0a0408d619e9380abad35060f9192039ed5042fa6f82301d0e48bb52be8309
 defaultValue = "3200"
 
 [setting.perpsJupSkewScale]
-defaultValue = "<%= String(33_603_965) %>"
+defaultValue = "<%= String(1_967_347) %>"
 
 [setting.perpsJupMaxFundingVelocity]
 defaultValue = "24"

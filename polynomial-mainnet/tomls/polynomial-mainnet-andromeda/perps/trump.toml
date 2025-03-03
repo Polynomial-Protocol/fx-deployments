@@ -5,7 +5,7 @@ defaultValue = "0x879551021853eec7a7dc827578e8e69da7e4fa8148339aa0d3d5296405be4b
 defaultValue = "2900"
 
 [setting.perpsTrumpSkewScale]
-defaultValue = "<%= String(360_261) %>"
+defaultValue = "<%= String(250_000) %>"
 
 [setting.perpsTrumpMaxFundingVelocity]
 defaultValue = "24"

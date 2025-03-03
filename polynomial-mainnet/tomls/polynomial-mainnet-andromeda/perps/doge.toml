@@ -5,7 +5,7 @@ defaultValue = "0xdcef50dd0a4cd2dcc17e45df1676dcb336a11a61c69df7a0299b0150c672d2
 defaultValue = "1300"
 
 [setting.perpsDogeSkewScale]
-defaultValue = "<%= String(750_000_000) %>"
+defaultValue = "<%= String(336_651_496) %>"
 
 [setting.perpsDogeMaxFundingVelocity]
 defaultValue = "24"

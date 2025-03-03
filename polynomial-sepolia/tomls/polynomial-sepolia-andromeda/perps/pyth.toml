@@ -5,7 +5,7 @@ defaultValue = "0x0bbf28e9a841a1cc788f6a361b17ca072d0ea3098a1e5df1c3922d06719579
 defaultValue = "2700"
 
 [setting.perpsPythSkewScale]
-defaultValue = "<%= String(62_924_004) %>"
+defaultValue = "<%= String(2_000_000) %>"
 
 [setting.perpsPythMaxFundingVelocity]
 defaultValue = "24"

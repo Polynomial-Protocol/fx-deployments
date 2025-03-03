@@ -5,7 +5,7 @@ defaultValue = "0x8132e3eb1dac3e56939a16ff83848d194345f6688bff97eb1c8bd462d55880
 defaultValue = "2100"
 
 [setting.perpsVirtualSkewScale]
-defaultValue = "<%= String(5_956_253) %>"
+defaultValue = "<%= String(1_956_253) %>"
 
 [setting.perpsVirtualMaxFundingVelocity]
 defaultValue = "24"

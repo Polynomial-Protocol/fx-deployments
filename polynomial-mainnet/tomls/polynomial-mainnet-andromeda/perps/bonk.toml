@@ -5,7 +5,7 @@ defaultValue = "0x72b021217ca3fe68922a19aaf990109cb9d84e9ad004b4d2025ad6f5293144
 defaultValue = "900"
 
 [setting.perpsBonkSkewScale]
-defaultValue = "<%= String(800_000_000_000) %>"
+defaultValue = "<%= String(666_948_005_729) %>"
 
 [setting.perpsBonkMaxFundingVelocity]
 defaultValue = "36"

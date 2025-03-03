@@ -5,7 +5,7 @@ defaultValue = "0xb7910ba7322db020416fcac28b48c01212fd9cc8fbcbaf7d30477ed8605f6b
 defaultValue = "1200"
 
 [setting.perpsEnaSkewScale]
-defaultValue = "<%= String(10_000_000) %>"
+defaultValue = "<%= String(48_206_708) %>"
 
 [setting.perpsEnaMaxFundingVelocity]
 defaultValue = "36"

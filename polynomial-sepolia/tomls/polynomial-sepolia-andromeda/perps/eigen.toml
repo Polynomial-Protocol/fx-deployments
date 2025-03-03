@@ -5,7 +5,7 @@ defaultValue = "0xc65db025687356496e8653d0d6608eec64ce2d96e2e28c530e574f0e4f7123
 defaultValue = "1400"
 
 [setting.perpsEigenSkewScale]
-defaultValue = "<%= String(10_000_000) %>"
+defaultValue = "<%= String(502_556) %>"
 
 [setting.perpsEigenMaxFundingVelocity]
 defaultValue = "36"

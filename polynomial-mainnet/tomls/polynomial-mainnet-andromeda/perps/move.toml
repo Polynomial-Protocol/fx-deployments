@@ -5,7 +5,7 @@ defaultValue = "0x6bf748c908767baa762a1563d454ebec2d5108f8ee36d806aadacc8f0a075b
 defaultValue = "2400"
 
 [setting.perpsMoveSkewScale]
-defaultValue = "<%= String(28_242_539) %>"
+defaultValue = "<%= String(566_361) %>"
 
 [setting.perpsMoveMaxFundingVelocity]
 defaultValue = "24"

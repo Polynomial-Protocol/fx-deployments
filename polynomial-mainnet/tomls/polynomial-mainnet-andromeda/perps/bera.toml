@@ -5,7 +5,7 @@ defaultValue = "0x962088abcfdbdb6e30db2e340c8cf887d9efb311b1f2f17b155a63dbb6d402
 defaultValue = "3400"
 
 [setting.perpsBeraSkewScale]
-defaultValue = "<%= String(1_017_540) %>"
+defaultValue = "<%= String(783_968) %>"
 
 [setting.perpsBeraMaxFundingVelocity]
 defaultValue = "24"
