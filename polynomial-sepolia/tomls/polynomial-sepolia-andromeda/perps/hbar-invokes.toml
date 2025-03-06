@@ -1,0 +1,255 @@
+include = [
+    "../../oracles/pyth-hbar.toml",
+    "../../markets/common/bigcap-settings.toml",
+]
+
+[setting.perpsHbarMarketId]
+
+[setting.perpsHbarSkewScale]
+
+[setting.perpsHbarMaxFundingVelocity]
+
+[setting.perpsHbarMakerFeeRatio]
+
+[setting.perpsHbarTakerFeeRatio]
+
+[setting.perpsHbarMaxMarketSize]
+
+[setting.perpsHbarInitialMarginRatio]
+
+[setting.perpsHbarMaintenanceMarginScalar]
+
+[setting.perpsHbarMinimumInitialMarginRatio]
+
+[setting.perpsHbarFlagRewardRatioD18]
+
+[setting.perpsHbarMaxLiquidationLimitAccumulationMultiplier]
+
+[setting.perpsHbarMaxSecondsInLiquidationWindow]
+
+[setting.perpsHbarMinimumPositionMargin]
+
+[setting.perpsHbarLockedOiRatio]
+
+[setting.perpsHbarSynthMaxCollateralAmount]
+
+[setting.perpsHbarMaxLiquidationPd]
+
+[setting.perpsHbarEndorsedLiquidator]
+
+[invoke.createperpsHbarMarket]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "createMarket"
+args = [
+    "<%= settings.perpsHbarMarketId %>",
+    "Hedera",
+    "HBAR",
+]
+depends = [
+    "provision.system",
+    "provision.perpsFactory",
+]
+
+[invoke.createperpsHbarMarket.fromCall]
+func = "owner"
+
+[invoke.setperpsHbarPrice]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "updatePriceData"
+args = [
+    "<%= settings.perpsHbarMarketId %>",
+    "<%= extras.perpsHbar_oracle_id %>",
+    "<%= settings.bigCapStrictStalenessTolerance %>",
+]
+depends = [
+    "invoke.createperpsHbarMarket",
+]
+
+[invoke.setperpsHbarPrice.fromCall]
+func = "owner"
+
+[invoke.addperpsHbarSettlementStrategy]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "addSettlementStrategy"
+args = [
+    "<%= settings.perpsHbarMarketId %>",
+    { strategyType = "0", settlementDelay = "0", settlementWindowDuration = "1", priceVerificationContract = "0x0000000000000000000000000000000000000000", feedId = "0x0000000000000000000000000000000000000000000000000000000000000000", settlementReward = "0", disabled = false, commitmentPriceDelay = "0" },
+]
+depends = [
+    "invoke.createperpsHbarMarket",
+]
+
+[invoke.addperpsHbarSettlementStrategy.fromCall]
+func = "owner"
+
+[invoke.addperpsHbarSettlementStrategy.extra.perpsHbar_pyth_settlement_strategy]
+event = "SettlementStrategyAdded"
+arg = 2
+
+[invoke.setperpsHbarSettlementStrategy]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setSettlementStrategy"
+args = [
+    "<%= settings.perpsHbarMarketId %>",
+    "<%= extras.perpsHbar_pyth_settlement_strategy %>",
+    { strategyType = "0", settlementDelay = "<%= settings.bigCapSettlementDelay %>", settlementWindowDuration = "<%= settings.bigCapSettlementWindowDuration %>", priceVerificationContract = "<%= imports.pyth_erc7412_wrapper.contracts.PythERC7412Wrapper.address %>", feedId = "<%= settings.perpsHbarFeedId %>", settlementReward = "<%= parseEther(settings.settlementReward) %>", disabled = false, commitmentPriceDelay = "2" },
+]
+depends = [
+    "provision.perpsFactory",
+    "setting.perpsHbarMarketId",
+    "invoke.addperpsHbarSettlementStrategy",
+    "provision.pyth_erc7412_wrapper",
+    "setting.bigCapSettlementDelay",
+    "setting.bigCapSettlementWindowDuration",
+    "setting.perpsHbarFeedId",
+    "setting.settlementReward",
+]
+
+[invoke.setperpsHbarSettlementStrategy.fromCall]
+func = "owner"
+
+[invoke.setperpsHbarFundingParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setFundingParameters"
+args = [
+    "<%= settings.perpsHbarMarketId %>",
+    "<%= parseEther(settings.perpsHbarSkewScale) %>",
+    "<%= parseEther(settings.perpsHbarMaxFundingVelocity) %>",
+]
+depends = [
+    "invoke.createperpsHbarMarket",
+]
+
+[invoke.setperpsHbarFundingParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsHbarOrderFees]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setOrderFees"
+args = [
+    "<%= settings.perpsHbarMarketId %>",
+    "<%= parseEther(settings.perpsHbarMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsHbarTakerFeeRatio) %>",
+]
+depends = [
+    "invoke.createperpsHbarMarket",
+]
+
+[invoke.setperpsHbarOrderFees.fromCall]
+func = "owner"
+
+[invoke.setperpsHbarMaxMarketSize]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxMarketSize"
+args = [
+    "<%= settings.perpsHbarMarketId %>",
+    "<%= parseEther(settings.perpsHbarMaxMarketSize) %>",
+]
+depends = [
+    "invoke.createperpsHbarMarket",
+]
+
+[invoke.setperpsHbarMaxMarketSize.fromCall]
+func = "owner"
+
+[invoke.setperpsHbarMaxMarketValue]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxMarketValue"
+args = [
+    "<%= settings.perpsHbarMarketId %>",
+    "<%= parseEther(settings.perpsHbarMaxMarketValue) %>",
+]
+depends = [
+    "invoke.createperpsHbarMarket",
+]
+
+[invoke.setperpsHbarMaxMarketValue.fromCall]
+func = "owner"
+
+[invoke.setperpsHbarMaxLiquidationParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxLiquidationParameters"
+args = [
+    "<%= settings.perpsHbarMarketId %>",
+    "<%= parseEther(settings.perpsHbarMaxLiquidationLimitAccumulationMultiplier) %>",
+    "<%= settings.perpsHbarMaxSecondsInLiquidationWindow %>",
+    "<%= parseEther(settings.perpsHbarMaxLiquidationPd) %>",
+    "<%= settings.perpsHbarEndorsedLiquidator %>",
+]
+depends = [
+    "invoke.createperpsHbarMarket",
+]
+
+[invoke.setperpsHbarMaxLiquidationParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsHbarLiquidationParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLiquidationParameters"
+args = [
+    "<%= settings.perpsHbarMarketId %>",
+    "<%= parseEther(settings.perpsHbarInitialMarginRatio) %>",
+    "<%= parseEther(settings.perpsHbarMinimumInitialMarginRatio) %>",
+    "<%= parseEther(settings.perpsHbarMaintenanceMarginScalar) %>",
+    "<%= parseEther(settings.perpsHbarFlagRewardRatioD18) %>",
+    "<%= parseEther(settings.perpsHbarMinimumPositionMargin) %>",
+]
+depends = [
+    "invoke.createperpsHbarMarket",
+]
+
+[invoke.setperpsHbarLiquidationParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsHbarLockedOiRatio]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLockedOiRatio"
+args = [
+    "<%= settings.perpsHbarMarketId %>",
+    "<%= parseEther(settings.perpsHbarLockedOiRatio) %>",
+]
+depends = [
+    "invoke.createperpsHbarMarket",
+]
+
+[invoke.setperpsHbarLockedOiRatio.fromCall]
+func = "owner"
+
+[invoke.setperpsHbarLimitOrderFees]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLimitOrderFees"
+args = [
+    "<%= settings.perpsHbarMarketId %>",
+    "<%= parseEther(settings.perpsHbarLimitOrderMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsHbarLimitOrderTakerFeeRatio) %>",
+]
+depends = [
+    "invoke.createperpsHbarMarket",
+]
+
+[invoke.setperpsHbarLimitOrderFees.fromCall]
+func = "owner"

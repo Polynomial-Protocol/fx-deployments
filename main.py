@@ -21,7 +21,7 @@ load_dotenv()
 client = Client(os.getenv("BINANCE_API_KEY"), os.getenv("BINANCE_API_SECRET"))
 
 constants = read_constants()
-current_tvl = round_up(get_current_tvl(), 5)
+current_tvl = round_up(get_current_tvl(), 5) * 2
 market_data, current_prices, raw_data = get_current_markets_data()
 
 updated_market_data, max_market_value_each = recalculate_max_market(

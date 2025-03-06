@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsKaitoMaxMarketSize]
-defaultValue = "<%= String(82987.55) %>"
+defaultValue = "<%= String(120728.23) %>"
 
 [setting.perpsKaitoMaxMarketValue]
-defaultValue = "<%= String(200_000) %>"
+defaultValue = "<%= String(202_370) %>"
 
 [setting.perpsKaitoInitialMarginRatio]
 defaultValue = "0.5973158345972186"

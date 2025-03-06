@@ -148,6 +148,15 @@ include = [
     "tomls/polynomial-mainnet-andromeda/perps/kaito-invokes.toml",
     "tomls/oracles/pyth-kaito.toml",
     "tomls/polynomial-mainnet-andromeda/perps/kaito.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/ip-invokes.toml",
+    "tomls/oracles/pyth-ip.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/ip.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/hbar-invokes.toml",
+    "tomls/oracles/pyth-hbar.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/hbar.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/bch-invokes.toml",
+    "tomls/oracles/pyth-bch.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/bch.toml",
 ]
 
 [setting.commitmentPriceDelay]

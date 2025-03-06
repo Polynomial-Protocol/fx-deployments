@@ -2,7 +2,7 @@ from binance import Client
 import pandas as pd
 
 
-def calculate_slippage(symbol, order_size_usd, side="buy"):
+def calculate_slippage(symbol, order_size_usd, binance_client, side="buy"):
     """
     Calculate slippage for a large order in Binance
 
@@ -14,15 +14,12 @@ def calculate_slippage(symbol, order_size_usd, side="buy"):
     Returns:
     - Slippage information dictionary
     """
-    # Initialize Binance client (no API key needed for public endpoints)
-    client = Client("", "")
-
     try:
         # Get order book data
-        depth = client.get_order_book(symbol=symbol, limit=5000)
+        depth = binance_client.get_order_book(symbol=symbol, limit=5000)
 
         # Get current price (mid price)
-        ticker = client.get_ticker(symbol=symbol)
+        ticker = binance_client.get_ticker(symbol=symbol)
         best_ask = float(ticker["askPrice"])
         best_bid = float(ticker["bidPrice"])
         current_price = (best_ask + best_bid) / 2
@@ -122,7 +119,7 @@ def calculate_slippage(symbol, order_size_usd, side="buy"):
         return None
 
 
-def calculate_skew_scale(ticker, current_price):
+def calculate_skew_scale(ticker, current_price, binance_client):
     """
     Calculate the skew_scale needed to achieve a specific slippage percentage.
 
@@ -134,11 +131,13 @@ def calculate_skew_scale(ticker, current_price):
     Returns:
     - skew_scale value that would result in the expected slippage
     """
-    buy_result = calculate_slippage(ticker + "USDT", 500000)
+    buy_result = calculate_slippage(ticker + "USDT", 500000, binance_client, "buy")
+    sell_result = calculate_slippage(ticker + "USDT", 500000, binance_client, "sell")
     if buy_result is None:
         expected_slippage_percent = 8
         size = 500000 / current_price
     else:
-        expected_slippage_percent = buy_result["slippage_percentage"] * 4
-        size = 500000 / buy_result["current_price"]
+        expected_slippage_percent = (buy_result["slippage_percentage"] + sell_result["slippage_percentage"]) / 2 * 5
+        average_price = (buy_result["current_price"] + sell_result["current_price"]) / 2
+        size = 500000 / average_price
     return (2 * (size)) * 50 / expected_slippage_percent

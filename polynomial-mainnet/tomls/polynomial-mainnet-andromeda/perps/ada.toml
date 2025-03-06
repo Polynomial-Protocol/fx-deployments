@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsAdaMaxMarketSize]
-defaultValue = "<%= String(127185.25) %>"
+defaultValue = "<%= String(217303.74) %>"
 
 [setting.perpsAdaMaxMarketValue]
-defaultValue = "<%= String(101_464) %>"
+defaultValue = "<%= String(202_370) %>"
 
 [setting.perpsAdaInitialMarginRatio]
 defaultValue = "5.836939332958298"
