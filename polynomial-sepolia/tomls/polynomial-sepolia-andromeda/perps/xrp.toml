@@ -5,7 +5,7 @@ defaultValue = "0xec5d399846a9209f3fe5881d70aae9268c94339ff9817e8d18ff19fa05eea1
 defaultValue = "1500"
 
 [setting.perpsXrpSkewScale]
-defaultValue = "<%= String(38_967_904) %>"
+defaultValue = "<%= String(60_000_000) %>"
 
 [setting.perpsXrpMaxFundingVelocity]
 defaultValue = "24"

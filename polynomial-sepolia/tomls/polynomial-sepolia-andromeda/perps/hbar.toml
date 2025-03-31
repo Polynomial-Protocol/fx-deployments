@@ -5,7 +5,7 @@ defaultValue = "0x3728e591097635310e6341af53db8b7ee42da9b3a8d918f9463ce9cca886df
 defaultValue = "4000"
 
 [setting.perpsHbarSkewScale]
-defaultValue = "<%= String(70_330_334) %>"
+defaultValue = "<%= String(90_000_000) %>"
 
 [setting.perpsHbarMaxFundingVelocity]
 defaultValue = "24"

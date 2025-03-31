@@ -5,7 +5,7 @@ defaultValue = "0xd69731a2e74ac1ce884fc3890f7ee324b6deb66147055249568869ed700882
 defaultValue = "400"
 
 [setting.perpsPepeSkewScale]
-defaultValue = "<%= String(400_000_000_000) %>"
+defaultValue = "<%= String(4_000_000_000_000) %>"
 
 [setting.perpsPepeMaxFundingVelocity]
 defaultValue = "24"

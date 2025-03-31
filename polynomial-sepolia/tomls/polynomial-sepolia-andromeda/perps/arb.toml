@@ -5,7 +5,7 @@ defaultValue = "0x3fa4252848f9f0a1480be62745a4629d9eb1322aebab8a791e344b3b9c1adc
 defaultValue = "3700"
 
 [setting.perpsArbSkewScale]
-defaultValue = "<%= String(14_801_497) %>"
+defaultValue = "<%= String(50_000_000) %>"
 
 [setting.perpsArbMaxFundingVelocity]
 defaultValue = "24"

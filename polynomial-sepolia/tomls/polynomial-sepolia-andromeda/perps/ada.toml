@@ -5,7 +5,7 @@ defaultValue = "0x2a01deaec9e51a579277b34b122399984d0bbf57e2458a7e42fecd2829867a
 defaultValue = "3500"
 
 [setting.perpsAdaSkewScale]
-defaultValue = "<%= String(40_452_093) %>"
+defaultValue = "<%= String(100_000_000) %>"
 
 [setting.perpsAdaMaxFundingVelocity]
 defaultValue = "24"

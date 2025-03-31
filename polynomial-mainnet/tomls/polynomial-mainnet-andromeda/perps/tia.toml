@@ -5,7 +5,7 @@ defaultValue = "0x09f7c1d7dfbb7df2b8fe3d3d87ee94a2259d212da4f30c1f0540d066dfa447
 defaultValue = "1600"
 
 [setting.perpsTiaSkewScale]
-defaultValue = "<%= String(2_000_000) %>"
+defaultValue = "<%= String(5_000_000) %>"
 
 [setting.perpsTiaMaxFundingVelocity]
 defaultValue = "24"

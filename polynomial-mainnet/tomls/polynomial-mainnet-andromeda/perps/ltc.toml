@@ -5,7 +5,7 @@ defaultValue = "0x6e3f3fa8253588df9326580180233eb791e03b443a3ba7a1d892e73874e19a
 defaultValue = "1800"
 
 [setting.perpsLtcSkewScale]
-defaultValue = "<%= String(297_232) %>"
+defaultValue = "<%= String(500_000) %>"
 
 [setting.perpsLtcMaxFundingVelocity]
 defaultValue = "24"

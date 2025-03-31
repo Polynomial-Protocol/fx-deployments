@@ -5,7 +5,7 @@ defaultValue = "0x2f95862b045670cd22bee3114c39763a4a08beeb663b145d283c31d7d1101c
 defaultValue = "3600"
 
 [setting.perpsBnbSkewScale]
-defaultValue = "<%= String(122_598) %>"
+defaultValue = "<%= String(200_000) %>"
 
 [setting.perpsBnbMaxFundingVelocity]
 defaultValue = "24"

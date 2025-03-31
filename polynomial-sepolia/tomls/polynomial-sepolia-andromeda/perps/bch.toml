@@ -5,7 +5,7 @@ defaultValue = "0x3dd2b63686a450ec7290df3a1e0b583c0481f651351edfa7636f39aed55cf8
 defaultValue = "4100"
 
 [setting.perpsBchSkewScale]
-defaultValue = "<%= String(17_372) %>"
+defaultValue = "<%= String(25_000) %>"
 
 [setting.perpsBchMaxFundingVelocity]
 defaultValue = "24"

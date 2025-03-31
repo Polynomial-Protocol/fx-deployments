@@ -5,7 +5,7 @@ defaultValue = "0x7302dee641a08507c297a7b0c8b3efa74a48a3baa6c040acab1e5209692b7e
 defaultValue = "3800"
 
 [setting.perpsKaitoSkewScale]
-defaultValue = "<%= String(1_795_792) %>"
+defaultValue = "<%= String(1_500_000) %>"
 
 [setting.perpsKaitoMaxFundingVelocity]
 defaultValue = "24"
