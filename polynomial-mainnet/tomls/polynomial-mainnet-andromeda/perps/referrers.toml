@@ -1,6 +1,39 @@
 [setting.referrerFee]
 defaultValue = "<%= parseEther('0.4') %>"
 
+[setting.limitOrderRelayerShare]
+defaultValue = "<%= parseEther('0.2') %>"
+
+[setting.aetherRelayer1]
+defaultValue = "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"
+
+[setting.aetherRelayer2]
+defaultValue = "0x5b186112931Ec52d014A2EE5B5Ffcf6CaD37d537"
+
+[setting.aetherRelayer3]
+defaultValue = "0xcDd0De89A53e059e827F7cd231397eB070667D35"
+
+[setting.aetherRelayer4]
+defaultValue = "0x4EcB8c2044eF3F9FD9Af9B2ac198FAFB6c62EF17"
+
+[setting.aetherRelayer5]
+defaultValue = "0x6cd004151f81d3c041Dd8ead8C84aA414c7d7BE4"
+
+[setting.aetherRelayer6]
+defaultValue = "0xec9b72dadb3331006D3190634c46B7f56c58A8c0"
+
+[setting.aetherRelayer7]
+defaultValue = "0xDA42c8F50558f49ceF8BF50C63D5079adb32Aa02"
+
+[setting.aetherRelayer8]
+defaultValue = "0x5Ac9799DAf8eb9A096F3913a59a480605fa3438b"
+
+[setting.aetherRelayer9]
+defaultValue = "0x5afe9Fd1999f1A1606cAA9Bb93ff999F45124f15"
+
+[setting.aetherRelayer10]
+defaultValue = "0x2f22A1f7Fe0b8346AD22Ddb5a819798c03039ef3"
+
 [invoke.setPolynomialAsReferrerOnPerpsMarket]
 target = ["perpsFactory.PerpsMarketProxy"]
 fromCall.func = "owner"
@@ -10,3 +43,103 @@ args = [
     "<%= settings.referrerFee %>",
 ]
 depends = ["provision.perpsFactory"]
+
+[invoke.setTestRelayerShare]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "updateRelayerShare"
+args = [
+    "0x011acb73EFDbE673E41771cC227748e735A4c47c",
+    "<%= settings.limitOrderRelayerShare %>",
+]
+
+[invoke.setAetherRelayer1]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "updateRelayerShare"
+args = [
+    "<%= settings.aetherRelayer1 %>",
+    "<%= settings.limitOrderRelayerShare %>",
+]
+
+[invoke.setAetherRelayer2]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "updateRelayerShare"
+args = [
+    "<%= settings.aetherRelayer2 %>",
+    "<%= settings.limitOrderRelayerShare %>",
+]
+
+[invoke.setAetherRelayer3]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "updateRelayerShare"
+args = [
+    "<%= settings.aetherRelayer3 %>",
+    "<%= settings.limitOrderRelayerShare %>",
+]
+
+[invoke.setAetherRelayer4]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "updateRelayerShare"
+args = [
+    "<%= settings.aetherRelayer4 %>",
+    "<%= settings.limitOrderRelayerShare %>",
+]
+
+[invoke.setAetherRelayer5]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "updateRelayerShare"
+args = [
+    "<%= settings.aetherRelayer5 %>",
+    "<%= settings.limitOrderRelayerShare %>",
+]
+
+[invoke.setAetherRelayer6]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "updateRelayerShare"
+args = [
+    "<%= settings.aetherRelayer6 %>",
+    "<%= settings.limitOrderRelayerShare %>",
+]
+
+[invoke.setAetherRelayer7]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "updateRelayerShare"
+args = [
+    "<%= settings.aetherRelayer7 %>",
+    "<%= settings.limitOrderRelayerShare %>",
+]
+
+[invoke.setAetherRelayer8]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "updateRelayerShare"
+args = [
+    "<%= settings.aetherRelayer8 %>",
+    "<%= settings.limitOrderRelayerShare %>",
+]
+
+[invoke.setAetherRelayer9]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "updateRelayerShare"
+args = [
+    "<%= settings.aetherRelayer9 %>",
+    "<%= settings.limitOrderRelayerShare %>",
+]
+
+[invoke.setAetherRelayer10]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "updateRelayerShare"
+args = [
+    "<%= settings.aetherRelayer10 %>",
+    "<%= settings.limitOrderRelayerShare %>",
+]
+
