@@ -166,16 +166,16 @@ defaultValue = "2"
 defaultValue = "2"
 
 [setting.snx_package]
-defaultValue = "polynomial-core:3.8.2"
+defaultValue = "polynomial-core:3.9.7"
 
 [setting.perps_keeper_cost_package]
 defaultValue = "fx-op-gas-price-oracle:3.8.2"
 
 [setting.spot_market_package]
-defaultValue = "fx-spot-market:3.8.2"
+defaultValue = "fx-spot-market:3.9.7"
 
 [setting.perps_market_package]
-defaultValue = "fx-perps-market:3.9.1"
+defaultValue = "fx-perps-market:3.9.7"
 
 [setting.salt]
 defaultValue = "andromeda-dev"

@@ -4,3 +4,9 @@ fromCall.func = "owner"
 func = "setFeatureFlagAllowAll"
 args = ["<%= formatBytes32String('perpsSystem') %>", true]
 depends = ["provision.perpsFactory"]
+
+[invoke.allowAllLimitOrder]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setFeatureFlagAllowAll"
+args = ["<%= formatBytes32String('limitOrder') %>", true]
