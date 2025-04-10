@@ -44,12 +44,21 @@ args = [
 ]
 depends = ["provision.perpsFactory"]
 
-[invoke.setTestRelayerShare]
+[invoke.setOldTestRelayerShare]
 target = ["perpsFactory.PerpsMarketProxy"]
 fromCall.func = "owner"
 func = "updateRelayerShare"
 args = [
     "0x011acb73EFDbE673E41771cC227748e735A4c47c",
+    "0",
+]
+
+[invoke.setNewTestRelayerShare]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "updateRelayerShare"
+args = [
+    "0x4D387f5c0Ec87e47b9Df9b8C97B89D2977431b27",
     "<%= settings.limitOrderRelayerShare %>",
 ]
 
