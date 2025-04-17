@@ -2,7 +2,7 @@
 defaultValue = "<%= parseEther(String(250)) %>"
 
 [setting.fxSolvbtcSkewScale]
-defaultValue = "<%= parseEther(String(7_000)) %>"
+defaultValue = "<%= parseEther(String(35_000)) %>"
 
 [setting.spotStrictStalenessTolerance]
 defaultValue = "300"
@@ -48,6 +48,13 @@ args = [
     "<%= settings.solvbtc_address %>",
     "<%= settings.fxSolvbtcMaxMarketCollateral %>",
 ]
+
+[invoke.setSkewScaleSolvbtc]
+target = ["spotFactory.SpotMarketProxy"]
+fromCall.func = "getMarketOwner"
+fromCall.args = ["<%= extras.fx_solvbtc_market_id %>"]
+func = "setMarketSkewScale"
+args = ["<%= extras.fx_solvbtc_market_id %>", "<%= settings.fxSolvbtcSkewScale %>"]
 
 [invoke.configureSynthWrapperSolvbtc]
 target = ["spotFactory.SpotMarketProxy"]

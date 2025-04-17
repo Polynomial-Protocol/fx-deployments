@@ -49,6 +49,13 @@ args = [
     "<%= settings.fxWstEthMaxMarketCollateral %>",
 ]
 
+[invoke.setSkewScaleWstEth]
+target = ["spotFactory.SpotMarketProxy"]
+fromCall.func = "getMarketOwner"
+fromCall.args = ["<%= extras.fx_wsteth_market_id %>"]
+func = "setMarketSkewScale"
+args = ["<%= extras.fx_wsteth_market_id %>", "<%= settings.fxWstEthSkewScale %>"]
+
 [invoke.configureSynthWrapperWstEth]
 target = ["spotFactory.SpotMarketProxy"]
 fromCall.func = "getMarketOwner"
