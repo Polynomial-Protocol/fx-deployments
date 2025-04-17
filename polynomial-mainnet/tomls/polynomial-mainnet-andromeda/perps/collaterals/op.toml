@@ -1,0 +1,27 @@
+[var.perps_collateral_OP_settings]
+op_upper_limit_discount = "<%= parseEther('0.2') %>"
+op_lower_limit_discount = "<%= parseEther('0.1') %>"
+op_discount_scalar = "<%= parseEther('1') %>"
+
+[invoke.setPerpsMaxCollateralForFxOp]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setCollateralConfiguration"
+args = [
+    "<%= extras.fx_op_market_id %>",
+    "<%= settings.fxOpMaxMarketCollateral %>",
+    "<%= settings.op_upper_limit_discount %>",
+    "<%= settings.op_lower_limit_discount %>",
+    "<%= settings.op_discount_scalar %>",
+]
+
+[invoke.setSynthMaxMarketCollateralFxOp]
+target = ["system.CoreProxy"]
+fromCall.func = "owner"
+fromCall.args = []
+func = "configureMaximumMarketCollateral"
+args = [
+    "<%= imports.perpsFactory.extras.superMarketId %>",
+    "<%= extras.fx_op_token_address %>",
+    "<%= settings.fxOpMaxMarketCollateral %>",
+]

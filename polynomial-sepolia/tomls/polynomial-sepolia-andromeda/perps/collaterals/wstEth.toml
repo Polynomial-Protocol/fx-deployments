@@ -1,0 +1,27 @@
+[var.perps_collateral_WSTETH_settings]
+wsteth_upper_limit_discount = "<%= parseEther('0.12') %>"
+wsteth_lower_limit_discount = "<%= parseEther('0.05') %>"
+wsteth_discount_scalar = "<%= parseEther('1') %>"
+
+[invoke.setPerpsMaxCollateralForFxWstEth]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setCollateralConfiguration"
+args = [
+    "<%= extras.fx_wsteth_market_id %>",
+    "<%= settings.fxWstEthMaxMarketCollateral %>",
+    "<%= settings.wsteth_upper_limit_discount %>",
+    "<%= settings.wsteth_lower_limit_discount %>",
+    "<%= settings.wsteth_discount_scalar %>",
+]
+
+[invoke.setSynthMaxMarketCollateralFxWstEth]
+target = ["system.CoreProxy"]
+fromCall.func = "owner"
+fromCall.args = []
+func = "configureMaximumMarketCollateral"
+args = [
+    "<%= imports.perpsFactory.extras.superMarketId %>",
+    "<%= extras.fx_wsteth_token_address %>",
+    "<%= settings.fxWstEthMaxMarketCollateral %>",
+]

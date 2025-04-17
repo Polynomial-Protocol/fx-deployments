@@ -1,0 +1,128 @@
+[setting.fxSolvbtcMaxMarketCollateral]
+defaultValue = "<%= parseEther(String(250)) %>"
+
+[setting.fxSolvbtcSkewScale]
+defaultValue = "<%= parseEther(String(35_000)) %>"
+
+[setting.spotStrictStalenessTolerance]
+defaultValue = "300"
+
+[setting.pyth_feed_id_solvbtc]
+defaultValue = "0xf253cf87dc7d5ed5aa14cba5a6e79aee8bcfaef885a0e1b807035a0bbecc36fa"
+
+[setting.pyth_feed_url]
+defaultValue = "https://hermes.pyth.network/v2/updates/price/latest?ids[]=<%= settings.pyth_feed_id_solvbtc %>"
+
+[setting.solvbtc_address]
+defaultValue = "0xF2F527b0DA9Ea6e607e778976C34723ADE993Dc7"
+
+[invoke.createSolvbtcSynth]
+target = ["spotFactory.SpotMarketProxy"]
+fromCall.func = "owner"
+func = "createSynth"
+args = ["Polynomial SolvBTC", "fxSolvBTC", "<%= settings.owner %>"]
+extra.fx_solvbtc_market_id.event = "SynthRegistered"
+extra.fx_solvbtc_market_id.arg = 0
+extra.fx_solvbtc_token_address.event = "SynthRegistered"
+extra.fx_solvbtc_token_address.arg = 1
+
+[invoke.setSynthPriceSolvbtc]
+target = ["spotFactory.SpotMarketProxy"]
+fromCall.func = "getMarketOwner"
+fromCall.args = ["<%= extras.fx_solvbtc_market_id %>"]
+func = "updatePriceData"
+args = [
+    "<%= extras.fx_solvbtc_market_id %>",
+    "<%= extras.solvbtc_oracle_id %>",
+    "<%= extras.solvbtc_oracle_id %>",
+    "<%= settings.spotStrictStalenessTolerance %>",
+]
+
+[invoke.setSynthMaxMarketCollateralSolvbtc]
+target = ["system.CoreProxy"]
+fromCall.func = "owner"
+fromCall.args = []
+func = "configureMaximumMarketCollateral"
+args = [
+    "<%= extras.fx_solvbtc_market_id %>",
+    "<%= settings.solvbtc_address %>",
+    "<%= settings.fxSolvbtcMaxMarketCollateral %>",
+]
+
+[invoke.setSkewScaleSolvbtc]
+target = ["spotFactory.SpotMarketProxy"]
+fromCall.func = "getMarketOwner"
+fromCall.args = ["<%= extras.fx_solvbtc_market_id %>"]
+func = "setMarketSkewScale"
+args = ["<%= extras.fx_solvbtc_market_id %>", "<%= settings.fxSolvbtcSkewScale %>"]
+
+
+[invoke.configureSynthWrapperSolvbtc]
+target = ["spotFactory.SpotMarketProxy"]
+fromCall.func = "getMarketOwner"
+fromCall.args = ["<%= extras.fx_solvbtc_market_id %>"]
+func = "setWrapper"
+args = [
+    "<%= extras.fx_solvbtc_market_id %>",
+    "<%= settings.solvbtc_address %>",
+    "<%= settings.fxSolvbtcMaxMarketCollateral %>",
+]
+
+# NOTE set disabled = true to addSettlementStrategy call before initial mainnet deployment
+[invoke.SpotMarketProxy_addSettlementStrategy_solvbtc]
+target = ["spotFactory.SpotMarketProxy"]
+fromCall.func = "getMarketOwner"
+fromCall.args = ["<%= extras.fx_solvbtc_market_id %>"]
+func = "addSettlementStrategy"
+args = [
+    "<%= extras.fx_solvbtc_market_id %>",
+    { strategyType = "1", settlementDelay = "0", settlementWindowDuration = "1", priceVerificationContract = "0x0000000000000000000000000000000000000000", feedId = "0x0000000000000000000000000000000000000000000000000000000000000000", url = "", settlementReward = 0, minimumUsdExchangeAmount = "0", maxRoundingLoss = "1", priceDeviationTolerance = "0", disabled = false },
+]
+extra.fx_solvbtc_settlement_strategy_id.event = "SettlementStrategyAdded"
+extra.fx_solvbtc_settlement_strategy_id.arg = 1
+
+[invoke.SpotMarketProxy_setSettlementStrategy_fxSolvbtc]
+target = ["spotFactory.SpotMarketProxy"]
+fromCall.func = "getMarketOwner"
+fromCall.args = ["<%= extras.fx_solvbtc_market_id %>"]
+func = "setSettlementStrategy"
+args = [
+    "<%= extras.fx_solvbtc_market_id %>",
+    "<%= extras.fx_solvbtc_settlement_strategy_id %>",
+    { strategyType = "1", settlementDelay = "<%= settings.big_cap_settlement_delay %>", settlementWindowDuration = "<%= settings.big_cap_settlement_window_duration %>", priceVerificationContract = "<%= imports.pyth_erc7412_wrapper.contracts.PythERC7412Wrapper.address %>", feedId = "<%= settings.pyth_feed_id_solvbtc %>", url = "<%= settings.pyth_feed_url %>", settlementReward = "<%= settings.settlement_reward %>", minimumUsdExchangeAmount = "<%= settings.settlement_minimum_usd_exchange_amount %>", maxRoundingLoss = "<%= settings.settlement_max_rounding_loss %>", priceDeviationTolerance = "<%= settings.price_deviation_tolerance %>", disabled = true },
+]
+
+[invoke.SpotMarketProxy_setAtomicFixedFee_fxSolvbtc]
+target = ["spotFactory.SpotMarketProxy"]
+fromCall.func = "getMarketOwner"
+fromCall.args = ["<%= extras.fx_solvbtc_market_id %>"]
+func = "setAtomicFixedFee"
+args = ["<%= extras.fx_solvbtc_market_id %>", "<%= parseEther(String(0.02)) %>"]
+
+[invoke.configure_solvbtc_collateral]
+target = ["system.CoreProxy"]
+fromCall.func = "owner"
+func = "configureCollateral"  # "args" see below in the multiline block
+
+[[invoke.configure_solvbtc_collateral.args]]
+tokenAddress = "<%= settings.solvbtc_address %>"
+oracleNodeId = "<%= extras.solvbtc_oracle_id %>"
+issuanceRatioD18 = "<%= parseEther('2') %>"
+liquidationRatioD18 = "<%= parseEther('1.1') %>"
+liquidationRewardD18 = "<%= parseEther('0.0001') %>"
+minDelegationD18 = "<%= parseEther('0.1') %>"
+depositingEnabled = false
+
+[invoke.configure_fxsolvbtc_collateral]
+target = ["system.CoreProxy"]
+fromCall.func = "owner"
+func = "configureCollateral"  # "args" see below in the multiline block
+
+[[invoke.configure_fxsolvbtc_collateral.args]]
+tokenAddress = "<%= extras.fx_solvbtc_token_address %>"
+oracleNodeId = "<%= extras.solvbtc_oracle_id %>"
+issuanceRatioD18 = "<%= parseEther('2') %>"
+liquidationRatioD18 = "<%= parseEther('1.1') %>"
+liquidationRewardD18 = "<%= parseEther('0.0001') %>"
+minDelegationD18 = "<%= parseEther('0.1') %>"
+depositingEnabled = false
