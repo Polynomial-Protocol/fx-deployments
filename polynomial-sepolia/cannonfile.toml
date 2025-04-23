@@ -168,6 +168,9 @@ include = [
     "tomls/polynomial-sepolia-andromeda/perps/bch-invokes.toml",
     "tomls/oracles/pyth-bch.toml",
     "tomls/polynomial-sepolia-andromeda/perps/bch.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/zora-invokes.toml",
+    "tomls/oracles/pyth-zora.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/zora.toml",
 ]
 
 [setting.commitmentPriceDelay]

@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsIpMaxMarketSize]
-defaultValue = "<%= String(37707.39) %>"
+defaultValue = "<%= String(36698.50) %>"
 
 [setting.perpsIpMaxMarketValue]
-defaultValue = "<%= String(202_370) %>"
+defaultValue = "<%= String(137_035) %>"
 
 [setting.perpsIpInitialMarginRatio]
 defaultValue = "0.3472222222222201"
