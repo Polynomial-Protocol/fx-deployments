@@ -131,6 +131,8 @@ args = [
     "<%= parseEther(settings.perpsVirtualLimitOrderMakerFeeRatio) %>",
     "<%= parseEther(settings.perpsVirtualLimitOrderTakerFeeRatio) %>",
 ]
+[invoke.setperpsVirtualLimitOrderFees.fromCall]
+func = "owner"
 
 [invoke.setperpsVirtualMaxMarketSize]
 target = ["perpsFactory.PerpsMarketProxy"]

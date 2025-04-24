@@ -162,3 +162,20 @@ args = [
     "<%= parseEther(settings.perpsEnaLockedOiRatio) %>",
 ]
 depends = ["invoke.createEnaPerpsMarket"]
+
+[invoke.setperpsEnaLimitOrderFees]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLimitOrderFees"
+args = [
+    "<%= settings.enaPerpsMarketId %>",
+    "<%= parseEther(settings.perpsEnaLimitOrderMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsEnaLimitOrderTakerFeeRatio) %>",
+]
+depends = [
+    "invoke.createEnaPerpsMarket",
+]
+
+[invoke.setperpsEnaLimitOrderFees.fromCall]
+func = "owner"

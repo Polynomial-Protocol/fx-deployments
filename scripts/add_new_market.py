@@ -228,18 +228,17 @@ def add_new_market(market_info, is_testnet=False):
         "depends": [f"invoke.create{prefix}Market"],
     }
 
-    if is_testnet:
-        invoke[f"set{prefix}LimitOrderFees"] = {
-            "target": ["perpsFactory.PerpsMarketProxy"],
-            "fromCall": {"func": "owner"},
-            "func": "setLimitOrderFees",
-            "args": [
-                f"<%= settings.{prefix}MarketId %>",
-                f"<%= parseEther(settings.{prefix}LimitOrderMakerFeeRatio) %>",
-                f"<%= parseEther(settings.{prefix}LimitOrderTakerFeeRatio) %>",
-            ],
-            "depends": [f"invoke.create{prefix}Market"],
-        }
+    invoke[f"set{prefix}LimitOrderFees"] = {
+        "target": ["perpsFactory.PerpsMarketProxy"],
+        "fromCall": {"func": "owner"},
+        "func": "setLimitOrderFees",
+        "args": [
+            f"<%= settings.{prefix}MarketId %>",
+            f"<%= parseEther(settings.{prefix}LimitOrderMakerFeeRatio) %>",
+            f"<%= parseEther(settings.{prefix}LimitOrderTakerFeeRatio) %>",
+        ],
+        "depends": [f"invoke.create{prefix}Market"],
+    }
 
     oracle["invoke"] = {
         f"register{prefix}PythOracleNode": {
