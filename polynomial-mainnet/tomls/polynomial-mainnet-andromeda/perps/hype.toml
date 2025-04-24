@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsHypeMaxMarketSize]
-defaultValue = "<%= String(12238.57) %>"
+defaultValue = "<%= String(7389.91) %>"
 
 [setting.perpsHypeMaxMarketValue]
-defaultValue = "<%= String(202_370) %>"
+defaultValue = "<%= String(137_035) %>"
 
 [setting.perpsHypeInitialMarginRatio]
 defaultValue = "1.5277777777777772"

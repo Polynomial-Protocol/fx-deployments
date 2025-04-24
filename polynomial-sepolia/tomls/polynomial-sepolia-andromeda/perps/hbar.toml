@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsHbarMaxMarketSize]
-defaultValue = "<%= String(827867.85) %>"
+defaultValue = "<%= String(760830.61) %>"
 
 [setting.perpsHbarMaxMarketValue]
-defaultValue = "<%= String(202_370) %>"
+defaultValue = "<%= String(137_035) %>"
 
 [setting.perpsHbarInitialMarginRatio]
 defaultValue = "0.9552005471050908"
