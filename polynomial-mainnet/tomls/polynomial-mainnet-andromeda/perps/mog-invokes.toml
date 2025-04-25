@@ -174,7 +174,7 @@ args = [
     "<%= parseEther(settings.perpsMogLimitOrderTakerFeeRatio) %>",
 ]
 depends = [
-    "invoke.createperpsMogMarket",
+    "invoke.createMogPerpsMarket",
 ]
 
 [invoke.setperpsMogLimitOrderFees.fromCall]

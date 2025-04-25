@@ -174,7 +174,7 @@ args = [
     "<%= parseEther(settings.perpsPnutLimitOrderTakerFeeRatio) %>",
 ]
 depends = [
-    "invoke.createperpsPnutMarket",
+    "invoke.createPnutPerpsMarket",
 ]
 
 [invoke.setperpsPnutLimitOrderFees.fromCall]
