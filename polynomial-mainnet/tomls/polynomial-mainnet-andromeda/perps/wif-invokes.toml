@@ -106,6 +106,17 @@ args = [
 ]
 depends = ["invoke.createWifPerpsMarket"]
 
+[invoke.setPerpsWifLimitOrderFees]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setLimitOrderFees"
+args = [
+    "<%= settings.wifPerpsMarketId %>",
+    "<%= parseEther(settings.perpsWifLimitOrderMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsWifLimitOrderTakerFeeRatio) %>",
+]
+depends = ["invoke.createWifPerpsMarket"]
+
 [invoke.setPerpsWifMaxMarketSize]
 target = ["perpsFactory.PerpsMarketProxy"]
 fromCall.func = "owner"

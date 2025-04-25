@@ -123,6 +123,17 @@ depends = ["invoke.createperpsVirtualMarket"]
 [invoke.setperpsVirtualOrderFees.fromCall]
 func = "owner"
 
+[invoke.setperpsVirtualLimitOrderFees]
+target = ["perpsFactory.PerpsMarketProxy"]
+func = "setLimitOrderFees"
+args = [
+    "<%= settings.perpsVirtualMarketId %>",
+    "<%= parseEther(settings.perpsVirtualLimitOrderMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsVirtualLimitOrderTakerFeeRatio) %>",
+]
+[invoke.setperpsVirtualLimitOrderFees.fromCall]
+func = "owner"
+
 [invoke.setperpsVirtualMaxMarketSize]
 target = ["perpsFactory.PerpsMarketProxy"]
 func = "setMaxMarketSize"

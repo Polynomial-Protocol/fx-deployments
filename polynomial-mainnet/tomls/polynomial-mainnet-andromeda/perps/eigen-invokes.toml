@@ -106,16 +106,16 @@ args = [
 ]
 depends = ["invoke.createEigenPerpsMarket"]
 
-# [invoke.setPerpsEigenLimitOrderFees]
-# target = ["perpsFactory.PerpsMarketProxy"]
-# fromCall.func = "owner"
-# func = "setLimitOrderFees"
-# args = [
-#     "<%= settings.eigenPerpsMarketId %>",
-#     "<%= parseEther(settings.perpsEigenLimitOrderMakerFeeRatio) %>",
-#     "<%= parseEther(settings.perpsEigenLimitOrderTakerFeeRatio) %>",
-# ]
-# depends = ["invoke.createEigenPerpsMarket"]
+[invoke.setPerpsEigenLimitOrderFees]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setLimitOrderFees"
+args = [
+    "<%= settings.eigenPerpsMarketId %>",
+    "<%= parseEther(settings.perpsEigenLimitOrderMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsEigenLimitOrderTakerFeeRatio) %>",
+]
+depends = ["invoke.createEigenPerpsMarket"]
 
 [invoke.setPerpsEigenMaxMarketSize]
 target = ["perpsFactory.PerpsMarketProxy"]

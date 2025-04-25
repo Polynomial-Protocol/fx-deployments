@@ -236,3 +236,20 @@ depends = [
 
 [invoke.setperpsTrumpLockedOiRatio.fromCall]
 func = "owner"
+
+[invoke.setperpsTrumpLimitOrderFees]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLimitOrderFees"
+args = [
+    "<%= settings.perpsTrumpMarketId %>",
+    "<%= parseEther(settings.perpsTrumpLimitOrderMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsTrumpLimitOrderTakerFeeRatio) %>",
+]
+depends = [
+    "invoke.createperpsTrumpMarket",
+]
+
+[invoke.setperpsTrumpLimitOrderFees.fromCall]
+func = "owner"

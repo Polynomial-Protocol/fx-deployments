@@ -236,3 +236,20 @@ depends = [
 
 [invoke.setperpsZoraLockedOiRatio.fromCall]
 func = "owner"
+
+[invoke.setperpsZoraLimitOrderFees]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLimitOrderFees"
+args = [
+    "<%= settings.perpsZoraMarketId %>",
+    "<%= parseEther(settings.perpsZoraLimitOrderMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsZoraLimitOrderTakerFeeRatio) %>",
+]
+depends = [
+    "invoke.createperpsZoraMarket",
+]
+
+[invoke.setperpsZoraLimitOrderFees.fromCall]
+func = "owner"

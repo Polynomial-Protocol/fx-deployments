@@ -189,3 +189,20 @@ depends = ["invoke.createperpsHypeMarket"]
 
 [invoke.setperpsHypeLockedOiRatio.fromCall]
 func = "owner"
+
+[invoke.setperpsHypeLimitOrderFees]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLimitOrderFees"
+args = [
+    "<%= settings.perpsHypeMarketId %>",
+    "<%= parseEther(settings.perpsHypeLimitOrderMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsHypeLimitOrderTakerFeeRatio) %>",
+]
+depends = [
+    "invoke.createperpsHypeMarket",
+]
+
+[invoke.setperpsHypeLimitOrderFees.fromCall]
+func = "owner"
