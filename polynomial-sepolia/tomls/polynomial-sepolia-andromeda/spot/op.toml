@@ -2,7 +2,7 @@
 defaultValue = "<%= parseEther(String(3_500_000)) %>"
 
 [setting.fxOpSkewScale]
-defaultValue = "<%= parseEther(String(3_000_000)) %>"
+defaultValue = "<%= parseEther(String(3)) %>"
 
 [setting.spotStrictStalenessTolerance]
 defaultValue = "300"
