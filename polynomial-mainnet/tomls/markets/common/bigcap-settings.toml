@@ -4,7 +4,7 @@ include = ["./settlement-settings.toml"]
 defaultValue = "2"
 
 [setting.bigCapSettlementWindowDuration]
-defaultValue = "60"
+defaultValue = "30"
 
 [setting.bigCapDefaultStalenessTolerance]
 defaultValue = "3600"
