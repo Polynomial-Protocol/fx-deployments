@@ -1,0 +1,255 @@
+include = [
+    "../../oracles/pyth-floki.toml",
+    "../../markets/common/bigcap-settings.toml",
+]
+
+[setting.perpsFlokiMarketId]
+
+[setting.perpsFlokiSkewScale]
+
+[setting.perpsFlokiMaxFundingVelocity]
+
+[setting.perpsFlokiMakerFeeRatio]
+
+[setting.perpsFlokiTakerFeeRatio]
+
+[setting.perpsFlokiMaxMarketSize]
+
+[setting.perpsFlokiInitialMarginRatio]
+
+[setting.perpsFlokiMaintenanceMarginScalar]
+
+[setting.perpsFlokiMinimumInitialMarginRatio]
+
+[setting.perpsFlokiFlagRewardRatioD18]
+
+[setting.perpsFlokiMaxLiquidationLimitAccumulationMultiplier]
+
+[setting.perpsFlokiMaxSecondsInLiquidationWindow]
+
+[setting.perpsFlokiMinimumPositionMargin]
+
+[setting.perpsFlokiLockedOiRatio]
+
+[setting.perpsFlokiSynthMaxCollateralAmount]
+
+[setting.perpsFlokiMaxLiquidationPd]
+
+[setting.perpsFlokiEndorsedLiquidator]
+
+[invoke.createperpsFlokiMarket]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "createMarket"
+args = [
+    "<%= settings.perpsFlokiMarketId %>",
+    "FLOKI",
+    "FLOKI",
+]
+depends = [
+    "provision.system",
+    "provision.perpsFactory",
+]
+
+[invoke.createperpsFlokiMarket.fromCall]
+func = "owner"
+
+[invoke.setperpsFlokiPrice]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "updatePriceData"
+args = [
+    "<%= settings.perpsFlokiMarketId %>",
+    "<%= extras.perpsFloki_oracle_id %>",
+    "<%= settings.bigCapStrictStalenessTolerance %>",
+]
+depends = [
+    "invoke.createperpsFlokiMarket",
+]
+
+[invoke.setperpsFlokiPrice.fromCall]
+func = "owner"
+
+[invoke.addperpsFlokiSettlementStrategy]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "addSettlementStrategy"
+args = [
+    "<%= settings.perpsFlokiMarketId %>",
+    { strategyType = "0", settlementDelay = "0", settlementWindowDuration = "1", priceVerificationContract = "0x0000000000000000000000000000000000000000", feedId = "0x0000000000000000000000000000000000000000000000000000000000000000", settlementReward = "0", disabled = false, commitmentPriceDelay = "0" },
+]
+depends = [
+    "invoke.createperpsFlokiMarket",
+]
+
+[invoke.addperpsFlokiSettlementStrategy.fromCall]
+func = "owner"
+
+[invoke.addperpsFlokiSettlementStrategy.extra.perpsFloki_pyth_settlement_strategy]
+event = "SettlementStrategyAdded"
+arg = 2
+
+[invoke.setperpsFlokiSettlementStrategy]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setSettlementStrategy"
+args = [
+    "<%= settings.perpsFlokiMarketId %>",
+    "<%= extras.perpsFloki_pyth_settlement_strategy %>",
+    { strategyType = "0", settlementDelay = "<%= settings.bigCapSettlementDelay %>", settlementWindowDuration = "<%= settings.bigCapSettlementWindowDuration %>", priceVerificationContract = "<%= imports.pyth_erc7412_wrapper.contracts.PythERC7412Wrapper.address %>", feedId = "<%= settings.perpsFlokiFeedId %>", settlementReward = "<%= parseEther(settings.settlementReward) %>", disabled = false, commitmentPriceDelay = "2" },
+]
+depends = [
+    "provision.perpsFactory",
+    "setting.perpsFlokiMarketId",
+    "invoke.addperpsFlokiSettlementStrategy",
+    "provision.pyth_erc7412_wrapper",
+    "setting.bigCapSettlementDelay",
+    "setting.bigCapSettlementWindowDuration",
+    "setting.perpsFlokiFeedId",
+    "setting.settlementReward",
+]
+
+[invoke.setperpsFlokiSettlementStrategy.fromCall]
+func = "owner"
+
+[invoke.setperpsFlokiFundingParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setFundingParameters"
+args = [
+    "<%= settings.perpsFlokiMarketId %>",
+    "<%= parseEther(settings.perpsFlokiSkewScale) %>",
+    "<%= parseEther(settings.perpsFlokiMaxFundingVelocity) %>",
+]
+depends = [
+    "invoke.createperpsFlokiMarket",
+]
+
+[invoke.setperpsFlokiFundingParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsFlokiOrderFees]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setOrderFees"
+args = [
+    "<%= settings.perpsFlokiMarketId %>",
+    "<%= parseEther(settings.perpsFlokiMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsFlokiTakerFeeRatio) %>",
+]
+depends = [
+    "invoke.createperpsFlokiMarket",
+]
+
+[invoke.setperpsFlokiOrderFees.fromCall]
+func = "owner"
+
+[invoke.setperpsFlokiMaxMarketSize]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxMarketSize"
+args = [
+    "<%= settings.perpsFlokiMarketId %>",
+    "<%= parseEther(settings.perpsFlokiMaxMarketSize) %>",
+]
+depends = [
+    "invoke.createperpsFlokiMarket",
+]
+
+[invoke.setperpsFlokiMaxMarketSize.fromCall]
+func = "owner"
+
+[invoke.setperpsFlokiMaxMarketValue]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxMarketValue"
+args = [
+    "<%= settings.perpsFlokiMarketId %>",
+    "<%= parseEther(settings.perpsFlokiMaxMarketValue) %>",
+]
+depends = [
+    "invoke.createperpsFlokiMarket",
+]
+
+[invoke.setperpsFlokiMaxMarketValue.fromCall]
+func = "owner"
+
+[invoke.setperpsFlokiMaxLiquidationParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxLiquidationParameters"
+args = [
+    "<%= settings.perpsFlokiMarketId %>",
+    "<%= parseEther(settings.perpsFlokiMaxLiquidationLimitAccumulationMultiplier) %>",
+    "<%= settings.perpsFlokiMaxSecondsInLiquidationWindow %>",
+    "<%= parseEther(settings.perpsFlokiMaxLiquidationPd) %>",
+    "<%= settings.perpsFlokiEndorsedLiquidator %>",
+]
+depends = [
+    "invoke.createperpsFlokiMarket",
+]
+
+[invoke.setperpsFlokiMaxLiquidationParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsFlokiLiquidationParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLiquidationParameters"
+args = [
+    "<%= settings.perpsFlokiMarketId %>",
+    "<%= parseEther(settings.perpsFlokiInitialMarginRatio) %>",
+    "<%= parseEther(settings.perpsFlokiMinimumInitialMarginRatio) %>",
+    "<%= parseEther(settings.perpsFlokiMaintenanceMarginScalar) %>",
+    "<%= parseEther(settings.perpsFlokiFlagRewardRatioD18) %>",
+    "<%= parseEther(settings.perpsFlokiMinimumPositionMargin) %>",
+]
+depends = [
+    "invoke.createperpsFlokiMarket",
+]
+
+[invoke.setperpsFlokiLiquidationParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsFlokiLockedOiRatio]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLockedOiRatio"
+args = [
+    "<%= settings.perpsFlokiMarketId %>",
+    "<%= parseEther(settings.perpsFlokiLockedOiRatio) %>",
+]
+depends = [
+    "invoke.createperpsFlokiMarket",
+]
+
+[invoke.setperpsFlokiLockedOiRatio.fromCall]
+func = "owner"
+
+[invoke.setperpsFlokiLimitOrderFees]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLimitOrderFees"
+args = [
+    "<%= settings.perpsFlokiMarketId %>",
+    "<%= parseEther(settings.perpsFlokiLimitOrderMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsFlokiLimitOrderTakerFeeRatio) %>",
+]
+depends = [
+    "invoke.createperpsFlokiMarket",
+]
+
+[invoke.setperpsFlokiLimitOrderFees.fromCall]
+func = "owner"
