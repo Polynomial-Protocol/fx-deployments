@@ -1,0 +1,68 @@
+[setting.perpsCookieFeedId]
+defaultValue = "0xa73331cc6e723f807f1d522917abe43f843218f591f9a3d365695df29a7a0191"
+
+[setting.perpsCookieMarketId]
+defaultValue = "4300"
+
+[setting.perpsCookieSkewScale]
+defaultValue = "<%= String(2_404_977) %>"
+
+[setting.perpsCookieMaxFundingVelocity]
+defaultValue = "24"
+
+[setting.perpsCookieMakerFeeRatio]
+defaultValue = "0.0005"
+
+[setting.perpsCookieTakerFeeRatio]
+defaultValue = "0.0008"
+
+[setting.perpsCookieLimitOrderMakerFeeRatio]
+defaultValue = "0.0001"
+
+[setting.perpsCookieLimitOrderTakerFeeRatio]
+defaultValue = "0.0002"
+
+[setting.perpsCookieMaxMarketSize]
+defaultValue = "<%= String(625440.04) %>"
+
+[setting.perpsCookieMaxMarketValue]
+defaultValue = "<%= String(169_611) %>"
+
+[setting.perpsCookieInitialMarginRatio]
+defaultValue = "0.0362333447341197"
+
+[setting.perpsCookieMaintenanceMarginScalar]
+defaultValue = "0.317"
+
+[setting.perpsCookieMinimumInitialMarginRatio]
+defaultValue = "0.05"
+
+[setting.perpsCookieFlagRewardRatioD18]
+defaultValue = "0.0003"
+
+[setting.perpsCookieMaxLiquidationLimitAccumulationMultiplier]
+defaultValue = "1.5"
+
+[setting.perpsCookieMaxSecondsInLiquidationWindow]
+defaultValue = "30"
+
+[setting.perpsCookieMinimumPositionMargin]
+defaultValue = "50"
+
+[setting.perpsCookieLockedOiRatio]
+defaultValue = "0.5"
+
+[setting.perpsCookieSynthMaxCollateralAmount]
+defaultValue = "<%= MaxUint256 %>"
+
+[setting.perpsCookieMaxLiquidationPd]
+defaultValue = "0.0005"
+
+[setting.perpsCookieEndorsedLiquidator]
+defaultValue = "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"
+
+[setting.commitmentPriceDelay]
+defaultValue = "2"
+
+[setting.bigCapSettlementDelay]
+defaultValue = "2"

@@ -1,0 +1,255 @@
+include = [
+    "../../oracles/pyth-cookie.toml",
+    "../../markets/common/bigcap-settings.toml",
+]
+
+[setting.perpsCookieMarketId]
+
+[setting.perpsCookieSkewScale]
+
+[setting.perpsCookieMaxFundingVelocity]
+
+[setting.perpsCookieMakerFeeRatio]
+
+[setting.perpsCookieTakerFeeRatio]
+
+[setting.perpsCookieMaxMarketSize]
+
+[setting.perpsCookieInitialMarginRatio]
+
+[setting.perpsCookieMaintenanceMarginScalar]
+
+[setting.perpsCookieMinimumInitialMarginRatio]
+
+[setting.perpsCookieFlagRewardRatioD18]
+
+[setting.perpsCookieMaxLiquidationLimitAccumulationMultiplier]
+
+[setting.perpsCookieMaxSecondsInLiquidationWindow]
+
+[setting.perpsCookieMinimumPositionMargin]
+
+[setting.perpsCookieLockedOiRatio]
+
+[setting.perpsCookieSynthMaxCollateralAmount]
+
+[setting.perpsCookieMaxLiquidationPd]
+
+[setting.perpsCookieEndorsedLiquidator]
+
+[invoke.createperpsCookieMarket]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "createMarket"
+args = [
+    "<%= settings.perpsCookieMarketId %>",
+    "Cookie DAO",
+    "COOKIE",
+]
+depends = [
+    "provision.system",
+    "provision.perpsFactory",
+]
+
+[invoke.createperpsCookieMarket.fromCall]
+func = "owner"
+
+[invoke.setperpsCookiePrice]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "updatePriceData"
+args = [
+    "<%= settings.perpsCookieMarketId %>",
+    "<%= extras.perpsCookie_oracle_id %>",
+    "<%= settings.bigCapStrictStalenessTolerance %>",
+]
+depends = [
+    "invoke.createperpsCookieMarket",
+]
+
+[invoke.setperpsCookiePrice.fromCall]
+func = "owner"
+
+[invoke.addperpsCookieSettlementStrategy]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "addSettlementStrategy"
+args = [
+    "<%= settings.perpsCookieMarketId %>",
+    { strategyType = "0", settlementDelay = "0", settlementWindowDuration = "1", priceVerificationContract = "0x0000000000000000000000000000000000000000", feedId = "0x0000000000000000000000000000000000000000000000000000000000000000", settlementReward = "0", disabled = false, commitmentPriceDelay = "0" },
+]
+depends = [
+    "invoke.createperpsCookieMarket",
+]
+
+[invoke.addperpsCookieSettlementStrategy.fromCall]
+func = "owner"
+
+[invoke.addperpsCookieSettlementStrategy.extra.perpsCookie_pyth_settlement_strategy]
+event = "SettlementStrategyAdded"
+arg = 2
+
+[invoke.setperpsCookieSettlementStrategy]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setSettlementStrategy"
+args = [
+    "<%= settings.perpsCookieMarketId %>",
+    "<%= extras.perpsCookie_pyth_settlement_strategy %>",
+    { strategyType = "0", settlementDelay = "<%= settings.bigCapSettlementDelay %>", settlementWindowDuration = "<%= settings.bigCapSettlementWindowDuration %>", priceVerificationContract = "<%= imports.pyth_erc7412_wrapper.contracts.PythERC7412Wrapper.address %>", feedId = "<%= settings.perpsCookieFeedId %>", settlementReward = "<%= parseEther(settings.settlementReward) %>", disabled = false, commitmentPriceDelay = "2" },
+]
+depends = [
+    "provision.perpsFactory",
+    "setting.perpsCookieMarketId",
+    "invoke.addperpsCookieSettlementStrategy",
+    "provision.pyth_erc7412_wrapper",
+    "setting.bigCapSettlementDelay",
+    "setting.bigCapSettlementWindowDuration",
+    "setting.perpsCookieFeedId",
+    "setting.settlementReward",
+]
+
+[invoke.setperpsCookieSettlementStrategy.fromCall]
+func = "owner"
+
+[invoke.setperpsCookieFundingParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setFundingParameters"
+args = [
+    "<%= settings.perpsCookieMarketId %>",
+    "<%= parseEther(settings.perpsCookieSkewScale) %>",
+    "<%= parseEther(settings.perpsCookieMaxFundingVelocity) %>",
+]
+depends = [
+    "invoke.createperpsCookieMarket",
+]
+
+[invoke.setperpsCookieFundingParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsCookieOrderFees]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setOrderFees"
+args = [
+    "<%= settings.perpsCookieMarketId %>",
+    "<%= parseEther(settings.perpsCookieMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsCookieTakerFeeRatio) %>",
+]
+depends = [
+    "invoke.createperpsCookieMarket",
+]
+
+[invoke.setperpsCookieOrderFees.fromCall]
+func = "owner"
+
+[invoke.setperpsCookieMaxMarketSize]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxMarketSize"
+args = [
+    "<%= settings.perpsCookieMarketId %>",
+    "<%= parseEther(settings.perpsCookieMaxMarketSize) %>",
+]
+depends = [
+    "invoke.createperpsCookieMarket",
+]
+
+[invoke.setperpsCookieMaxMarketSize.fromCall]
+func = "owner"
+
+[invoke.setperpsCookieMaxMarketValue]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxMarketValue"
+args = [
+    "<%= settings.perpsCookieMarketId %>",
+    "<%= parseEther(settings.perpsCookieMaxMarketValue) %>",
+]
+depends = [
+    "invoke.createperpsCookieMarket",
+]
+
+[invoke.setperpsCookieMaxMarketValue.fromCall]
+func = "owner"
+
+[invoke.setperpsCookieMaxLiquidationParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxLiquidationParameters"
+args = [
+    "<%= settings.perpsCookieMarketId %>",
+    "<%= parseEther(settings.perpsCookieMaxLiquidationLimitAccumulationMultiplier) %>",
+    "<%= settings.perpsCookieMaxSecondsInLiquidationWindow %>",
+    "<%= parseEther(settings.perpsCookieMaxLiquidationPd) %>",
+    "<%= settings.perpsCookieEndorsedLiquidator %>",
+]
+depends = [
+    "invoke.createperpsCookieMarket",
+]
+
+[invoke.setperpsCookieMaxLiquidationParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsCookieLiquidationParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLiquidationParameters"
+args = [
+    "<%= settings.perpsCookieMarketId %>",
+    "<%= parseEther(settings.perpsCookieInitialMarginRatio) %>",
+    "<%= parseEther(settings.perpsCookieMinimumInitialMarginRatio) %>",
+    "<%= parseEther(settings.perpsCookieMaintenanceMarginScalar) %>",
+    "<%= parseEther(settings.perpsCookieFlagRewardRatioD18) %>",
+    "<%= parseEther(settings.perpsCookieMinimumPositionMargin) %>",
+]
+depends = [
+    "invoke.createperpsCookieMarket",
+]
+
+[invoke.setperpsCookieLiquidationParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsCookieLockedOiRatio]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLockedOiRatio"
+args = [
+    "<%= settings.perpsCookieMarketId %>",
+    "<%= parseEther(settings.perpsCookieLockedOiRatio) %>",
+]
+depends = [
+    "invoke.createperpsCookieMarket",
+]
+
+[invoke.setperpsCookieLockedOiRatio.fromCall]
+func = "owner"
+
+[invoke.setperpsCookieLimitOrderFees]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLimitOrderFees"
+args = [
+    "<%= settings.perpsCookieMarketId %>",
+    "<%= parseEther(settings.perpsCookieLimitOrderMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsCookieLimitOrderTakerFeeRatio) %>",
+]
+depends = [
+    "invoke.createperpsCookieMarket",
+]
+
+[invoke.setperpsCookieLimitOrderFees.fromCall]
+func = "owner"

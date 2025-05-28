@@ -23,7 +23,7 @@ defaultValue = "0.0002"
 defaultValue = "0.0005"
 
 [setting.perpsEthMaxMarketSize]
-defaultValue = "<%= String(1367.19) %>"
+defaultValue = "<%= String(917.24) %>"
 
 [setting.perpsEthMaxMarketValue]
 defaultValue = "<%= String(2_440_000) %>"

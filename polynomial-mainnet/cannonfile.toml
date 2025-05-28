@@ -175,6 +175,9 @@ include = [
     "tomls/polynomial-mainnet-andromeda/perps/zora-invokes.toml",
     "tomls/oracles/pyth-zora.toml",
     "tomls/polynomial-mainnet-andromeda/perps/zora.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/cookie-invokes.toml",
+    "tomls/oracles/pyth-cookie.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/cookie.toml",
 ]
 
 [setting.commitmentPriceDelay]

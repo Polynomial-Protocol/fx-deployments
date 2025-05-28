@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsBnbMaxMarketSize]
-defaultValue = "<%= String(226.06) %>"
+defaultValue = "<%= String(247.29) %>"
 
 [setting.perpsBnbMaxMarketValue]
-defaultValue = "<%= String(137_035) %>"
+defaultValue = "<%= String(169_611) %>"
 
 [setting.perpsBnbInitialMarginRatio]
 defaultValue = "13.38516484852769"
