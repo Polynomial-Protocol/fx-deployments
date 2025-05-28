@@ -1,0 +1,68 @@
+[setting.perpsAltFeedId]
+defaultValue = "0x119ff2acf90f68582f5afd6f7d5f12dbae81e4423f165837169d6b94c27fb384"
+
+[setting.perpsAltMarketId]
+defaultValue = "4700"
+
+[setting.perpsAltSkewScale]
+defaultValue = "<%= String(2_695_154) %>"
+
+[setting.perpsAltMaxFundingVelocity]
+defaultValue = "24"
+
+[setting.perpsAltMakerFeeRatio]
+defaultValue = "0.0005"
+
+[setting.perpsAltTakerFeeRatio]
+defaultValue = "0.0008"
+
+[setting.perpsAltLimitOrderMakerFeeRatio]
+defaultValue = "0.0001"
+
+[setting.perpsAltLimitOrderTakerFeeRatio]
+defaultValue = "0.0002"
+
+[setting.perpsAltMaxMarketSize]
+defaultValue = "<%= String(4248309.88) %>"
+
+[setting.perpsAltMaxMarketValue]
+defaultValue = "<%= String(135_675) %>"
+
+[setting.perpsAltInitialMarginRatio]
+defaultValue = "0.004773244626266784"
+
+[setting.perpsAltMaintenanceMarginScalar]
+defaultValue = "0.317"
+
+[setting.perpsAltMinimumInitialMarginRatio]
+defaultValue = "0.05"
+
+[setting.perpsAltFlagRewardRatioD18]
+defaultValue = "0.0003"
+
+[setting.perpsAltMaxLiquidationLimitAccumulationMultiplier]
+defaultValue = "1.5"
+
+[setting.perpsAltMaxSecondsInLiquidationWindow]
+defaultValue = "30"
+
+[setting.perpsAltMinimumPositionMargin]
+defaultValue = "50"
+
+[setting.perpsAltLockedOiRatio]
+defaultValue = "0.5"
+
+[setting.perpsAltSynthMaxCollateralAmount]
+defaultValue = "<%= MaxUint256 %>"
+
+[setting.perpsAltMaxLiquidationPd]
+defaultValue = "0.0005"
+
+[setting.perpsAltEndorsedLiquidator]
+defaultValue = "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"
+
+[setting.commitmentPriceDelay]
+defaultValue = "2"
+
+[setting.bigCapSettlementDelay]
+defaultValue = "2"

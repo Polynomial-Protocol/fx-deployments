@@ -1,0 +1,68 @@
+[setting.perpsFlokiFeedId]
+defaultValue = "0x6b1381ce7e874dc5410b197ac8348162c0dd6c0d4c9cd6322672d6c2b1d58293"
+
+[setting.perpsFlokiMarketId]
+defaultValue = "4900"
+
+[setting.perpsFlokiSkewScale]
+defaultValue = "<%= String(18_137_739_501) %>"
+
+[setting.perpsFlokiMaxFundingVelocity]
+defaultValue = "24"
+
+[setting.perpsFlokiMakerFeeRatio]
+defaultValue = "0.0005"
+
+[setting.perpsFlokiTakerFeeRatio]
+defaultValue = "0.0008"
+
+[setting.perpsFlokiLimitOrderMakerFeeRatio]
+defaultValue = "0.0001"
+
+[setting.perpsFlokiLimitOrderTakerFeeRatio]
+defaultValue = "0.0002"
+
+[setting.perpsFlokiMaxMarketSize]
+defaultValue = "<%= String(1326825899.30) %>"
+
+[setting.perpsFlokiMaxMarketValue]
+defaultValue = "<%= String(135_675) %>"
+
+[setting.perpsFlokiInitialMarginRatio]
+defaultValue = "0.10303818050788455"
+
+[setting.perpsFlokiMaintenanceMarginScalar]
+defaultValue = "0.317"
+
+[setting.perpsFlokiMinimumInitialMarginRatio]
+defaultValue = "0.05"
+
+[setting.perpsFlokiFlagRewardRatioD18]
+defaultValue = "0.0003"
+
+[setting.perpsFlokiMaxLiquidationLimitAccumulationMultiplier]
+defaultValue = "1.5"
+
+[setting.perpsFlokiMaxSecondsInLiquidationWindow]
+defaultValue = "30"
+
+[setting.perpsFlokiMinimumPositionMargin]
+defaultValue = "50"
+
+[setting.perpsFlokiLockedOiRatio]
+defaultValue = "0.5"
+
+[setting.perpsFlokiSynthMaxCollateralAmount]
+defaultValue = "<%= MaxUint256 %>"
+
+[setting.perpsFlokiMaxLiquidationPd]
+defaultValue = "0.0005"
+
+[setting.perpsFlokiEndorsedLiquidator]
+defaultValue = "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"
+
+[setting.commitmentPriceDelay]
+defaultValue = "2"
+
+[setting.bigCapSettlementDelay]
+defaultValue = "2"
