@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsAi16zMaxMarketSize]
-defaultValue = "<%= String(512917.63) %>"
+defaultValue = "<%= String(460805.33) %>"
 
 [setting.perpsAi16zMaxMarketValue]
-defaultValue = "<%= String(169_611) %>"
+defaultValue = "<%= String(135_675) %>"
 
 [setting.perpsAi16zInitialMarginRatio]
 defaultValue = "2.2916666666666656"

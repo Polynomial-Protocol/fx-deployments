@@ -23,10 +23,10 @@ defaultValue = "0.0005"
 defaultValue = "0.0008"
 
 [setting.perpsBonkMaxMarketSize]
-defaultValue = "<%= String(7690741024.94) %>"
+defaultValue = "<%= String(6790294238.02) %>"
 
 [setting.perpsBonkMaxMarketValue]
-defaultValue = "<%= String(169_611) %>"
+defaultValue = "<%= String(135_675) %>"
 
 [setting.perpsBonkInitialMarginRatio]
 defaultValue = "2.27"
