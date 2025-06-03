@@ -200,6 +200,21 @@ include = [
     "tomls/polynomial-sepolia-andromeda/perps/floki-invokes.toml",
     "tomls/oracles/pyth-floki.toml",
     "tomls/polynomial-sepolia-andromeda/perps/floki.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/wct-invokes.toml",
+    "tomls/oracles/pyth-wct.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/wct.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/pendle-invokes.toml",
+    "tomls/oracles/pyth-pendle.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/pendle.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/grt-invokes.toml",
+    "tomls/oracles/pyth-grt.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/grt.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/aero-invokes.toml",
+    "tomls/oracles/pyth-aero.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/aero.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/morpho-invokes.toml",
+    "tomls/oracles/pyth-morpho.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/morpho.toml",
 ]
 
 [setting.commitmentPriceDelay]

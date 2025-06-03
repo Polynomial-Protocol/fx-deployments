@@ -1,0 +1,255 @@
+include = [
+    "../../oracles/pyth-aero.toml",
+    "../../markets/common/bigcap-settings.toml",
+]
+
+[setting.perpsAeroMarketId]
+
+[setting.perpsAeroSkewScale]
+
+[setting.perpsAeroMaxFundingVelocity]
+
+[setting.perpsAeroMakerFeeRatio]
+
+[setting.perpsAeroTakerFeeRatio]
+
+[setting.perpsAeroMaxMarketSize]
+
+[setting.perpsAeroInitialMarginRatio]
+
+[setting.perpsAeroMaintenanceMarginScalar]
+
+[setting.perpsAeroMinimumInitialMarginRatio]
+
+[setting.perpsAeroFlagRewardRatioD18]
+
+[setting.perpsAeroMaxLiquidationLimitAccumulationMultiplier]
+
+[setting.perpsAeroMaxSecondsInLiquidationWindow]
+
+[setting.perpsAeroMinimumPositionMargin]
+
+[setting.perpsAeroLockedOiRatio]
+
+[setting.perpsAeroSynthMaxCollateralAmount]
+
+[setting.perpsAeroMaxLiquidationPd]
+
+[setting.perpsAeroEndorsedLiquidator]
+
+[invoke.createperpsAeroMarket]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "createMarket"
+args = [
+    "<%= settings.perpsAeroMarketId %>",
+    "Aerodrome Finance",
+    "AERO",
+]
+depends = [
+    "provision.system",
+    "provision.perpsFactory",
+]
+
+[invoke.createperpsAeroMarket.fromCall]
+func = "owner"
+
+[invoke.setperpsAeroPrice]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "updatePriceData"
+args = [
+    "<%= settings.perpsAeroMarketId %>",
+    "<%= extras.perpsAero_oracle_id %>",
+    "<%= settings.bigCapStrictStalenessTolerance %>",
+]
+depends = [
+    "invoke.createperpsAeroMarket",
+]
+
+[invoke.setperpsAeroPrice.fromCall]
+func = "owner"
+
+[invoke.addperpsAeroSettlementStrategy]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "addSettlementStrategy"
+args = [
+    "<%= settings.perpsAeroMarketId %>",
+    { strategyType = "0", settlementDelay = "0", settlementWindowDuration = "1", priceVerificationContract = "0x0000000000000000000000000000000000000000", feedId = "0x0000000000000000000000000000000000000000000000000000000000000000", settlementReward = "0", disabled = false, commitmentPriceDelay = "0" },
+]
+depends = [
+    "invoke.createperpsAeroMarket",
+]
+
+[invoke.addperpsAeroSettlementStrategy.fromCall]
+func = "owner"
+
+[invoke.addperpsAeroSettlementStrategy.extra.perpsAero_pyth_settlement_strategy]
+event = "SettlementStrategyAdded"
+arg = 2
+
+[invoke.setperpsAeroSettlementStrategy]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setSettlementStrategy"
+args = [
+    "<%= settings.perpsAeroMarketId %>",
+    "<%= extras.perpsAero_pyth_settlement_strategy %>",
+    { strategyType = "0", settlementDelay = "<%= settings.bigCapSettlementDelay %>", settlementWindowDuration = "<%= settings.bigCapSettlementWindowDuration %>", priceVerificationContract = "<%= imports.pyth_erc7412_wrapper.contracts.PythERC7412Wrapper.address %>", feedId = "<%= settings.perpsAeroFeedId %>", settlementReward = "<%= parseEther(settings.settlementReward) %>", disabled = false, commitmentPriceDelay = "2" },
+]
+depends = [
+    "provision.perpsFactory",
+    "setting.perpsAeroMarketId",
+    "invoke.addperpsAeroSettlementStrategy",
+    "provision.pyth_erc7412_wrapper",
+    "setting.bigCapSettlementDelay",
+    "setting.bigCapSettlementWindowDuration",
+    "setting.perpsAeroFeedId",
+    "setting.settlementReward",
+]
+
+[invoke.setperpsAeroSettlementStrategy.fromCall]
+func = "owner"
+
+[invoke.setperpsAeroFundingParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setFundingParameters"
+args = [
+    "<%= settings.perpsAeroMarketId %>",
+    "<%= parseEther(settings.perpsAeroSkewScale) %>",
+    "<%= parseEther(settings.perpsAeroMaxFundingVelocity) %>",
+]
+depends = [
+    "invoke.createperpsAeroMarket",
+]
+
+[invoke.setperpsAeroFundingParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsAeroOrderFees]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setOrderFees"
+args = [
+    "<%= settings.perpsAeroMarketId %>",
+    "<%= parseEther(settings.perpsAeroMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsAeroTakerFeeRatio) %>",
+]
+depends = [
+    "invoke.createperpsAeroMarket",
+]
+
+[invoke.setperpsAeroOrderFees.fromCall]
+func = "owner"
+
+[invoke.setperpsAeroMaxMarketSize]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxMarketSize"
+args = [
+    "<%= settings.perpsAeroMarketId %>",
+    "<%= parseEther(settings.perpsAeroMaxMarketSize) %>",
+]
+depends = [
+    "invoke.createperpsAeroMarket",
+]
+
+[invoke.setperpsAeroMaxMarketSize.fromCall]
+func = "owner"
+
+[invoke.setperpsAeroMaxMarketValue]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxMarketValue"
+args = [
+    "<%= settings.perpsAeroMarketId %>",
+    "<%= parseEther(settings.perpsAeroMaxMarketValue) %>",
+]
+depends = [
+    "invoke.createperpsAeroMarket",
+]
+
+[invoke.setperpsAeroMaxMarketValue.fromCall]
+func = "owner"
+
+[invoke.setperpsAeroMaxLiquidationParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxLiquidationParameters"
+args = [
+    "<%= settings.perpsAeroMarketId %>",
+    "<%= parseEther(settings.perpsAeroMaxLiquidationLimitAccumulationMultiplier) %>",
+    "<%= settings.perpsAeroMaxSecondsInLiquidationWindow %>",
+    "<%= parseEther(settings.perpsAeroMaxLiquidationPd) %>",
+    "<%= settings.perpsAeroEndorsedLiquidator %>",
+]
+depends = [
+    "invoke.createperpsAeroMarket",
+]
+
+[invoke.setperpsAeroMaxLiquidationParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsAeroLiquidationParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLiquidationParameters"
+args = [
+    "<%= settings.perpsAeroMarketId %>",
+    "<%= parseEther(settings.perpsAeroInitialMarginRatio) %>",
+    "<%= parseEther(settings.perpsAeroMinimumInitialMarginRatio) %>",
+    "<%= parseEther(settings.perpsAeroMaintenanceMarginScalar) %>",
+    "<%= parseEther(settings.perpsAeroFlagRewardRatioD18) %>",
+    "<%= parseEther(settings.perpsAeroMinimumPositionMargin) %>",
+]
+depends = [
+    "invoke.createperpsAeroMarket",
+]
+
+[invoke.setperpsAeroLiquidationParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsAeroLockedOiRatio]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLockedOiRatio"
+args = [
+    "<%= settings.perpsAeroMarketId %>",
+    "<%= parseEther(settings.perpsAeroLockedOiRatio) %>",
+]
+depends = [
+    "invoke.createperpsAeroMarket",
+]
+
+[invoke.setperpsAeroLockedOiRatio.fromCall]
+func = "owner"
+
+[invoke.setperpsAeroLimitOrderFees]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLimitOrderFees"
+args = [
+    "<%= settings.perpsAeroMarketId %>",
+    "<%= parseEther(settings.perpsAeroLimitOrderMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsAeroLimitOrderTakerFeeRatio) %>",
+]
+depends = [
+    "invoke.createperpsAeroMarket",
+]
+
+[invoke.setperpsAeroLimitOrderFees.fromCall]
+func = "owner"

@@ -1,0 +1,255 @@
+include = [
+    "../../oracles/pyth-pendle.toml",
+    "../../markets/common/bigcap-settings.toml",
+]
+
+[setting.perpsPendleMarketId]
+
+[setting.perpsPendleSkewScale]
+
+[setting.perpsPendleMaxFundingVelocity]
+
+[setting.perpsPendleMakerFeeRatio]
+
+[setting.perpsPendleTakerFeeRatio]
+
+[setting.perpsPendleMaxMarketSize]
+
+[setting.perpsPendleInitialMarginRatio]
+
+[setting.perpsPendleMaintenanceMarginScalar]
+
+[setting.perpsPendleMinimumInitialMarginRatio]
+
+[setting.perpsPendleFlagRewardRatioD18]
+
+[setting.perpsPendleMaxLiquidationLimitAccumulationMultiplier]
+
+[setting.perpsPendleMaxSecondsInLiquidationWindow]
+
+[setting.perpsPendleMinimumPositionMargin]
+
+[setting.perpsPendleLockedOiRatio]
+
+[setting.perpsPendleSynthMaxCollateralAmount]
+
+[setting.perpsPendleMaxLiquidationPd]
+
+[setting.perpsPendleEndorsedLiquidator]
+
+[invoke.createperpsPendleMarket]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "createMarket"
+args = [
+    "<%= settings.perpsPendleMarketId %>",
+    "Pendle",
+    "PENDLE",
+]
+depends = [
+    "provision.system",
+    "provision.perpsFactory",
+]
+
+[invoke.createperpsPendleMarket.fromCall]
+func = "owner"
+
+[invoke.setperpsPendlePrice]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "updatePriceData"
+args = [
+    "<%= settings.perpsPendleMarketId %>",
+    "<%= extras.perpsPendle_oracle_id %>",
+    "<%= settings.bigCapStrictStalenessTolerance %>",
+]
+depends = [
+    "invoke.createperpsPendleMarket",
+]
+
+[invoke.setperpsPendlePrice.fromCall]
+func = "owner"
+
+[invoke.addperpsPendleSettlementStrategy]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "addSettlementStrategy"
+args = [
+    "<%= settings.perpsPendleMarketId %>",
+    { strategyType = "0", settlementDelay = "0", settlementWindowDuration = "1", priceVerificationContract = "0x0000000000000000000000000000000000000000", feedId = "0x0000000000000000000000000000000000000000000000000000000000000000", settlementReward = "0", disabled = false, commitmentPriceDelay = "0" },
+]
+depends = [
+    "invoke.createperpsPendleMarket",
+]
+
+[invoke.addperpsPendleSettlementStrategy.fromCall]
+func = "owner"
+
+[invoke.addperpsPendleSettlementStrategy.extra.perpsPendle_pyth_settlement_strategy]
+event = "SettlementStrategyAdded"
+arg = 2
+
+[invoke.setperpsPendleSettlementStrategy]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setSettlementStrategy"
+args = [
+    "<%= settings.perpsPendleMarketId %>",
+    "<%= extras.perpsPendle_pyth_settlement_strategy %>",
+    { strategyType = "0", settlementDelay = "<%= settings.bigCapSettlementDelay %>", settlementWindowDuration = "<%= settings.bigCapSettlementWindowDuration %>", priceVerificationContract = "<%= imports.pyth_erc7412_wrapper.contracts.PythERC7412Wrapper.address %>", feedId = "<%= settings.perpsPendleFeedId %>", settlementReward = "<%= parseEther(settings.settlementReward) %>", disabled = false, commitmentPriceDelay = "2" },
+]
+depends = [
+    "provision.perpsFactory",
+    "setting.perpsPendleMarketId",
+    "invoke.addperpsPendleSettlementStrategy",
+    "provision.pyth_erc7412_wrapper",
+    "setting.bigCapSettlementDelay",
+    "setting.bigCapSettlementWindowDuration",
+    "setting.perpsPendleFeedId",
+    "setting.settlementReward",
+]
+
+[invoke.setperpsPendleSettlementStrategy.fromCall]
+func = "owner"
+
+[invoke.setperpsPendleFundingParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setFundingParameters"
+args = [
+    "<%= settings.perpsPendleMarketId %>",
+    "<%= parseEther(settings.perpsPendleSkewScale) %>",
+    "<%= parseEther(settings.perpsPendleMaxFundingVelocity) %>",
+]
+depends = [
+    "invoke.createperpsPendleMarket",
+]
+
+[invoke.setperpsPendleFundingParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsPendleOrderFees]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setOrderFees"
+args = [
+    "<%= settings.perpsPendleMarketId %>",
+    "<%= parseEther(settings.perpsPendleMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsPendleTakerFeeRatio) %>",
+]
+depends = [
+    "invoke.createperpsPendleMarket",
+]
+
+[invoke.setperpsPendleOrderFees.fromCall]
+func = "owner"
+
+[invoke.setperpsPendleMaxMarketSize]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxMarketSize"
+args = [
+    "<%= settings.perpsPendleMarketId %>",
+    "<%= parseEther(settings.perpsPendleMaxMarketSize) %>",
+]
+depends = [
+    "invoke.createperpsPendleMarket",
+]
+
+[invoke.setperpsPendleMaxMarketSize.fromCall]
+func = "owner"
+
+[invoke.setperpsPendleMaxMarketValue]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxMarketValue"
+args = [
+    "<%= settings.perpsPendleMarketId %>",
+    "<%= parseEther(settings.perpsPendleMaxMarketValue) %>",
+]
+depends = [
+    "invoke.createperpsPendleMarket",
+]
+
+[invoke.setperpsPendleMaxMarketValue.fromCall]
+func = "owner"
+
+[invoke.setperpsPendleMaxLiquidationParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxLiquidationParameters"
+args = [
+    "<%= settings.perpsPendleMarketId %>",
+    "<%= parseEther(settings.perpsPendleMaxLiquidationLimitAccumulationMultiplier) %>",
+    "<%= settings.perpsPendleMaxSecondsInLiquidationWindow %>",
+    "<%= parseEther(settings.perpsPendleMaxLiquidationPd) %>",
+    "<%= settings.perpsPendleEndorsedLiquidator %>",
+]
+depends = [
+    "invoke.createperpsPendleMarket",
+]
+
+[invoke.setperpsPendleMaxLiquidationParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsPendleLiquidationParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLiquidationParameters"
+args = [
+    "<%= settings.perpsPendleMarketId %>",
+    "<%= parseEther(settings.perpsPendleInitialMarginRatio) %>",
+    "<%= parseEther(settings.perpsPendleMinimumInitialMarginRatio) %>",
+    "<%= parseEther(settings.perpsPendleMaintenanceMarginScalar) %>",
+    "<%= parseEther(settings.perpsPendleFlagRewardRatioD18) %>",
+    "<%= parseEther(settings.perpsPendleMinimumPositionMargin) %>",
+]
+depends = [
+    "invoke.createperpsPendleMarket",
+]
+
+[invoke.setperpsPendleLiquidationParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsPendleLockedOiRatio]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLockedOiRatio"
+args = [
+    "<%= settings.perpsPendleMarketId %>",
+    "<%= parseEther(settings.perpsPendleLockedOiRatio) %>",
+]
+depends = [
+    "invoke.createperpsPendleMarket",
+]
+
+[invoke.setperpsPendleLockedOiRatio.fromCall]
+func = "owner"
+
+[invoke.setperpsPendleLimitOrderFees]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLimitOrderFees"
+args = [
+    "<%= settings.perpsPendleMarketId %>",
+    "<%= parseEther(settings.perpsPendleLimitOrderMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsPendleLimitOrderTakerFeeRatio) %>",
+]
+depends = [
+    "invoke.createperpsPendleMarket",
+]
+
+[invoke.setperpsPendleLimitOrderFees.fromCall]
+func = "owner"

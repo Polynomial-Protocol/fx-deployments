@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsCookieMaxMarketSize]
-defaultValue = "<%= String(528243.47) %>"
+defaultValue = "<%= String(466658.37) %>"
 
 [setting.perpsCookieMaxMarketValue]
-defaultValue = "<%= String(135_675) %>"
+defaultValue = "<%= String(122_081) %>"
 
 [setting.perpsCookieInitialMarginRatio]
 defaultValue = "0.0362333447341197"

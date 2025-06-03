@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsLdoMaxMarketSize]
-defaultValue = "<%= String(147677.60) %>"
+defaultValue = "<%= String(141831.42) %>"
 
 [setting.perpsLdoMaxMarketValue]
-defaultValue = "<%= String(135_675) %>"
+defaultValue = "<%= String(122_081) %>"
 
 [setting.perpsLdoInitialMarginRatio]
 defaultValue = "0.07226796934506323"

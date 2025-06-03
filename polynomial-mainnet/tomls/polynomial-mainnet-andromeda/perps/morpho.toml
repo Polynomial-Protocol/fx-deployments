@@ -1,0 +1,68 @@
+[setting.perpsMorphoFeedId]
+defaultValue = "0x5b2a4c542d4a74dd11784079ef337c0403685e3114ba0d9909b5c7a7e06fdc42"
+
+[setting.perpsMorphoMarketId]
+defaultValue = "5400"
+
+[setting.perpsMorphoSkewScale]
+defaultValue = "<%= String(4_617_220) %>"
+
+[setting.perpsMorphoMaxFundingVelocity]
+defaultValue = "24"
+
+[setting.perpsMorphoMakerFeeRatio]
+defaultValue = "0.0005"
+
+[setting.perpsMorphoTakerFeeRatio]
+defaultValue = "0.0008"
+
+[setting.perpsMorphoLimitOrderMakerFeeRatio]
+defaultValue = "0.0001"
+
+[setting.perpsMorphoLimitOrderTakerFeeRatio]
+defaultValue = "0.0002"
+
+[setting.perpsMorphoMaxMarketSize]
+defaultValue = "<%= String(90188.52) %>"
+
+[setting.perpsMorphoMaxMarketValue]
+defaultValue = "<%= String(122_081) %>"
+
+[setting.perpsMorphoInitialMarginRatio]
+defaultValue = "0.34722222222222004"
+
+[setting.perpsMorphoMaintenanceMarginScalar]
+defaultValue = "0.317"
+
+[setting.perpsMorphoMinimumInitialMarginRatio]
+defaultValue = "0.05"
+
+[setting.perpsMorphoFlagRewardRatioD18]
+defaultValue = "0.0003"
+
+[setting.perpsMorphoMaxLiquidationLimitAccumulationMultiplier]
+defaultValue = "1.5"
+
+[setting.perpsMorphoMaxSecondsInLiquidationWindow]
+defaultValue = "30"
+
+[setting.perpsMorphoMinimumPositionMargin]
+defaultValue = "50"
+
+[setting.perpsMorphoLockedOiRatio]
+defaultValue = "0.5"
+
+[setting.perpsMorphoSynthMaxCollateralAmount]
+defaultValue = "<%= MaxUint256 %>"
+
+[setting.perpsMorphoMaxLiquidationPd]
+defaultValue = "0.0005"
+
+[setting.perpsMorphoEndorsedLiquidator]
+defaultValue = "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"
+
+[setting.commitmentPriceDelay]
+defaultValue = "2"
+
+[setting.bigCapSettlementDelay]
+defaultValue = "2"

@@ -1,0 +1,68 @@
+[setting.perpsGrtFeedId]
+defaultValue = "0x4d1f8dae0d96236fb98e8f47471a366ec3b1732b47041781934ca3a9bb2f35e7"
+
+[setting.perpsGrtMarketId]
+defaultValue = "5200"
+
+[setting.perpsGrtSkewScale]
+defaultValue = "<%= String(3_232_810) %>"
+
+[setting.perpsGrtMaxFundingVelocity]
+defaultValue = "24"
+
+[setting.perpsGrtMakerFeeRatio]
+defaultValue = "0.0005"
+
+[setting.perpsGrtTakerFeeRatio]
+defaultValue = "0.0008"
+
+[setting.perpsGrtLimitOrderMakerFeeRatio]
+defaultValue = "0.0001"
+
+[setting.perpsGrtLimitOrderTakerFeeRatio]
+defaultValue = "0.0002"
+
+[setting.perpsGrtMaxMarketSize]
+defaultValue = "<%= String(1244439.88) %>"
+
+[setting.perpsGrtMaxMarketValue]
+defaultValue = "<%= String(122_081) %>"
+
+[setting.perpsGrtInitialMarginRatio]
+defaultValue = "0.017657762010318035"
+
+[setting.perpsGrtMaintenanceMarginScalar]
+defaultValue = "0.317"
+
+[setting.perpsGrtMinimumInitialMarginRatio]
+defaultValue = "0.05"
+
+[setting.perpsGrtFlagRewardRatioD18]
+defaultValue = "0.0003"
+
+[setting.perpsGrtMaxLiquidationLimitAccumulationMultiplier]
+defaultValue = "1.5"
+
+[setting.perpsGrtMaxSecondsInLiquidationWindow]
+defaultValue = "30"
+
+[setting.perpsGrtMinimumPositionMargin]
+defaultValue = "50"
+
+[setting.perpsGrtLockedOiRatio]
+defaultValue = "0.5"
+
+[setting.perpsGrtSynthMaxCollateralAmount]
+defaultValue = "<%= MaxUint256 %>"
+
+[setting.perpsGrtMaxLiquidationPd]
+defaultValue = "0.0005"
+
+[setting.perpsGrtEndorsedLiquidator]
+defaultValue = "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"
+
+[setting.commitmentPriceDelay]
+defaultValue = "2"
+
+[setting.bigCapSettlementDelay]
+defaultValue = "2"

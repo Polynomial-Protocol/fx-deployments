@@ -1,0 +1,68 @@
+[setting.perpsPendleFeedId]
+defaultValue = "0x9a4df90b25497f66b1afb012467e316e801ca3d839456db028892fe8c70c8016"
+
+[setting.perpsPendleMarketId]
+defaultValue = "5100"
+
+[setting.perpsPendleSkewScale]
+defaultValue = "<%= String(993_821) %>"
+
+[setting.perpsPendleMaxFundingVelocity]
+defaultValue = "24"
+
+[setting.perpsPendleMakerFeeRatio]
+defaultValue = "0.0005"
+
+[setting.perpsPendleTakerFeeRatio]
+defaultValue = "0.0008"
+
+[setting.perpsPendleLimitOrderMakerFeeRatio]
+defaultValue = "0.0001"
+
+[setting.perpsPendleLimitOrderTakerFeeRatio]
+defaultValue = "0.0002"
+
+[setting.perpsPendleMaxMarketSize]
+defaultValue = "<%= String(28559.27) %>"
+
+[setting.perpsPendleMaxMarketValue]
+defaultValue = "<%= String(122_081) %>"
+
+[setting.perpsPendleInitialMarginRatio]
+defaultValue = "0.23596492445816847"
+
+[setting.perpsPendleMaintenanceMarginScalar]
+defaultValue = "0.317"
+
+[setting.perpsPendleMinimumInitialMarginRatio]
+defaultValue = "0.05"
+
+[setting.perpsPendleFlagRewardRatioD18]
+defaultValue = "0.0003"
+
+[setting.perpsPendleMaxLiquidationLimitAccumulationMultiplier]
+defaultValue = "1.5"
+
+[setting.perpsPendleMaxSecondsInLiquidationWindow]
+defaultValue = "30"
+
+[setting.perpsPendleMinimumPositionMargin]
+defaultValue = "50"
+
+[setting.perpsPendleLockedOiRatio]
+defaultValue = "0.5"
+
+[setting.perpsPendleSynthMaxCollateralAmount]
+defaultValue = "<%= MaxUint256 %>"
+
+[setting.perpsPendleMaxLiquidationPd]
+defaultValue = "0.0005"
+
+[setting.perpsPendleEndorsedLiquidator]
+defaultValue = "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"
+
+[setting.commitmentPriceDelay]
+defaultValue = "2"
+
+[setting.bigCapSettlementDelay]
+defaultValue = "2"

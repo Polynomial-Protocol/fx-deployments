@@ -1,0 +1,255 @@
+include = [
+    "../../oracles/pyth-wct.toml",
+    "../../markets/common/bigcap-settings.toml",
+]
+
+[setting.perpsWctMarketId]
+
+[setting.perpsWctSkewScale]
+
+[setting.perpsWctMaxFundingVelocity]
+
+[setting.perpsWctMakerFeeRatio]
+
+[setting.perpsWctTakerFeeRatio]
+
+[setting.perpsWctMaxMarketSize]
+
+[setting.perpsWctInitialMarginRatio]
+
+[setting.perpsWctMaintenanceMarginScalar]
+
+[setting.perpsWctMinimumInitialMarginRatio]
+
+[setting.perpsWctFlagRewardRatioD18]
+
+[setting.perpsWctMaxLiquidationLimitAccumulationMultiplier]
+
+[setting.perpsWctMaxSecondsInLiquidationWindow]
+
+[setting.perpsWctMinimumPositionMargin]
+
+[setting.perpsWctLockedOiRatio]
+
+[setting.perpsWctSynthMaxCollateralAmount]
+
+[setting.perpsWctMaxLiquidationPd]
+
+[setting.perpsWctEndorsedLiquidator]
+
+[invoke.createperpsWctMarket]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "createMarket"
+args = [
+    "<%= settings.perpsWctMarketId %>",
+    "WalletConnect Token",
+    "WCT",
+]
+depends = [
+    "provision.system",
+    "provision.perpsFactory",
+]
+
+[invoke.createperpsWctMarket.fromCall]
+func = "owner"
+
+[invoke.setperpsWctPrice]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "updatePriceData"
+args = [
+    "<%= settings.perpsWctMarketId %>",
+    "<%= extras.perpsWct_oracle_id %>",
+    "<%= settings.bigCapStrictStalenessTolerance %>",
+]
+depends = [
+    "invoke.createperpsWctMarket",
+]
+
+[invoke.setperpsWctPrice.fromCall]
+func = "owner"
+
+[invoke.addperpsWctSettlementStrategy]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "addSettlementStrategy"
+args = [
+    "<%= settings.perpsWctMarketId %>",
+    { strategyType = "0", settlementDelay = "0", settlementWindowDuration = "1", priceVerificationContract = "0x0000000000000000000000000000000000000000", feedId = "0x0000000000000000000000000000000000000000000000000000000000000000", settlementReward = "0", disabled = false, commitmentPriceDelay = "0" },
+]
+depends = [
+    "invoke.createperpsWctMarket",
+]
+
+[invoke.addperpsWctSettlementStrategy.fromCall]
+func = "owner"
+
+[invoke.addperpsWctSettlementStrategy.extra.perpsWct_pyth_settlement_strategy]
+event = "SettlementStrategyAdded"
+arg = 2
+
+[invoke.setperpsWctSettlementStrategy]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setSettlementStrategy"
+args = [
+    "<%= settings.perpsWctMarketId %>",
+    "<%= extras.perpsWct_pyth_settlement_strategy %>",
+    { strategyType = "0", settlementDelay = "<%= settings.bigCapSettlementDelay %>", settlementWindowDuration = "<%= settings.bigCapSettlementWindowDuration %>", priceVerificationContract = "<%= imports.pyth_erc7412_wrapper.contracts.PythERC7412Wrapper.address %>", feedId = "<%= settings.perpsWctFeedId %>", settlementReward = "<%= parseEther(settings.settlementReward) %>", disabled = false, commitmentPriceDelay = "2" },
+]
+depends = [
+    "provision.perpsFactory",
+    "setting.perpsWctMarketId",
+    "invoke.addperpsWctSettlementStrategy",
+    "provision.pyth_erc7412_wrapper",
+    "setting.bigCapSettlementDelay",
+    "setting.bigCapSettlementWindowDuration",
+    "setting.perpsWctFeedId",
+    "setting.settlementReward",
+]
+
+[invoke.setperpsWctSettlementStrategy.fromCall]
+func = "owner"
+
+[invoke.setperpsWctFundingParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setFundingParameters"
+args = [
+    "<%= settings.perpsWctMarketId %>",
+    "<%= parseEther(settings.perpsWctSkewScale) %>",
+    "<%= parseEther(settings.perpsWctMaxFundingVelocity) %>",
+]
+depends = [
+    "invoke.createperpsWctMarket",
+]
+
+[invoke.setperpsWctFundingParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsWctOrderFees]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setOrderFees"
+args = [
+    "<%= settings.perpsWctMarketId %>",
+    "<%= parseEther(settings.perpsWctMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsWctTakerFeeRatio) %>",
+]
+depends = [
+    "invoke.createperpsWctMarket",
+]
+
+[invoke.setperpsWctOrderFees.fromCall]
+func = "owner"
+
+[invoke.setperpsWctMaxMarketSize]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxMarketSize"
+args = [
+    "<%= settings.perpsWctMarketId %>",
+    "<%= parseEther(settings.perpsWctMaxMarketSize) %>",
+]
+depends = [
+    "invoke.createperpsWctMarket",
+]
+
+[invoke.setperpsWctMaxMarketSize.fromCall]
+func = "owner"
+
+[invoke.setperpsWctMaxMarketValue]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxMarketValue"
+args = [
+    "<%= settings.perpsWctMarketId %>",
+    "<%= parseEther(settings.perpsWctMaxMarketValue) %>",
+]
+depends = [
+    "invoke.createperpsWctMarket",
+]
+
+[invoke.setperpsWctMaxMarketValue.fromCall]
+func = "owner"
+
+[invoke.setperpsWctMaxLiquidationParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxLiquidationParameters"
+args = [
+    "<%= settings.perpsWctMarketId %>",
+    "<%= parseEther(settings.perpsWctMaxLiquidationLimitAccumulationMultiplier) %>",
+    "<%= settings.perpsWctMaxSecondsInLiquidationWindow %>",
+    "<%= parseEther(settings.perpsWctMaxLiquidationPd) %>",
+    "<%= settings.perpsWctEndorsedLiquidator %>",
+]
+depends = [
+    "invoke.createperpsWctMarket",
+]
+
+[invoke.setperpsWctMaxLiquidationParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsWctLiquidationParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLiquidationParameters"
+args = [
+    "<%= settings.perpsWctMarketId %>",
+    "<%= parseEther(settings.perpsWctInitialMarginRatio) %>",
+    "<%= parseEther(settings.perpsWctMinimumInitialMarginRatio) %>",
+    "<%= parseEther(settings.perpsWctMaintenanceMarginScalar) %>",
+    "<%= parseEther(settings.perpsWctFlagRewardRatioD18) %>",
+    "<%= parseEther(settings.perpsWctMinimumPositionMargin) %>",
+]
+depends = [
+    "invoke.createperpsWctMarket",
+]
+
+[invoke.setperpsWctLiquidationParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsWctLockedOiRatio]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLockedOiRatio"
+args = [
+    "<%= settings.perpsWctMarketId %>",
+    "<%= parseEther(settings.perpsWctLockedOiRatio) %>",
+]
+depends = [
+    "invoke.createperpsWctMarket",
+]
+
+[invoke.setperpsWctLockedOiRatio.fromCall]
+func = "owner"
+
+[invoke.setperpsWctLimitOrderFees]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLimitOrderFees"
+args = [
+    "<%= settings.perpsWctMarketId %>",
+    "<%= parseEther(settings.perpsWctLimitOrderMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsWctLimitOrderTakerFeeRatio) %>",
+]
+depends = [
+    "invoke.createperpsWctMarket",
+]
+
+[invoke.setperpsWctLimitOrderFees.fromCall]
+func = "owner"
