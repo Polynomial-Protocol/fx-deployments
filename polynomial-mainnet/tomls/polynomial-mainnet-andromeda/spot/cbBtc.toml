@@ -14,7 +14,7 @@ defaultValue = "0x2817d7bfe5c64b8ea956e9a26f573ef64e72e4d7891f2d6af9bcc93f7aff9a
 defaultValue = "https://hermes.pyth.network/v2/updates/price/latest?ids[]=<%= settings.pyth_feed_id_cbbtc %>"
 
 [setting.cbbtc_address]
-defaultValue = "0xaeF875F05497c5619251C424F06e29Ab6BAeEa6a"
+defaultValue = "0x7B1C847ED0B889ED466DE069c0114a2d92f2944A"
 
 [invoke.createCbBtcSynth]
 target = ["spotFactory.SpotMarketProxy"]
