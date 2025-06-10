@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsOndoMaxMarketSize]
-defaultValue = "<%= String(143716.13) %>"
+defaultValue = "<%= String(133041.14) %>"
 
 [setting.perpsOndoMaxMarketValue]
-defaultValue = "<%= String(122_081) %>"
+defaultValue = "<%= String(107_034) %>"
 
 [setting.perpsOndoInitialMarginRatio]
 defaultValue = "0.41666666666666413"

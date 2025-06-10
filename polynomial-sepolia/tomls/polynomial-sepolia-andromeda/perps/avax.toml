@@ -23,10 +23,10 @@ defaultValue = "0.0005"
 defaultValue = "0.0008"
 
 [setting.perpsAvaxMaxMarketSize]
-defaultValue = "<%= String(5732.02) %>"
+defaultValue = "<%= String(5495.99) %>"
 
 [setting.perpsAvaxMaxMarketValue]
-defaultValue = "<%= String(122_081) %>"
+defaultValue = "<%= String(107_034) %>"
 
 [setting.perpsAvaxInitialMarginRatio]
 defaultValue = "9.08"

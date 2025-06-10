@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsFlokiMaxMarketSize]
-defaultValue = "<%= String(1375082280.75) %>"
+defaultValue = "<%= String(1304615347.24) %>"
 
 [setting.perpsFlokiMaxMarketValue]
-defaultValue = "<%= String(122_081) %>"
+defaultValue = "<%= String(107_034) %>"
 
 [setting.perpsFlokiInitialMarginRatio]
 defaultValue = "0.10303818050788455"

@@ -1,0 +1,68 @@
+[setting.perpsMerlFeedId]
+defaultValue = "0x03e8dbf3e8f02edf5ca898dc7afbbac3f06c7d91c02986c3a8c6ce1a99e90355"
+
+[setting.perpsMerlMarketId]
+defaultValue = "5800"
+
+[setting.perpsMerlSkewScale]
+defaultValue = "<%= String(14_887_110) %>"
+
+[setting.perpsMerlMaxFundingVelocity]
+defaultValue = "24"
+
+[setting.perpsMerlMakerFeeRatio]
+defaultValue = "0.0005"
+
+[setting.perpsMerlTakerFeeRatio]
+defaultValue = "0.0008"
+
+[setting.perpsMerlLimitOrderMakerFeeRatio]
+defaultValue = "0.0001"
+
+[setting.perpsMerlLimitOrderTakerFeeRatio]
+defaultValue = "0.0002"
+
+[setting.perpsMerlMaxMarketSize]
+defaultValue = "<%= String(1044022.22) %>"
+
+[setting.perpsMerlMaxMarketValue]
+defaultValue = "<%= String(107_034) %>"
+
+[setting.perpsMerlInitialMarginRatio]
+defaultValue = "0.5"
+
+[setting.perpsMerlMaintenanceMarginScalar]
+defaultValue = "0.34"
+
+[setting.perpsMerlMinimumInitialMarginRatio]
+defaultValue = "0.1"
+
+[setting.perpsMerlFlagRewardRatioD18]
+defaultValue = "0.0003"
+
+[setting.perpsMerlMaxLiquidationLimitAccumulationMultiplier]
+defaultValue = "1.5"
+
+[setting.perpsMerlMaxSecondsInLiquidationWindow]
+defaultValue = "30"
+
+[setting.perpsMerlMinimumPositionMargin]
+defaultValue = "50"
+
+[setting.perpsMerlLockedOiRatio]
+defaultValue = "0.5"
+
+[setting.perpsMerlSynthMaxCollateralAmount]
+defaultValue = "<%= MaxUint256 %>"
+
+[setting.perpsMerlMaxLiquidationPd]
+defaultValue = "0.0005"
+
+[setting.perpsMerlEndorsedLiquidator]
+defaultValue = "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"
+
+[setting.commitmentPriceDelay]
+defaultValue = "2"
+
+[setting.bigCapSettlementDelay]
+defaultValue = "2"
