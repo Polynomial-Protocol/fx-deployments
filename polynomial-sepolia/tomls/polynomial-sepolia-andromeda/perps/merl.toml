@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsMerlMaxMarketSize]
-defaultValue = "<%= String(1044022.22) %>"
+defaultValue = "<%= String(955485.15) %>"
 
 [setting.perpsMerlMaxMarketValue]
-defaultValue = "<%= String(107_034) %>"
+defaultValue = "<%= String(96_825) %>"
 
 [setting.perpsMerlInitialMarginRatio]
 defaultValue = "0.5"

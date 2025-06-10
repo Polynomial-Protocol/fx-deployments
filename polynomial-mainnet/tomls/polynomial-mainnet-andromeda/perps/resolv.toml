@@ -1,0 +1,68 @@
+[setting.perpsResolvFeedId]
+defaultValue = "0x7c2c964893278a585eef902f1d90c458666daf6dd0533e823f9fffedcec5ab5a"
+
+[setting.perpsResolvMarketId]
+defaultValue = "6700"
+
+[setting.perpsResolvSkewScale]
+defaultValue = "<%= String(24_012_194) %>"
+
+[setting.perpsResolvMaxFundingVelocity]
+defaultValue = "24"
+
+[setting.perpsResolvMakerFeeRatio]
+defaultValue = "0.0005"
+
+[setting.perpsResolvTakerFeeRatio]
+defaultValue = "0.0008"
+
+[setting.perpsResolvLimitOrderMakerFeeRatio]
+defaultValue = "0.0001"
+
+[setting.perpsResolvLimitOrderTakerFeeRatio]
+defaultValue = "0.0002"
+
+[setting.perpsResolvMaxMarketSize]
+defaultValue = "<%= String(371998.62) %>"
+
+[setting.perpsResolvMaxMarketValue]
+defaultValue = "<%= String(96_825) %>"
+
+[setting.perpsResolvInitialMarginRatio]
+defaultValue = "0.34722222222222004"
+
+[setting.perpsResolvMaintenanceMarginScalar]
+defaultValue = "0.317"
+
+[setting.perpsResolvMinimumInitialMarginRatio]
+defaultValue = "0.05"
+
+[setting.perpsResolvFlagRewardRatioD18]
+defaultValue = "0.0003"
+
+[setting.perpsResolvMaxLiquidationLimitAccumulationMultiplier]
+defaultValue = "1.5"
+
+[setting.perpsResolvMaxSecondsInLiquidationWindow]
+defaultValue = "30"
+
+[setting.perpsResolvMinimumPositionMargin]
+defaultValue = "50"
+
+[setting.perpsResolvLockedOiRatio]
+defaultValue = "0.5"
+
+[setting.perpsResolvSynthMaxCollateralAmount]
+defaultValue = "<%= MaxUint256 %>"
+
+[setting.perpsResolvMaxLiquidationPd]
+defaultValue = "0.0005"
+
+[setting.perpsResolvEndorsedLiquidator]
+defaultValue = "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"
+
+[setting.commitmentPriceDelay]
+defaultValue = "2"
+
+[setting.bigCapSettlementDelay]
+defaultValue = "2"

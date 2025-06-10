@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsFartcoinMaxMarketSize]
-defaultValue = "<%= String(108786.62) %>"
+defaultValue = "<%= String(76666.30) %>"
 
 [setting.perpsFartcoinMaxMarketValue]
-defaultValue = "<%= String(107_034) %>"
+defaultValue = "<%= String(96_825) %>"
 
 [setting.perpsFartcoinInitialMarginRatio]
 defaultValue = "3.0555555555555545"

@@ -1,0 +1,255 @@
+include = [
+    "../../oracles/pyth-b3.toml",
+    "../../markets/common/bigcap-settings.toml",
+]
+
+[setting.perpsB3MarketId]
+
+[setting.perpsB3SkewScale]
+
+[setting.perpsB3MaxFundingVelocity]
+
+[setting.perpsB3MakerFeeRatio]
+
+[setting.perpsB3TakerFeeRatio]
+
+[setting.perpsB3MaxMarketSize]
+
+[setting.perpsB3InitialMarginRatio]
+
+[setting.perpsB3MaintenanceMarginScalar]
+
+[setting.perpsB3MinimumInitialMarginRatio]
+
+[setting.perpsB3FlagRewardRatioD18]
+
+[setting.perpsB3MaxLiquidationLimitAccumulationMultiplier]
+
+[setting.perpsB3MaxSecondsInLiquidationWindow]
+
+[setting.perpsB3MinimumPositionMargin]
+
+[setting.perpsB3LockedOiRatio]
+
+[setting.perpsB3SynthMaxCollateralAmount]
+
+[setting.perpsB3MaxLiquidationPd]
+
+[setting.perpsB3EndorsedLiquidator]
+
+[invoke.createperpsB3Market]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "createMarket"
+args = [
+    "<%= settings.perpsB3MarketId %>",
+    "B3",
+    "B3",
+]
+depends = [
+    "provision.system",
+    "provision.perpsFactory",
+]
+
+[invoke.createperpsB3Market.fromCall]
+func = "owner"
+
+[invoke.setperpsB3Price]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "updatePriceData"
+args = [
+    "<%= settings.perpsB3MarketId %>",
+    "<%= extras.perpsB3_oracle_id %>",
+    "<%= settings.bigCapStrictStalenessTolerance %>",
+]
+depends = [
+    "invoke.createperpsB3Market",
+]
+
+[invoke.setperpsB3Price.fromCall]
+func = "owner"
+
+[invoke.addperpsB3SettlementStrategy]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "addSettlementStrategy"
+args = [
+    "<%= settings.perpsB3MarketId %>",
+    { strategyType = "0", settlementDelay = "0", settlementWindowDuration = "1", priceVerificationContract = "0x0000000000000000000000000000000000000000", feedId = "0x0000000000000000000000000000000000000000000000000000000000000000", settlementReward = "0", disabled = false, commitmentPriceDelay = "0" },
+]
+depends = [
+    "invoke.createperpsB3Market",
+]
+
+[invoke.addperpsB3SettlementStrategy.fromCall]
+func = "owner"
+
+[invoke.addperpsB3SettlementStrategy.extra.perpsB3_pyth_settlement_strategy]
+event = "SettlementStrategyAdded"
+arg = 2
+
+[invoke.setperpsB3SettlementStrategy]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setSettlementStrategy"
+args = [
+    "<%= settings.perpsB3MarketId %>",
+    "<%= extras.perpsB3_pyth_settlement_strategy %>",
+    { strategyType = "0", settlementDelay = "<%= settings.bigCapSettlementDelay %>", settlementWindowDuration = "<%= settings.bigCapSettlementWindowDuration %>", priceVerificationContract = "<%= imports.pyth_erc7412_wrapper.contracts.PythERC7412Wrapper.address %>", feedId = "<%= settings.perpsB3FeedId %>", settlementReward = "<%= parseEther(settings.settlementReward) %>", disabled = false, commitmentPriceDelay = "2" },
+]
+depends = [
+    "provision.perpsFactory",
+    "setting.perpsB3MarketId",
+    "invoke.addperpsB3SettlementStrategy",
+    "provision.pyth_erc7412_wrapper",
+    "setting.bigCapSettlementDelay",
+    "setting.bigCapSettlementWindowDuration",
+    "setting.perpsB3FeedId",
+    "setting.settlementReward",
+]
+
+[invoke.setperpsB3SettlementStrategy.fromCall]
+func = "owner"
+
+[invoke.setperpsB3FundingParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setFundingParameters"
+args = [
+    "<%= settings.perpsB3MarketId %>",
+    "<%= parseEther(settings.perpsB3SkewScale) %>",
+    "<%= parseEther(settings.perpsB3MaxFundingVelocity) %>",
+]
+depends = [
+    "invoke.createperpsB3Market",
+]
+
+[invoke.setperpsB3FundingParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsB3OrderFees]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setOrderFees"
+args = [
+    "<%= settings.perpsB3MarketId %>",
+    "<%= parseEther(settings.perpsB3MakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsB3TakerFeeRatio) %>",
+]
+depends = [
+    "invoke.createperpsB3Market",
+]
+
+[invoke.setperpsB3OrderFees.fromCall]
+func = "owner"
+
+[invoke.setperpsB3MaxMarketSize]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxMarketSize"
+args = [
+    "<%= settings.perpsB3MarketId %>",
+    "<%= parseEther(settings.perpsB3MaxMarketSize) %>",
+]
+depends = [
+    "invoke.createperpsB3Market",
+]
+
+[invoke.setperpsB3MaxMarketSize.fromCall]
+func = "owner"
+
+[invoke.setperpsB3MaxMarketValue]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxMarketValue"
+args = [
+    "<%= settings.perpsB3MarketId %>",
+    "<%= parseEther(settings.perpsB3MaxMarketValue) %>",
+]
+depends = [
+    "invoke.createperpsB3Market",
+]
+
+[invoke.setperpsB3MaxMarketValue.fromCall]
+func = "owner"
+
+[invoke.setperpsB3MaxLiquidationParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxLiquidationParameters"
+args = [
+    "<%= settings.perpsB3MarketId %>",
+    "<%= parseEther(settings.perpsB3MaxLiquidationLimitAccumulationMultiplier) %>",
+    "<%= settings.perpsB3MaxSecondsInLiquidationWindow %>",
+    "<%= parseEther(settings.perpsB3MaxLiquidationPd) %>",
+    "<%= settings.perpsB3EndorsedLiquidator %>",
+]
+depends = [
+    "invoke.createperpsB3Market",
+]
+
+[invoke.setperpsB3MaxLiquidationParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsB3LiquidationParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLiquidationParameters"
+args = [
+    "<%= settings.perpsB3MarketId %>",
+    "<%= parseEther(settings.perpsB3InitialMarginRatio) %>",
+    "<%= parseEther(settings.perpsB3MinimumInitialMarginRatio) %>",
+    "<%= parseEther(settings.perpsB3MaintenanceMarginScalar) %>",
+    "<%= parseEther(settings.perpsB3FlagRewardRatioD18) %>",
+    "<%= parseEther(settings.perpsB3MinimumPositionMargin) %>",
+]
+depends = [
+    "invoke.createperpsB3Market",
+]
+
+[invoke.setperpsB3LiquidationParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsB3LockedOiRatio]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLockedOiRatio"
+args = [
+    "<%= settings.perpsB3MarketId %>",
+    "<%= parseEther(settings.perpsB3LockedOiRatio) %>",
+]
+depends = [
+    "invoke.createperpsB3Market",
+]
+
+[invoke.setperpsB3LockedOiRatio.fromCall]
+func = "owner"
+
+[invoke.setperpsB3LimitOrderFees]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLimitOrderFees"
+args = [
+    "<%= settings.perpsB3MarketId %>",
+    "<%= parseEther(settings.perpsB3LimitOrderMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsB3LimitOrderTakerFeeRatio) %>",
+]
+depends = [
+    "invoke.createperpsB3Market",
+]
+
+[invoke.setperpsB3LimitOrderFees.fromCall]
+func = "owner"

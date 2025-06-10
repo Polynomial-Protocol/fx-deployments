@@ -1,0 +1,255 @@
+include = [
+    "../../oracles/pyth-nxpc.toml",
+    "../../markets/common/bigcap-settings.toml",
+]
+
+[setting.perpsNxpcMarketId]
+
+[setting.perpsNxpcSkewScale]
+
+[setting.perpsNxpcMaxFundingVelocity]
+
+[setting.perpsNxpcMakerFeeRatio]
+
+[setting.perpsNxpcTakerFeeRatio]
+
+[setting.perpsNxpcMaxMarketSize]
+
+[setting.perpsNxpcInitialMarginRatio]
+
+[setting.perpsNxpcMaintenanceMarginScalar]
+
+[setting.perpsNxpcMinimumInitialMarginRatio]
+
+[setting.perpsNxpcFlagRewardRatioD18]
+
+[setting.perpsNxpcMaxLiquidationLimitAccumulationMultiplier]
+
+[setting.perpsNxpcMaxSecondsInLiquidationWindow]
+
+[setting.perpsNxpcMinimumPositionMargin]
+
+[setting.perpsNxpcLockedOiRatio]
+
+[setting.perpsNxpcSynthMaxCollateralAmount]
+
+[setting.perpsNxpcMaxLiquidationPd]
+
+[setting.perpsNxpcEndorsedLiquidator]
+
+[invoke.createperpsNxpcMarket]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "createMarket"
+args = [
+    "<%= settings.perpsNxpcMarketId %>",
+    "Nexpace",
+    "NXPC",
+]
+depends = [
+    "provision.system",
+    "provision.perpsFactory",
+]
+
+[invoke.createperpsNxpcMarket.fromCall]
+func = "owner"
+
+[invoke.setperpsNxpcPrice]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "updatePriceData"
+args = [
+    "<%= settings.perpsNxpcMarketId %>",
+    "<%= extras.perpsNxpc_oracle_id %>",
+    "<%= settings.bigCapStrictStalenessTolerance %>",
+]
+depends = [
+    "invoke.createperpsNxpcMarket",
+]
+
+[invoke.setperpsNxpcPrice.fromCall]
+func = "owner"
+
+[invoke.addperpsNxpcSettlementStrategy]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "addSettlementStrategy"
+args = [
+    "<%= settings.perpsNxpcMarketId %>",
+    { strategyType = "0", settlementDelay = "0", settlementWindowDuration = "1", priceVerificationContract = "0x0000000000000000000000000000000000000000", feedId = "0x0000000000000000000000000000000000000000000000000000000000000000", settlementReward = "0", disabled = false, commitmentPriceDelay = "0" },
+]
+depends = [
+    "invoke.createperpsNxpcMarket",
+]
+
+[invoke.addperpsNxpcSettlementStrategy.fromCall]
+func = "owner"
+
+[invoke.addperpsNxpcSettlementStrategy.extra.perpsNxpc_pyth_settlement_strategy]
+event = "SettlementStrategyAdded"
+arg = 2
+
+[invoke.setperpsNxpcSettlementStrategy]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setSettlementStrategy"
+args = [
+    "<%= settings.perpsNxpcMarketId %>",
+    "<%= extras.perpsNxpc_pyth_settlement_strategy %>",
+    { strategyType = "0", settlementDelay = "<%= settings.bigCapSettlementDelay %>", settlementWindowDuration = "<%= settings.bigCapSettlementWindowDuration %>", priceVerificationContract = "<%= imports.pyth_erc7412_wrapper.contracts.PythERC7412Wrapper.address %>", feedId = "<%= settings.perpsNxpcFeedId %>", settlementReward = "<%= parseEther(settings.settlementReward) %>", disabled = false, commitmentPriceDelay = "2" },
+]
+depends = [
+    "provision.perpsFactory",
+    "setting.perpsNxpcMarketId",
+    "invoke.addperpsNxpcSettlementStrategy",
+    "provision.pyth_erc7412_wrapper",
+    "setting.bigCapSettlementDelay",
+    "setting.bigCapSettlementWindowDuration",
+    "setting.perpsNxpcFeedId",
+    "setting.settlementReward",
+]
+
+[invoke.setperpsNxpcSettlementStrategy.fromCall]
+func = "owner"
+
+[invoke.setperpsNxpcFundingParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setFundingParameters"
+args = [
+    "<%= settings.perpsNxpcMarketId %>",
+    "<%= parseEther(settings.perpsNxpcSkewScale) %>",
+    "<%= parseEther(settings.perpsNxpcMaxFundingVelocity) %>",
+]
+depends = [
+    "invoke.createperpsNxpcMarket",
+]
+
+[invoke.setperpsNxpcFundingParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsNxpcOrderFees]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setOrderFees"
+args = [
+    "<%= settings.perpsNxpcMarketId %>",
+    "<%= parseEther(settings.perpsNxpcMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsNxpcTakerFeeRatio) %>",
+]
+depends = [
+    "invoke.createperpsNxpcMarket",
+]
+
+[invoke.setperpsNxpcOrderFees.fromCall]
+func = "owner"
+
+[invoke.setperpsNxpcMaxMarketSize]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxMarketSize"
+args = [
+    "<%= settings.perpsNxpcMarketId %>",
+    "<%= parseEther(settings.perpsNxpcMaxMarketSize) %>",
+]
+depends = [
+    "invoke.createperpsNxpcMarket",
+]
+
+[invoke.setperpsNxpcMaxMarketSize.fromCall]
+func = "owner"
+
+[invoke.setperpsNxpcMaxMarketValue]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxMarketValue"
+args = [
+    "<%= settings.perpsNxpcMarketId %>",
+    "<%= parseEther(settings.perpsNxpcMaxMarketValue) %>",
+]
+depends = [
+    "invoke.createperpsNxpcMarket",
+]
+
+[invoke.setperpsNxpcMaxMarketValue.fromCall]
+func = "owner"
+
+[invoke.setperpsNxpcMaxLiquidationParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxLiquidationParameters"
+args = [
+    "<%= settings.perpsNxpcMarketId %>",
+    "<%= parseEther(settings.perpsNxpcMaxLiquidationLimitAccumulationMultiplier) %>",
+    "<%= settings.perpsNxpcMaxSecondsInLiquidationWindow %>",
+    "<%= parseEther(settings.perpsNxpcMaxLiquidationPd) %>",
+    "<%= settings.perpsNxpcEndorsedLiquidator %>",
+]
+depends = [
+    "invoke.createperpsNxpcMarket",
+]
+
+[invoke.setperpsNxpcMaxLiquidationParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsNxpcLiquidationParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLiquidationParameters"
+args = [
+    "<%= settings.perpsNxpcMarketId %>",
+    "<%= parseEther(settings.perpsNxpcInitialMarginRatio) %>",
+    "<%= parseEther(settings.perpsNxpcMinimumInitialMarginRatio) %>",
+    "<%= parseEther(settings.perpsNxpcMaintenanceMarginScalar) %>",
+    "<%= parseEther(settings.perpsNxpcFlagRewardRatioD18) %>",
+    "<%= parseEther(settings.perpsNxpcMinimumPositionMargin) %>",
+]
+depends = [
+    "invoke.createperpsNxpcMarket",
+]
+
+[invoke.setperpsNxpcLiquidationParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsNxpcLockedOiRatio]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLockedOiRatio"
+args = [
+    "<%= settings.perpsNxpcMarketId %>",
+    "<%= parseEther(settings.perpsNxpcLockedOiRatio) %>",
+]
+depends = [
+    "invoke.createperpsNxpcMarket",
+]
+
+[invoke.setperpsNxpcLockedOiRatio.fromCall]
+func = "owner"
+
+[invoke.setperpsNxpcLimitOrderFees]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLimitOrderFees"
+args = [
+    "<%= settings.perpsNxpcMarketId %>",
+    "<%= parseEther(settings.perpsNxpcLimitOrderMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsNxpcLimitOrderTakerFeeRatio) %>",
+]
+depends = [
+    "invoke.createperpsNxpcMarket",
+]
+
+[invoke.setperpsNxpcLimitOrderFees.fromCall]
+func = "owner"

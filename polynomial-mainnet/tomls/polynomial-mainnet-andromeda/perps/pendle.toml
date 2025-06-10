@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsPendleMaxMarketSize]
-defaultValue = "<%= String(26638.14) %>"
+defaultValue = "<%= String(22091.88) %>"
 
 [setting.perpsPendleMaxMarketValue]
-defaultValue = "<%= String(107_034) %>"
+defaultValue = "<%= String(96_825) %>"
 
 [setting.perpsPendleInitialMarginRatio]
 defaultValue = "0.23596492445816847"

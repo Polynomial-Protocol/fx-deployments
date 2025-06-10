@@ -1,0 +1,68 @@
+[setting.perpsHumaFeedId]
+defaultValue = "0x86f6576c0ddc8577b9d1bb12c712ae04ebd56070826ec042c93595d6b17a013b"
+
+[setting.perpsHumaMarketId]
+defaultValue = "6300"
+
+[setting.perpsHumaSkewScale]
+defaultValue = "<%= String(37_439_773) %>"
+
+[setting.perpsHumaMaxFundingVelocity]
+defaultValue = "24"
+
+[setting.perpsHumaMakerFeeRatio]
+defaultValue = "0.0005"
+
+[setting.perpsHumaTakerFeeRatio]
+defaultValue = "0.0008"
+
+[setting.perpsHumaLimitOrderMakerFeeRatio]
+defaultValue = "0.0001"
+
+[setting.perpsHumaLimitOrderTakerFeeRatio]
+defaultValue = "0.0002"
+
+[setting.perpsHumaMaxMarketSize]
+defaultValue = "<%= String(1906901.20) %>"
+
+[setting.perpsHumaMaxMarketValue]
+defaultValue = "<%= String(96_825) %>"
+
+[setting.perpsHumaInitialMarginRatio]
+defaultValue = "0.10512942735986823"
+
+[setting.perpsHumaMaintenanceMarginScalar]
+defaultValue = "0.317"
+
+[setting.perpsHumaMinimumInitialMarginRatio]
+defaultValue = "0.05"
+
+[setting.perpsHumaFlagRewardRatioD18]
+defaultValue = "0.0003"
+
+[setting.perpsHumaMaxLiquidationLimitAccumulationMultiplier]
+defaultValue = "1.5"
+
+[setting.perpsHumaMaxSecondsInLiquidationWindow]
+defaultValue = "30"
+
+[setting.perpsHumaMinimumPositionMargin]
+defaultValue = "50"
+
+[setting.perpsHumaLockedOiRatio]
+defaultValue = "0.5"
+
+[setting.perpsHumaSynthMaxCollateralAmount]
+defaultValue = "<%= MaxUint256 %>"
+
+[setting.perpsHumaMaxLiquidationPd]
+defaultValue = "0.0005"
+
+[setting.perpsHumaEndorsedLiquidator]
+defaultValue = "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"
+
+[setting.commitmentPriceDelay]
+defaultValue = "2"
+
+[setting.bigCapSettlementDelay]
+defaultValue = "2"

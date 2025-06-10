@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsAtomMaxMarketSize]
-defaultValue = "<%= String(25147.67) %>"
+defaultValue = "<%= String(21565.89) %>"
 
 [setting.perpsAtomMaxMarketValue]
-defaultValue = "<%= String(107_034) %>"
+defaultValue = "<%= String(96_825) %>"
 
 [setting.perpsAtomInitialMarginRatio]
 defaultValue = "0.10684586953437263"

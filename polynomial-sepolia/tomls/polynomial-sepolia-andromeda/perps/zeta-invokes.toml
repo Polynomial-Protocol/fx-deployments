@@ -1,0 +1,255 @@
+include = [
+    "../../oracles/pyth-zeta.toml",
+    "../../markets/common/bigcap-settings.toml",
+]
+
+[setting.perpsZetaMarketId]
+
+[setting.perpsZetaSkewScale]
+
+[setting.perpsZetaMaxFundingVelocity]
+
+[setting.perpsZetaMakerFeeRatio]
+
+[setting.perpsZetaTakerFeeRatio]
+
+[setting.perpsZetaMaxMarketSize]
+
+[setting.perpsZetaInitialMarginRatio]
+
+[setting.perpsZetaMaintenanceMarginScalar]
+
+[setting.perpsZetaMinimumInitialMarginRatio]
+
+[setting.perpsZetaFlagRewardRatioD18]
+
+[setting.perpsZetaMaxLiquidationLimitAccumulationMultiplier]
+
+[setting.perpsZetaMaxSecondsInLiquidationWindow]
+
+[setting.perpsZetaMinimumPositionMargin]
+
+[setting.perpsZetaLockedOiRatio]
+
+[setting.perpsZetaSynthMaxCollateralAmount]
+
+[setting.perpsZetaMaxLiquidationPd]
+
+[setting.perpsZetaEndorsedLiquidator]
+
+[invoke.createperpsZetaMarket]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "createMarket"
+args = [
+    "<%= settings.perpsZetaMarketId %>",
+    "ZetaChain",
+    "ZETA",
+]
+depends = [
+    "provision.system",
+    "provision.perpsFactory",
+]
+
+[invoke.createperpsZetaMarket.fromCall]
+func = "owner"
+
+[invoke.setperpsZetaPrice]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "updatePriceData"
+args = [
+    "<%= settings.perpsZetaMarketId %>",
+    "<%= extras.perpsZeta_oracle_id %>",
+    "<%= settings.bigCapStrictStalenessTolerance %>",
+]
+depends = [
+    "invoke.createperpsZetaMarket",
+]
+
+[invoke.setperpsZetaPrice.fromCall]
+func = "owner"
+
+[invoke.addperpsZetaSettlementStrategy]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "addSettlementStrategy"
+args = [
+    "<%= settings.perpsZetaMarketId %>",
+    { strategyType = "0", settlementDelay = "0", settlementWindowDuration = "1", priceVerificationContract = "0x0000000000000000000000000000000000000000", feedId = "0x0000000000000000000000000000000000000000000000000000000000000000", settlementReward = "0", disabled = false, commitmentPriceDelay = "0" },
+]
+depends = [
+    "invoke.createperpsZetaMarket",
+]
+
+[invoke.addperpsZetaSettlementStrategy.fromCall]
+func = "owner"
+
+[invoke.addperpsZetaSettlementStrategy.extra.perpsZeta_pyth_settlement_strategy]
+event = "SettlementStrategyAdded"
+arg = 2
+
+[invoke.setperpsZetaSettlementStrategy]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setSettlementStrategy"
+args = [
+    "<%= settings.perpsZetaMarketId %>",
+    "<%= extras.perpsZeta_pyth_settlement_strategy %>",
+    { strategyType = "0", settlementDelay = "<%= settings.bigCapSettlementDelay %>", settlementWindowDuration = "<%= settings.bigCapSettlementWindowDuration %>", priceVerificationContract = "<%= imports.pyth_erc7412_wrapper.contracts.PythERC7412Wrapper.address %>", feedId = "<%= settings.perpsZetaFeedId %>", settlementReward = "<%= parseEther(settings.settlementReward) %>", disabled = false, commitmentPriceDelay = "2" },
+]
+depends = [
+    "provision.perpsFactory",
+    "setting.perpsZetaMarketId",
+    "invoke.addperpsZetaSettlementStrategy",
+    "provision.pyth_erc7412_wrapper",
+    "setting.bigCapSettlementDelay",
+    "setting.bigCapSettlementWindowDuration",
+    "setting.perpsZetaFeedId",
+    "setting.settlementReward",
+]
+
+[invoke.setperpsZetaSettlementStrategy.fromCall]
+func = "owner"
+
+[invoke.setperpsZetaFundingParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setFundingParameters"
+args = [
+    "<%= settings.perpsZetaMarketId %>",
+    "<%= parseEther(settings.perpsZetaSkewScale) %>",
+    "<%= parseEther(settings.perpsZetaMaxFundingVelocity) %>",
+]
+depends = [
+    "invoke.createperpsZetaMarket",
+]
+
+[invoke.setperpsZetaFundingParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsZetaOrderFees]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setOrderFees"
+args = [
+    "<%= settings.perpsZetaMarketId %>",
+    "<%= parseEther(settings.perpsZetaMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsZetaTakerFeeRatio) %>",
+]
+depends = [
+    "invoke.createperpsZetaMarket",
+]
+
+[invoke.setperpsZetaOrderFees.fromCall]
+func = "owner"
+
+[invoke.setperpsZetaMaxMarketSize]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxMarketSize"
+args = [
+    "<%= settings.perpsZetaMarketId %>",
+    "<%= parseEther(settings.perpsZetaMaxMarketSize) %>",
+]
+depends = [
+    "invoke.createperpsZetaMarket",
+]
+
+[invoke.setperpsZetaMaxMarketSize.fromCall]
+func = "owner"
+
+[invoke.setperpsZetaMaxMarketValue]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxMarketValue"
+args = [
+    "<%= settings.perpsZetaMarketId %>",
+    "<%= parseEther(settings.perpsZetaMaxMarketValue) %>",
+]
+depends = [
+    "invoke.createperpsZetaMarket",
+]
+
+[invoke.setperpsZetaMaxMarketValue.fromCall]
+func = "owner"
+
+[invoke.setperpsZetaMaxLiquidationParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxLiquidationParameters"
+args = [
+    "<%= settings.perpsZetaMarketId %>",
+    "<%= parseEther(settings.perpsZetaMaxLiquidationLimitAccumulationMultiplier) %>",
+    "<%= settings.perpsZetaMaxSecondsInLiquidationWindow %>",
+    "<%= parseEther(settings.perpsZetaMaxLiquidationPd) %>",
+    "<%= settings.perpsZetaEndorsedLiquidator %>",
+]
+depends = [
+    "invoke.createperpsZetaMarket",
+]
+
+[invoke.setperpsZetaMaxLiquidationParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsZetaLiquidationParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLiquidationParameters"
+args = [
+    "<%= settings.perpsZetaMarketId %>",
+    "<%= parseEther(settings.perpsZetaInitialMarginRatio) %>",
+    "<%= parseEther(settings.perpsZetaMinimumInitialMarginRatio) %>",
+    "<%= parseEther(settings.perpsZetaMaintenanceMarginScalar) %>",
+    "<%= parseEther(settings.perpsZetaFlagRewardRatioD18) %>",
+    "<%= parseEther(settings.perpsZetaMinimumPositionMargin) %>",
+]
+depends = [
+    "invoke.createperpsZetaMarket",
+]
+
+[invoke.setperpsZetaLiquidationParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsZetaLockedOiRatio]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLockedOiRatio"
+args = [
+    "<%= settings.perpsZetaMarketId %>",
+    "<%= parseEther(settings.perpsZetaLockedOiRatio) %>",
+]
+depends = [
+    "invoke.createperpsZetaMarket",
+]
+
+[invoke.setperpsZetaLockedOiRatio.fromCall]
+func = "owner"
+
+[invoke.setperpsZetaLimitOrderFees]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLimitOrderFees"
+args = [
+    "<%= settings.perpsZetaMarketId %>",
+    "<%= parseEther(settings.perpsZetaLimitOrderMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsZetaLimitOrderTakerFeeRatio) %>",
+]
+depends = [
+    "invoke.createperpsZetaMarket",
+]
+
+[invoke.setperpsZetaLimitOrderFees.fromCall]
+func = "owner"

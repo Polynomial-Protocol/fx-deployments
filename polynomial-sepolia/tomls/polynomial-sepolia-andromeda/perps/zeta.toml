@@ -1,0 +1,68 @@
+[setting.perpsZetaFeedId]
+defaultValue = "0xb70656181007f487e392bf0d92e55358e9f0da5da6531c7c4ce7828aa11277fe"
+
+[setting.perpsZetaMarketId]
+defaultValue = "6400"
+
+[setting.perpsZetaSkewScale]
+defaultValue = "<%= String(27_954_441) %>"
+
+[setting.perpsZetaMaxFundingVelocity]
+defaultValue = "24"
+
+[setting.perpsZetaMakerFeeRatio]
+defaultValue = "0.0005"
+
+[setting.perpsZetaTakerFeeRatio]
+defaultValue = "0.0008"
+
+[setting.perpsZetaLimitOrderMakerFeeRatio]
+defaultValue = "0.0001"
+
+[setting.perpsZetaLimitOrderTakerFeeRatio]
+defaultValue = "0.0002"
+
+[setting.perpsZetaMaxMarketSize]
+defaultValue = "<%= String(431471.44) %>"
+
+[setting.perpsZetaMaxMarketValue]
+defaultValue = "<%= String(96_825) %>"
+
+[setting.perpsZetaInitialMarginRatio]
+defaultValue = "0.3472222222222201"
+
+[setting.perpsZetaMaintenanceMarginScalar]
+defaultValue = "0.317"
+
+[setting.perpsZetaMinimumInitialMarginRatio]
+defaultValue = "0.05"
+
+[setting.perpsZetaFlagRewardRatioD18]
+defaultValue = "0.0003"
+
+[setting.perpsZetaMaxLiquidationLimitAccumulationMultiplier]
+defaultValue = "1.5"
+
+[setting.perpsZetaMaxSecondsInLiquidationWindow]
+defaultValue = "30"
+
+[setting.perpsZetaMinimumPositionMargin]
+defaultValue = "50"
+
+[setting.perpsZetaLockedOiRatio]
+defaultValue = "0.5"
+
+[setting.perpsZetaSynthMaxCollateralAmount]
+defaultValue = "<%= MaxUint256 %>"
+
+[setting.perpsZetaMaxLiquidationPd]
+defaultValue = "0.0005"
+
+[setting.perpsZetaEndorsedLiquidator]
+defaultValue = "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"
+
+[setting.commitmentPriceDelay]
+defaultValue = "2"
+
+[setting.bigCapSettlementDelay]
+defaultValue = "2"

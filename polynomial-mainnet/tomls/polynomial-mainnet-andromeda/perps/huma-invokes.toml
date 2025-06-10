@@ -1,0 +1,255 @@
+include = [
+    "../../oracles/pyth-huma.toml",
+    "../../markets/common/bigcap-settings.toml",
+]
+
+[setting.perpsHumaMarketId]
+
+[setting.perpsHumaSkewScale]
+
+[setting.perpsHumaMaxFundingVelocity]
+
+[setting.perpsHumaMakerFeeRatio]
+
+[setting.perpsHumaTakerFeeRatio]
+
+[setting.perpsHumaMaxMarketSize]
+
+[setting.perpsHumaInitialMarginRatio]
+
+[setting.perpsHumaMaintenanceMarginScalar]
+
+[setting.perpsHumaMinimumInitialMarginRatio]
+
+[setting.perpsHumaFlagRewardRatioD18]
+
+[setting.perpsHumaMaxLiquidationLimitAccumulationMultiplier]
+
+[setting.perpsHumaMaxSecondsInLiquidationWindow]
+
+[setting.perpsHumaMinimumPositionMargin]
+
+[setting.perpsHumaLockedOiRatio]
+
+[setting.perpsHumaSynthMaxCollateralAmount]
+
+[setting.perpsHumaMaxLiquidationPd]
+
+[setting.perpsHumaEndorsedLiquidator]
+
+[invoke.createperpsHumaMarket]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "createMarket"
+args = [
+    "<%= settings.perpsHumaMarketId %>",
+    "Huma Finance",
+    "HUMA",
+]
+depends = [
+    "provision.system",
+    "provision.perpsFactory",
+]
+
+[invoke.createperpsHumaMarket.fromCall]
+func = "owner"
+
+[invoke.setperpsHumaPrice]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "updatePriceData"
+args = [
+    "<%= settings.perpsHumaMarketId %>",
+    "<%= extras.perpsHuma_oracle_id %>",
+    "<%= settings.bigCapStrictStalenessTolerance %>",
+]
+depends = [
+    "invoke.createperpsHumaMarket",
+]
+
+[invoke.setperpsHumaPrice.fromCall]
+func = "owner"
+
+[invoke.addperpsHumaSettlementStrategy]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "addSettlementStrategy"
+args = [
+    "<%= settings.perpsHumaMarketId %>",
+    { strategyType = "0", settlementDelay = "0", settlementWindowDuration = "1", priceVerificationContract = "0x0000000000000000000000000000000000000000", feedId = "0x0000000000000000000000000000000000000000000000000000000000000000", settlementReward = "0", disabled = false, commitmentPriceDelay = "0" },
+]
+depends = [
+    "invoke.createperpsHumaMarket",
+]
+
+[invoke.addperpsHumaSettlementStrategy.fromCall]
+func = "owner"
+
+[invoke.addperpsHumaSettlementStrategy.extra.perpsHuma_pyth_settlement_strategy]
+event = "SettlementStrategyAdded"
+arg = 2
+
+[invoke.setperpsHumaSettlementStrategy]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setSettlementStrategy"
+args = [
+    "<%= settings.perpsHumaMarketId %>",
+    "<%= extras.perpsHuma_pyth_settlement_strategy %>",
+    { strategyType = "0", settlementDelay = "<%= settings.bigCapSettlementDelay %>", settlementWindowDuration = "<%= settings.bigCapSettlementWindowDuration %>", priceVerificationContract = "<%= imports.pyth_erc7412_wrapper.contracts.PythERC7412Wrapper.address %>", feedId = "<%= settings.perpsHumaFeedId %>", settlementReward = "<%= parseEther(settings.settlementReward) %>", disabled = false, commitmentPriceDelay = "2" },
+]
+depends = [
+    "provision.perpsFactory",
+    "setting.perpsHumaMarketId",
+    "invoke.addperpsHumaSettlementStrategy",
+    "provision.pyth_erc7412_wrapper",
+    "setting.bigCapSettlementDelay",
+    "setting.bigCapSettlementWindowDuration",
+    "setting.perpsHumaFeedId",
+    "setting.settlementReward",
+]
+
+[invoke.setperpsHumaSettlementStrategy.fromCall]
+func = "owner"
+
+[invoke.setperpsHumaFundingParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setFundingParameters"
+args = [
+    "<%= settings.perpsHumaMarketId %>",
+    "<%= parseEther(settings.perpsHumaSkewScale) %>",
+    "<%= parseEther(settings.perpsHumaMaxFundingVelocity) %>",
+]
+depends = [
+    "invoke.createperpsHumaMarket",
+]
+
+[invoke.setperpsHumaFundingParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsHumaOrderFees]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setOrderFees"
+args = [
+    "<%= settings.perpsHumaMarketId %>",
+    "<%= parseEther(settings.perpsHumaMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsHumaTakerFeeRatio) %>",
+]
+depends = [
+    "invoke.createperpsHumaMarket",
+]
+
+[invoke.setperpsHumaOrderFees.fromCall]
+func = "owner"
+
+[invoke.setperpsHumaMaxMarketSize]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxMarketSize"
+args = [
+    "<%= settings.perpsHumaMarketId %>",
+    "<%= parseEther(settings.perpsHumaMaxMarketSize) %>",
+]
+depends = [
+    "invoke.createperpsHumaMarket",
+]
+
+[invoke.setperpsHumaMaxMarketSize.fromCall]
+func = "owner"
+
+[invoke.setperpsHumaMaxMarketValue]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxMarketValue"
+args = [
+    "<%= settings.perpsHumaMarketId %>",
+    "<%= parseEther(settings.perpsHumaMaxMarketValue) %>",
+]
+depends = [
+    "invoke.createperpsHumaMarket",
+]
+
+[invoke.setperpsHumaMaxMarketValue.fromCall]
+func = "owner"
+
+[invoke.setperpsHumaMaxLiquidationParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxLiquidationParameters"
+args = [
+    "<%= settings.perpsHumaMarketId %>",
+    "<%= parseEther(settings.perpsHumaMaxLiquidationLimitAccumulationMultiplier) %>",
+    "<%= settings.perpsHumaMaxSecondsInLiquidationWindow %>",
+    "<%= parseEther(settings.perpsHumaMaxLiquidationPd) %>",
+    "<%= settings.perpsHumaEndorsedLiquidator %>",
+]
+depends = [
+    "invoke.createperpsHumaMarket",
+]
+
+[invoke.setperpsHumaMaxLiquidationParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsHumaLiquidationParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLiquidationParameters"
+args = [
+    "<%= settings.perpsHumaMarketId %>",
+    "<%= parseEther(settings.perpsHumaInitialMarginRatio) %>",
+    "<%= parseEther(settings.perpsHumaMinimumInitialMarginRatio) %>",
+    "<%= parseEther(settings.perpsHumaMaintenanceMarginScalar) %>",
+    "<%= parseEther(settings.perpsHumaFlagRewardRatioD18) %>",
+    "<%= parseEther(settings.perpsHumaMinimumPositionMargin) %>",
+]
+depends = [
+    "invoke.createperpsHumaMarket",
+]
+
+[invoke.setperpsHumaLiquidationParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsHumaLockedOiRatio]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLockedOiRatio"
+args = [
+    "<%= settings.perpsHumaMarketId %>",
+    "<%= parseEther(settings.perpsHumaLockedOiRatio) %>",
+]
+depends = [
+    "invoke.createperpsHumaMarket",
+]
+
+[invoke.setperpsHumaLockedOiRatio.fromCall]
+func = "owner"
+
+[invoke.setperpsHumaLimitOrderFees]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLimitOrderFees"
+args = [
+    "<%= settings.perpsHumaMarketId %>",
+    "<%= parseEther(settings.perpsHumaLimitOrderMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsHumaLimitOrderTakerFeeRatio) %>",
+]
+depends = [
+    "invoke.createperpsHumaMarket",
+]
+
+[invoke.setperpsHumaLimitOrderFees.fromCall]
+func = "owner"
