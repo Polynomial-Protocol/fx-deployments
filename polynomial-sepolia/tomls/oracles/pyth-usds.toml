@@ -1,0 +1,47 @@
+[setting.pythUsdsFeedId]
+defaultValue = "0x77f0971af11cc8bac224917275c1bf55f2319ed5c654a1ca955c82fa2d297ea1"
+
+# This registers a staleness node that looks to Pyth for a fresh enough price, or otherwise reverts with an ERC-7412 compatible error
+# Latest Pyth Price
+[invoke.registerPythUsdsOracleNode]
+target = ["system.oracle_manager.Proxy"]
+func = "registerNode"
+args = [
+    5, # 5 = pyth aggregator type
+    "<%= defaultAbiCoder.encode(['address', 'bytes32', 'bool'], [settings.pyth_price_verification_address, settings.pythUsdsFeedId, false]) %>",
+    [
+    ],
+]
+depends = ["provision.system"]
+extra.usds_pyth_oracle_id.event = "NodeRegistered"
+extra.usds_pyth_oracle_id.arg = 0
+
+# Pyth Off-chain Lookup
+[invoke.registerLookupUsdsOracleNode]
+target = ["system.oracle_manager.Proxy"]
+func = "registerNode"
+args = [
+    9, # 9 = PythOffchainLookupNode
+    "<%= defaultAbiCoder.encode(['address', 'bytes32', 'uint256'], [imports.pyth_erc7412_wrapper.contracts.PythERC7412Wrapper.address, settings.pythUsdsFeedId, settings.bigCapDefaultStalenessTolerance]) %>",
+    [
+    ],
+]
+depends = ["provision.system"]
+extra.usds_lookup_oracle_id.event = "NodeRegistered"
+extra.usds_lookup_oracle_id.arg = 0
+
+# Staleness Node
+[invoke.registerUsdsOracleNode]
+target = ["system.oracle_manager.Proxy"]
+func = "registerNode"
+args = [
+    7, # 7 = staleness circuit breaker
+    "<%= defaultAbiCoder.encode(['uint256'], [settings.bigCapDefaultStalenessTolerance]) %>",
+    [
+        "<%= extras.usds_pyth_oracle_id %>",
+        "<%= extras.usds_lookup_oracle_id %>",
+    ],
+]
+depends = ["provision.system"]
+extra.usds_oracle_id.event = "NodeRegistered"
+extra.usds_oracle_id.arg = 0
