@@ -2,7 +2,7 @@
 defaultValue = "<%= parseEther(String(10_000_000)) %>"
 
 [setting.fxUsdtSkewScale]
-defaultValue = "<%= parseEther(String(1)) %>"
+defaultValue = "<%= parseEther(String(0)) %>"
 
 [setting.spotStrictStalenessTolerance]
 defaultValue = "300"
