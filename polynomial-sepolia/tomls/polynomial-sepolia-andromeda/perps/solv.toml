@@ -5,10 +5,10 @@ defaultValue = "0x03d73649ee5ff534163a584a865128c641ce1effedd330fa6bbe4c9581b051
 defaultValue = "4600"
 
 [setting.perpsSolvSkewScale]
-defaultValue = "<%= String(17_205_595) %>"
+defaultValue = "<%= String(92_000_430) %>"
 
 [setting.perpsSolvMaxFundingVelocity]
-defaultValue = "24"
+defaultValue = "20"
 
 [setting.perpsSolvMakerFeeRatio]
 defaultValue = "0.0005"
@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsSolvMaxMarketSize]
-defaultValue = "<%= String(2195460.37) %>"
+defaultValue = "<%= String(1906730.93) %>"
 
 [setting.perpsSolvMaxMarketValue]
-defaultValue = "<%= String(96_825) %>"
+defaultValue = "<%= String(91_044) %>"
 
 [setting.perpsSolvInitialMarginRatio]
 defaultValue = "0.040492862374001556"

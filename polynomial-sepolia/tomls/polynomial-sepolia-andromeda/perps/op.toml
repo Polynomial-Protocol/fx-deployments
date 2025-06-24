@@ -5,10 +5,10 @@ defaultValue = "0x385f64d993f7b77d8182ed5003d97c60aa3361f3cecfe711544d2d59165e9b
 defaultValue = "800"
 
 [setting.perpsOpSkewScale]
-defaultValue = "<%= String(5_000_000) %>"
+defaultValue = "<%= String(5_834_150) %>"
 
 [setting.perpsOpMaxFundingVelocity]
-defaultValue = "36"
+defaultValue = "20"
 
 [setting.perpsOpLimitOrderMakerFeeRatio]
 defaultValue = "0.0001"
@@ -23,10 +23,10 @@ defaultValue = "0.0005"
 defaultValue = "0.0008"
 
 [setting.perpsOpMaxMarketSize]
-defaultValue = "<%= String(139005.65) %>"
+defaultValue = "<%= String(162114.32) %>"
 
 [setting.perpsOpMaxMarketValue]
-defaultValue = "<%= String(96_825) %>"
+defaultValue = "<%= String(91_044) %>"
 
 [setting.perpsOpInitialMarginRatio]
 defaultValue = "2.27"

@@ -1,0 +1,56 @@
+[invoke.registerperpsJtoPythOracleNode]
+target = [
+    "system.oracle_manager.Proxy",
+]
+func = "registerNode"
+args = [
+    5,
+    "<%= defaultAbiCoder.encode(['address', 'bytes32', 'bool'], [settings.pyth_price_verification_address, settings.perpsJtoFeedId, false]) %>",
+    [],
+]
+depends = [
+    "provision.system",
+]
+
+[invoke.registerperpsJtoPythOracleNode.extra.perpsJto_pyth_oracle_id]
+event = "NodeRegistered"
+arg = 0
+
+[invoke.registerperpsJtoLookupOracleNode]
+target = [
+    "system.oracle_manager.Proxy",
+]
+func = "registerNode"
+args = [
+    9,
+    "<%= defaultAbiCoder.encode(['address', 'bytes32', 'uint256'], [imports.pyth_erc7412_wrapper.contracts.PythERC7412Wrapper.address, settings.perpsJtoFeedId, settings.bigCapDefaultStalenessTolerance]) %>",
+    [],
+]
+depends = [
+    "provision.system",
+]
+
+[invoke.registerperpsJtoLookupOracleNode.extra.perpsJto_lookup_oracle_id]
+event = "NodeRegistered"
+arg = 0
+
+[invoke.registerperpsJtoOracleNode]
+target = [
+    "system.oracle_manager.Proxy",
+]
+func = "registerNode"
+args = [
+    7,
+    "<%= defaultAbiCoder.encode(['uint256'], [settings.bigCapDefaultStalenessTolerance]) %>",
+    [
+        "<%= extras.perpsJto_pyth_oracle_id %>",
+        "<%= extras.perpsJto_lookup_oracle_id %>",
+    ],
+]
+depends = [
+    "provision.system",
+]
+
+[invoke.registerperpsJtoOracleNode.extra.perpsJto_oracle_id]
+event = "NodeRegistered"
+arg = 0

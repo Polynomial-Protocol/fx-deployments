@@ -5,7 +5,7 @@ defaultValue = "0x03e8dbf3e8f02edf5ca898dc7afbbac3f06c7d91c02986c3a8c6ce1a99e903
 defaultValue = "5800"
 
 [setting.perpsMerlSkewScale]
-defaultValue = "<%= String(14_887_110) %>"
+defaultValue = "<%= String(28_435_880) %>"
 
 [setting.perpsMerlMaxFundingVelocity]
 defaultValue = "24"
@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsMerlMaxMarketSize]
-defaultValue = "<%= String(955485.15) %>"
+defaultValue = "<%= String(1050217.46) %>"
 
 [setting.perpsMerlMaxMarketValue]
-defaultValue = "<%= String(96_825) %>"
+defaultValue = "<%= String(91_044) %>"
 
 [setting.perpsMerlInitialMarginRatio]
 defaultValue = "0.5"
