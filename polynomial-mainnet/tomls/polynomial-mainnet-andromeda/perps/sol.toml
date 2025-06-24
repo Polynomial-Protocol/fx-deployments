@@ -23,7 +23,7 @@ defaultValue = "0.0005"
 defaultValue = "0.0008"
 
 [setting.perpsSolMaxMarketSize]
-defaultValue = "<%= String(7755.87) %>"
+defaultValue = "<%= String(8451.97) %>"
 
 [setting.perpsSolMaxMarketValue]
 defaultValue = "<%= String(1_220_000) %>"

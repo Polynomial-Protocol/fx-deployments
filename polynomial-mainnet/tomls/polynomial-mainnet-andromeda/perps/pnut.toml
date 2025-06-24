@@ -8,7 +8,7 @@ defaultValue = "1000"
 defaultValue = "<%= String(20_000_000) %>"
 
 [setting.perpsPnutMaxFundingVelocity]
-defaultValue = "36"
+defaultValue = "24"
 
 [setting.perpsPnutLimitOrderMakerFeeRatio]
 defaultValue = "0.0001"
@@ -23,10 +23,10 @@ defaultValue = "0.0005"
 defaultValue = "0.0008"
 
 [setting.perpsPnutMaxMarketSize]
-defaultValue = "<%= String(335247.44) %>"
+defaultValue = "<%= String(415924.37) %>"
 
 [setting.perpsPnutMaxMarketValue]
-defaultValue = "<%= String(96_825) %>"
+defaultValue = "<%= String(91_044) %>"
 
 [setting.perpsPnutInitialMarginRatio]
 defaultValue = "4.688"

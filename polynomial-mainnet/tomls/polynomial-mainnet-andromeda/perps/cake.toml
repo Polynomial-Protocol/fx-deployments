@@ -1,0 +1,68 @@
+[setting.perpsCakeFeedId]
+defaultValue = "0x2356af9529a1064d41e32d617e2ce1dca5733afa901daba9e2b68dee5d53ecf9"
+
+[setting.perpsCakeMarketId]
+defaultValue = "6800"
+
+[setting.perpsCakeSkewScale]
+defaultValue = "<%= String(398_318) %>"
+
+[setting.perpsCakeMaxFundingVelocity]
+defaultValue = "24"
+
+[setting.perpsCakeMakerFeeRatio]
+defaultValue = "0.0005"
+
+[setting.perpsCakeTakerFeeRatio]
+defaultValue = "0.0008"
+
+[setting.perpsCakeLimitOrderMakerFeeRatio]
+defaultValue = "0.0001"
+
+[setting.perpsCakeLimitOrderTakerFeeRatio]
+defaultValue = "0.0002"
+
+[setting.perpsCakeMaxMarketSize]
+defaultValue = "<%= String(41659.68) %>"
+
+[setting.perpsCakeMaxMarketValue]
+defaultValue = "<%= String(91_044) %>"
+
+[setting.perpsCakeInitialMarginRatio]
+defaultValue = "0.04835874326545388"
+
+[setting.perpsCakeMaintenanceMarginScalar]
+defaultValue = "0.317"
+
+[setting.perpsCakeMinimumInitialMarginRatio]
+defaultValue = "0.05"
+
+[setting.perpsCakeFlagRewardRatioD18]
+defaultValue = "0.0003"
+
+[setting.perpsCakeMaxLiquidationLimitAccumulationMultiplier]
+defaultValue = "1.5"
+
+[setting.perpsCakeMaxSecondsInLiquidationWindow]
+defaultValue = "30"
+
+[setting.perpsCakeMinimumPositionMargin]
+defaultValue = "50"
+
+[setting.perpsCakeLockedOiRatio]
+defaultValue = "0.5"
+
+[setting.perpsCakeSynthMaxCollateralAmount]
+defaultValue = "<%= MaxUint256 %>"
+
+[setting.perpsCakeMaxLiquidationPd]
+defaultValue = "0.0005"
+
+[setting.perpsCakeEndorsedLiquidator]
+defaultValue = "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"
+
+[setting.commitmentPriceDelay]
+defaultValue = "2"
+
+[setting.bigCapSettlementDelay]
+defaultValue = "2"

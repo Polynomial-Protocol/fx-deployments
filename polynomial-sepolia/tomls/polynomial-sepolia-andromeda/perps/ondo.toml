@@ -5,7 +5,7 @@ defaultValue = "0xd40472610abe56d36d065a0cf889fc8f1dd9f3b7f2a478231a5fc6df07ea5c
 defaultValue = "3100"
 
 [setting.perpsOndoSkewScale]
-defaultValue = "<%= String(1_275_919) %>"
+defaultValue = "<%= String(4_310_970) %>"
 
 [setting.perpsOndoMaxFundingVelocity]
 defaultValue = "24"
@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsOndoMaxMarketSize]
-defaultValue = "<%= String(110186.87) %>"
+defaultValue = "<%= String(116970.84) %>"
 
 [setting.perpsOndoMaxMarketValue]
-defaultValue = "<%= String(96_825) %>"
+defaultValue = "<%= String(91_044) %>"
 
 [setting.perpsOndoInitialMarginRatio]
 defaultValue = "0.41666666666666413"

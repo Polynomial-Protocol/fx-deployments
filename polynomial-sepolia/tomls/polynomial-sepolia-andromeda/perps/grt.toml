@@ -5,7 +5,7 @@ defaultValue = "0x4d1f8dae0d96236fb98e8f47471a366ec3b1732b47041781934ca3a9bb2f35
 defaultValue = "5200"
 
 [setting.perpsGrtSkewScale]
-defaultValue = "<%= String(3_232_810) %>"
+defaultValue = "<%= String(33_450_950) %>"
 
 [setting.perpsGrtMaxFundingVelocity]
 defaultValue = "24"
@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsGrtMaxMarketSize]
-defaultValue = "<%= String(985096.04) %>"
+defaultValue = "<%= String(1086457.58) %>"
 
 [setting.perpsGrtMaxMarketValue]
-defaultValue = "<%= String(96_825) %>"
+defaultValue = "<%= String(91_044) %>"
 
 [setting.perpsGrtInitialMarginRatio]
 defaultValue = "0.017657762010318035"

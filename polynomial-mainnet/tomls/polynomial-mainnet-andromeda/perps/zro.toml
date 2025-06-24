@@ -1,0 +1,68 @@
+[setting.perpsZroFeedId]
+defaultValue = "0x3bd860bea28bf982fa06bcf358118064bb114086cc03993bd76197eaab0b8018"
+
+[setting.perpsZroMarketId]
+defaultValue = "6900"
+
+[setting.perpsZroSkewScale]
+defaultValue = "<%= String(3_465_967) %>"
+
+[setting.perpsZroMaxFundingVelocity]
+defaultValue = "24"
+
+[setting.perpsZroMakerFeeRatio]
+defaultValue = "0.0005"
+
+[setting.perpsZroTakerFeeRatio]
+defaultValue = "0.0008"
+
+[setting.perpsZroLimitOrderMakerFeeRatio]
+defaultValue = "0.0001"
+
+[setting.perpsZroLimitOrderTakerFeeRatio]
+defaultValue = "0.0002"
+
+[setting.perpsZroMaxMarketSize]
+defaultValue = "<%= String(50044.02) %>"
+
+[setting.perpsZroMaxMarketValue]
+defaultValue = "<%= String(91_044) %>"
+
+[setting.perpsZroInitialMarginRatio]
+defaultValue = "0.35030787353471715"
+
+[setting.perpsZroMaintenanceMarginScalar]
+defaultValue = "0.317"
+
+[setting.perpsZroMinimumInitialMarginRatio]
+defaultValue = "0.05"
+
+[setting.perpsZroFlagRewardRatioD18]
+defaultValue = "0.0003"
+
+[setting.perpsZroMaxLiquidationLimitAccumulationMultiplier]
+defaultValue = "1.5"
+
+[setting.perpsZroMaxSecondsInLiquidationWindow]
+defaultValue = "30"
+
+[setting.perpsZroMinimumPositionMargin]
+defaultValue = "50"
+
+[setting.perpsZroLockedOiRatio]
+defaultValue = "0.5"
+
+[setting.perpsZroSynthMaxCollateralAmount]
+defaultValue = "<%= MaxUint256 %>"
+
+[setting.perpsZroMaxLiquidationPd]
+defaultValue = "0.0005"
+
+[setting.perpsZroEndorsedLiquidator]
+defaultValue = "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"
+
+[setting.commitmentPriceDelay]
+defaultValue = "2"
+
+[setting.bigCapSettlementDelay]
+defaultValue = "2"

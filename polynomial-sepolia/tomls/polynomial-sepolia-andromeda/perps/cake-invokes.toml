@@ -1,0 +1,255 @@
+include = [
+    "../../oracles/pyth-cake.toml",
+    "../../markets/common/bigcap-settings.toml",
+]
+
+[setting.perpsCakeMarketId]
+
+[setting.perpsCakeSkewScale]
+
+[setting.perpsCakeMaxFundingVelocity]
+
+[setting.perpsCakeMakerFeeRatio]
+
+[setting.perpsCakeTakerFeeRatio]
+
+[setting.perpsCakeMaxMarketSize]
+
+[setting.perpsCakeInitialMarginRatio]
+
+[setting.perpsCakeMaintenanceMarginScalar]
+
+[setting.perpsCakeMinimumInitialMarginRatio]
+
+[setting.perpsCakeFlagRewardRatioD18]
+
+[setting.perpsCakeMaxLiquidationLimitAccumulationMultiplier]
+
+[setting.perpsCakeMaxSecondsInLiquidationWindow]
+
+[setting.perpsCakeMinimumPositionMargin]
+
+[setting.perpsCakeLockedOiRatio]
+
+[setting.perpsCakeSynthMaxCollateralAmount]
+
+[setting.perpsCakeMaxLiquidationPd]
+
+[setting.perpsCakeEndorsedLiquidator]
+
+[invoke.createperpsCakeMarket]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "createMarket"
+args = [
+    "<%= settings.perpsCakeMarketId %>",
+    "PancakeSwap",
+    "CAKE",
+]
+depends = [
+    "provision.system",
+    "provision.perpsFactory",
+]
+
+[invoke.createperpsCakeMarket.fromCall]
+func = "owner"
+
+[invoke.setperpsCakePrice]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "updatePriceData"
+args = [
+    "<%= settings.perpsCakeMarketId %>",
+    "<%= extras.perpsCake_oracle_id %>",
+    "<%= settings.bigCapStrictStalenessTolerance %>",
+]
+depends = [
+    "invoke.createperpsCakeMarket",
+]
+
+[invoke.setperpsCakePrice.fromCall]
+func = "owner"
+
+[invoke.addperpsCakeSettlementStrategy]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "addSettlementStrategy"
+args = [
+    "<%= settings.perpsCakeMarketId %>",
+    { strategyType = "0", settlementDelay = "0", settlementWindowDuration = "1", priceVerificationContract = "0x0000000000000000000000000000000000000000", feedId = "0x0000000000000000000000000000000000000000000000000000000000000000", settlementReward = "0", disabled = false, commitmentPriceDelay = "0" },
+]
+depends = [
+    "invoke.createperpsCakeMarket",
+]
+
+[invoke.addperpsCakeSettlementStrategy.fromCall]
+func = "owner"
+
+[invoke.addperpsCakeSettlementStrategy.extra.perpsCake_pyth_settlement_strategy]
+event = "SettlementStrategyAdded"
+arg = 2
+
+[invoke.setperpsCakeSettlementStrategy]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setSettlementStrategy"
+args = [
+    "<%= settings.perpsCakeMarketId %>",
+    "<%= extras.perpsCake_pyth_settlement_strategy %>",
+    { strategyType = "0", settlementDelay = "<%= settings.bigCapSettlementDelay %>", settlementWindowDuration = "<%= settings.bigCapSettlementWindowDuration %>", priceVerificationContract = "<%= imports.pyth_erc7412_wrapper.contracts.PythERC7412Wrapper.address %>", feedId = "<%= settings.perpsCakeFeedId %>", settlementReward = "<%= parseEther(settings.settlementReward) %>", disabled = false, commitmentPriceDelay = "2" },
+]
+depends = [
+    "provision.perpsFactory",
+    "setting.perpsCakeMarketId",
+    "invoke.addperpsCakeSettlementStrategy",
+    "provision.pyth_erc7412_wrapper",
+    "setting.bigCapSettlementDelay",
+    "setting.bigCapSettlementWindowDuration",
+    "setting.perpsCakeFeedId",
+    "setting.settlementReward",
+]
+
+[invoke.setperpsCakeSettlementStrategy.fromCall]
+func = "owner"
+
+[invoke.setperpsCakeFundingParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setFundingParameters"
+args = [
+    "<%= settings.perpsCakeMarketId %>",
+    "<%= parseEther(settings.perpsCakeSkewScale) %>",
+    "<%= parseEther(settings.perpsCakeMaxFundingVelocity) %>",
+]
+depends = [
+    "invoke.createperpsCakeMarket",
+]
+
+[invoke.setperpsCakeFundingParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsCakeOrderFees]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setOrderFees"
+args = [
+    "<%= settings.perpsCakeMarketId %>",
+    "<%= parseEther(settings.perpsCakeMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsCakeTakerFeeRatio) %>",
+]
+depends = [
+    "invoke.createperpsCakeMarket",
+]
+
+[invoke.setperpsCakeOrderFees.fromCall]
+func = "owner"
+
+[invoke.setperpsCakeMaxMarketSize]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxMarketSize"
+args = [
+    "<%= settings.perpsCakeMarketId %>",
+    "<%= parseEther(settings.perpsCakeMaxMarketSize) %>",
+]
+depends = [
+    "invoke.createperpsCakeMarket",
+]
+
+[invoke.setperpsCakeMaxMarketSize.fromCall]
+func = "owner"
+
+[invoke.setperpsCakeMaxMarketValue]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxMarketValue"
+args = [
+    "<%= settings.perpsCakeMarketId %>",
+    "<%= parseEther(settings.perpsCakeMaxMarketValue) %>",
+]
+depends = [
+    "invoke.createperpsCakeMarket",
+]
+
+[invoke.setperpsCakeMaxMarketValue.fromCall]
+func = "owner"
+
+[invoke.setperpsCakeMaxLiquidationParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxLiquidationParameters"
+args = [
+    "<%= settings.perpsCakeMarketId %>",
+    "<%= parseEther(settings.perpsCakeMaxLiquidationLimitAccumulationMultiplier) %>",
+    "<%= settings.perpsCakeMaxSecondsInLiquidationWindow %>",
+    "<%= parseEther(settings.perpsCakeMaxLiquidationPd) %>",
+    "<%= settings.perpsCakeEndorsedLiquidator %>",
+]
+depends = [
+    "invoke.createperpsCakeMarket",
+]
+
+[invoke.setperpsCakeMaxLiquidationParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsCakeLiquidationParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLiquidationParameters"
+args = [
+    "<%= settings.perpsCakeMarketId %>",
+    "<%= parseEther(settings.perpsCakeInitialMarginRatio) %>",
+    "<%= parseEther(settings.perpsCakeMinimumInitialMarginRatio) %>",
+    "<%= parseEther(settings.perpsCakeMaintenanceMarginScalar) %>",
+    "<%= parseEther(settings.perpsCakeFlagRewardRatioD18) %>",
+    "<%= parseEther(settings.perpsCakeMinimumPositionMargin) %>",
+]
+depends = [
+    "invoke.createperpsCakeMarket",
+]
+
+[invoke.setperpsCakeLiquidationParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsCakeLockedOiRatio]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLockedOiRatio"
+args = [
+    "<%= settings.perpsCakeMarketId %>",
+    "<%= parseEther(settings.perpsCakeLockedOiRatio) %>",
+]
+depends = [
+    "invoke.createperpsCakeMarket",
+]
+
+[invoke.setperpsCakeLockedOiRatio.fromCall]
+func = "owner"
+
+[invoke.setperpsCakeLimitOrderFees]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLimitOrderFees"
+args = [
+    "<%= settings.perpsCakeMarketId %>",
+    "<%= parseEther(settings.perpsCakeLimitOrderMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsCakeLimitOrderTakerFeeRatio) %>",
+]
+depends = [
+    "invoke.createperpsCakeMarket",
+]
+
+[invoke.setperpsCakeLimitOrderFees.fromCall]
+func = "owner"

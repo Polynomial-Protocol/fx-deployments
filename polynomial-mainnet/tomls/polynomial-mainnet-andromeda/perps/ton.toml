@@ -1,0 +1,68 @@
+[setting.perpsTonFeedId]
+defaultValue = "0x8963217838ab4cf5cadc172203c1f0b763fbaa45f346d8ee50ba994bbcac3026"
+
+[setting.perpsTonMarketId]
+defaultValue = "7000"
+
+[setting.perpsTonSkewScale]
+defaultValue = "<%= String(2_769_980) %>"
+
+[setting.perpsTonMaxFundingVelocity]
+defaultValue = "24"
+
+[setting.perpsTonMakerFeeRatio]
+defaultValue = "0.0005"
+
+[setting.perpsTonTakerFeeRatio]
+defaultValue = "0.0008"
+
+[setting.perpsTonLimitOrderMakerFeeRatio]
+defaultValue = "0.0001"
+
+[setting.perpsTonLimitOrderTakerFeeRatio]
+defaultValue = "0.0002"
+
+[setting.perpsTonMaxMarketSize]
+defaultValue = "<%= String(31314.63) %>"
+
+[setting.perpsTonMaxMarketValue]
+defaultValue = "<%= String(91_044) %>"
+
+[setting.perpsTonInitialMarginRatio]
+defaultValue = "0.4474045654612778"
+
+[setting.perpsTonMaintenanceMarginScalar]
+defaultValue = "0.317"
+
+[setting.perpsTonMinimumInitialMarginRatio]
+defaultValue = "0.05"
+
+[setting.perpsTonFlagRewardRatioD18]
+defaultValue = "0.0003"
+
+[setting.perpsTonMaxLiquidationLimitAccumulationMultiplier]
+defaultValue = "1.5"
+
+[setting.perpsTonMaxSecondsInLiquidationWindow]
+defaultValue = "30"
+
+[setting.perpsTonMinimumPositionMargin]
+defaultValue = "50"
+
+[setting.perpsTonLockedOiRatio]
+defaultValue = "0.5"
+
+[setting.perpsTonSynthMaxCollateralAmount]
+defaultValue = "<%= MaxUint256 %>"
+
+[setting.perpsTonMaxLiquidationPd]
+defaultValue = "0.0005"
+
+[setting.perpsTonEndorsedLiquidator]
+defaultValue = "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"
+
+[setting.commitmentPriceDelay]
+defaultValue = "2"
+
+[setting.bigCapSettlementDelay]
+defaultValue = "2"

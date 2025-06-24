@@ -5,7 +5,7 @@ defaultValue = "0x39d020f60982ed892abbcd4a06a276a9f9b7bfbce003204c110b6e488f502d
 defaultValue = "2600"
 
 [setting.perpsSnxSkewScale]
-defaultValue = "<%= String(400_000) %>"
+defaultValue = "<%= String(5_251_640) %>"
 
 [setting.perpsSnxMaxFundingVelocity]
 defaultValue = "24"
@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsSnxMaxMarketSize]
-defaultValue = "<%= String(136054.38) %>"
+defaultValue = "<%= String(158125.61) %>"
 
 [setting.perpsSnxMaxMarketValue]
-defaultValue = "<%= String(96_825) %>"
+defaultValue = "<%= String(91_044) %>"
 
 [setting.perpsSnxInitialMarginRatio]
 defaultValue = "1.9699094410416658"
