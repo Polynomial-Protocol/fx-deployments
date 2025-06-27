@@ -1,0 +1,27 @@
+[var.perps_collateral_RSETH_settings]
+rseth_upper_limit_discount = "<%= parseEther('0.1') %>"
+rseth_lower_limit_discount = "<%= parseEther('0.01') %>"
+rseth_discount_scalar = "<%= parseEther('1') %>"
+
+[invoke.setPerpsMaxCollateralForFxRsEth]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setCollateralConfiguration"
+args = [
+    "<%= extras.fx_rseth_market_id %>",
+    "<%= settings.fxRsEthMaxMarketCollateral %>",
+    "<%= settings.rseth_upper_limit_discount %>",
+    "<%= settings.rseth_lower_limit_discount %>",
+    "<%= settings.rseth_discount_scalar %>",
+]
+
+[invoke.setSynthMaxMarketCollateralFxRsEth]
+target = ["system.CoreProxy"]
+fromCall.func = "owner"
+fromCall.args = []
+func = "configureMaximumMarketCollateral"
+args = [
+    "<%= imports.perpsFactory.extras.superMarketId %>",
+    "<%= extras.fx_rseth_token_address %>",
+    "<%= settings.fxRsEthMaxMarketCollateral %>",
+]
