@@ -1,6 +1,6 @@
 [var.perps_collateral_RSETH_settings]
-rseth_upper_limit_discount = "<%= parseEther('0.1') %>"
-rseth_lower_limit_discount = "<%= parseEther('0.01') %>"
+rseth_upper_limit_discount = "<%= parseEther('0.12') %>"
+rseth_lower_limit_discount = "<%= parseEther('0.05') %>"
 rseth_discount_scalar = "<%= parseEther('1') %>"
 
 [invoke.setPerpsMaxCollateralForFxRsEth]
