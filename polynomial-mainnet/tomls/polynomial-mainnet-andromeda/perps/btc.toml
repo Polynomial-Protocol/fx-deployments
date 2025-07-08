@@ -32,7 +32,7 @@ defaultValue = "<%= String(2_440_000) %>"
 defaultValue = "1.54"
 
 [setting.perpsBtcMaintenanceMarginScalar]
-defaultValue = "0.28"
+defaultValue = "0.23"
 
 [setting.perpsBtcMinimumInitialMarginRatio]
 defaultValue = "0.02"
@@ -47,7 +47,7 @@ defaultValue = "1.5"
 defaultValue = "30"
 
 [setting.perpsBtcMinimumPositionMargin]
-defaultValue = "50"
+defaultValue = "25"
 
 [setting.perpsBtcLockedOiRatio]
 defaultValue = "0.5"

@@ -32,7 +32,7 @@ defaultValue = "<%= String(91_044) %>"
 defaultValue = "0.34722222222222004"
 
 [setting.perpsZoraMaintenanceMarginScalar]
-defaultValue = "0.317"
+defaultValue = "0.31"
 
 [setting.perpsZoraMinimumInitialMarginRatio]
 defaultValue = "0.05"
@@ -47,7 +47,7 @@ defaultValue = "1.5"
 defaultValue = "30"
 
 [setting.perpsZoraMinimumPositionMargin]
-defaultValue = "50"
+defaultValue = "25"
 
 [setting.perpsZoraLockedOiRatio]
 defaultValue = "0.5"

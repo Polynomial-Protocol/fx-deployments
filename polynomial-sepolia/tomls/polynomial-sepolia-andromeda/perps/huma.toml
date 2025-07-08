@@ -47,7 +47,7 @@ defaultValue = "1.5"
 defaultValue = "30"
 
 [setting.perpsHumaMinimumPositionMargin]
-defaultValue = "50"
+defaultValue = "25"
 
 [setting.perpsHumaLockedOiRatio]
 defaultValue = "0.5"

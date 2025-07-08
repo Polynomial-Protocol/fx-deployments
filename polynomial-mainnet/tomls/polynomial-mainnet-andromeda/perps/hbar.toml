@@ -32,7 +32,7 @@ defaultValue = "<%= String(91_044) %>"
 defaultValue = "0.9552005471050908"
 
 [setting.perpsHbarMaintenanceMarginScalar]
-defaultValue = "0.317"
+defaultValue = "0.26"
 
 [setting.perpsHbarMinimumInitialMarginRatio]
 defaultValue = "0.05"
@@ -47,7 +47,7 @@ defaultValue = "1.5"
 defaultValue = "30"
 
 [setting.perpsHbarMinimumPositionMargin]
-defaultValue = "50"
+defaultValue = "25"
 
 [setting.perpsHbarLockedOiRatio]
 defaultValue = "0.5"

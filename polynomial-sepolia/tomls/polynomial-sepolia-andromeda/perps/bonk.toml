@@ -35,7 +35,7 @@ defaultValue = "2.27"
 defaultValue = "0.04"
 
 [setting.perpsBonkMaintenanceMarginScalar]
-defaultValue = "0.38"
+defaultValue = "0.31"
 
 [setting.perpsBonkFlagRewardRatioD18]
 defaultValue = "0.0003"
@@ -47,7 +47,7 @@ defaultValue = "1.5"
 defaultValue = "30"
 
 [setting.perpsBonkMinimumPositionMargin]
-defaultValue = "50"
+defaultValue = "25"
 
 [setting.perpsBonkLockedOiRatio]
 defaultValue = "0.5"

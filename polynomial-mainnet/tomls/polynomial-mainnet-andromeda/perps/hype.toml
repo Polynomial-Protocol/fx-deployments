@@ -32,7 +32,7 @@ defaultValue = "<%= String(91_044) %>"
 defaultValue = "1.5277777777777772"
 
 [setting.perpsHypeMaintenanceMarginScalar]
-defaultValue = "0.317"
+defaultValue = "0.28"
 
 [setting.perpsHypeMinimumInitialMarginRatio]
 defaultValue = "0.05"
@@ -47,7 +47,7 @@ defaultValue = "1.5"
 defaultValue = "30"
 
 [setting.perpsHypeMinimumPositionMargin]
-defaultValue = "50"
+defaultValue = "25"
 
 [setting.perpsHypeLockedOiRatio]
 defaultValue = "0.5"

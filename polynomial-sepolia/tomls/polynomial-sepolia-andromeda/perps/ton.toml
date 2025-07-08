@@ -32,7 +32,7 @@ defaultValue = "<%= String(91_044) %>"
 defaultValue = "0.4474045654612778"
 
 [setting.perpsTonMaintenanceMarginScalar]
-defaultValue = "0.317"
+defaultValue = "0.26"
 
 [setting.perpsTonMinimumInitialMarginRatio]
 defaultValue = "0.05"
@@ -47,7 +47,7 @@ defaultValue = "1.5"
 defaultValue = "30"
 
 [setting.perpsTonMinimumPositionMargin]
-defaultValue = "50"
+defaultValue = "25"
 
 [setting.perpsTonLockedOiRatio]
 defaultValue = "0.5"

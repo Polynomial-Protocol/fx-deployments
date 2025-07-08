@@ -32,7 +32,7 @@ defaultValue = "<%= String(91_044) %>"
 defaultValue = "0.3472222222222201"
 
 [setting.perpsZetaMaintenanceMarginScalar]
-defaultValue = "0.317"
+defaultValue = "0.26"
 
 [setting.perpsZetaMinimumInitialMarginRatio]
 defaultValue = "0.05"
@@ -47,7 +47,7 @@ defaultValue = "1.5"
 defaultValue = "30"
 
 [setting.perpsZetaMinimumPositionMargin]
-defaultValue = "50"
+defaultValue = "25"
 
 [setting.perpsZetaLockedOiRatio]
 defaultValue = "0.5"

@@ -32,7 +32,7 @@ defaultValue = "<%= String(91_044) %>"
 defaultValue = "1.2783223816388807"
 
 [setting.perpsArbMaintenanceMarginScalar]
-defaultValue = "0.317"
+defaultValue = "0.26"
 
 [setting.perpsArbMinimumInitialMarginRatio]
 defaultValue = "0.05"
@@ -47,7 +47,7 @@ defaultValue = "1.5"
 defaultValue = "30"
 
 [setting.perpsArbMinimumPositionMargin]
-defaultValue = "50"
+defaultValue = "25"
 
 [setting.perpsArbLockedOiRatio]
 defaultValue = "0.5"

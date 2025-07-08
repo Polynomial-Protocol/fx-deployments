@@ -32,7 +32,7 @@ defaultValue = "<%= String(91_044) %>"
 defaultValue = "2.0641494610555444"
 
 [setting.perpsJupMaintenanceMarginScalar]
-defaultValue = "0.317"
+defaultValue = "0.28"
 
 [setting.perpsJupMinimumInitialMarginRatio]
 defaultValue = "0.05"
@@ -47,7 +47,7 @@ defaultValue = "1.5"
 defaultValue = "30"
 
 [setting.perpsJupMinimumPositionMargin]
-defaultValue = "50"
+defaultValue = "25"
 
 [setting.perpsJupLockedOiRatio]
 defaultValue = "0.5"

@@ -32,7 +32,7 @@ defaultValue = "<%= String(91_044) %>"
 defaultValue = "6.9"
 
 [setting.perpsDogeMaintenanceMarginScalar]
-defaultValue = "0.3"
+defaultValue = "0.27"
 
 [setting.perpsDogeMinimumInitialMarginRatio]
 defaultValue = "0.02"
@@ -47,7 +47,7 @@ defaultValue = "1.5"
 defaultValue = "30"
 
 [setting.perpsDogeMinimumPositionMargin]
-defaultValue = "50"
+defaultValue = "25"
 
 [setting.perpsDogeLockedOiRatio]
 defaultValue = "0.5"

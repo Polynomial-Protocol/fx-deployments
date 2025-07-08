@@ -32,7 +32,7 @@ defaultValue = "<%= String(91_044) %>"
 defaultValue = "0.33130411671353793"
 
 [setting.perpsWctMaintenanceMarginScalar]
-defaultValue = "0.317"
+defaultValue = "0.28"
 
 [setting.perpsWctMinimumInitialMarginRatio]
 defaultValue = "0.05"
@@ -47,7 +47,7 @@ defaultValue = "1.5"
 defaultValue = "30"
 
 [setting.perpsWctMinimumPositionMargin]
-defaultValue = "50"
+defaultValue = "25"
 
 [setting.perpsWctLockedOiRatio]
 defaultValue = "0.5"

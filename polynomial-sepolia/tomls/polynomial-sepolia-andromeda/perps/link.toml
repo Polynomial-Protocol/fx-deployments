@@ -32,7 +32,7 @@ defaultValue = "<%= String(91_044) %>"
 defaultValue = "6.73"
 
 [setting.perpsLinkMaintenanceMarginScalar]
-defaultValue = "0.37"
+defaultValue = "0.27"
 
 [setting.perpsLinkMinimumInitialMarginRatio]
 defaultValue = "0.02"
@@ -47,7 +47,7 @@ defaultValue = "1.5"
 defaultValue = "30"
 
 [setting.perpsLinkMinimumPositionMargin]
-defaultValue = "50"
+defaultValue = "25"
 
 [setting.perpsLinkLockedOiRatio]
 defaultValue = "0.5"

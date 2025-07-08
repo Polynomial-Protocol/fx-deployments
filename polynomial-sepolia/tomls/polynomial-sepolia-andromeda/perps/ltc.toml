@@ -32,7 +32,7 @@ defaultValue = "<%= String(91_044) %>"
 defaultValue = "0.005"
 
 [setting.perpsLtcMaintenanceMarginScalar]
-defaultValue = "0.4"
+defaultValue = "0.28"
 
 [setting.perpsLtcMinimumInitialMarginRatio]
 defaultValue = "0.02"
@@ -47,7 +47,7 @@ defaultValue = "1.5"
 defaultValue = "30"
 
 [setting.perpsLtcMinimumPositionMargin]
-defaultValue = "50"
+defaultValue = "25"
 
 [setting.perpsLtcLockedOiRatio]
 defaultValue = "0.5"

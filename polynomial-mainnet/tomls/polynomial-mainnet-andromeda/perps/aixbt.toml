@@ -32,7 +32,7 @@ defaultValue = "<%= String(91_044) %>"
 defaultValue = "0.03810203344179687"
 
 [setting.perpsAixbtMaintenanceMarginScalar]
-defaultValue = "0.317"
+defaultValue = "0.28"
 
 [setting.perpsAixbtMinimumInitialMarginRatio]
 defaultValue = "0.05"
@@ -47,7 +47,7 @@ defaultValue = "1.5"
 defaultValue = "30"
 
 [setting.perpsAixbtMinimumPositionMargin]
-defaultValue = "50"
+defaultValue = "25"
 
 [setting.perpsAixbtLockedOiRatio]
 defaultValue = "0.5"

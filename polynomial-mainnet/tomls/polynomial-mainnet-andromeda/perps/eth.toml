@@ -35,7 +35,7 @@ defaultValue = "1.16"
 defaultValue = "0.02"
 
 [setting.perpsEthMaintenanceMarginScalar]
-defaultValue = "0.28"
+defaultValue = "0.23"
 
 [setting.perpsEthFlagRewardRatioD18]
 defaultValue = "0.0003"
@@ -47,7 +47,7 @@ defaultValue = "1.5"
 defaultValue = "30"
 
 [setting.perpsEthMinimumPositionMargin]
-defaultValue = "50"
+defaultValue = "25"
 
 [setting.perpsEthLockedOiRatio]
 defaultValue = "0.5"

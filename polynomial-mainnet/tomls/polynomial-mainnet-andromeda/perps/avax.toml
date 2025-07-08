@@ -32,7 +32,7 @@ defaultValue = "<%= String(91_044) %>"
 defaultValue = "9.08"
 
 [setting.perpsAvaxMaintenanceMarginScalar]
-defaultValue = "0.36"
+defaultValue = "0.27"
 
 [setting.perpsAvaxMinimumInitialMarginRatio]
 defaultValue = "0.02"
@@ -47,7 +47,7 @@ defaultValue = "1.5"
 defaultValue = "30"
 
 [setting.perpsAvaxMinimumPositionMargin]
-defaultValue = "50"
+defaultValue = "25"
 
 [setting.perpsAvaxLockedOiRatio]
 defaultValue = "0.5"

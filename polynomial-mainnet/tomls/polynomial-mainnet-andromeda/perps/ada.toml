@@ -32,7 +32,7 @@ defaultValue = "<%= String(91_044) %>"
 defaultValue = "5.836939332958298"
 
 [setting.perpsAdaMaintenanceMarginScalar]
-defaultValue = "0.317"
+defaultValue = "0.25"
 
 [setting.perpsAdaMinimumInitialMarginRatio]
 defaultValue = "0.05"
@@ -47,7 +47,7 @@ defaultValue = "1.5"
 defaultValue = "30"
 
 [setting.perpsAdaMinimumPositionMargin]
-defaultValue = "50"
+defaultValue = "25"
 
 [setting.perpsAdaLockedOiRatio]
 defaultValue = "0.5"

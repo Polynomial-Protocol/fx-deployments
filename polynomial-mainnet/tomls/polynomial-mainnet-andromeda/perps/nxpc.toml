@@ -47,7 +47,7 @@ defaultValue = "1.5"
 defaultValue = "30"
 
 [setting.perpsNxpcMinimumPositionMargin]
-defaultValue = "50"
+defaultValue = "25"
 
 [setting.perpsNxpcLockedOiRatio]
 defaultValue = "0.5"

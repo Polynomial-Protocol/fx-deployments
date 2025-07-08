@@ -32,7 +32,7 @@ defaultValue = "<%= String(89_706) %>"
 defaultValue = "0.02424559725434889"
 
 [setting.perpsArkmMaintenanceMarginScalar]
-defaultValue = "0.317"
+defaultValue = "0.28"
 
 [setting.perpsArkmMinimumInitialMarginRatio]
 defaultValue = "0.05"
@@ -47,7 +47,7 @@ defaultValue = "1.5"
 defaultValue = "30"
 
 [setting.perpsArkmMinimumPositionMargin]
-defaultValue = "50"
+defaultValue = "25"
 
 [setting.perpsArkmLockedOiRatio]
 defaultValue = "0.5"

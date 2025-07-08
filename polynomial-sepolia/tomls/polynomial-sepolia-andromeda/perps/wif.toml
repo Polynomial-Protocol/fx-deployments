@@ -32,7 +32,7 @@ defaultValue = "<%= String(91_044) %>"
 defaultValue = "5.99"
 
 [setting.perpsWifMaintenanceMarginScalar]
-defaultValue = "0.4"
+defaultValue = "0.32"
 
 [setting.perpsWifMinimumInitialMarginRatio]
 defaultValue = "0.04"
@@ -47,7 +47,7 @@ defaultValue = "1.5"
 defaultValue = "30"
 
 [setting.perpsWifMinimumPositionMargin]
-defaultValue = "50"
+defaultValue = "25"
 
 [setting.perpsWifLockedOiRatio]
 defaultValue = "0.5"
