@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsZoraMaxMarketSize]
-defaultValue = "<%= String(10329495.40) %>"
+defaultValue = "<%= String(8045175.47) %>"
 
 [setting.perpsZoraMaxMarketValue]
-defaultValue = "<%= String(91_044) %>"
+defaultValue = "<%= String(87_756) %>"
 
 [setting.perpsZoraInitialMarginRatio]
 defaultValue = "0.34722222222222004"

@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsMorphoMaxMarketSize]
-defaultValue = "<%= String(65374.94) %>"
+defaultValue = "<%= String(45846.98) %>"
 
 [setting.perpsMorphoMaxMarketValue]
-defaultValue = "<%= String(91_044) %>"
+defaultValue = "<%= String(87_756) %>"
 
 [setting.perpsMorphoInitialMarginRatio]
 defaultValue = "0.34722222222222004"

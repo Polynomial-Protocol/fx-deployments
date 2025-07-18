@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsSolvMaxMarketSize]
-defaultValue = "<%= String(1906730.93) %>"
+defaultValue = "<%= String(2057444.78) %>"
 
 [setting.perpsSolvMaxMarketValue]
-defaultValue = "<%= String(91_044) %>"
+defaultValue = "<%= String(87_756) %>"
 
 [setting.perpsSolvInitialMarginRatio]
 defaultValue = "0.040492862374001556"

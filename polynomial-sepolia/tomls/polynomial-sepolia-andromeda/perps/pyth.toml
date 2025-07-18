@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsPythMaxMarketSize]
-defaultValue = "<%= String(946299.32) %>"
+defaultValue = "<%= String(737648.55) %>"
 
 [setting.perpsPythMaxMarketValue]
-defaultValue = "<%= String(91_044) %>"
+defaultValue = "<%= String(87_756) %>"
 
 [setting.perpsPythInitialMarginRatio]
 defaultValue = "6.565685927472221"

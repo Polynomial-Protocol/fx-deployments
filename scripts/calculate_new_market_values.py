@@ -32,7 +32,7 @@ def calculate_new_market_values(
     skew_scale = calculate_skew_scale(ticker, current_price, binance_client)
     max_market_size = max_market_value_each / current_price
     inverse_leverage = 0.05
-    maintenance_margin_scalar = 0.317
+    maintenance_margin_scalar = 0.29
 
     min_margin = 50
     expected_lev = 18
