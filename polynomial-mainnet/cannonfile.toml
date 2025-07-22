@@ -1,5 +1,5 @@
 name = "polynomial-mainnet"
-version = "1.0.7"
+version = "1.0.8"
 description = "Andromeda dev deployment"
 preset = "main"
 include = [
@@ -302,7 +302,7 @@ defaultValue = "fx-op-gas-price-oracle:3.8.2"
 defaultValue = "fx-spot-market:3.9.7"
 
 [setting.perps_market_package]
-defaultValue = "fx-perps-market:3.9.11"
+defaultValue = "fx-perps-market:3.9.12"
 
 [setting.salt]
 defaultValue = "andromeda-dev"
