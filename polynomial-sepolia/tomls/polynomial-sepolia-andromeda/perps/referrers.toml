@@ -4,6 +4,9 @@ defaultValue = "<%= parseEther('0.5') %>"
 [setting.limitOrderRelayerShare]
 defaultValue = "<%= parseEther('0.2') %>"
 
+# [setting.rathRelayerShare]
+# defaultValue = "<%= parseEther('0.2') %>"
+
 [setting.aetherRelayer1]
 defaultValue = "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"
 
@@ -33,6 +36,9 @@ defaultValue = "0x5afe9Fd1999f1A1606cAA9Bb93ff999F45124f15"
 
 [setting.aetherRelayer10]
 defaultValue = "0x2f22A1f7Fe0b8346AD22Ddb5a819798c03039ef3"
+
+[setting.rathRelayer]
+defaultValue = "0x011acb73EFDbE673E41771cC227748e735A4c47c"
 
 
 [invoke.setPolynomialAsReferrerOnPerpsMarket]
@@ -152,6 +158,15 @@ args = [
     "<%= settings.limitOrderRelayerShare %>",
 ]
 
+# [invoke.setRathRelayer]
+# target = ["perpsFactory.PerpsMarketProxy"]
+# fromCall.func = "owner"
+# func = "updateReferrerShare"
+# args = [
+#     "<%= settings.rathRelayer %>",
+#     "<%= settings.rathRelayerShare %>",
+# ]
+
 [invoke.whitelistNewTestRelayer]
 target = ["perpsFactory.PerpsMarketProxy"]
 fromCall.func = "owner"
@@ -238,4 +253,12 @@ fromCall.func = "owner"
 func = "whitelistOffchainLimitOrderSettler"
 args = [
     "<%= settings.aetherRelayer10 %>",
+]
+
+[invoke.whitelistRathRelayer]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "whitelistOffchainLimitOrderSettler"
+args = [
+    "<%= settings.rathRelayer %>",
 ]

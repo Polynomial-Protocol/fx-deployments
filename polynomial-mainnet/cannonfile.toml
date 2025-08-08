@@ -1,5 +1,5 @@
 name = "polynomial-mainnet"
-version = "1.0.9"
+version = "1.0.10"
 description = "Andromeda dev deployment"
 preset = "main"
 include = [
@@ -302,7 +302,7 @@ defaultValue = "fx-op-gas-price-oracle:3.8.2"
 defaultValue = "fx-spot-market:3.9.7"
 
 [setting.perps_market_package]
-defaultValue = "fx-perps-market:3.9.13"
+defaultValue = "fx-perps-market:3.10.0"
 
 [setting.salt]
 defaultValue = "andromeda-dev"
@@ -312,6 +312,9 @@ defaultValue = "main"
 
 [setting.pyth_price_verification_address]
 defaultValue = "0x2880aB155794e7179c9eE2e38200202908C17B43"
+
+[setting.pyth_lazer_price_verification_address]
+defaultValue = "0xACeA761c27A909d4D3895128EBe6370FDE2dF481"
 
 [setting.owner]
 defaultValue = "0x9f76043B23125024Ce5f0Fb4AE707482107dd2a8"
@@ -341,6 +344,14 @@ targetPreset = "<%= settings.target_preset %>"
 [provision.pyth_erc7412_wrapper.options]
 salt = "<%= settings.salt %>"
 pythAddress = "<%= settings.pyth_price_verification_address %>"
+
+[provision.pyth_lazer_erc7412_wrapper]
+source = "fx-pyth-lazer-erc7412-wrapper:0.0.2"
+targetPreset = "<%= settings.target_preset %>"
+
+[provision.pyth_lazer_erc7412_wrapper.options]
+salt = "<%= settings.salt %>"
+pythAddress = "<%= settings.pyth_lazer_price_verification_address %>"
 
 [invoke.setMainPoolConfig]
 target = [

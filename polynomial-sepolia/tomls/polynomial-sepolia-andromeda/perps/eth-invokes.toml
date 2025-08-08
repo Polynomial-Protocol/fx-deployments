@@ -66,6 +66,19 @@ extra.eth_pyth_settlement_strategy.event = "SettlementStrategyAdded"
 extra.eth_pyth_settlement_strategy.arg = 2
 depends = ["invoke.createEthPerpsMarket"]
 
+# Do not modify this step. Edit [invoke.setPerpsEthSettlementStrategyLazer] instead.
+[invoke.addPerpsEthSettlementStrategyLazer]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "addSettlementStrategy"
+args = [
+    "<%= settings.ethPerpsMarketId %>",
+    { strategyType = "1", settlementDelay = "0", settlementWindowDuration = "1", priceVerificationContract = "0x0000000000000000000000000000000000000000", feedId = "0x0000000000000000000000000000000000000000000000000000000000000000", settlementReward = "0", disabled = false, commitmentPriceDelay = "0" },
+]
+extra.eth_pyth_lazer_settlement_strategy.event = "SettlementStrategyAdded"
+extra.eth_pyth_lazer_settlement_strategy.arg = 2
+depends = ["invoke.createEthPerpsMarket", "provision.pyth_lazer_erc7412_wrapper"]
+
 [invoke.setPerpsEthSettlementStrategy]
 target = ["perpsFactory.PerpsMarketProxy"]
 fromCall.func = "owner"
@@ -80,6 +93,26 @@ depends = [
     "setting.ethPerpsMarketId",
     "invoke.addPerpsEthSettlementStrategy",
     "provision.pyth_erc7412_wrapper",
+    "setting.bigCapSettlementDelay",
+    "setting.bigCapSettlementWindowDuration",
+    "setting.pythEthFeedId",
+    "setting.settlementReward",
+]
+
+[invoke.setPerpsEthSettlementStrategyLazer]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setSettlementStrategy"
+args = [
+    "<%= settings.ethPerpsMarketId %>",
+    "<%= extras.eth_pyth_lazer_settlement_strategy %>",
+    { strategyType = "1", settlementDelay = "<%= settings.bigCapSettlementDelay %>", settlementWindowDuration = "<%= settings.bigCapSettlementWindowDuration %>", priceVerificationContract = "<%= imports.pyth_lazer_erc7412_wrapper.contracts.PythLazerERC7412Wrapper.address %>", feedId = "<%= hexZeroPad(hexlify(parseInt(settings.pythEthLazerFeedId)), 32) %>", settlementReward = "<%= parseEther(settings.settlementReward) %>", disabled = false, commitmentPriceDelay = "2" },
+]
+depends = [
+    "provision.perpsFactory",
+    "setting.ethPerpsMarketId",
+    "invoke.addPerpsEthSettlementStrategyLazer",
+    "provision.pyth_lazer_erc7412_wrapper",
     "setting.bigCapSettlementDelay",
     "setting.bigCapSettlementWindowDuration",
     "setting.pythEthFeedId",

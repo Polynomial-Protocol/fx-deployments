@@ -302,7 +302,7 @@ defaultValue = "fx-op-gas-price-oracle:3.8.2"
 defaultValue = "fx-spot-market:3.9.7"
 
 [setting.perps_market_package]
-defaultValue = "fx-perps-market:3.9.13"
+defaultValue = "fx-perps-market:3.10.0"
 
 [setting.salt]
 defaultValue = "andromeda-dev"
@@ -312,6 +312,9 @@ defaultValue = "main"
 
 [setting.pyth_price_verification_address]
 defaultValue = "0x23f0e8FAeE7bbb405E7A7C3d60138FCfd43d7509"
+
+[setting.pyth_lazer_price_verification_address]
+defaultValue = "0xACeA761c27A909d4D3895128EBe6370FDE2dF481"
 
 [setting.owner]
 defaultValue = "0x2b02AAd6f1694E7D9c934B7b3Ec444541286cF0f"
@@ -341,6 +344,14 @@ targetPreset = "<%= settings.target_preset %>"
 [provision.pyth_erc7412_wrapper.options]
 salt = "<%= settings.salt %>"
 pythAddress = "<%= settings.pyth_price_verification_address %>"
+
+[provision.pyth_lazer_erc7412_wrapper]
+source = "fx-pyth-lazer-erc7412-wrapper:0.0.2"
+targetPreset = "<%= settings.target_preset %>"
+
+[provision.pyth_lazer_erc7412_wrapper.options]
+salt = "<%= settings.salt %>"
+pythAddress = "<%= settings.pyth_lazer_price_verification_address %>"
 
 [invoke.setMainPoolConfig]
 target = [

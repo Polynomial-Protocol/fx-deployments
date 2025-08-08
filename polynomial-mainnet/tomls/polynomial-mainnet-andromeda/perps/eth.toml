@@ -1,6 +1,9 @@
 [setting.pythEthFeedId]
 defaultValue = "0xff61491a931112ddf1bd8147cd1b641375f79f5825126d665480874634fd0ace"
 
+[setting.pythEthLazerFeedId]
+defaultValue = "2"
+
 [setting.ethPerpsMarketId]
 defaultValue = "100"
 
@@ -17,10 +20,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsEthMakerFeeRatio]
-defaultValue = "0.0002"
+defaultValue = "0.0005"
 
 [setting.perpsEthTakerFeeRatio]
-defaultValue = "0.0005"
+defaultValue = "0.0008"
 
 [setting.perpsEthMaxMarketSize]
 defaultValue = "<%= String(799.81) %>"
