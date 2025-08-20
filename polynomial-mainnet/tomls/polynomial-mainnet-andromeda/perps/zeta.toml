@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsZetaMaxMarketSize]
-defaultValue = "<%= String(409866.23) %>"
+defaultValue = "<%= String(372_625) %>"
 
 [setting.perpsZetaMaxMarketValue]
-defaultValue = "<%= String(87_756) %>"
+defaultValue = "<%= String(70_028) %>"
 
 [setting.perpsZetaInitialMarginRatio]
 defaultValue = "0.3472222222222201"

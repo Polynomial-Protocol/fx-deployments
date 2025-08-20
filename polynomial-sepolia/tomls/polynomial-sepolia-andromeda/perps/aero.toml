@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsAeroMaxMarketSize]
-defaultValue = "<%= String(105878.59) %>"
+defaultValue = "<%= String(78_059) %>"
 
 [setting.perpsAeroMaxMarketValue]
-defaultValue = "<%= String(87_756) %>"
+defaultValue = "<%= String(103_038) %>"
 
 [setting.perpsAeroInitialMarginRatio]
 defaultValue = "0.3472222222222201"

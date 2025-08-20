@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsNxpcMaxMarketSize]
-defaultValue = "<%= String(90510.20) %>"
+defaultValue = "<%= String(76_333) %>"
 
 [setting.perpsNxpcMaxMarketValue]
-defaultValue = "<%= String(87_756) %>"
+defaultValue = "<%= String(58_879) %>"
 
 [setting.perpsNxpcInitialMarginRatio]
 defaultValue = "0.20279818496931076"

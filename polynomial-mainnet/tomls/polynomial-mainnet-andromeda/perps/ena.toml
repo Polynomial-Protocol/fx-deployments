@@ -23,10 +23,10 @@ defaultValue = "0.0005"
 defaultValue = "0.0008"
 
 [setting.perpsEnaMaxMarketSize]
-defaultValue = "<%= String(252125.35) %>"
+defaultValue = "<%= String(125_881) %>"
 
 [setting.perpsEnaMaxMarketValue]
-defaultValue = "<%= String(87_756) %>"
+defaultValue = "<%= String(82_469) %>"
 
 [setting.perpsEnaInitialMarginRatio]
 defaultValue = "3.46"
