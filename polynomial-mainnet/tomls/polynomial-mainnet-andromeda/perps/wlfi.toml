@@ -1,0 +1,68 @@
+[setting.perpsWlfiFeedId]
+defaultValue = "0xd41369178d64f41d51ca95465c144a2c74d2fff30be69164835911943fa64c3e"
+
+[setting.perpsWlfiMarketId]
+defaultValue = "7400"
+
+[setting.perpsWlfiSkewScale]
+defaultValue = "<%= String(10_000_000) %>"
+
+[setting.perpsWlfiMaxFundingVelocity]
+defaultValue = "24"
+
+[setting.perpsWlfiMakerFeeRatio]
+defaultValue = "0.0004"
+
+[setting.perpsWlfiTakerFeeRatio]
+defaultValue = "0.0006"
+
+[setting.perpsWlfiLimitOrderMakerFeeRatio]
+defaultValue = "0.0001"
+
+[setting.perpsWlfiLimitOrderTakerFeeRatio]
+defaultValue = "0.0002"
+
+[setting.perpsWlfiMaxMarketSize]
+defaultValue = "<%= String(400_000) %>"
+
+[setting.perpsWlfiMaxMarketValue]
+defaultValue = "<%= String(100_000) %>"
+
+[setting.perpsWlfiInitialMarginRatio]
+defaultValue = "1.3215493999027703"
+
+[setting.perpsWlfiMaintenanceMarginScalar]
+defaultValue = "0.27"
+
+[setting.perpsWlfiMinimumInitialMarginRatio]
+defaultValue = "0.05"
+
+[setting.perpsWlfiFlagRewardRatioD18]
+defaultValue = "0.0003"
+
+[setting.perpsWlfiMaxLiquidationLimitAccumulationMultiplier]
+defaultValue = "1.5"
+
+[setting.perpsWlfiMaxSecondsInLiquidationWindow]
+defaultValue = "30"
+
+[setting.perpsWlfiMinimumPositionMargin]
+defaultValue = "25"
+
+[setting.perpsWlfiLockedOiRatio]
+defaultValue = "0.5"
+
+[setting.perpsWlfiSynthMaxCollateralAmount]
+defaultValue = "<%= MaxUint256 %>"
+
+[setting.perpsWlfiMaxLiquidationPd]
+defaultValue = "0.0005"
+
+[setting.perpsWlfiEndorsedLiquidator]
+defaultValue = "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"
+
+[setting.commitmentPriceDelay]
+defaultValue = "2"
+
+[setting.bigCapSettlementDelay]
+defaultValue = "2"
