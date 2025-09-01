@@ -11,10 +11,10 @@ defaultValue = "<%= String(92_000_430) %>"
 defaultValue = "20"
 
 [setting.perpsSolvMakerFeeRatio]
-defaultValue = "0.0005"
+defaultValue = "0.0004"
 
 [setting.perpsSolvTakerFeeRatio]
-defaultValue = "0.0008"
+defaultValue = "0.0006"
 
 [setting.perpsSolvLimitOrderMakerFeeRatio]
 defaultValue = "0.0001"

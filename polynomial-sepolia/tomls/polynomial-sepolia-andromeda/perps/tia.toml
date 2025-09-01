@@ -17,10 +17,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsTiaMakerFeeRatio]
-defaultValue = "0.0005"
+defaultValue = "0.0004"
 
 [setting.perpsTiaTakerFeeRatio]
-defaultValue = "0.0008"
+defaultValue = "0.0006"
 
 [setting.perpsTiaMaxMarketSize]
 defaultValue = "<%= String(40_548) %>"

@@ -11,10 +11,10 @@ defaultValue = "<%= String(128_800_570) %>"
 defaultValue = "24"
 
 [setting.perpsAltMakerFeeRatio]
-defaultValue = "0.0005"
+defaultValue = "0.0004"
 
 [setting.perpsAltTakerFeeRatio]
-defaultValue = "0.0008"
+defaultValue = "0.0006"
 
 [setting.perpsAltLimitOrderMakerFeeRatio]
 defaultValue = "0.0001"

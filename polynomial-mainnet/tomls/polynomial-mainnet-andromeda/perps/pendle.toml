@@ -11,10 +11,10 @@ defaultValue = "<%= String(993_821) %>"
 defaultValue = "24"
 
 [setting.perpsPendleMakerFeeRatio]
-defaultValue = "0.0005"
+defaultValue = "0.0004"
 
 [setting.perpsPendleTakerFeeRatio]
-defaultValue = "0.0008"
+defaultValue = "0.0006"
 
 [setting.perpsPendleLimitOrderMakerFeeRatio]
 defaultValue = "0.0001"

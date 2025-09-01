@@ -11,10 +11,10 @@ defaultValue = "<%= String(1_162_273) %>"
 defaultValue = "24"
 
 [setting.perpsIpMakerFeeRatio]
-defaultValue = "0.0005"
+defaultValue = "0.0004"
 
 [setting.perpsIpTakerFeeRatio]
-defaultValue = "0.0008"
+defaultValue = "0.0006"
 
 [setting.perpsIpLimitOrderMakerFeeRatio]
 defaultValue = "0.0001"

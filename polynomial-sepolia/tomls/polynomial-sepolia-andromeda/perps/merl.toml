@@ -11,10 +11,10 @@ defaultValue = "<%= String(28_435_880) %>"
 defaultValue = "24"
 
 [setting.perpsMerlMakerFeeRatio]
-defaultValue = "0.0005"
+defaultValue = "0.0004"
 
 [setting.perpsMerlTakerFeeRatio]
-defaultValue = "0.0008"
+defaultValue = "0.0006"
 
 [setting.perpsMerlLimitOrderMakerFeeRatio]
 defaultValue = "0.0001"

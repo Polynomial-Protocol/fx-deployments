@@ -11,10 +11,10 @@ defaultValue = "<%= String(2_769_980) %>"
 defaultValue = "24"
 
 [setting.perpsTonMakerFeeRatio]
-defaultValue = "0.0005"
+defaultValue = "0.0004"
 
 [setting.perpsTonTakerFeeRatio]
-defaultValue = "0.0008"
+defaultValue = "0.0006"
 
 [setting.perpsTonLimitOrderMakerFeeRatio]
 defaultValue = "0.0001"

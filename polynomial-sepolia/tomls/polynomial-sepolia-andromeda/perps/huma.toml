@@ -11,10 +11,10 @@ defaultValue = "<%= String(58_890_160) %>"
 defaultValue = "20"
 
 [setting.perpsHumaMakerFeeRatio]
-defaultValue = "0.0005"
+defaultValue = "0.0004"
 
 [setting.perpsHumaTakerFeeRatio]
-defaultValue = "0.0008"
+defaultValue = "0.0006"
 
 [setting.perpsHumaLimitOrderMakerFeeRatio]
 defaultValue = "0.0001"

@@ -11,10 +11,10 @@ defaultValue = "<%= String(25_000) %>"
 defaultValue = "24"
 
 [setting.perpsBchMakerFeeRatio]
-defaultValue = "0.0005"
+defaultValue = "0.0004"
 
 [setting.perpsBchTakerFeeRatio]
-defaultValue = "0.0008"
+defaultValue = "0.0006"
 
 [setting.perpsBchLimitOrderMakerFeeRatio]
 defaultValue = "0.0001"

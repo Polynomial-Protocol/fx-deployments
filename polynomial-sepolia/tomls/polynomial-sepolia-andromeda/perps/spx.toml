@@ -11,10 +11,10 @@ defaultValue = "<%= String(2_601_370) %>"
 defaultValue = "24"
 
 [setting.perpsSpxMakerFeeRatio]
-defaultValue = "0.0005"
+defaultValue = "0.0004"
 
 [setting.perpsSpxTakerFeeRatio]
-defaultValue = "0.0008"
+defaultValue = "0.0006"
 
 [setting.perpsSpxLimitOrderMakerFeeRatio]
 defaultValue = "0.0001"

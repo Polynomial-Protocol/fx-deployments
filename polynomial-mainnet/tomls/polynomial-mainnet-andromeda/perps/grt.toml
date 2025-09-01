@@ -11,10 +11,10 @@ defaultValue = "<%= String(33_450_950) %>"
 defaultValue = "24"
 
 [setting.perpsGrtMakerFeeRatio]
-defaultValue = "0.0005"
+defaultValue = "0.0004"
 
 [setting.perpsGrtTakerFeeRatio]
-defaultValue = "0.0008"
+defaultValue = "0.0006"
 
 [setting.perpsGrtLimitOrderMakerFeeRatio]
 defaultValue = "0.0001"

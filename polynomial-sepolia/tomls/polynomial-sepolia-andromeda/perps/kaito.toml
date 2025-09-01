@@ -11,10 +11,10 @@ defaultValue = "<%= String(1_500_000) %>"
 defaultValue = "24"
 
 [setting.perpsKaitoMakerFeeRatio]
-defaultValue = "0.0005"
+defaultValue = "0.0004"
 
 [setting.perpsKaitoTakerFeeRatio]
-defaultValue = "0.0008"
+defaultValue = "0.0006"
 
 [setting.perpsKaitoLimitOrderMakerFeeRatio]
 defaultValue = "0.0001"

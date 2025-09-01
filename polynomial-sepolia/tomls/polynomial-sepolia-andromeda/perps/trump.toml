@@ -11,10 +11,10 @@ defaultValue = "<%= String(1_250_000) %>"
 defaultValue = "24"
 
 [setting.perpsTrumpMakerFeeRatio]
-defaultValue = "0.0005"
+defaultValue = "0.0004"
 
 [setting.perpsTrumpTakerFeeRatio]
-defaultValue = "0.0008"
+defaultValue = "0.0006"
 
 [setting.perpsTrumpLimitOrderMakerFeeRatio]
 defaultValue = "0.0001"

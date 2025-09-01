@@ -11,10 +11,10 @@ defaultValue = "<%= String(3_465_967) %>"
 defaultValue = "24"
 
 [setting.perpsZroMakerFeeRatio]
-defaultValue = "0.0005"
+defaultValue = "0.0004"
 
 [setting.perpsZroTakerFeeRatio]
-defaultValue = "0.0008"
+defaultValue = "0.0006"
 
 [setting.perpsZroLimitOrderMakerFeeRatio]
 defaultValue = "0.0001"

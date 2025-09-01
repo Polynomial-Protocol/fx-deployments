@@ -11,10 +11,10 @@ defaultValue = "<%= String(18_320_220) %>"
 defaultValue = "24"
 
 [setting.perpsAixbtMakerFeeRatio]
-defaultValue = "0.0005"
+defaultValue = "0.0004"
 
 [setting.perpsAixbtTakerFeeRatio]
-defaultValue = "0.0008"
+defaultValue = "0.0006"
 
 [setting.perpsAixbtLimitOrderMakerFeeRatio]
 defaultValue = "0.0001"

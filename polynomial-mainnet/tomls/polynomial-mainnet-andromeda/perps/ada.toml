@@ -11,10 +11,10 @@ defaultValue = "<%= String(100_000_000) %>"
 defaultValue = "24"
 
 [setting.perpsAdaMakerFeeRatio]
-defaultValue = "0.0005"
+defaultValue = "0.0004"
 
 [setting.perpsAdaTakerFeeRatio]
-defaultValue = "0.0008"
+defaultValue = "0.0006"
 
 [setting.perpsAdaLimitOrderMakerFeeRatio]
 defaultValue = "0.0001"

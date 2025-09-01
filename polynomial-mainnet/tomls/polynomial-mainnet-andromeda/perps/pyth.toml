@@ -11,10 +11,10 @@ defaultValue = "<%= String(27_974_930) %>"
 defaultValue = "24"
 
 [setting.perpsPythMakerFeeRatio]
-defaultValue = "0.0005"
+defaultValue = "0.0004"
 
 [setting.perpsPythTakerFeeRatio]
-defaultValue = "0.0008"
+defaultValue = "0.0006"
 
 [setting.perpsPythLimitOrderMakerFeeRatio]
 defaultValue = "0.0001"

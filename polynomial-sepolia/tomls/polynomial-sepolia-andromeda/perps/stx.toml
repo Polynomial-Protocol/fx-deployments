@@ -11,10 +11,10 @@ defaultValue = "<%= String(4_059_380) %>"
 defaultValue = "24"
 
 [setting.perpsStxMakerFeeRatio]
-defaultValue = "0.0005"
+defaultValue = "0.0004"
 
 [setting.perpsStxTakerFeeRatio]
-defaultValue = "0.0008"
+defaultValue = "0.0006"
 
 [setting.perpsStxLimitOrderMakerFeeRatio]
 defaultValue = "0.0001"

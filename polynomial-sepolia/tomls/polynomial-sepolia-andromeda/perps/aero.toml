@@ -11,10 +11,10 @@ defaultValue = "<%= String(11_700_257) %>"
 defaultValue = "24"
 
 [setting.perpsAeroMakerFeeRatio]
-defaultValue = "0.0005"
+defaultValue = "0.0004"
 
 [setting.perpsAeroTakerFeeRatio]
-defaultValue = "0.0008"
+defaultValue = "0.0006"
 
 [setting.perpsAeroLimitOrderMakerFeeRatio]
 defaultValue = "0.0001"

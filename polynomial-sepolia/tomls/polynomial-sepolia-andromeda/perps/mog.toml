@@ -17,10 +17,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsMogMakerFeeRatio]
-defaultValue = "0.0005"
+defaultValue = "0.0004"
 
 [setting.perpsMogTakerFeeRatio]
-defaultValue = "0.0008"
+defaultValue = "0.0006"
 
 [setting.perpsMogMaxMarketSize]
 defaultValue = "<%= String(63_285_576_923) %>"

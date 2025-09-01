@@ -11,10 +11,10 @@ defaultValue = "<%= String(39_669_534_100) %>"
 defaultValue = "24"
 
 [setting.perpsFlokiMakerFeeRatio]
-defaultValue = "0.0005"
+defaultValue = "0.0004"
 
 [setting.perpsFlokiTakerFeeRatio]
-defaultValue = "0.0008"
+defaultValue = "0.0006"
 
 [setting.perpsFlokiLimitOrderMakerFeeRatio]
 defaultValue = "0.0001"

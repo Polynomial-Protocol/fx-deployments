@@ -11,10 +11,10 @@ defaultValue = "<%= String(10_903_043) %>"
 defaultValue = "24"
 
 [setting.perpsWctMakerFeeRatio]
-defaultValue = "0.0005"
+defaultValue = "0.0004"
 
 [setting.perpsWctTakerFeeRatio]
-defaultValue = "0.0008"
+defaultValue = "0.0006"
 
 [setting.perpsWctLimitOrderMakerFeeRatio]
 defaultValue = "0.0001"

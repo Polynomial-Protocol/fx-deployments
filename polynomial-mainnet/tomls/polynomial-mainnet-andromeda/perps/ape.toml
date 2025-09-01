@@ -11,10 +11,10 @@ defaultValue = "<%= String(5_670_320) %>"
 defaultValue = "24"
 
 [setting.perpsApeMakerFeeRatio]
-defaultValue = "0.0005"
+defaultValue = "0.0004"
 
 [setting.perpsApeTakerFeeRatio]
-defaultValue = "0.0008"
+defaultValue = "0.0006"
 
 [setting.perpsApeLimitOrderMakerFeeRatio]
 defaultValue = "0.0001"

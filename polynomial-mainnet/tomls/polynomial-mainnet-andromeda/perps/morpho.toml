@@ -11,10 +11,10 @@ defaultValue = "<%= String(4_617_220) %>"
 defaultValue = "24"
 
 [setting.perpsMorphoMakerFeeRatio]
-defaultValue = "0.0005"
+defaultValue = "0.0004"
 
 [setting.perpsMorphoTakerFeeRatio]
-defaultValue = "0.0008"
+defaultValue = "0.0006"
 
 [setting.perpsMorphoLimitOrderMakerFeeRatio]
 defaultValue = "0.0001"

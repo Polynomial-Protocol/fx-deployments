@@ -11,10 +11,10 @@ defaultValue = "<%= String(398_318) %>"
 defaultValue = "24"
 
 [setting.perpsCakeMakerFeeRatio]
-defaultValue = "0.0005"
+defaultValue = "0.0004"
 
 [setting.perpsCakeTakerFeeRatio]
-defaultValue = "0.0008"
+defaultValue = "0.0006"
 
 [setting.perpsCakeLimitOrderMakerFeeRatio]
 defaultValue = "0.0001"

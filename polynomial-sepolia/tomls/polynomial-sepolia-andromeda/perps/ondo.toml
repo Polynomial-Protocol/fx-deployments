@@ -11,10 +11,10 @@ defaultValue = "<%= String(4_310_970) %>"
 defaultValue = "24"
 
 [setting.perpsOndoMakerFeeRatio]
-defaultValue = "0.0005"
+defaultValue = "0.0004"
 
 [setting.perpsOndoTakerFeeRatio]
-defaultValue = "0.0008"
+defaultValue = "0.0006"
 
 [setting.perpsOndoLimitOrderMakerFeeRatio]
 defaultValue = "0.0001"

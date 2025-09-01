@@ -11,10 +11,10 @@ defaultValue = "<%= String(7_603_340) %>"
 defaultValue = "20"
 
 [setting.perpsJupMakerFeeRatio]
-defaultValue = "0.0005"
+defaultValue = "0.0004"
 
 [setting.perpsJupTakerFeeRatio]
-defaultValue = "0.0008"
+defaultValue = "0.0006"
 
 [setting.perpsJupLimitOrderMakerFeeRatio]
 defaultValue = "0.0001"

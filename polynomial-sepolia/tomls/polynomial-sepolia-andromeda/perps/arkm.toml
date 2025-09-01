@@ -11,10 +11,10 @@ defaultValue = "<%= String(959_770) %>"
 defaultValue = "24"
 
 [setting.perpsArkmMakerFeeRatio]
-defaultValue = "0.0005"
+defaultValue = "0.0004"
 
 [setting.perpsArkmTakerFeeRatio]
-defaultValue = "0.0008"
+defaultValue = "0.0006"
 
 [setting.perpsArkmLimitOrderMakerFeeRatio]
 defaultValue = "0.0001"

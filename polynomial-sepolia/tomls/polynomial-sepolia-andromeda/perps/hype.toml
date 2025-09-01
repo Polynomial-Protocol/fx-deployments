@@ -11,10 +11,10 @@ defaultValue = "<%= String(60_000) %>"
 defaultValue = "24"
 
 [setting.perpsHypeMakerFeeRatio]
-defaultValue = "0.0005"
+defaultValue = "0.0004"
 
 [setting.perpsHypeTakerFeeRatio]
-defaultValue = "0.0008"
+defaultValue = "0.0006"
 
 [setting.perpsHypeLimitOrderMakerFeeRatio]
 defaultValue = "0.0001"

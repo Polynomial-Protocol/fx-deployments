@@ -11,10 +11,10 @@ defaultValue = "<%= String(2_558_649) %>"
 defaultValue = "24"
 
 [setting.perpsEthfiMakerFeeRatio]
-defaultValue = "0.0005"
+defaultValue = "0.0004"
 
 [setting.perpsEthfiTakerFeeRatio]
-defaultValue = "0.0008"
+defaultValue = "0.0006"
 
 [setting.perpsEthfiLimitOrderMakerFeeRatio]
 defaultValue = "0.0001"

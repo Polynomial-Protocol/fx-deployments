@@ -11,10 +11,10 @@ defaultValue = "<%= String(200_000) %>"
 defaultValue = "24"
 
 [setting.perpsBnbMakerFeeRatio]
-defaultValue = "0.0005"
+defaultValue = "0.0004"
 
 [setting.perpsBnbTakerFeeRatio]
-defaultValue = "0.0008"
+defaultValue = "0.0006"
 
 [setting.perpsBnbLimitOrderMakerFeeRatio]
 defaultValue = "0.0001"

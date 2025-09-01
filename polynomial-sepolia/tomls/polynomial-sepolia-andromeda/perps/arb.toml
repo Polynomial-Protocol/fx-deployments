@@ -11,10 +11,10 @@ defaultValue = "<%= String(50_000_000) %>"
 defaultValue = "24"
 
 [setting.perpsArbMakerFeeRatio]
-defaultValue = "0.0005"
+defaultValue = "0.0004"
 
 [setting.perpsArbTakerFeeRatio]
-defaultValue = "0.0008"
+defaultValue = "0.0006"
 
 [setting.perpsArbLimitOrderMakerFeeRatio]
 defaultValue = "0.0001"

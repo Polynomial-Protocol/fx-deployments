@@ -11,10 +11,10 @@ defaultValue = "<%= String(14_815_010) %>"
 defaultValue = "20"
 
 [setting.perpsAi16zMakerFeeRatio]
-defaultValue = "0.0005"
+defaultValue = "0.0004"
 
 [setting.perpsAi16zTakerFeeRatio]
-defaultValue = "0.0008"
+defaultValue = "0.0006"
 
 [setting.perpsAi16zLimitOrderMakerFeeRatio]
 defaultValue = "0.0001"

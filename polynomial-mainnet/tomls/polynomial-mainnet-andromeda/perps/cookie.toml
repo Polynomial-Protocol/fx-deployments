@@ -11,10 +11,10 @@ defaultValue = "<%= String(15_789_410) %>"
 defaultValue = "24"
 
 [setting.perpsCookieMakerFeeRatio]
-defaultValue = "0.0005"
+defaultValue = "0.0004"
 
 [setting.perpsCookieTakerFeeRatio]
-defaultValue = "0.0008"
+defaultValue = "0.0006"
 
 [setting.perpsCookieLimitOrderMakerFeeRatio]
 defaultValue = "0.0001"

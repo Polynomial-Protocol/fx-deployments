@@ -11,10 +11,10 @@ defaultValue = "<%= String(1_256_679) %>"
 defaultValue = "24"
 
 [setting.perpsFilMakerFeeRatio]
-defaultValue = "0.0005"
+defaultValue = "0.0004"
 
 [setting.perpsFilTakerFeeRatio]
-defaultValue = "0.0008"
+defaultValue = "0.0006"
 
 [setting.perpsFilLimitOrderMakerFeeRatio]
 defaultValue = "0.0001"

@@ -11,10 +11,10 @@ defaultValue = "<%= String(240_466) %>"
 defaultValue = "24"
 
 [setting.perpsJtoMakerFeeRatio]
-defaultValue = "0.0005"
+defaultValue = "0.0004"
 
 [setting.perpsJtoTakerFeeRatio]
-defaultValue = "0.0008"
+defaultValue = "0.0006"
 
 [setting.perpsJtoLimitOrderMakerFeeRatio]
 defaultValue = "0.0001"

@@ -11,10 +11,10 @@ defaultValue = "<%= String(2_726_228) %>"
 defaultValue = "24"
 
 [setting.perpsNxpcMakerFeeRatio]
-defaultValue = "0.0005"
+defaultValue = "0.0004"
 
 [setting.perpsNxpcTakerFeeRatio]
-defaultValue = "0.0008"
+defaultValue = "0.0006"
 
 [setting.perpsNxpcLimitOrderMakerFeeRatio]
 defaultValue = "0.0001"
