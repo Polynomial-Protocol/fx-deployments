@@ -1,5 +1,5 @@
 name = "polynomial-mainnet"
-version = "1.0.15"
+version = "1.0.16"
 description = "Andromeda dev deployment"
 preset = "main"
 include = [
@@ -296,7 +296,7 @@ defaultValue = "2"
 defaultValue = "2"
 
 [setting.snx_package]
-defaultValue = "polynomial-core:3.9.7"
+defaultValue = "polynomial-core:3.9.8"
 
 [setting.perps_keeper_cost_package]
 defaultValue = "fx-op-gas-price-oracle:3.8.2"
