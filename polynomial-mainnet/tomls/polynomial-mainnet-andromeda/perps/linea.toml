@@ -1,0 +1,68 @@
+[setting.pythLineaFeedId]
+defaultValue = "0x49e50653755fbf8018ab65a07be2f208ac8c4bdfc43200934304ca17ee663cab"
+
+[setting.perpsLineaMarketId]
+defaultValue = "7600"
+
+[setting.perpsLineaSkewScale]
+defaultValue = "<%= String(364_998_500) %>"
+
+[setting.perpsLineaMaxFundingVelocity]
+defaultValue = "24"
+
+[setting.perpsLineaLimitOrderMakerFeeRatio]
+defaultValue = "0.0001"
+
+[setting.perpsLineaLimitOrderTakerFeeRatio]
+defaultValue = "0.0002"
+
+[setting.perpsLineaMakerFeeRatio]
+defaultValue = "0.0004"
+
+[setting.perpsLineaTakerFeeRatio]
+defaultValue = "0.0006"
+
+[setting.perpsLineaMaxMarketSize]
+defaultValue = "<%= String(3_762_227) %>"
+
+[setting.perpsLineaMaxMarketValue]
+defaultValue = "<%= String(100_000) %>"
+
+[setting.perpsLineaInitialMarginRatio]
+defaultValue = "3.38"
+
+[setting.perpsLineaMaintenanceMarginScalar]
+defaultValue = "0.32"
+
+[setting.perpsLineaMinimumInitialMarginRatio]
+defaultValue = "0.05"
+
+[setting.perpsLineaFlagRewardRatioD18]
+defaultValue = "0.0003"
+
+[setting.perpsLineaMaxLiquidationLimitAccumulationMultiplier]
+defaultValue = "1.5"
+
+[setting.perpsLineaMaxSecondsInLiquidationWindow]
+defaultValue = "30"
+
+[setting.perpsLineaMinimumPositionMargin]
+defaultValue = "25"
+
+[setting.perpsLineaLockedOiRatio]
+defaultValue = "0.5"
+
+[setting.perpsLineaSynthMaxCollateralAmount]
+defaultValue = "<%= MaxUint256 %>"
+
+[setting.perpsLineaMaxLiquidationPd]
+defaultValue = "0.0005"
+
+[setting.perpsLineaEndorsedLiquidator]
+defaultValue = "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"
+
+[setting.commitmentPriceDelay]
+defaultValue = "2"
+
+[setting.bigCapSettlementDelay]
+defaultValue = "2"

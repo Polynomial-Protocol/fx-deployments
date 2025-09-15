@@ -1,5 +1,5 @@
 [setting.settlementReward]
-defaultValue = "1"
+defaultValue = "0.05"
 
 [setting.perps_keeper_l1_cost_settle_gas_units]
 defaultValue = "<%= String(60_000) %>"

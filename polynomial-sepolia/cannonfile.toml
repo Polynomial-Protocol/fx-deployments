@@ -287,6 +287,12 @@ include = [
     "tomls/polynomial-sepolia-andromeda/perps/wlfi-invokes.toml",
     "tomls/oracles/pyth-wlfi.toml",
     "tomls/polynomial-sepolia-andromeda/perps/wlfi.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/avnt-invokes.toml",
+    "tomls/oracles/pyth-avnt.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/avnt.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/linea-invokes.toml",
+    "tomls/oracles/pyth-linea.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/linea.toml",
 ]
 
 [setting.commitmentPriceDelay]
