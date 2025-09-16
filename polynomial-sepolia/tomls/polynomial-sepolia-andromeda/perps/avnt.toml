@@ -35,7 +35,7 @@ defaultValue = "2.24"
 defaultValue = "0.30"
 
 [setting.perpsAvntMinimumInitialMarginRatio]
-defaultValue = "0.02"
+defaultValue = "0.05"
 
 [setting.perpsAvntFlagRewardRatioD18]
 defaultValue = "0.0003"
