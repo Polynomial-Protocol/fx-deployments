@@ -1,0 +1,255 @@
+include = [
+    "../../oracles/pyth-aster.toml",
+    "../../markets/common/bigcap-settings.toml",
+]
+
+[setting.perpsAsterMarketId]
+
+[setting.perpsAsterSkewScale]
+
+[setting.perpsAsterMaxFundingVelocity]
+
+[setting.perpsAsterMakerFeeRatio]
+
+[setting.perpsAsterTakerFeeRatio]
+
+[setting.perpsAsterMaxMarketSize]
+
+[setting.perpsAsterInitialMarginRatio]
+
+[setting.perpsAsterMaintenanceMarginScalar]
+
+[setting.perpsAsterMinimumInitialMarginRatio]
+
+[setting.perpsAsterFlagRewardRatioD18]
+
+[setting.perpsAsterMaxLiquidationLimitAccumulationMultiplier]
+
+[setting.perpsAsterMaxSecondsInLiquidationWindow]
+
+[setting.perpsAsterMinimumPositionMargin]
+
+[setting.perpsAsterLockedOiRatio]
+
+[setting.perpsAsterSynthMaxCollateralAmount]
+
+[setting.perpsAsterMaxLiquidationPd]
+
+[setting.perpsAsterEndorsedLiquidator]
+
+[invoke.createperpsAsterMarket]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "createMarket"
+args = [
+    "<%= settings.perpsAsterMarketId %>",
+    "Aster",
+    "ASTER",
+]
+depends = [
+    "provision.system",
+    "provision.perpsFactory",
+]
+
+[invoke.createperpsAsterMarket.fromCall]
+func = "owner"
+
+[invoke.setperpsAsterPrice]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "updatePriceData"
+args = [
+    "<%= settings.perpsAsterMarketId %>",
+    "<%= extras.perpsAster_oracle_id %>",
+    "<%= settings.bigCapStrictStalenessTolerance %>",
+]
+depends = [
+    "invoke.createperpsAsterMarket",
+]
+
+[invoke.setperpsAsterPrice.fromCall]
+func = "owner"
+
+[invoke.addperpsAsterSettlementStrategy]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "addSettlementStrategy"
+args = [
+    "<%= settings.perpsAsterMarketId %>",
+    { strategyType = "0", settlementDelay = "0", settlementWindowDuration = "1", priceVerificationContract = "0x0000000000000000000000000000000000000000", feedId = "0x0000000000000000000000000000000000000000000000000000000000000000", settlementReward = "0", disabled = false, commitmentPriceDelay = "0" },
+]
+depends = [
+    "invoke.createperpsAsterMarket",
+]
+
+[invoke.addperpsAsterSettlementStrategy.fromCall]
+func = "owner"
+
+[invoke.addperpsAsterSettlementStrategy.extra.perpsAster_pyth_settlement_strategy]
+event = "SettlementStrategyAdded"
+arg = 2
+
+[invoke.setperpsAsterSettlementStrategy]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setSettlementStrategy"
+args = [
+    "<%= settings.perpsAsterMarketId %>",
+    "<%= extras.perpsAster_pyth_settlement_strategy %>",
+    { strategyType = "0", settlementDelay = "<%= settings.bigCapSettlementDelay %>", settlementWindowDuration = "<%= settings.bigCapSettlementWindowDuration %>", priceVerificationContract = "<%= imports.pyth_erc7412_wrapper.contracts.PythERC7412Wrapper.address %>", feedId = "<%= settings.perpsAsterFeedId %>", settlementReward = "<%= parseEther(settings.settlementReward) %>", disabled = false, commitmentPriceDelay = "2" },
+]
+depends = [
+    "provision.perpsFactory",
+    "setting.perpsAsterMarketId",
+    "invoke.addperpsAsterSettlementStrategy",
+    "provision.pyth_erc7412_wrapper",
+    "setting.bigCapSettlementDelay",
+    "setting.bigCapSettlementWindowDuration",
+    "setting.perpsAsterFeedId",
+    "setting.settlementReward",
+]
+
+[invoke.setperpsAsterSettlementStrategy.fromCall]
+func = "owner"
+
+[invoke.setperpsAsterFundingParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setFundingParameters"
+args = [
+    "<%= settings.perpsAsterMarketId %>",
+    "<%= parseEther(settings.perpsAsterSkewScale) %>",
+    "<%= parseEther(settings.perpsAsterMaxFundingVelocity) %>",
+]
+depends = [
+    "invoke.createperpsAsterMarket",
+]
+
+[invoke.setperpsAsterFundingParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsAsterOrderFees]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setOrderFees"
+args = [
+    "<%= settings.perpsAsterMarketId %>",
+    "<%= parseEther(settings.perpsAsterMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsAsterTakerFeeRatio) %>",
+]
+depends = [
+    "invoke.createperpsAsterMarket",
+]
+
+[invoke.setperpsAsterOrderFees.fromCall]
+func = "owner"
+
+[invoke.setperpsAsterMaxMarketSize]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxMarketSize"
+args = [
+    "<%= settings.perpsAsterMarketId %>",
+    "<%= parseEther(settings.perpsAsterMaxMarketSize) %>",
+]
+depends = [
+    "invoke.createperpsAsterMarket",
+]
+
+[invoke.setperpsAsterMaxMarketSize.fromCall]
+func = "owner"
+
+[invoke.setperpsAsterMaxMarketValue]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxMarketValue"
+args = [
+    "<%= settings.perpsAsterMarketId %>",
+    "<%= parseEther(settings.perpsAsterMaxMarketValue) %>",
+]
+depends = [
+    "invoke.createperpsAsterMarket",
+]
+
+[invoke.setperpsAsterMaxMarketValue.fromCall]
+func = "owner"
+
+[invoke.setperpsAsterMaxLiquidationParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setMaxLiquidationParameters"
+args = [
+    "<%= settings.perpsAsterMarketId %>",
+    "<%= parseEther(settings.perpsAsterMaxLiquidationLimitAccumulationMultiplier) %>",
+    "<%= settings.perpsAsterMaxSecondsInLiquidationWindow %>",
+    "<%= parseEther(settings.perpsAsterMaxLiquidationPd) %>",
+    "<%= settings.perpsAsterEndorsedLiquidator %>",
+]
+depends = [
+    "invoke.createperpsAsterMarket",
+]
+
+[invoke.setperpsAsterMaxLiquidationParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsAsterLiquidationParameters]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLiquidationParameters"
+args = [
+    "<%= settings.perpsAsterMarketId %>",
+    "<%= parseEther(settings.perpsAsterInitialMarginRatio) %>",
+    "<%= parseEther(settings.perpsAsterMinimumInitialMarginRatio) %>",
+    "<%= parseEther(settings.perpsAsterMaintenanceMarginScalar) %>",
+    "<%= parseEther(settings.perpsAsterFlagRewardRatioD18) %>",
+    "<%= parseEther(settings.perpsAsterMinimumPositionMargin) %>",
+]
+depends = [
+    "invoke.createperpsAsterMarket",
+]
+
+[invoke.setperpsAsterLiquidationParameters.fromCall]
+func = "owner"
+
+[invoke.setperpsAsterLockedOiRatio]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLockedOiRatio"
+args = [
+    "<%= settings.perpsAsterMarketId %>",
+    "<%= parseEther(settings.perpsAsterLockedOiRatio) %>",
+]
+depends = [
+    "invoke.createperpsAsterMarket",
+]
+
+[invoke.setperpsAsterLockedOiRatio.fromCall]
+func = "owner"
+
+[invoke.setperpsAsterLimitOrderFees]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLimitOrderFees"
+args = [
+    "<%= settings.perpsAsterMarketId %>",
+    "<%= parseEther(settings.perpsAsterLimitOrderMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsAsterLimitOrderTakerFeeRatio) %>",
+]
+depends = [
+    "invoke.createperpsAsterMarket",
+]
+
+[invoke.setperpsAsterLimitOrderFees.fromCall]
+func = "owner"
