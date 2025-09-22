@@ -293,6 +293,9 @@ include = [
     "tomls/polynomial-sepolia-andromeda/perps/linea-invokes.toml",
     "tomls/oracles/pyth-linea.toml",
     "tomls/polynomial-sepolia-andromeda/perps/linea.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/aster-invokes.toml",
+    "tomls/oracles/pyth-aster.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/aster.toml",
 ]
 
 [setting.commitmentPriceDelay]

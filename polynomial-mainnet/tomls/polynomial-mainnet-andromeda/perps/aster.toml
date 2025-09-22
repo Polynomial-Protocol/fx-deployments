@@ -1,0 +1,68 @@
+[setting.perpsAsterFeedId]
+defaultValue = "0xa903b5a82cb572397e3d47595d2889cf80513f5b4cf7a36b513ae10cc8b1e338"
+
+[setting.perpsAsterMarketId]
+defaultValue = "7700"
+
+[setting.perpsAsterSkewScale]
+defaultValue = "<%= String(8_910_953) %>"
+
+[setting.perpsAsterMaxFundingVelocity]
+defaultValue = "24"
+
+[setting.perpsAsterMakerFeeRatio]
+defaultValue = "0.0004"
+
+[setting.perpsAsterTakerFeeRatio]
+defaultValue = "0.0006"
+
+[setting.perpsAsterLimitOrderMakerFeeRatio]
+defaultValue = "0.0001"
+
+[setting.perpsAsterLimitOrderTakerFeeRatio]
+defaultValue = "0.0002"
+
+[setting.perpsAsterMaxMarketSize]
+defaultValue = "<%= String(70_000) %>"
+
+[setting.perpsAsterMaxMarketValue]
+defaultValue = "<%= String(100_000) %>"
+
+[setting.perpsAsterInitialMarginRatio]
+defaultValue = "0.527830243876547"
+
+[setting.perpsAsterMaintenanceMarginScalar]
+defaultValue = "0.27"
+
+[setting.perpsAsterMinimumInitialMarginRatio]
+defaultValue = "0.05"
+
+[setting.perpsAsterFlagRewardRatioD18]
+defaultValue = "0.0003"
+
+[setting.perpsAsterMaxLiquidationLimitAccumulationMultiplier]
+defaultValue = "1.5"
+
+[setting.perpsAsterMaxSecondsInLiquidationWindow]
+defaultValue = "30"
+
+[setting.perpsAsterMinimumPositionMargin]
+defaultValue = "25"
+
+[setting.perpsAsterLockedOiRatio]
+defaultValue = "0.5"
+
+[setting.perpsAsterSynthMaxCollateralAmount]
+defaultValue = "<%= MaxUint256 %>"
+
+[setting.perpsAsterMaxLiquidationPd]
+defaultValue = "0.0005"
+
+[setting.perpsAsterEndorsedLiquidator]
+defaultValue = "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"
+
+[setting.commitmentPriceDelay]
+defaultValue = "2"
+
+[setting.bigCapSettlementDelay]
+defaultValue = "2"
