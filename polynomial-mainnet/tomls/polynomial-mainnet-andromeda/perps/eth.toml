@@ -14,16 +14,16 @@ defaultValue = "<%= String(100_000) %>"
 defaultValue = "9"
 
 [setting.perpsEthLimitOrderMakerFeeRatio]
-defaultValue = "0.0001"
+defaultValue = "0.0000"
 
 [setting.perpsEthLimitOrderTakerFeeRatio]
-defaultValue = "0.0002"
+defaultValue = "0.0000"
 
 [setting.perpsEthMakerFeeRatio]
-defaultValue = "0.0004"
+defaultValue = "0"
 
 [setting.perpsEthTakerFeeRatio]
-defaultValue = "0.0006"
+defaultValue = "0"
 
 [setting.perpsEthMaxMarketSize]
 defaultValue = "<%= String(950) %>"

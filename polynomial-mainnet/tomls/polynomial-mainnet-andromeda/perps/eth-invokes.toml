@@ -99,7 +99,7 @@ func = "setSettlementStrategy"
 args = [
     "<%= settings.ethPerpsMarketId %>",
     "<%= extras.eth_pyth_lazer_settlement_strategy %>",
-    { strategyType = "1", settlementDelay = "<%= settings.bigCapSettlementDelay %>", settlementWindowDuration = "<%= settings.bigCapSettlementWindowDuration %>", priceVerificationContract = "<%= imports.pyth_lazer_erc7412_wrapper.contracts.PythLazerERC7412Wrapper.address %>", feedId = "<%= hexZeroPad(hexlify(parseInt(settings.pythEthLazerFeedId)), 32) %>", settlementReward = "<%= parseEther(settings.settlementReward) %>", disabled = false, commitmentPriceDelay = "2" },
+    { strategyType = "1", settlementDelay = "<%= settings.bigCapSettlementDelay %>", settlementWindowDuration = "<%= settings.bigCapSettlementWindowDuration %>", priceVerificationContract = "<%= imports.pyth_lazer_erc7412_wrapper.contracts.PythLazerERC7412Wrapper.address %>", feedId = "<%= hexZeroPad(hexlify(parseInt(settings.pythEthLazerFeedId)), 32) %>", settlementReward = "0", disabled = false, commitmentPriceDelay = "2" },
 ]
 depends = [
     "provision.perpsFactory",

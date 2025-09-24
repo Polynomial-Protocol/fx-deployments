@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsAixbtMaxMarketSize]
-defaultValue = "<%= String(502_642) %>"
+defaultValue = "0"
 
 [setting.perpsAixbtMaxMarketValue]
-defaultValue = "<%= String(54_874) %>"
+defaultValue = "0"
 
 [setting.perpsAixbtInitialMarginRatio]
 defaultValue = "0.03810203344179687"

@@ -14,16 +14,16 @@ defaultValue = "<%= String(7_500) %>"
 defaultValue = "9"
 
 [setting.perpsBtcLimitOrderMakerFeeRatio]
-defaultValue = "0.0001"
+defaultValue = "0.0000"
 
 [setting.perpsBtcLimitOrderTakerFeeRatio]
-defaultValue = "0.0002"
+defaultValue = "0.0000"
 
 [setting.perpsBtcMakerFeeRatio]
-defaultValue = "0.0004"
+defaultValue = "0.0000"
 
 [setting.perpsBtcTakerFeeRatio]
-defaultValue = "0.0006"
+defaultValue = "0.0000"
 
 [setting.perpsBtcMaxMarketSize]
 defaultValue = "<%= String(100) %>"

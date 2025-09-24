@@ -41,13 +41,13 @@ defaultValue = "100"
 defaultValue = "0.3"
 
 [setting.perps_low_util_gradient]
-defaultValue = "0"
+defaultValue = "0.1"
 
 [setting.perps_gradient_breakpoint]
-defaultValue = "0"
+defaultValue = "0.5"
 
 [setting.perps_high_util_gradient]
-defaultValue = "0"
+defaultValue = "0.5"
 
 [setting.commit_fee_receiver]
 defaultValue = "0x66E1C0734A6e1351F7401219E4Ec9CF6a91a50cd"
