@@ -1,0 +1,68 @@
+[setting.pythOrderFeedId]
+defaultValue = "0xcb1dd84dbe147e75e80947c105fc7e7fd61200ef2f94c079ea249b5189d2c8a4"
+
+[setting.perpsOrderMarketId]
+defaultValue = "7900"
+
+[setting.perpsOrderSkewScale]
+defaultValue = "<%= String(28_435_880) %>"
+
+[setting.perpsOrderMaxFundingVelocity]
+defaultValue = "24"
+
+[setting.perpsOrderMakerFeeRatio]
+defaultValue = "0.0004"
+
+[setting.perpsOrderTakerFeeRatio]
+defaultValue = "0.0006"
+
+[setting.perpsOrderLimitOrderMakerFeeRatio]
+defaultValue = "0.0001"
+
+[setting.perpsOrderLimitOrderTakerFeeRatio]
+defaultValue = "0.0002"
+
+[setting.perpsOrderMaxMarketSize]
+defaultValue = "<%= String(264_000) %>"
+
+[setting.perpsOrderMaxMarketValue]
+defaultValue = "<%= String(100_000) %>"
+
+[setting.perpsOrderInitialMarginRatio]
+defaultValue = "0.5"
+
+[setting.perpsOrderMaintenanceMarginScalar]
+defaultValue = "0.28"
+
+[setting.perpsOrderMinimumInitialMarginRatio]
+defaultValue = "0.1"
+
+[setting.perpsOrderFlagRewardRatioD18]
+defaultValue = "0.0003"
+
+[setting.perpsOrderMaxLiquidationLimitAccumulationMultiplier]
+defaultValue = "1.5"
+
+[setting.perpsOrderMaxSecondsInLiquidationWindow]
+defaultValue = "30"
+
+[setting.perpsOrderMinimumPositionMargin]
+defaultValue = "25"
+
+[setting.perpsOrderLockedOiRatio]
+defaultValue = "0.5"
+
+[setting.perpsOrderSynthMaxCollateralAmount]
+defaultValue = "<%= MaxUint256 %>"
+
+[setting.perpsOrderMaxLiquidationPd]
+defaultValue = "0.0005"
+
+[setting.perpsOrderEndorsedLiquidator]
+defaultValue = "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"
+
+[setting.commitmentPriceDelay]
+defaultValue = "2"
+
+[setting.bigCapSettlementDelay]
+defaultValue = "2"
