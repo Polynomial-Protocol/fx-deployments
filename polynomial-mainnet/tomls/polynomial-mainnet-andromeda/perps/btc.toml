@@ -8,7 +8,7 @@ defaultValue = "1"
 defaultValue = "200"
 
 [setting.perpsBtcSkewScale]
-defaultValue = "<%= String(7_500) %>"
+defaultValue = "<%= String(4_000) %>"
 
 [setting.perpsBtcMaxFundingVelocity]
 defaultValue = "9"
