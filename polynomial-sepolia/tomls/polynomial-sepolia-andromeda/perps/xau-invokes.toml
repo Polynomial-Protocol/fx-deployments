@@ -1,0 +1,192 @@
+[setting.xauPerpsMarketId]
+
+[setting.perpsXauSkewScale]
+
+[setting.perpsXauMaxFundingVelocity]
+
+[setting.perpsXauMakerFeeRatio]
+
+[setting.perpsXauTakerFeeRatio]
+
+[setting.perpsXauMaxMarketSize]
+
+[setting.perpsXauInitialMarginRatio]
+
+[setting.perpsXauMaintenanceMarginFraction]
+
+[setting.perpsXauFlagRewardRatioD18]
+
+[setting.perpsXauMaxLiquidationLimitAccumulationMultiplier]
+
+[setting.perpsXauMaxSecondsInLiquidationWindow]
+
+[setting.perpsXauMaxLiquidationPd]
+
+[setting.perpsXauEndorsedLiquidator]
+
+[setting.perpsXauMinimumPositionMargin]
+
+[setting.perpsXauLockedOiRatio]
+
+[invoke.createXauPerpsMarket]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "createMarket"
+args = ["<%= settings.xauPerpsMarketId %>", "Gold", "XAU"]
+depends = ["provision.system", "provision.perpsFactory"]
+
+[invoke.setPerpsPriceXau]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "updatePriceData"
+args = [
+    "<%= settings.xauPerpsMarketId %>",
+    "<%= extras.xau_oracle_id %>",
+    "<%= settings.bigCapStrictStalenessTolerance %>",
+]
+depends = ["invoke.createXauPerpsMarket"]
+
+# Do not modify this step. Edit [invoke.setPerpsXauSettlementStrategy] instead.
+[invoke.addPerpsXauSettlementStrategy]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "addSettlementStrategy"
+args = [
+    "<%= settings.xauPerpsMarketId %>",
+    { strategyType = "0", settlementDelay = "0", settlementWindowDuration = "1", priceVerificationContract = "0x0000000000000000000000000000000000000000", feedId = "0x0000000000000000000000000000000000000000000000000000000000000000", settlementReward = "0", disabled = false, commitmentPriceDelay = "0" },
+]
+extra.xau_pyth_settlement_strategy.event = "SettlementStrategyAdded"
+extra.xau_pyth_settlement_strategy.arg = 2
+depends = ["invoke.createXauPerpsMarket"]
+
+[invoke.setPerpsXauSettlementStrategy]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setSettlementStrategy"
+args = [
+    "<%= settings.xauPerpsMarketId %>",
+    "<%= extras.xau_pyth_settlement_strategy %>",                                                                                                                                                                                                                                                                                                                                                                                      # Settlement Strategy ID
+    { strategyType = "0", settlementDelay = "<%= settings.bigCapSettlementDelay %>", settlementWindowDuration = "<%= settings.bigCapSettlementWindowDuration %>", priceVerificationContract = "<%= imports.pyth_erc7412_wrapper.contracts.PythERC7412Wrapper.address %>", feedId = "<%= settings.pythXauFeedId %>", settlementReward = "<%= parseEther(settings.settlementReward) %>", disabled = false, commitmentPriceDelay = "2" },
+]
+depends = [
+    'provision.perpsFactory',
+    'setting.xauPerpsMarketId',
+    'invoke.addPerpsXauSettlementStrategy',
+    'provision.pyth_erc7412_wrapper',
+    'setting.bigCapSettlementDelay',
+    'setting.bigCapSettlementWindowDuration',
+    'setting.pythXauFeedId',
+    'setting.settlementReward',
+]
+
+[invoke.setPerpsXauFundingParameters]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setFundingParameters"
+args = [
+    "<%= settings.xauPerpsMarketId %>",
+    "<%= parseEther(settings.perpsXauSkewScale) %>",
+    "<%= parseEther(settings.perpsXauMaxFundingVelocity) %>",
+]
+depends = ["invoke.createXauPerpsMarket"]
+
+[invoke.setPerpsXauOrderFees]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setOrderFees"
+args = [
+    "<%= settings.xauPerpsMarketId %>",
+    "<%= parseEther(settings.perpsXauMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsXauTakerFeeRatio) %>",
+]
+depends = ["invoke.createXauPerpsMarket"]
+
+[invoke.setPerpsXauMaxMarketSize]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setMaxMarketSize"
+args = [
+    "<%= settings.xauPerpsMarketId %>",
+    "<%= parseEther(settings.perpsXauMaxMarketSize) %>",
+]
+depends = ["invoke.createXauPerpsMarket"]
+
+[invoke.setPerpsXauMaxMarketValue]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setMaxMarketValue"
+args = [
+    "<%= settings.xauPerpsMarketId %>",
+    "<%= parseEther(settings.perpsXauMaxMarketValue) %>",
+]
+depends = ["invoke.createXauPerpsMarket"]
+
+[invoke.setPerpsXauMaxLiquidationParameters]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setMaxLiquidationParameters"
+args = [
+    "<%= settings.xauPerpsMarketId %>",
+    "<%= parseEther(settings.perpsXauMaxLiquidationLimitAccumulationMultiplier) %>",
+    "<%= settings.perpsXauMaxSecondsInLiquidationWindow %>",
+    "<%= parseEther(settings.perpsXauMaxLiquidationPd) %>",
+    "<%= settings.perpsXauEndorsedLiquidator %>",
+]
+depends = ["invoke.createXauPerpsMarket"]
+
+[invoke.setPerpsXauLiquidationParameters]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setLiquidationParameters"
+args = [
+    "<%= settings.xauPerpsMarketId %>",
+    "<%= parseEther(settings.perpsXauInitialMarginRatio) %>",
+    "<%= parseEther(settings.perpsXauMinimumInitialMarginRatio) %>",
+    "<%= parseEther(settings.perpsXauMaintenanceMarginScalar) %>",
+    "<%= parseEther(settings.perpsXauFlagRewardRatioD18) %>",
+    "<%= parseEther(settings.perpsXauMinimumPositionMargin) %>",
+]
+depends = ["invoke.createXauPerpsMarket"]
+
+[invoke.setPerpsXauLockedOiRatio]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setLockedOiRatio"
+args = [
+    "<%= settings.xauPerpsMarketId %>",
+    "<%= parseEther(settings.perpsXauLockedOiRatio) %>",
+]
+depends = ["invoke.createXauPerpsMarket"]
+
+[invoke.setperpsXauLimitOrderFees]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLimitOrderFees"
+args = [
+    "<%= settings.xauPerpsMarketId %>",
+    "<%= parseEther(settings.perpsXauLimitOrderMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsXauLimitOrderTakerFeeRatio) %>",
+]
+depends = [
+    "invoke.createXauPerpsMarket",
+]
+
+[invoke.setperpsXauLimitOrderFees.fromCall]
+func = "owner"
+
+[invoke.setperpsXauRolloverFee]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setRolloverFee"
+args = [
+    "<%= settings.xauPerpsMarketId %>",
+    "<%= settings.perpsXauRolloverFee %>",
+]
+depends = [
+    "invoke.createXauPerpsMarket",
+]
+
+[invoke.setperpsXauRolloverFee.fromCall]
+func = "owner"

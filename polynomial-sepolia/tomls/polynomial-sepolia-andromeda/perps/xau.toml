@@ -1,0 +1,65 @@
+[setting.pythXauFeedId]
+defaultValue = "0x765d2ba906dbc32ca17cc11f5310a89e9ee1f6420508c63861f2f8ba4ee34bb2"
+
+[setting.xauPerpsMarketId]
+defaultValue = "8000"
+
+[setting.perpsXauSkewScale]
+defaultValue = "<%= String(2_116.68) %>"
+
+[setting.perpsXauMaxFundingVelocity]
+defaultValue = "0"
+
+[setting.perpsXauLimitOrderMakerFeeRatio]
+defaultValue = "0.0001"
+
+[setting.perpsXauLimitOrderTakerFeeRatio]
+defaultValue = "0.0002"
+
+[setting.perpsXauMakerFeeRatio]
+defaultValue = "0.0004"
+
+[setting.perpsXauTakerFeeRatio]
+defaultValue = "0.0006"
+
+[setting.perpsXauMaxMarketSize]
+defaultValue = "<%= String(36) %>"
+
+[setting.perpsXauMaxMarketValue]
+defaultValue = "<%= String(90_000) %>"
+
+[setting.perpsXauInitialMarginRatio]
+defaultValue = "0.1"
+
+[setting.perpsXauMinimumInitialMarginRatio]
+defaultValue = "0.05"
+
+[setting.perpsXauMaintenanceMarginScalar]
+defaultValue = "0.27"
+
+[setting.perpsXauFlagRewardRatioD18]
+defaultValue = "0.0003"
+
+[setting.perpsXauMaxLiquidationLimitAccumulationMultiplier]
+defaultValue = "1.5"
+
+[setting.perpsXauMaxSecondsInLiquidationWindow]
+defaultValue = "30"
+
+[setting.perpsXauMinimumPositionMargin]
+defaultValue = "25"
+
+[setting.perpsXauLockedOiRatio]
+defaultValue = "0.5"
+
+[setting.perpsXauSynthMaxCollateralAmount]
+defaultValue = "<%= MaxUint256 %>"
+
+[setting.perpsXauMaxLiquidationPd]
+defaultValue = "0.0005"
+
+[setting.perpsXauRolloverFee]
+defaultValue = "6337753880"
+
+[setting.perpsXauEndorsedLiquidator]
+defaultValue = "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"

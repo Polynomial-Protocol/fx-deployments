@@ -1,0 +1,192 @@
+[setting.diaPerpsMarketId]
+
+[setting.perpsDiaSkewScale]
+
+[setting.perpsDiaMaxFundingVelocity]
+
+[setting.perpsDiaMakerFeeRatio]
+
+[setting.perpsDiaTakerFeeRatio]
+
+[setting.perpsDiaMaxMarketSize]
+
+[setting.perpsDiaInitialMarginRatio]
+
+[setting.perpsDiaMaintenanceMarginFraction]
+
+[setting.perpsDiaFlagRewardRatioD18]
+
+[setting.perpsDiaMaxLiquidationLimitAccumulationMultiplier]
+
+[setting.perpsDiaMaxSecondsInLiquidationWindow]
+
+[setting.perpsDiaMaxLiquidationPd]
+
+[setting.perpsDiaEndorsedLiquidator]
+
+[setting.perpsDiaMinimumPositionMargin]
+
+[setting.perpsDiaLockedOiRatio]
+
+[invoke.createDiaPerpsMarket]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "createMarket"
+args = ["<%= settings.diaPerpsMarketId %>", "SPDR Dow Jones Industrial Average ETF Trust", "DIA"]
+depends = ["provision.system", "provision.perpsFactory"]
+
+[invoke.setPerpsPriceDia]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "updatePriceData"
+args = [
+    "<%= settings.diaPerpsMarketId %>",
+    "<%= extras.dia_oracle_id %>",
+    "<%= settings.bigCapStrictStalenessTolerance %>",
+]
+depends = ["invoke.createDiaPerpsMarket"]
+
+# Do not modify this step. Edit [invoke.setPerpsDiaSettlementStrategy] instead.
+[invoke.addPerpsDiaSettlementStrategy]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "addSettlementStrategy"
+args = [
+    "<%= settings.diaPerpsMarketId %>",
+    { strategyType = "0", settlementDelay = "0", settlementWindowDuration = "1", priceVerificationContract = "0x0000000000000000000000000000000000000000", feedId = "0x0000000000000000000000000000000000000000000000000000000000000000", settlementReward = "0", disabled = false, commitmentPriceDelay = "0" },
+]
+extra.dia_pyth_settlement_strategy.event = "SettlementStrategyAdded"
+extra.dia_pyth_settlement_strategy.arg = 2
+depends = ["invoke.createDiaPerpsMarket"]
+
+[invoke.setPerpsDiaSettlementStrategy]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setSettlementStrategy"
+args = [
+    "<%= settings.diaPerpsMarketId %>",
+    "<%= extras.dia_pyth_settlement_strategy %>",                                                                                                                                                                                                                                                                                                                                                                                      # Settlement Strategy ID
+    { strategyType = "0", settlementDelay = "<%= settings.bigCapSettlementDelay %>", settlementWindowDuration = "<%= settings.bigCapSettlementWindowDuration %>", priceVerificationContract = "<%= imports.pyth_erc7412_wrapper.contracts.PythERC7412Wrapper.address %>", feedId = "<%= settings.pythDiaFeedId %>", settlementReward = "<%= parseEther(settings.settlementReward) %>", disabled = false, commitmentPriceDelay = "2" },
+]
+depends = [
+    'provision.perpsFactory',
+    'setting.diaPerpsMarketId',
+    'invoke.addPerpsDiaSettlementStrategy',
+    'provision.pyth_erc7412_wrapper',
+    'setting.bigCapSettlementDelay',
+    'setting.bigCapSettlementWindowDuration',
+    'setting.pythDiaFeedId',
+    'setting.settlementReward',
+]
+
+[invoke.setPerpsDiaFundingParameters]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setFundingParameters"
+args = [
+    "<%= settings.diaPerpsMarketId %>",
+    "<%= parseEther(settings.perpsDiaSkewScale) %>",
+    "<%= parseEther(settings.perpsDiaMaxFundingVelocity) %>",
+]
+depends = ["invoke.createDiaPerpsMarket"]
+
+[invoke.setPerpsDiaOrderFees]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setOrderFees"
+args = [
+    "<%= settings.diaPerpsMarketId %>",
+    "<%= parseEther(settings.perpsDiaMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsDiaTakerFeeRatio) %>",
+]
+depends = ["invoke.createDiaPerpsMarket"]
+
+[invoke.setPerpsDiaMaxMarketSize]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setMaxMarketSize"
+args = [
+    "<%= settings.diaPerpsMarketId %>",
+    "<%= parseEther(settings.perpsDiaMaxMarketSize) %>",
+]
+depends = ["invoke.createDiaPerpsMarket"]
+
+[invoke.setPerpsDiaMaxMarketValue]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setMaxMarketValue"
+args = [
+    "<%= settings.diaPerpsMarketId %>",
+    "<%= parseEther(settings.perpsDiaMaxMarketValue) %>",
+]
+depends = ["invoke.createDiaPerpsMarket"]
+
+[invoke.setPerpsDiaMaxLiquidationParameters]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setMaxLiquidationParameters"
+args = [
+    "<%= settings.diaPerpsMarketId %>",
+    "<%= parseEther(settings.perpsDiaMaxLiquidationLimitAccumulationMultiplier) %>",
+    "<%= settings.perpsDiaMaxSecondsInLiquidationWindow %>",
+    "<%= parseEther(settings.perpsDiaMaxLiquidationPd) %>",
+    "<%= settings.perpsDiaEndorsedLiquidator %>",
+]
+depends = ["invoke.createDiaPerpsMarket"]
+
+[invoke.setPerpsDiaLiquidationParameters]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setLiquidationParameters"
+args = [
+    "<%= settings.diaPerpsMarketId %>",
+    "<%= parseEther(settings.perpsDiaInitialMarginRatio) %>",
+    "<%= parseEther(settings.perpsDiaMinimumInitialMarginRatio) %>",
+    "<%= parseEther(settings.perpsDiaMaintenanceMarginScalar) %>",
+    "<%= parseEther(settings.perpsDiaFlagRewardRatioD18) %>",
+    "<%= parseEther(settings.perpsDiaMinimumPositionMargin) %>",
+]
+depends = ["invoke.createDiaPerpsMarket"]
+
+[invoke.setPerpsDiaLockedOiRatio]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setLockedOiRatio"
+args = [
+    "<%= settings.diaPerpsMarketId %>",
+    "<%= parseEther(settings.perpsDiaLockedOiRatio) %>",
+]
+depends = ["invoke.createDiaPerpsMarket"]
+
+[invoke.setperpsDiaLimitOrderFees]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLimitOrderFees"
+args = [
+    "<%= settings.diaPerpsMarketId %>",
+    "<%= parseEther(settings.perpsDiaLimitOrderMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsDiaLimitOrderTakerFeeRatio) %>",
+]
+depends = [
+    "invoke.createDiaPerpsMarket",
+]
+
+[invoke.setperpsDiaLimitOrderFees.fromCall]
+func = "owner"
+
+[invoke.setperpsDiaRolloverFee]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setRolloverFee"
+args = [
+    "<%= settings.diaPerpsMarketId %>",
+    "<%= settings.perpsDiaRolloverFee %>",
+]
+depends = [
+    "invoke.createDiaPerpsMarket",
+]
+
+[invoke.setperpsDiaRolloverFee.fromCall]
+func = "owner"

@@ -1,0 +1,65 @@
+[setting.pythSpyFeedId]
+defaultValue = "0x19e09bb805456ada3979a7d1cbb4b6d63babc3a0f8e8a9509f68afa5c4c11cd5"
+
+[setting.spyPerpsMarketId]
+defaultValue = "8500"
+
+[setting.perpsSpySkewScale]
+defaultValue = "<%= String(138_000) %>"
+
+[setting.perpsSpyMaxFundingVelocity]
+defaultValue = "0"
+
+[setting.perpsSpyLimitOrderMakerFeeRatio]
+defaultValue = "0.0001"
+
+[setting.perpsSpyLimitOrderTakerFeeRatio]
+defaultValue = "0.0002"
+
+[setting.perpsSpyMakerFeeRatio]
+defaultValue = "0.0004"
+
+[setting.perpsSpyTakerFeeRatio]
+defaultValue = "0.0006"
+
+[setting.perpsSpyMaxMarketSize]
+defaultValue = "<%= String(1_500) %>"
+
+[setting.perpsSpyMaxMarketValue]
+defaultValue = "<%= String(1_000_000) %>"
+
+[setting.perpsSpyInitialMarginRatio]
+defaultValue = "0.08"
+
+[setting.perpsSpyMinimumInitialMarginRatio]
+defaultValue = "0.01"
+
+[setting.perpsSpyMaintenanceMarginScalar]
+defaultValue = "0.20"
+
+[setting.perpsSpyFlagRewardRatioD18]
+defaultValue = "0.0003"
+
+[setting.perpsSpyMaxLiquidationLimitAccumulationMultiplier]
+defaultValue = "1.5"
+
+[setting.perpsSpyMaxSecondsInLiquidationWindow]
+defaultValue = "30"
+
+[setting.perpsSpyMinimumPositionMargin]
+defaultValue = "25"
+
+[setting.perpsSpyLockedOiRatio]
+defaultValue = "0.5"
+
+[setting.perpsSpySynthMaxCollateralAmount]
+defaultValue = "<%= MaxUint256 %>"
+
+[setting.perpsSpyMaxLiquidationPd]
+defaultValue = "0.0005"
+
+[setting.perpsSpyRolloverFee]
+defaultValue = "6337753880"
+
+[setting.perpsSpyEndorsedLiquidator]
+defaultValue = "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"

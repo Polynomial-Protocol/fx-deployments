@@ -1,0 +1,65 @@
+[setting.pythJpyFeedId]
+defaultValue = "0xa995d00bb36a63cef7fd2c287dc105fc8f3d93779f062f09551b0af3e81ec30b"
+
+[setting.jpyPerpsMarketId]
+defaultValue = "8200"
+
+[setting.perpsJpySkewScale]
+defaultValue = "<%= String(650_000) %>"
+
+[setting.perpsJpyMaxFundingVelocity]
+defaultValue = "0"
+
+[setting.perpsJpyLimitOrderMakerFeeRatio]
+defaultValue = "0.0001"
+
+[setting.perpsJpyLimitOrderTakerFeeRatio]
+defaultValue = "0.0002"
+
+[setting.perpsJpyMakerFeeRatio]
+defaultValue = "0.0004"
+
+[setting.perpsJpyTakerFeeRatio]
+defaultValue = "0.0006"
+
+[setting.perpsJpyMaxMarketSize]
+defaultValue = "<%= String(5_400) %>"
+
+[setting.perpsJpyMaxMarketValue]
+defaultValue = "<%= String(800_000) %>"
+
+[setting.perpsJpyInitialMarginRatio]
+defaultValue = "0.02"
+
+[setting.perpsJpyMinimumInitialMarginRatio]
+defaultValue = "0.005"
+
+[setting.perpsJpyMaintenanceMarginScalar]
+defaultValue = "0.18"
+
+[setting.perpsJpyFlagRewardRatioD18]
+defaultValue = "0.0003"
+
+[setting.perpsJpyMaxLiquidationLimitAccumulationMultiplier]
+defaultValue = "1.5"
+
+[setting.perpsJpyMaxSecondsInLiquidationWindow]
+defaultValue = "30"
+
+[setting.perpsJpyMinimumPositionMargin]
+defaultValue = "25"
+
+[setting.perpsJpyLockedOiRatio]
+defaultValue = "0.5"
+
+[setting.perpsJpySynthMaxCollateralAmount]
+defaultValue = "<%= MaxUint256 %>"
+
+[setting.perpsJpyMaxLiquidationPd]
+defaultValue = "0.0005"
+
+[setting.perpsJpyRolloverFee]
+defaultValue = "6337753880"
+
+[setting.perpsJpyEndorsedLiquidator]
+defaultValue = "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"

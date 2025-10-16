@@ -10,6 +10,7 @@ include = [
     "tomls/pools/main-pool.toml",
     "tomls/markets/spot-factory.toml",
     "tomls/markets/perps-factory.toml",
+    "tomls/markets/strategy-market.toml",
     "tomls/polynomial-sepolia-andromeda/spot/usdc.toml",
     "tomls/permit-all-perps-perpsSystem.toml",
     "tomls/polynomial-sepolia-andromeda/perps/referrers.toml",
@@ -302,6 +303,30 @@ include = [
     "tomls/polynomial-sepolia-andromeda/perps/order-invokes.toml",
     "tomls/oracles/pyth-order.toml",
     "tomls/polynomial-sepolia-andromeda/perps/order.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/jpy-invokes.toml",
+    "tomls/oracles/pyth-jpy.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/jpy.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/eur-invokes.toml",
+    "tomls/oracles/pyth-eur.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/eur.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/xau-invokes.toml",
+    "tomls/oracles/pyth-xau.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/xau.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/qqq-invokes.toml",
+    "tomls/oracles/pyth-qqq.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/qqq.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/spy-invokes.toml",
+    "tomls/oracles/pyth-spy.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/spy.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/xag-invokes.toml",
+    "tomls/oracles/pyth-xag.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/xag.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/dia-invokes.toml",
+    "tomls/oracles/pyth-dia.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/dia.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/wti-invokes.toml",
+    "tomls/oracles/pyth-wti.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/wti.toml",
 ]
 
 [setting.commitmentPriceDelay]
@@ -321,6 +346,12 @@ defaultValue = "fx-spot-market:3.9.7"
 
 [setting.perps_market_package]
 defaultValue = "fx-perps-market:3.10.1"
+
+[setting.strategy_market_package]
+defaultValue = "fx-strategy-market:1.0.0"
+
+[setting.strategy_market_id]
+defaultValue = "12"
 
 [setting.salt]
 defaultValue = "andromeda-dev"
@@ -380,6 +411,7 @@ args = [
     "<%= settings.main_pool_id %>",
     [
         { marketId = "<%= imports.perpsFactory.extras.superMarketId %>", weightD18 = 1, maxDebtShareValueD18 = "<%= parseEther('1') %>" },
+        { marketId = "<%= settings.strategy_market_id %>", weightD18 = 1, maxDebtShareValueD18 = "<%= parseEther('1') %>" },
     ],
 ]
 
