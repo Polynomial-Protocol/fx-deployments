@@ -8,7 +8,7 @@ defaultValue = "2"
 defaultValue = "100"
 
 [setting.perpsEthSkewScale]
-defaultValue = "<%= String(22_900) %>"
+defaultValue = "<%= String(50_000) %>"
 
 [setting.perpsEthMaxFundingVelocity]
 defaultValue = "9"
@@ -26,10 +26,10 @@ defaultValue = "0"
 defaultValue = "0"
 
 [setting.perpsEthMaxMarketSize]
-defaultValue = "<%= String(950) %>"
+defaultValue = "<%= String(1_288_000) %>"
 
 [setting.perpsEthMaxMarketValue]
-defaultValue = "<%= String(4_005_751) %>"
+defaultValue = "<%= String(5_000_000) %>"
 
 [setting.perpsEthInitialMarginRatio]
 defaultValue = "1.16"

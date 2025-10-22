@@ -5,7 +5,7 @@ defaultValue = "0x86f6576c0ddc8577b9d1bb12c712ae04ebd56070826ec042c93595d6b17a01
 defaultValue = "6300"
 
 [setting.perpsHumaSkewScale]
-defaultValue = "<%= String(58_890_160) %>"
+defaultValue = "<%= String(20_000_000) %>"
 
 [setting.perpsHumaMaxFundingVelocity]
 defaultValue = "20"
@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsHumaMaxMarketSize]
-defaultValue = "<%= String(2_199_465) %>"
+defaultValue = "<%= String(3_199_465) %>"
 
 [setting.perpsHumaMaxMarketValue]
-defaultValue = "<%= String(72_547) %>"
+defaultValue = "<%= String(80_000) %>"
 
 [setting.perpsHumaInitialMarginRatio]
 defaultValue = "0.10512942735986823"

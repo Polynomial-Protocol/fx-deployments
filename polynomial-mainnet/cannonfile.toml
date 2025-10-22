@@ -1,5 +1,5 @@
 name = "polynomial-mainnet"
-version = "1.0.35"
+version = "1.0.41"
 description = "Andromeda dev deployment"
 preset = "main"
 include = [
@@ -10,6 +10,7 @@ include = [
     "tomls/pools/main-pool.toml",
     "tomls/markets/spot-factory.toml",
     "tomls/markets/perps-factory.toml",
+    "tomls/markets/strategy-market.toml",
     "tomls/markets/common/bigcap-settings.toml",
     "tomls/polynomial-mainnet-andromeda/spot/usdc.toml",
     "tomls/permit-all-perps-perpsSystem.toml",
@@ -302,6 +303,30 @@ include = [
     "tomls/polynomial-mainnet-andromeda/perps/order-invokes.toml",
     "tomls/oracles/pyth-order.toml",
     "tomls/polynomial-mainnet-andromeda/perps/order.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/jpy-invokes.toml",
+    "tomls/oracles/pyth-jpy.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/jpy.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/eur-invokes.toml",
+    "tomls/oracles/pyth-eur.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/eur.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/xau-invokes.toml",
+    "tomls/oracles/pyth-xau.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/xau.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/qqq-invokes.toml",
+    "tomls/oracles/pyth-qqq.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/qqq.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/spy-invokes.toml",
+    "tomls/oracles/pyth-spy.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/spy.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/xag-invokes.toml",
+    "tomls/oracles/pyth-xag.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/xag.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/dia-invokes.toml",
+    "tomls/oracles/pyth-dia.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/dia.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/wti-invokes.toml",
+    "tomls/oracles/pyth-wti.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/wti.toml",
 ]
 
 [setting.commitmentPriceDelay]
@@ -321,6 +346,9 @@ defaultValue = "fx-spot-market:3.9.7"
 
 [setting.perps_market_package]
 defaultValue = "fx-perps-market:3.10.1"
+
+[setting.strategy_market_package]
+defaultValue = "fx-strategy-market:1.0.0"
 
 [setting.salt]
 defaultValue = "andromeda-dev"
@@ -380,6 +408,7 @@ args = [
     "<%= settings.main_pool_id %>",
     [
         { marketId = "<%= imports.perpsFactory.extras.superMarketId %>", weightD18 = 1, maxDebtShareValueD18 = "<%= parseEther('1') %>" },
+        { marketId = "<%= imports.strategyFactory.extras.strategyMarketId %>", weightD18 = 1, maxDebtShareValueD18 = "<%= parseEther('1') %>" },
     ],
 ]
 

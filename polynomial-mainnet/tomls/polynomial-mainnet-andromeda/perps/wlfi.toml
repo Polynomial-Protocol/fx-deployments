@@ -5,7 +5,7 @@ defaultValue = "0xd41369178d64f41d51ca95465c144a2c74d2fff30be69164835911943fa64c
 defaultValue = "7400"
 
 [setting.perpsWlfiSkewScale]
-defaultValue = "<%= String(25_000_000) %>"
+defaultValue = "<%= String(12_000_000) %>"
 
 [setting.perpsWlfiMaxFundingVelocity]
 defaultValue = "20"
@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsWlfiMaxMarketSize]
-defaultValue = "<%= String(500_000) %>"
+defaultValue = "<%= String(625_000) %>"
 
 [setting.perpsWlfiMaxMarketValue]
-defaultValue = "<%= String(100_000) %>"
+defaultValue = "<%= String(80_000) %>"
 
 [setting.perpsWlfiInitialMarginRatio]
 defaultValue = "0.62"

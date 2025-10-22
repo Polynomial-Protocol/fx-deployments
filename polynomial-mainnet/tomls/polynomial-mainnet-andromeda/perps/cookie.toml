@@ -5,7 +5,7 @@ defaultValue = "0xa73331cc6e723f807f1d522917abe43f843218f591f9a3d365695df29a7a01
 defaultValue = "4300"
 
 [setting.perpsCookieSkewScale]
-defaultValue = "<%= String(15_789_410) %>"
+defaultValue = "<%= String(8_000_000) %>"
 
 [setting.perpsCookieMaxFundingVelocity]
 defaultValue = "24"

@@ -5,7 +5,7 @@ defaultValue = "0xb620ba83044577029da7e4ded7a2abccf8e6afc2a0d4d26d89ccdd39ec1090
 defaultValue = "3900"
 
 [setting.perpsIpSkewScale]
-defaultValue = "<%= String(1_162_273) %>"
+defaultValue = "<%= String(600_000) %>"
 
 [setting.perpsIpMaxFundingVelocity]
 defaultValue = "24"
@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsIpMaxMarketSize]
-defaultValue = "<%= String(11_199) %>"
+defaultValue = "<%= String(13_620) %>"
 
 [setting.perpsIpMaxMarketValue]
-defaultValue = "<%= String(62_938) %>"
+defaultValue = "<%= String(80_000) %>"
 
 [setting.perpsIpInitialMarginRatio]
 defaultValue = "0.3472222222222201"

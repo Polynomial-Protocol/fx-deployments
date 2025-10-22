@@ -5,7 +5,7 @@ defaultValue = "0xb70656181007f487e392bf0d92e55358e9f0da5da6531c7c4ce7828aa11277
 defaultValue = "6400"
 
 [setting.perpsZetaSkewScale]
-defaultValue = "<%= String(27_954_441) %>"
+defaultValue = "<%= String(13_000_000) %>"
 
 [setting.perpsZetaMaxFundingVelocity]
 defaultValue = "24"

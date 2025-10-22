@@ -5,7 +5,7 @@ defaultValue = "0x0bbf28e9a841a1cc788f6a361b17ca072d0ea3098a1e5df1c3922d06719579
 defaultValue = "2700"
 
 [setting.perpsPythSkewScale]
-defaultValue = "<%= String(27_974_930) %>"
+defaultValue = "<%= String(18_000_000) %>"
 
 [setting.perpsPythMaxFundingVelocity]
 defaultValue = "24"
@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsPythMaxMarketSize]
-defaultValue = "<%= String(523_017) %>"
+defaultValue = "<%= String(653_757) %>"
 
 [setting.perpsPythMaxMarketValue]
-defaultValue = "<%= String(60_949) %>"
+defaultValue = "<%= String(80_000) %>"
 
 [setting.perpsPythInitialMarginRatio]
 defaultValue = "6.565685927472221"

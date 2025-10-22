@@ -5,7 +5,7 @@ defaultValue = "0xe9f7026d0e26b2643da0cc976bd6107d07092e11f2e4701f98a3c2ef45f013
 defaultValue = "6600"
 
 [setting.perpsB3SkewScale]
-defaultValue = "<%= String(2_047_602_666) %>"
+defaultValue = "<%= String(900_000_000) %>"
 
 [setting.perpsB3MaxFundingVelocity]
 defaultValue = "24"
@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsB3MaxMarketSize]
-defaultValue = "<%= String(25_885_492) %>"
+defaultValue = "<%= String(27_384_755) %>"
 
 [setting.perpsB3MaxMarketValue]
-defaultValue = "<%= String(73_334) %>"
+defaultValue = "<%= String(60_000) %>"
 
 [setting.perpsB3InitialMarginRatio]
 defaultValue = "0.3472222222222202"

@@ -5,7 +5,7 @@ defaultValue = "0xd7fb6cb62dd49c8466cff6b551c28c7192123f529405e9765d9db543b43411
 defaultValue = "6200"
 
 [setting.perpsNxpcSkewScale]
-defaultValue = "<%= String(2_726_228) %>"
+defaultValue = "<%= String(1_000_000) %>"
 
 [setting.perpsNxpcMaxFundingVelocity]
 defaultValue = "24"

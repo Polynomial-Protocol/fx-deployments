@@ -5,7 +5,7 @@ defaultValue = "0x39d020f60982ed892abbcd4a06a276a9f9b7bfbce003204c110b6e488f502d
 defaultValue = "2600"
 
 [setting.perpsSnxSkewScale]
-defaultValue = "<%= String(5_251_640) %>"
+defaultValue = "<%= String(2_000_000) %>"
 
 [setting.perpsSnxMaxFundingVelocity]
 defaultValue = "24"

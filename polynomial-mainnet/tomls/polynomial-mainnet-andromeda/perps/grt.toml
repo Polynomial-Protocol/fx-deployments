@@ -5,7 +5,7 @@ defaultValue = "0x4d1f8dae0d96236fb98e8f47471a366ec3b1732b47041781934ca3a9bb2f35
 defaultValue = "5200"
 
 [setting.perpsGrtSkewScale]
-defaultValue = "<%= String(33_450_950) %>"
+defaultValue = "<%= String(20_000_000) %>"
 
 [setting.perpsGrtMaxFundingVelocity]
 defaultValue = "24"

@@ -5,7 +5,7 @@ defaultValue = "0xa903b5a82cb572397e3d47595d2889cf80513f5b4cf7a36b513ae10cc8b1e3
 defaultValue = "7700"
 
 [setting.perpsAsterSkewScale]
-defaultValue = "<%= String(7_500_000) %>"
+defaultValue = "<%= String(5_000_000) %>"
 
 [setting.perpsAsterMaxFundingVelocity]
 defaultValue = "26"
@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsAsterMaxMarketSize]
-defaultValue = "<%= String(72_000) %>"
+defaultValue = "<%= String(90_843) %>"
 
 [setting.perpsAsterMaxMarketValue]
-defaultValue = "<%= String(120_000) %>"
+defaultValue = "<%= String(100_000) %>"
 
 [setting.perpsAsterInitialMarginRatio]
 defaultValue = "0.347"

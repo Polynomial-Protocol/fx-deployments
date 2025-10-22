@@ -5,7 +5,7 @@ defaultValue = "0x150ac9b959aee0051e4091f0ef5216d941f590e1c5e7f91cf7635b5c11628c
 defaultValue = "6500"
 
 [setting.perpsFilSkewScale]
-defaultValue = "<%= String(1_256_679) %>"
+defaultValue = "<%= String(700_000) %>"
 
 [setting.perpsFilMaxFundingVelocity]
 defaultValue = "24"
@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsFilMaxMarketSize]
-defaultValue = "<%= String(28_796) %>"
+defaultValue = "<%= String(51_427) %>"
 
 [setting.perpsFilMaxMarketValue]
-defaultValue = "<%= String(69_110) %>"
+defaultValue = "<%= String(80_000) %>"
 
 [setting.perpsFilInitialMarginRatio]
 defaultValue = "0.18549962976575665"

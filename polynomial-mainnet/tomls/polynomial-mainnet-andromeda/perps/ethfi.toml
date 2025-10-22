@@ -5,7 +5,7 @@ defaultValue = "0xb27578a9654246cb0a2950842b92330e9ace141c52b63829cc72d5c45a5a59
 defaultValue = "5700"
 
 [setting.perpsEthfiSkewScale]
-defaultValue = "<%= String(2_558_649) %>"
+defaultValue = "<%= String(1_600_000) %>"
 
 [setting.perpsEthfiMaxFundingVelocity]
 defaultValue = "24"
@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsEthfiMaxMarketSize]
-defaultValue = "<%= String(57_352) %>"
+defaultValue = "<%= String(80_000) %>"
 
 [setting.perpsEthfiMaxMarketValue]
-defaultValue = "<%= String(63_087) %>"
+defaultValue = "<%= String(80_000) %>"
 
 [setting.perpsEthfiInitialMarginRatio]
 defaultValue = "0.1602496950256011"

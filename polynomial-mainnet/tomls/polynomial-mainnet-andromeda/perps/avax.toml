@@ -5,7 +5,7 @@ defaultValue = "0x93da3352f9f1d105fdfe4971cfa80e9dd777bfc5d0f683ebb6e1294b92137b
 defaultValue = "1700"
 
 [setting.perpsAvaxSkewScale]
-defaultValue = "<%= String(1_500_000) %>"
+defaultValue = "<%= String(800_000) %>"
 
 [setting.perpsAvaxMaxFundingVelocity]
 defaultValue = "24"
@@ -23,10 +23,10 @@ defaultValue = "0.0004"
 defaultValue = "0.0006"
 
 [setting.perpsAvaxMaxMarketSize]
-defaultValue = "<%= String(2_943) %>"
+defaultValue = "<%= String(4_024) %>"
 
 [setting.perpsAvaxMaxMarketValue]
-defaultValue = "<%= String(67_624) %>"
+defaultValue = "<%= String(80_000) %>"
 
 [setting.perpsAvaxInitialMarginRatio]
 defaultValue = "9.08"

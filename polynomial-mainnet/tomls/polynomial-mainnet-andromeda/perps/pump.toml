@@ -5,7 +5,7 @@ defaultValue = "0x7a01fca212788bba7c5bf8c9efd576a8a722f070d2c17596ff7bb609b8d5c3
 defaultValue = "7300"
 
 [setting.perpsPumpSkewScale]
-defaultValue = "<%= String(1_098_677_017) %>"
+defaultValue = "<%= String(600_000_000) %>"
 
 [setting.perpsPumpMaxFundingVelocity]
 defaultValue = "24"
@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsPumpMaxMarketSize]
-defaultValue = "<%= String(31_084_855) %>"
+defaultValue = "<%= String(25_839_793) %>"
 
 [setting.perpsPumpMaxMarketValue]
-defaultValue = "<%= String(93_907) %>"
+defaultValue = "<%= String(100_000) %>"
 
 [setting.perpsPumpInitialMarginRatio]
 defaultValue = "0.3472222222222201"

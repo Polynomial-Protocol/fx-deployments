@@ -5,10 +5,10 @@ defaultValue = "0x93eacee7286be62044cd8dfbdfdf1bea8f52a3ca6e0f512f4a05bd383f5666
 defaultValue = "4200"
 
 [setting.perpsZoraSkewScale]
-defaultValue = "<%= String(309_072_845) %>"
+defaultValue = "<%= String(100_000_000) %>"
 
 [setting.perpsZoraMaxFundingVelocity]
-defaultValue = "24"
+defaultValue = "30"
 
 [setting.perpsZoraMakerFeeRatio]
 defaultValue = "0.0004"
@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsZoraMaxMarketSize]
-defaultValue = "<%= String(3_539_877) %>"
+defaultValue = "<%= String(1_887_967) %>"
 
 [setting.perpsZoraMaxMarketValue]
-defaultValue = "<%= String(332_805) %>"
+defaultValue = "<%= String(200_000) %>"
 
 [setting.perpsZoraInitialMarginRatio]
 defaultValue = "0.34722222222222004"

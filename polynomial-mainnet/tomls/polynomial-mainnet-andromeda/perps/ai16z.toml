@@ -5,7 +5,7 @@ defaultValue = "0x2551eca7784671173def2c41e6f3e51e11cd87494863f1d208fdd8c64a1f85
 defaultValue = "2500"
 
 [setting.perpsAi16zSkewScale]
-defaultValue = "<%= String(14_815_010) %>"
+defaultValue = "<%= String(7_000_000) %>"
 
 [setting.perpsAi16zMaxFundingVelocity]
 defaultValue = "20"
@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsAi16zMaxMarketSize]
-defaultValue = "<%= String(471_518) %>"
+defaultValue = "<%= String(1_403_508) %>"
 
 [setting.perpsAi16zMaxMarketValue]
-defaultValue = "<%= String(55_589) %>"
+defaultValue = "<%= String(80_000) %>"
 
 [setting.perpsAi16zInitialMarginRatio]
 defaultValue = "2.2916666666666656"

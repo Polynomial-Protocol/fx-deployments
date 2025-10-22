@@ -5,7 +5,7 @@ defaultValue = "0x119ff2acf90f68582f5afd6f7d5f12dbae81e4423f165837169d6b94c27fb3
 defaultValue = "4700"
 
 [setting.perpsAltSkewScale]
-defaultValue = "<%= String(128_800_570) %>"
+defaultValue = "<%= String(64_000_000) %>"
 
 [setting.perpsAltMaxFundingVelocity]
 defaultValue = "24"

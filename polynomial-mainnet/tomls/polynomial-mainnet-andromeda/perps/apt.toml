@@ -5,7 +5,7 @@ defaultValue = "0x03ae4db29ed4ae33d323568895aa00337e658e348b37509f5372ae51f0af00
 defaultValue = "6100"
 
 [setting.perpsAptSkewScale]
-defaultValue = "<%= String(1_137_863) %>"
+defaultValue = "<%= String(800_000) %>"
 
 [setting.perpsAptMaxFundingVelocity]
 defaultValue = "24"
@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsAptMaxMarketSize]
-defaultValue = "<%= String(15_990) %>"
+defaultValue = "<%= String(31_685) %>"
 
 [setting.perpsAptMaxMarketValue]
-defaultValue = "<%= String(69_876) %>"
+defaultValue = "<%= String(100_000) %>"
 
 [setting.perpsAptInitialMarginRatio]
 defaultValue = "0.2920867964332497"

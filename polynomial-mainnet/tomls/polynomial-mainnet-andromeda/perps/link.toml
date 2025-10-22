@@ -5,7 +5,7 @@ defaultValue = "0x8ac0c70fff57e9aefdf5edf44b51d62c2d433653cbb2cf5cc06bb115af04d2
 defaultValue = "1900"
 
 [setting.perpsLinkSkewScale]
-defaultValue = "<%= String(3_000_000) %>"
+defaultValue = "<%= String(2_000_000) %>"
 
 [setting.perpsLinkMaxFundingVelocity]
 defaultValue = "24"
@@ -23,10 +23,10 @@ defaultValue = "0.0004"
 defaultValue = "0.0006"
 
 [setting.perpsLinkMaxMarketSize]
-defaultValue = "<%= String(3_478) %>"
+defaultValue = "<%= String(5_174) %>"
 
 [setting.perpsLinkMaxMarketValue]
-defaultValue = "<%= String(85_976) %>"
+defaultValue = "<%= String(100_000) %>"
 
 [setting.perpsLinkInitialMarginRatio]
 defaultValue = "6.73"

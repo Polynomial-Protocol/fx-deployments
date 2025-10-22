@@ -1,0 +1,33 @@
+[setting.strategy_market_package]
+
+[provision.strategyFactory]
+source = "<%= settings.strategy_market_package %>"
+targetPreset = "<%= settings.target_preset %>"
+options.coreProxyOwner = "<%= settings.owner %>"
+options.owner = "<%= settings.owner %>"
+options.salt = "<%= settings.salt %>"
+options.polynomialCore = "<%= settings.snx_package %>@<%= settings.target_preset %>"
+options.polynomialCorePreset = "<%= settings.target_preset %>"
+depends = ["provision.system"]
+
+[setting.dev_address]
+description = "dev address"
+defaultValue = "0x9f76043B23125024Ce5f0Fb4AE707482107dd2a8"
+
+[setting.dev_share]
+description = "dev share"
+defaultValue = "1000"
+
+[invoke.setDevAddress]
+target = ["strategyFactory.StrategyMarketProxy"]
+fromCall.func = "owner"
+func = "setDevAddress"
+args = ["<%= settings.dev_address %>"]
+depends = ["provision.strategyFactory"]
+
+[invoke.setDevShare]
+target = ["strategyFactory.StrategyMarketProxy"]
+fromCall.func = "owner"
+func = "setDevShare"
+args = ["<%= settings.dev_share %>"]
+depends = ["provision.strategyFactory"]

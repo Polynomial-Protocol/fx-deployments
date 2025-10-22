@@ -5,7 +5,7 @@ defaultValue = "0x879551021853eec7a7dc827578e8e69da7e4fa8148339aa0d3d5296405be4b
 defaultValue = "2900"
 
 [setting.perpsTrumpSkewScale]
-defaultValue = "<%= String(1_250_000) %>"
+defaultValue = "<%= String(600_000) %>"
 
 [setting.perpsTrumpMaxFundingVelocity]
 defaultValue = "24"
@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsTrumpMaxMarketSize]
-defaultValue = "<%= String(7_003) %>"
+defaultValue = "<%= String(8_750) %>"
 
 [setting.perpsTrumpMaxMarketValue]
-defaultValue = "<%= String(61_766) %>"
+defaultValue = "<%= String(80_000) %>"
 
 [setting.perpsTrumpInitialMarginRatio]
 defaultValue = "3.055555555555555"

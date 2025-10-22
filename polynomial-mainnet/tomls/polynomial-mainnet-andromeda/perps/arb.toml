@@ -5,7 +5,7 @@ defaultValue = "0x3fa4252848f9f0a1480be62745a4629d9eb1322aebab8a791e344b3b9c1adc
 defaultValue = "3700"
 
 [setting.perpsArbSkewScale]
-defaultValue = "<%= String(50_000_000) %>"
+defaultValue = "<%= String(30_000_000) %>"
 
 [setting.perpsArbMaxFundingVelocity]
 defaultValue = "24"
@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsArbMaxMarketSize]
-defaultValue = "<%= String(166_570) %>"
+defaultValue = "<%= String(321_130) %>"
 
 [setting.perpsArbMaxMarketValue]
-defaultValue = "<%= String(82_126) %>"
+defaultValue = "<%= String(100_000) %>"
 
 [setting.perpsArbInitialMarginRatio]
 defaultValue = "1.2783223816388807"

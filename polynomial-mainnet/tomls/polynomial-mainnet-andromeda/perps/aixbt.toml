@@ -5,7 +5,7 @@ defaultValue = "0x0fc54579a29ba60a08fdb5c28348f22fd3bec18e221dd6b90369950db638a5
 defaultValue = "5600"
 
 [setting.perpsAixbtSkewScale]
-defaultValue = "<%= String(18_320_220) %>"
+defaultValue = "<%= String(10_000_000) %>"
 
 [setting.perpsAixbtMaxFundingVelocity]
 defaultValue = "24"

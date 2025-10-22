@@ -1,0 +1,65 @@
+[setting.pythQqqFeedId]
+defaultValue = "0x9695e2b96ea7b3859da9ed25b7a46a920a776e2fdae19a7bcfdf2b219230452d"
+
+[setting.qqqPerpsMarketId]
+defaultValue = "8700"
+
+[setting.perpsQqqSkewScale]
+defaultValue = "<%= String(195_000) %>"
+
+[setting.perpsQqqMaxFundingVelocity]
+defaultValue = "0"
+
+[setting.perpsQqqLimitOrderMakerFeeRatio]
+defaultValue = "0.0001"
+
+[setting.perpsQqqLimitOrderTakerFeeRatio]
+defaultValue = "0.0002"
+
+[setting.perpsQqqMakerFeeRatio]
+defaultValue = "0.0004"
+
+[setting.perpsQqqTakerFeeRatio]
+defaultValue = "0.0006"
+
+[setting.perpsQqqMaxMarketSize]
+defaultValue = "<%= String(1_700) %>"
+
+[setting.perpsQqqMaxMarketValue]
+defaultValue = "<%= String(1_000_000) %>"
+
+[setting.perpsQqqInitialMarginRatio]
+defaultValue = "0.08"
+
+[setting.perpsQqqMinimumInitialMarginRatio]
+defaultValue = "0.01"
+
+[setting.perpsQqqMaintenanceMarginScalar]
+defaultValue = "0.20"
+
+[setting.perpsQqqFlagRewardRatioD18]
+defaultValue = "0.0003"
+
+[setting.perpsQqqMaxLiquidationLimitAccumulationMultiplier]
+defaultValue = "1.5"
+
+[setting.perpsQqqMaxSecondsInLiquidationWindow]
+defaultValue = "30"
+
+[setting.perpsQqqMinimumPositionMargin]
+defaultValue = "25"
+
+[setting.perpsQqqLockedOiRatio]
+defaultValue = "0.5"
+
+[setting.perpsQqqSynthMaxCollateralAmount]
+defaultValue = "<%= MaxUint256 %>"
+
+[setting.perpsQqqMaxLiquidationPd]
+defaultValue = "0.0005"
+
+[setting.perpsQqqRolloverFee]
+defaultValue = "6337753880"
+
+[setting.perpsQqqEndorsedLiquidator]
+defaultValue = "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"

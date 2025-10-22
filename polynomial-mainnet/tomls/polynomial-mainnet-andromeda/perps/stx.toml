@@ -5,7 +5,7 @@ defaultValue = "0xec7a775f46379b5e943c3526b1c8d54cd49749176b0b98e02dde68d1bd335c
 defaultValue = "5900"
 
 [setting.perpsStxSkewScale]
-defaultValue = "<%= String(4_059_380) %>"
+defaultValue = "<%= String(2_000_000) %>"
 
 [setting.perpsStxMaxFundingVelocity]
 defaultValue = "24"

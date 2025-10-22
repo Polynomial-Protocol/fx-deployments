@@ -5,7 +5,7 @@ defaultValue = "0x4279e31cc369bbcc2faf022b382b080e32a8e689ff20fbc530d2a603eb6cd9
 defaultValue = "2200"
 
 [setting.perpsHypeSkewScale]
-defaultValue = "<%= String(60_000) %>"
+defaultValue = "<%= String(40_000) %>"
 
 [setting.perpsHypeMaxFundingVelocity]
 defaultValue = "24"
@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsHypeMaxMarketSize]
-defaultValue = "<%= String(5_000) %>"
+defaultValue = "<%= String(8_398) %>"
 
 [setting.perpsHypeMaxMarketValue]
-defaultValue = "<%= String(250_000) %>"
+defaultValue = "<%= String(300_000) %>"
 
 [setting.perpsHypeInitialMarginRatio]
 defaultValue = "1.5277777777777772"

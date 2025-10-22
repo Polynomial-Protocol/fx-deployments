@@ -1,0 +1,65 @@
+[setting.pythDiaFeedId]
+defaultValue = "0x57cff3a9a4d4c87b595a2d1bd1bac0240400a84677366d632ab838bbbe56f763"
+
+[setting.diaPerpsMarketId]
+defaultValue = "8600"
+
+[setting.perpsDiaSkewScale]
+defaultValue = "<%= String(240_000) %>"
+
+[setting.perpsDiaMaxFundingVelocity]
+defaultValue = "0"
+
+[setting.perpsDiaLimitOrderMakerFeeRatio]
+defaultValue = "0.0001"
+
+[setting.perpsDiaLimitOrderTakerFeeRatio]
+defaultValue = "0.0002"
+
+[setting.perpsDiaMakerFeeRatio]
+defaultValue = "0.0004"
+
+[setting.perpsDiaTakerFeeRatio]
+defaultValue = "0.0006"
+
+[setting.perpsDiaMaxMarketSize]
+defaultValue = "<%= String(2_250) %>"
+
+[setting.perpsDiaMaxMarketValue]
+defaultValue = "<%= String(1_000_000) %>"
+
+[setting.perpsDiaInitialMarginRatio]
+defaultValue = "0.07"
+
+[setting.perpsDiaMinimumInitialMarginRatio]
+defaultValue = "0.01"
+
+[setting.perpsDiaMaintenanceMarginScalar]
+defaultValue = "0.18"
+
+[setting.perpsDiaFlagRewardRatioD18]
+defaultValue = "0.0003"
+
+[setting.perpsDiaMaxLiquidationLimitAccumulationMultiplier]
+defaultValue = "1.5"
+
+[setting.perpsDiaMaxSecondsInLiquidationWindow]
+defaultValue = "30"
+
+[setting.perpsDiaMinimumPositionMargin]
+defaultValue = "25"
+
+[setting.perpsDiaLockedOiRatio]
+defaultValue = "0.5"
+
+[setting.perpsDiaSynthMaxCollateralAmount]
+defaultValue = "<%= MaxUint256 %>"
+
+[setting.perpsDiaMaxLiquidationPd]
+defaultValue = "0.0005"
+
+[setting.perpsDiaRolloverFee]
+defaultValue = "6337753880"
+
+[setting.perpsDiaEndorsedLiquidator]
+defaultValue = "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"

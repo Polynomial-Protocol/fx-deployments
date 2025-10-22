@@ -5,7 +5,7 @@ defaultValue = "0xc4aa2587b3d35cd526b8e7827f78399d16c7861f719331869c07e5fa499606
 defaultValue = "7500"
 
 [setting.perpsAvntSkewScale]
-defaultValue = "<%= String(6_500_000) %>"
+defaultValue = "<%= String(3_000_000) %>"
 
 [setting.perpsAvntMaxFundingVelocity]
 defaultValue = "26"
@@ -23,10 +23,10 @@ defaultValue = "0.0004"
 defaultValue = "0.0006"
 
 [setting.perpsAvntMaxMarketSize]
-defaultValue = "<%= String(317_796) %>"
+defaultValue = "<%= String(172_413) %>"
 
 [setting.perpsAvntMaxMarketValue]
-defaultValue = "<%= String(375_000) %>"
+defaultValue = "<%= String(100_000) %>"
 
 [setting.perpsAvntInitialMarginRatio]
 defaultValue = "0.43"

@@ -5,7 +5,7 @@ defaultValue = "0x03d73649ee5ff534163a584a865128c641ce1effedd330fa6bbe4c9581b051
 defaultValue = "4600"
 
 [setting.perpsSolvSkewScale]
-defaultValue = "<%= String(92_000_430) %>"
+defaultValue = "<%= String(45_000_000) %>"
 
 [setting.perpsSolvMaxFundingVelocity]
 defaultValue = "20"

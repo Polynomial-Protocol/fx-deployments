@@ -5,7 +5,7 @@ defaultValue = "0x7677dd124dee46cfcd46ff03cf405fb0ed94b1f49efbea3444aadbda939a7a
 defaultValue = "7200"
 
 [setting.perpsArkmSkewScale]
-defaultValue = "<%= String(959_770) %>"
+defaultValue = "<%= String(600_000) %>"
 
 [setting.perpsArkmMaxFundingVelocity]
 defaultValue = "24"
@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsArkmMaxMarketSize]
-defaultValue = "<%= String(126_800) %>"
+defaultValue = "<%= String(222_494) %>"
 
 [setting.perpsArkmMaxMarketValue]
-defaultValue = "<%= String(64_908) %>"
+defaultValue = "<%= String(80_000) %>"
 
 [setting.perpsArkmInitialMarginRatio]
 defaultValue = "0.02424559725434889"

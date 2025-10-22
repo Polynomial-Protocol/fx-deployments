@@ -5,7 +5,7 @@ defaultValue = "0x3728e591097635310e6341af53db8b7ee42da9b3a8d918f9463ce9cca886df
 defaultValue = "4000"
 
 [setting.perpsHbarSkewScale]
-defaultValue = "<%= String(90_000_000) %>"
+defaultValue = "<%= String(50_000_000) %>"
 
 [setting.perpsHbarMaxFundingVelocity]
 defaultValue = "24"
@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsHbarMaxMarketSize]
-defaultValue = "<%= String(304_065) %>"
+defaultValue = "<%= String(404_065) %>"
 
 [setting.perpsHbarMaxMarketValue]
-defaultValue = "<%= String(71_617) %>"
+defaultValue = "<%= String(80_000) %>"
 
 [setting.perpsHbarInitialMarginRatio]
 defaultValue = "0.9552005471050908"

@@ -5,7 +5,7 @@ defaultValue = "0x3bd860bea28bf982fa06bcf358118064bb114086cc03993bd76197eaab0b80
 defaultValue = "6900"
 
 [setting.perpsZroSkewScale]
-defaultValue = "<%= String(3_465_967) %>"
+defaultValue = "<%= String(1_600_000) %>"
 
 [setting.perpsZroMaxFundingVelocity]
 defaultValue = "24"
@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsZroMaxMarketSize]
-defaultValue = "<%= String(35689) %>"
+defaultValue = "<%= String(40_000) %>"
 
 [setting.perpsZroMaxMarketValue]
-defaultValue = "<%= String(70308) %>"
+defaultValue = "<%= String(80_000) %>"
 
 [setting.perpsZroInitialMarginRatio]
 defaultValue = "0.35030787353471715"

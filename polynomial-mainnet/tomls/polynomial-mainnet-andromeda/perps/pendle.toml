@@ -5,7 +5,7 @@ defaultValue = "0x9a4df90b25497f66b1afb012467e316e801ca3d839456db028892fe8c70c80
 defaultValue = "5100"
 
 [setting.perpsPendleSkewScale]
-defaultValue = "<%= String(993_821) %>"
+defaultValue = "<%= String(600_000) %>"
 
 [setting.perpsPendleMaxFundingVelocity]
 defaultValue = "24"
@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsPendleMaxMarketSize]
-defaultValue = "<%= String(16_544) %>"
+defaultValue = "<%= String(18_750) %>"
 
 [setting.perpsPendleMaxMarketValue]
-defaultValue = "<%= String(87_021) %>"
+defaultValue = "<%= String(80_000) %>"
 
 [setting.perpsPendleInitialMarginRatio]
 defaultValue = "0.23596492445816847"

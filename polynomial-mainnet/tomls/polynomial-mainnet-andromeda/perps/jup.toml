@@ -5,7 +5,7 @@ defaultValue = "0x0a0408d619e9380abad35060f9192039ed5042fa6f82301d0e48bb52be8309
 defaultValue = "3200"
 
 [setting.perpsJupSkewScale]
-defaultValue = "<%= String(7_603_340) %>"
+defaultValue = "<%= String(4_000_000) %>"
 
 [setting.perpsJupMaxFundingVelocity]
 defaultValue = "20"
@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsJupMaxMarketSize]
-defaultValue = "<%= String(140_945) %>"
+defaultValue = "<%= String(170_352) %>"
 
 [setting.perpsJupMaxMarketValue]
-defaultValue = "<%= String(69_038) %>"
+defaultValue = "<%= String(80_000) %>"
 
 [setting.perpsJupInitialMarginRatio]
 defaultValue = "2.0641494610555444"

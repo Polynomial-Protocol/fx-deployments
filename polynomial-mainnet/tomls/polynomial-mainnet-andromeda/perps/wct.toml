@@ -5,7 +5,7 @@ defaultValue = "0x10948bcc05eb7ca7f9254f5ac8f2b7171edfc3868b4fd6f0b330255f26d589
 defaultValue = "5000"
 
 [setting.perpsWctSkewScale]
-defaultValue = "<%= String(10_903_043) %>"
+defaultValue = "<%= String(4_000_000) %>"
 
 [setting.perpsWctMaxFundingVelocity]
 defaultValue = "24"
@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsWctMaxMarketSize]
-defaultValue = "<%= String(222_188) %>"
+defaultValue = "<%= String(475_567) %>"
 
 [setting.perpsWctMaxMarketValue]
-defaultValue = "<%= String(67_861) %>"
+defaultValue = "<%= String(80_000) %>"
 
 [setting.perpsWctInitialMarginRatio]
 defaultValue = "0.33130411671353793"
