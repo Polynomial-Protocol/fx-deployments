@@ -5,7 +5,8 @@ defaultValue = "0x765d2ba906dbc32ca17cc11f5310a89e9ee1f6420508c63861f2f8ba4ee34b
 defaultValue = "8000"
 
 [setting.perpsXauSkewScale]
-defaultValue = "<%= String(2_116.68) %>"
+defaultValue = "<%= String(28_000) %>"
+# defaultValue = "<%= String(64_102.5641) %>"
 
 [setting.perpsXauMaxFundingVelocity]
 defaultValue = "0"
@@ -23,10 +24,10 @@ defaultValue = "0.0004"
 defaultValue = "0.0006"
 
 [setting.perpsXauMaxMarketSize]
-defaultValue = "<%= String(240) %>"
+defaultValue = "<%= String(400) %>"
 
 [setting.perpsXauMaxMarketValue]
-defaultValue = "<%= String(1_000_000) %>"
+defaultValue = "<%= String(1_200_000) %>"
 
 [setting.perpsXauInitialMarginRatio]
 defaultValue = "0.1"
@@ -59,7 +60,7 @@ defaultValue = "<%= MaxUint256 %>"
 defaultValue = "0.0005"
 
 [setting.perpsXauRolloverFee]
-defaultValue = "6337753880"
+defaultValue = "3170979199"
 
 [setting.perpsXauEndorsedLiquidator]
 defaultValue = "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"

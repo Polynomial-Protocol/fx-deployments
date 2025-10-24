@@ -5,7 +5,7 @@ defaultValue = "0x9695e2b96ea7b3859da9ed25b7a46a920a776e2fdae19a7bcfdf2b21923045
 defaultValue = "8700"
 
 [setting.perpsQqqSkewScale]
-defaultValue = "<%= String(195_000) %>"
+defaultValue = "<%= String(409_836.0656) %>"
 
 [setting.perpsQqqMaxFundingVelocity]
 defaultValue = "0"
@@ -59,7 +59,7 @@ defaultValue = "<%= MaxUint256 %>"
 defaultValue = "0.0005"
 
 [setting.perpsQqqRolloverFee]
-defaultValue = "6337753880"
+defaultValue = "1585489600"
 
 [setting.perpsQqqEndorsedLiquidator]
 defaultValue = "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"

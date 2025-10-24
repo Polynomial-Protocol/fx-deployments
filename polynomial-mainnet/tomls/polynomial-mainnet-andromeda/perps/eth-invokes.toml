@@ -207,3 +207,19 @@ depends = [
 
 [invoke.setperpsEthLimitOrderFees.fromCall]
 func = "owner"
+
+[invoke.setperpsEthRolloverFee]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setRolloverFee"
+args = [
+    "<%= settings.ethPerpsMarketId %>",
+    "<%= settings.perpsEthRolloverFee %>",
+]
+depends = [
+    "invoke.createEthPerpsMarket",
+]
+
+[invoke.setperpsEthRolloverFee.fromCall]
+func = "owner"

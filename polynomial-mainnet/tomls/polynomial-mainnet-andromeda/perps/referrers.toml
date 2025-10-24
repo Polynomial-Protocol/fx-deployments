@@ -40,7 +40,7 @@ fromCall.func = "owner"
 func = "updateReferrerShare"
 args = [
     "0x66E1C0734A6e1351F7401219E4Ec9CF6a91a50cd",
-    "<%= settings.referrerFee %>",
+    "<%= settings.limitOrderRelayerShare %>",
 ]
 depends = ["provision.perpsFactory"]
 
@@ -158,6 +158,14 @@ fromCall.func = "owner"
 func = "whitelistOffchainLimitOrderSettler"
 args = [
     "0x4D387f5c0Ec87e47b9Df9b8C97B89D2977431b27",
+]
+
+[invoke.whitelistPolynomial]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "whitelistOffchainLimitOrderSettler"
+args = [
+    "0x66E1C0734A6e1351F7401219E4Ec9CF6a91a50cd",
 ]
 
 [invoke.whitelistAetherRelayer1]

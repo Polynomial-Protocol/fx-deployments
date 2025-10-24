@@ -205,3 +205,19 @@ depends = [
 
 [invoke.setperpsBtcLimitOrderFees.fromCall]
 func = "owner"
+
+[invoke.setperpsBtcRolloverFee]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setRolloverFee"
+args = [
+    "<%= settings.btcPerpsMarketId %>",
+    "<%= settings.perpsBtcRolloverFee %>",
+]
+depends = [
+    "invoke.createBtcPerpsMarket",
+]
+
+[invoke.setperpsBtcRolloverFee.fromCall]
+func = "owner"

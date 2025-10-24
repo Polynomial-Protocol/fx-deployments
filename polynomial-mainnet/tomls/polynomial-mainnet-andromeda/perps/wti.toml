@@ -5,7 +5,7 @@ defaultValue = "0x925ca92ff005ae943c158e3563f59698ce7e75c5a8c8dd43303a0a154887b3
 defaultValue = "8400"
 
 [setting.perpsWtiSkewScale]
-defaultValue = "<%= String(1_500_000) %>"
+defaultValue = "<%= String(1_612_903.226) %>"
 
 [setting.perpsWtiMaxFundingVelocity]
 defaultValue = "0"
@@ -59,7 +59,7 @@ defaultValue = "<%= MaxUint256 %>"
 defaultValue = "0.0005"
 
 [setting.perpsWtiRolloverFee]
-defaultValue = "6337753880"
+defaultValue = "3170979199"
 
 [setting.perpsWtiEndorsedLiquidator]
 defaultValue = "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"

@@ -5,7 +5,7 @@ defaultValue = "0xf2fb02c32b055c805e7238d628e5e9dadef274376114eb1f012337cabe9387
 defaultValue = "8300"
 
 [setting.perpsXagSkewScale]
-defaultValue = "<%= String(1_850_000) %>"
+defaultValue = "<%= String(1_515_151.515) %>"
 
 [setting.perpsXagMaxFundingVelocity]
 defaultValue = "0"
@@ -59,7 +59,7 @@ defaultValue = "<%= MaxUint256 %>"
 defaultValue = "0.0005"
 
 [setting.perpsXagRolloverFee]
-defaultValue = "6337753880"
+defaultValue = "3170979199"
 
 [setting.perpsXagEndorsedLiquidator]
 defaultValue = "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"

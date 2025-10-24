@@ -5,7 +5,7 @@ defaultValue = "0x57cff3a9a4d4c87b595a2d1bd1bac0240400a84677366d632ab838bbbe56f7
 defaultValue = "8600"
 
 [setting.perpsDiaSkewScale]
-defaultValue = "<%= String(240_000) %>"
+defaultValue = "<%= String(531_914.8936) %>"
 
 [setting.perpsDiaMaxFundingVelocity]
 defaultValue = "0"
@@ -59,7 +59,7 @@ defaultValue = "<%= MaxUint256 %>"
 defaultValue = "0.0005"
 
 [setting.perpsDiaRolloverFee]
-defaultValue = "6337753880"
+defaultValue = "1585489600"
 
 [setting.perpsDiaEndorsedLiquidator]
 defaultValue = "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"
