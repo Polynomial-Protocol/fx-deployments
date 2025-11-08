@@ -33,10 +33,10 @@ defaultValue = "<%= String(1_200_000) %>"
 defaultValue = "0.1"
 
 [setting.perpsXauMinimumInitialMarginRatio]
-defaultValue = "0.05"
+defaultValue = "0.01"
 
 [setting.perpsXauMaintenanceMarginScalar]
-defaultValue = "0.27"
+defaultValue = "0.18"
 
 [setting.perpsXauFlagRewardRatioD18]
 defaultValue = "0.0003"

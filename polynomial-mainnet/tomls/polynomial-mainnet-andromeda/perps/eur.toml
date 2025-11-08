@@ -33,7 +33,7 @@ defaultValue = "<%= String(1_500_000) %>"
 defaultValue = "0.133"
 
 [setting.perpsEurMinimumInitialMarginRatio]
-defaultValue = "0.05"
+defaultValue = "0.005"
 
 [setting.perpsEurMaintenanceMarginScalar]
 defaultValue = "0.28"

@@ -5,7 +5,8 @@ defaultValue = "0xa995d00bb36a63cef7fd2c287dc105fc8f3d93779f062f09551b0af3e81ec3
 defaultValue = "8100"
 
 [setting.perpsEurSkewScale]
-defaultValue = "<%= String(6_053_256) %>"
+defaultValue = "<%= String(118_000_000) %>"
+# defaultValue = "<%= String(416_666_666.7) %>"
 
 [setting.perpsEurMaxFundingVelocity]
 defaultValue = "0"
@@ -23,16 +24,16 @@ defaultValue = "0.0004"
 defaultValue = "0.0006"
 
 [setting.perpsEurMaxMarketSize]
-defaultValue = "<%= String(97_634) %>"
+defaultValue = "<%= String(1_500_000) %>"
 
 [setting.perpsEurMaxMarketValue]
-defaultValue = "<%= String(85_000) %>"
+defaultValue = "<%= String(1_500_000) %>"
 
 [setting.perpsEurInitialMarginRatio]
 defaultValue = "0.133"
 
 [setting.perpsEurMinimumInitialMarginRatio]
-defaultValue = "0.05"
+defaultValue = "0.005"
 
 [setting.perpsEurMaintenanceMarginScalar]
 defaultValue = "0.28"
@@ -59,7 +60,7 @@ defaultValue = "<%= MaxUint256 %>"
 defaultValue = "0.0005"
 
 [setting.perpsEurRolloverFee]
-defaultValue = "6337753880"
+defaultValue = "1585489600"
 
 [setting.perpsEurEndorsedLiquidator]
 defaultValue = "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"

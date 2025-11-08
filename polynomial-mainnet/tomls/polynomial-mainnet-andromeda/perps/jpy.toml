@@ -35,7 +35,7 @@ defaultValue = "0.02"
 defaultValue = "0.005"
 
 [setting.perpsJpyMaintenanceMarginScalar]
-defaultValue = "0.18"
+defaultValue = "0.26"
 
 [setting.perpsJpyFlagRewardRatioD18]
 defaultValue = "0.0003"

@@ -5,7 +5,7 @@ defaultValue = "0xef2c98c804ba503c6a707e38be4dfbb16683775f195b091252bf24693042fd
 defaultValue = "8200"
 
 [setting.perpsJpySkewScale]
-defaultValue = "<%= String(650_000) %>"
+defaultValue = "<%= String(3_125_000) %>"
 
 [setting.perpsJpyMaxFundingVelocity]
 defaultValue = "0"
@@ -35,7 +35,7 @@ defaultValue = "0.02"
 defaultValue = "0.005"
 
 [setting.perpsJpyMaintenanceMarginScalar]
-defaultValue = "0.18"
+defaultValue = "0.26"
 
 [setting.perpsJpyFlagRewardRatioD18]
 defaultValue = "0.0003"
@@ -59,7 +59,7 @@ defaultValue = "<%= MaxUint256 %>"
 defaultValue = "0.0005"
 
 [setting.perpsJpyRolloverFee]
-defaultValue = "6337753880"
+defaultValue = "1585489600"
 
 [setting.perpsJpyEndorsedLiquidator]
 defaultValue = "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"
