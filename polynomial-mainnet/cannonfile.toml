@@ -1,5 +1,5 @@
 name = "polynomial-mainnet"
-version = "1.0.44"
+version = "1.0.47"
 description = "Andromeda dev deployment"
 preset = "main"
 include = [
@@ -327,6 +327,9 @@ include = [
     "tomls/polynomial-mainnet-andromeda/perps/wti-invokes.toml",
     "tomls/oracles/pyth-wti.toml",
     "tomls/polynomial-mainnet-andromeda/perps/wti.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/mon-invokes.toml",
+    "tomls/oracles/pyth-mon.toml",
+    "tomls/polynomial-mainnet-andromeda/perps/mon.toml",
 ]
 
 [setting.commitmentPriceDelay]

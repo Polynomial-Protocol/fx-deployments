@@ -1,3 +1,6 @@
+[setting.endorsedPerpsConfigUpdater]
+defaultValue = "0x55F2701a08C23b493cc2BFb21382d81d454cd689"
+
 [invoke.allowAllPerpsSystem]
 target = ["perpsFactory.PerpsMarketProxy"]
 fromCall.func = "owner"
@@ -10,3 +13,10 @@ target = ["perpsFactory.PerpsMarketProxy"]
 fromCall.func = "owner"
 func = "setFeatureFlagAllowAll"
 args = ["<%= formatBytes32String('limitOrder') %>", true]
+
+[invoke.allowPerpsConfig]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "addToFeatureFlagAllowlist"
+args = ["<%= formatBytes32String('perpsConfiguration') %>", "<%= settings.endorsedPerpsConfigUpdater %>"]
+depends = ["provision.perpsFactory", "setting.endorsedPerpsConfigUpdater"]
