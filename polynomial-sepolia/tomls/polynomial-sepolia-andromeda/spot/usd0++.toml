@@ -1,8 +1,11 @@
+[setting.usd0_staleness_oracle_id]
+defaultValue = "0x58da30025f28b6ea7c6749245437057d58e70a846f0f7d007ac8b89f323188d7"
+
 [setting.fxUsd0MaxMarketCollateral]
-defaultValue = "<%= parseEther(String(2500)) %>"
+defaultValue = "<%= parseEther(String(10_000_000)) %>"
 
 [setting.fxUsd0SkewScale]
-defaultValue = "<%= parseEther(String(350_000)) %>"
+defaultValue = "<%= parseEther(String(0)) %>"
 
 [setting.spotStrictStalenessTolerance]
 defaultValue = "300"
@@ -33,8 +36,8 @@ fromCall.args = ["<%= extras.fx_usd0_market_id %>"]
 func = "updatePriceData"
 args = [
     "<%= extras.fx_usd0_market_id %>",
-    "<%= extras.usd0_staleness_oracle_id %>",
-    "<%= extras.usd0_staleness_oracle_id %>",
+    "<%= settings.usd0_staleness_oracle_id %>",
+    "<%= settings.usd0_staleness_oracle_id %>",
     "<%= settings.spotStrictStalenessTolerance %>",
 ]
 
@@ -96,7 +99,7 @@ target = ["spotFactory.SpotMarketProxy"]
 fromCall.func = "getMarketOwner"
 fromCall.args = ["<%= extras.fx_usd0_market_id %>"]
 func = "setAtomicFixedFee"
-args = ["<%= extras.fx_usd0_market_id %>", "<%= parseEther(String(0.02)) %>"]
+args = ["<%= extras.fx_usd0_market_id %>", "<%= parseEther(String(0.001)) %>"]
 
 [invoke.configure_fxusd0_collateral]
 target = ["system.CoreProxy"]
@@ -105,10 +108,9 @@ func = "configureCollateral"  # "args" see below in the multiline block
 
 [[invoke.configure_fxusd0_collateral.args]]
 tokenAddress = "<%= extras.fx_usd0_token_address %>"
-oracleNodeId = "<%= extras.usd0_staleness_oracle_id %>"
+oracleNodeId = "<%= settings.usd0_staleness_oracle_id %>"
 issuanceRatioD18 = "<%= MaxUint256 %>"
-liquidationRatioD18 = "<%= parseEther('1.2') %>"
-liquidationRewardD18 = "<%= parseEther('1') %>"
+liquidationRatioD18 = "<%= parseEther('1.1') %>"
+liquidationRewardD18 = "<%= parseEther('0.0001') %>"
 minDelegationD18 = "<%= parseEther('100') %>"
 depositingEnabled = true
-
