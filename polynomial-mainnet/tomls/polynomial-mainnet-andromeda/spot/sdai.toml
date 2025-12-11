@@ -1,6 +1,3 @@
-[setting.sdai_staleness_oracle_id]
-defaultValue = "0x4eb36cd95cbc462aa9cf4e582be531334c04d35881dc3d167ebd34e1a14009a0"
-
 [setting.fxSdaiMaxMarketCollateral]
 defaultValue = "<%= parseEther(String(10_000_000)) %>"
 
@@ -36,8 +33,8 @@ fromCall.args = ["<%= extras.fx_sdai_market_id %>"]
 func = "updatePriceData"
 args = [
     "<%= extras.fx_sdai_market_id %>",
-    "<%= settings.sdai_staleness_oracle_id %>",
-    "<%= settings.sdai_staleness_oracle_id %>",
+    "<%= extras.sdai_staleness_oracle_id %>",
+    "<%= extras.sdai_staleness_oracle_id %>",
     "<%= settings.spotStrictStalenessTolerance %>",
 ]
 
@@ -108,7 +105,7 @@ func = "configureCollateral"  # "args" see below in the multiline block
 
 [[invoke.configure_fxsdai_collateral.args]]
 tokenAddress = "<%= extras.fx_sdai_token_address %>"
-oracleNodeId = "<%= settings.sdai_staleness_oracle_id %>"
+oracleNodeId = "<%= extras.sdai_staleness_oracle_id %>"
 issuanceRatioD18 = "<%= MaxUint256 %>"
 liquidationRatioD18 = "<%= parseEther('1.1') %>"
 liquidationRewardD18 = "<%= parseEther('0.0001') %>"
