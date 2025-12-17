@@ -62,7 +62,7 @@ defaultValue = "<%= MaxUint256 %>"
 defaultValue = "0.0005"
 
 [setting.perpsBtcRolloverFee]
-defaultValue = "1585489600"
+defaultValue = "0"
 
 [setting.perpsBtcEndorsedLiquidator]
 defaultValue = "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"

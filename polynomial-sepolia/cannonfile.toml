@@ -27,6 +27,9 @@ include = [
     "tomls/polynomial-sepolia-andromeda/spot/usdt.toml",
     "tomls/polynomial-sepolia-andromeda/spot/usds.toml",
     "tomls/polynomial-sepolia-andromeda/spot/rseth.toml",
+    "tomls/polynomial-sepolia-andromeda/spot/sdai.toml",
+    "tomls/polynomial-sepolia-andromeda/spot/susde.toml",
+    "tomls/polynomial-sepolia-andromeda/spot/usd0++.toml",
     "tomls/polynomial-sepolia-andromeda/collaterals/susdc.toml",
     "tomls/collaterals/susdc.toml",
     "tomls/polynomial-sepolia-andromeda/collaterals/sdai.toml",
@@ -378,7 +381,7 @@ defaultValue = "0x2b02AAd6f1694E7D9c934B7b3Ec444541286cF0f"
 defaultValue = "<%= parseEther('1.25') %>"
 
 [setting.account_timeout_withdraw]
-defaultValue = "86400"
+defaultValue = "3600"
 
 [setting.main_pool_id]
 defaultValue = "1"

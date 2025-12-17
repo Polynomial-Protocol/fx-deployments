@@ -1,0 +1,114 @@
+[setting.fxSdaiMaxMarketCollateral]
+defaultValue = "<%= parseEther(String(10_000_000)) %>"
+
+[setting.fxSdaiSkewScale]
+defaultValue = "<%= parseEther(String(0)) %>"
+
+[setting.spotStrictStalenessTolerance]
+defaultValue = "300"
+
+[setting.pyth_feed_id_sdai]
+defaultValue = "0x710659c5a68e2416ce4264ca8d50d34acc20041d91289110eea152c52ff3dc39"
+
+[setting.pyth_feed_url_sdai]
+defaultValue = "https://hermes.pyth.network/v2/updates/price/latest?ids[]=<%= settings.pyth_feed_id_sdai %>"
+
+[setting.sdai_address]
+defaultValue = "0x7f4F2599408b1146950Fa177fB482E9D91e0952f"
+
+[invoke.createSdaiSynth]
+target = ["spotFactory.SpotMarketProxy"]
+fromCall.func = "owner"
+func = "createSynth"
+args = ["Polynomial sDAI", "fxSDAI", "<%= settings.owner %>"]
+extra.fx_sdai_market_id.event = "SynthRegistered"
+extra.fx_sdai_market_id.arg = 0
+extra.fx_sdai_token_address.event = "SynthRegistered"
+extra.fx_sdai_token_address.arg = 1
+
+[invoke.setSynthPriceSdai]
+target = ["spotFactory.SpotMarketProxy"]
+fromCall.func = "getMarketOwner"
+fromCall.args = ["<%= extras.fx_sdai_market_id %>"]
+func = "updatePriceData"
+args = [
+    "<%= extras.fx_sdai_market_id %>",
+    "<%= extras.sdai_staleness_oracle_id %>",
+    "<%= extras.sdai_staleness_oracle_id %>",
+    "<%= settings.spotStrictStalenessTolerance %>",
+]
+
+[invoke.setSynthMaxMarketCollateralSdai]
+target = ["system.CoreProxy"]
+fromCall.func = "owner"
+fromCall.args = []
+func = "configureMaximumMarketCollateral"
+args = [
+    "<%= extras.fx_sdai_market_id %>",
+    "<%= settings.sdai_address %>",
+    "<%= settings.fxSdaiMaxMarketCollateral %>",
+]
+
+[invoke.setSkewScaleSdai]
+target = ["spotFactory.SpotMarketProxy"]
+fromCall.func = "getMarketOwner"
+fromCall.args = ["<%= extras.fx_sdai_market_id %>"]
+func = "setMarketSkewScale"
+args = ["<%= extras.fx_sdai_market_id %>", "<%= settings.fxSdaiSkewScale %>"]
+
+[invoke.configureSynthWrapperSdai]
+target = ["spotFactory.SpotMarketProxy"]
+fromCall.func = "getMarketOwner"
+fromCall.args = ["<%= extras.fx_sdai_market_id %>"]
+func = "setWrapper"
+args = [
+    "<%= extras.fx_sdai_market_id %>",
+    "<%= settings.sdai_address %>",
+    "<%= settings.fxSdaiMaxMarketCollateral %>",
+]
+
+# NOTE set disabled = true to addSettlementStrategy call before initial mainnet deployment
+[invoke.SpotMarketProxy_addSettlementStrategy_sdai]
+target = ["spotFactory.SpotMarketProxy"]
+fromCall.func = "getMarketOwner"
+fromCall.args = ["<%= extras.fx_sdai_market_id %>"]
+func = "addSettlementStrategy"
+args = [
+    "<%= extras.fx_sdai_market_id %>",
+    { strategyType = "1", settlementDelay = "0", settlementWindowDuration = "1", priceVerificationContract = "0x0000000000000000000000000000000000000000", feedId = "0x0000000000000000000000000000000000000000000000000000000000000000", url = "", settlementReward = 0, minimumUsdExchangeAmount = "0", maxRoundingLoss = "1", priceDeviationTolerance = "0", disabled = false },
+]
+extra.fx_sdai_settlement_strategy_id.event = "SettlementStrategyAdded"
+extra.fx_sdai_settlement_strategy_id.arg = 1
+
+[invoke.SpotMarketProxy_setSettlementStrategy_fxSDAI]
+target = ["spotFactory.SpotMarketProxy"]
+fromCall.func = "getMarketOwner"
+fromCall.args = ["<%= extras.fx_sdai_market_id %>"]
+func = "setSettlementStrategy"
+args = [
+    "<%= extras.fx_sdai_market_id %>",
+    "<%= extras.fx_sdai_settlement_strategy_id %>",
+    { strategyType = "1", settlementDelay = "<%= settings.big_cap_settlement_delay %>", settlementWindowDuration = "<%= settings.big_cap_settlement_window_duration %>", priceVerificationContract = "<%= imports.pyth_erc7412_wrapper.contracts.PythERC7412Wrapper.address %>", feedId = "<%= settings.pyth_feed_id_sdai %>", url = "<%= settings.pyth_feed_url_sdai %>", settlementReward = "<%= settings.settlement_reward %>", minimumUsdExchangeAmount = "<%= settings.settlement_minimum_usd_exchange_amount %>", maxRoundingLoss = "<%= settings.settlement_max_rounding_loss %>", priceDeviationTolerance = "<%= settings.price_deviation_tolerance %>", disabled = true },
+]
+
+[invoke.SpotMarketProxy_setAtomicFixedFee_fxSDAI]
+target = ["spotFactory.SpotMarketProxy"]
+fromCall.func = "getMarketOwner"
+fromCall.args = ["<%= extras.fx_sdai_market_id %>"]
+func = "setAtomicFixedFee"
+args = ["<%= extras.fx_sdai_market_id %>", "<%= parseEther(String(0.001)) %>"]
+
+[invoke.configure_fxsdai_collateral]
+target = ["system.CoreProxy"]
+fromCall.func = "owner"
+func = "configureCollateral"  # "args" see below in the multiline block
+
+[[invoke.configure_fxsdai_collateral.args]]
+tokenAddress = "<%= extras.fx_sdai_token_address %>"
+oracleNodeId = "<%= extras.sdai_staleness_oracle_id %>"
+issuanceRatioD18 = "<%= MaxUint256 %>"
+liquidationRatioD18 = "<%= parseEther('1.1') %>"
+liquidationRewardD18 = "<%= parseEther('0.0001') %>"
+minDelegationD18 = "<%= parseEther('100') %>"
+depositingEnabled = true
+
