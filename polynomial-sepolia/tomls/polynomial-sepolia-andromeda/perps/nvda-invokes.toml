@@ -1,0 +1,192 @@
+[setting.nvdaPerpsMarketId]
+
+[setting.perpsNvdaSkewScale]
+
+[setting.perpsNvdaMaxFundingVelocity]
+
+[setting.perpsNvdaMakerFeeRatio]
+
+[setting.perpsNvdaTakerFeeRatio]
+
+[setting.perpsNvdaMaxMarketSize]
+
+[setting.perpsNvdaInitialMarginRatio]
+
+[setting.perpsNvdaMaintenanceMarginFraction]
+
+[setting.perpsNvdaFlagRewardRatioD18]
+
+[setting.perpsNvdaMaxLiquidationLimitAccumulationMultiplier]
+
+[setting.perpsNvdaMaxSecondsInLiquidationWindow]
+
+[setting.perpsNvdaMaxLiquidationPd]
+
+[setting.perpsNvdaEndorsedLiquidator]
+
+[setting.perpsNvdaMinimumPositionMargin]
+
+[setting.perpsNvdaLockedOiRatio]
+
+[invoke.createNvdaPerpsMarket]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "createMarket"
+args = ["<%= settings.nvdaPerpsMarketId %>", "NVIDIA Corporation", "NVDA"]
+depends = ["provision.system", "provision.perpsFactory"]
+
+[invoke.setPerpsPriceNvda]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "updatePriceData"
+args = [
+    "<%= settings.nvdaPerpsMarketId %>",
+    "<%= extras.nvda_oracle_id %>",
+    "<%= settings.bigCapStrictStalenessTolerance %>",
+]
+depends = ["invoke.createNvdaPerpsMarket"]
+
+# Do not modify this step. Edit [invoke.setPerpsNvdaSettlementStrategy] instead.
+[invoke.addPerpsNvdaSettlementStrategy]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "addSettlementStrategy"
+args = [
+    "<%= settings.nvdaPerpsMarketId %>",
+    { strategyType = "0", settlementDelay = "0", settlementWindowDuration = "1", priceVerificationContract = "0x0000000000000000000000000000000000000000", feedId = "0x0000000000000000000000000000000000000000000000000000000000000000", settlementReward = "0", disabled = false, commitmentPriceDelay = "0" },
+]
+extra.nvda_pyth_settlement_strategy.event = "SettlementStrategyAdded"
+extra.nvda_pyth_settlement_strategy.arg = 2
+depends = ["invoke.createNvdaPerpsMarket"]
+
+[invoke.setPerpsNvdaSettlementStrategy]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setSettlementStrategy"
+args = [
+    "<%= settings.nvdaPerpsMarketId %>",
+    "<%= extras.nvda_pyth_settlement_strategy %>",                                                                                                                                                                                                                                                                                                                                                                                  # Settlement Strategy ID
+    { strategyType = "0", settlementDelay = "<%= settings.bigCapSettlementDelay %>", settlementWindowDuration = "<%= settings.bigCapSettlementWindowDuration %>", priceVerificationContract = "<%= imports.pyth_erc7412_wrapper.contracts.PythERC7412Wrapper.address %>", feedId = "<%= settings.pythNvdaFeedId %>", settlementReward = "<%= parseEther(settings.settlementReward) %>", disabled = false, commitmentPriceDelay = "2" },
+]
+depends = [
+    'provision.perpsFactory',
+    'setting.nvdaPerpsMarketId',
+    'invoke.addPerpsNvdaSettlementStrategy',
+    'provision.pyth_erc7412_wrapper',
+    'setting.bigCapSettlementDelay',
+    'setting.bigCapSettlementWindowDuration',
+    'setting.pythNvdaFeedId',
+    'setting.settlementReward',
+]
+
+[invoke.setPerpsNvdaFundingParameters]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setFundingParameters"
+args = [
+    "<%= settings.nvdaPerpsMarketId %>",
+    "<%= parseEther(settings.perpsNvdaSkewScale) %>",
+    "<%= parseEther(settings.perpsNvdaMaxFundingVelocity) %>",
+]
+depends = ["invoke.createNvdaPerpsMarket"]
+
+[invoke.setPerpsNvdaOrderFees]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setOrderFees"
+args = [
+    "<%= settings.nvdaPerpsMarketId %>",
+    "<%= parseEther(settings.perpsNvdaMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsNvdaTakerFeeRatio) %>",
+]
+depends = ["invoke.createNvdaPerpsMarket"]
+
+[invoke.setPerpsNvdaMaxMarketSize]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setMaxMarketSize"
+args = [
+    "<%= settings.nvdaPerpsMarketId %>",
+    "<%= parseEther(settings.perpsNvdaMaxMarketSize) %>",
+]
+depends = ["invoke.createNvdaPerpsMarket"]
+
+[invoke.setPerpsNvdaMaxMarketValue]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setMaxMarketValue"
+args = [
+    "<%= settings.nvdaPerpsMarketId %>",
+    "<%= parseEther(settings.perpsNvdaMaxMarketValue) %>",
+]
+depends = ["invoke.createNvdaPerpsMarket"]
+
+[invoke.setPerpsNvdaMaxLiquidationParameters]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setMaxLiquidationParameters"
+args = [
+    "<%= settings.nvdaPerpsMarketId %>",
+    "<%= parseEther(settings.perpsNvdaMaxLiquidationLimitAccumulationMultiplier) %>",
+    "<%= settings.perpsNvdaMaxSecondsInLiquidationWindow %>",
+    "<%= parseEther(settings.perpsNvdaMaxLiquidationPd) %>",
+    "<%= settings.perpsNvdaEndorsedLiquidator %>",
+]
+depends = ["invoke.createNvdaPerpsMarket"]
+
+[invoke.setPerpsNvdaLiquidationParameters]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setLiquidationParameters"
+args = [
+    "<%= settings.nvdaPerpsMarketId %>",
+    "<%= parseEther(settings.perpsNvdaInitialMarginRatio) %>",
+    "<%= parseEther(settings.perpsNvdaMinimumInitialMarginRatio) %>",
+    "<%= parseEther(settings.perpsNvdaMaintenanceMarginScalar) %>",
+    "<%= parseEther(settings.perpsNvdaFlagRewardRatioD18) %>",
+    "<%= parseEther(settings.perpsNvdaMinimumPositionMargin) %>",
+]
+depends = ["invoke.createNvdaPerpsMarket"]
+
+[invoke.setPerpsNvdaLockedOiRatio]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setLockedOiRatio"
+args = [
+    "<%= settings.nvdaPerpsMarketId %>",
+    "<%= parseEther(settings.perpsNvdaLockedOiRatio) %>",
+]
+depends = ["invoke.createNvdaPerpsMarket"]
+
+[invoke.setperpsNvdaLimitOrderFees]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLimitOrderFees"
+args = [
+    "<%= settings.nvdaPerpsMarketId %>",
+    "<%= parseEther(settings.perpsNvdaLimitOrderMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsNvdaLimitOrderTakerFeeRatio) %>",
+]
+depends = [
+    "invoke.createNvdaPerpsMarket",
+]
+
+[invoke.setperpsNvdaLimitOrderFees.fromCall]
+func = "owner"
+
+[invoke.setperpsNvdaRolloverFee]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setRolloverFee"
+args = [
+    "<%= settings.nvdaPerpsMarketId %>",
+    "<%= settings.perpsNvdaRolloverFee %>",
+]
+depends = [
+    "invoke.createNvdaPerpsMarket",
+]
+
+[invoke.setperpsNvdaRolloverFee.fromCall]
+func = "owner"

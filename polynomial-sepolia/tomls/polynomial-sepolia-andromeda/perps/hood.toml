@@ -1,0 +1,65 @@
+[setting.pythHoodFeedId]
+defaultValue = "0x306736a4035846ba15a3496eed57225b64cc19230a50d14f3ed20fd7219b7849"
+
+[setting.hoodPerpsMarketId]
+defaultValue = "9100"
+
+[setting.perpsHoodSkewScale]
+defaultValue = "<%= String(560_000) %>"
+
+[setting.perpsHoodMaxFundingVelocity]
+defaultValue = "0"
+
+[setting.perpsHoodLimitOrderMakerFeeRatio]
+defaultValue = "0.0001"
+
+[setting.perpsHoodLimitOrderTakerFeeRatio]
+defaultValue = "0.0002"
+
+[setting.perpsHoodMakerFeeRatio]
+defaultValue = "0.0004"
+
+[setting.perpsHoodTakerFeeRatio]
+defaultValue = "0.0006"
+
+[setting.perpsHoodMaxMarketSize]
+defaultValue = "<%= String(8_400) %>"
+
+[setting.perpsHoodMaxMarketValue]
+defaultValue = "<%= String(1_000_000) %>"
+
+[setting.perpsHoodInitialMarginRatio]
+defaultValue = "0.02"
+
+[setting.perpsHoodMinimumInitialMarginRatio]
+defaultValue = "0.05"
+
+[setting.perpsHoodMaintenanceMarginScalar]
+defaultValue = "0.28"
+
+[setting.perpsHoodFlagRewardRatioD18]
+defaultValue = "0.0003"
+
+[setting.perpsHoodMaxLiquidationLimitAccumulationMultiplier]
+defaultValue = "1.5"
+
+[setting.perpsHoodMaxSecondsInLiquidationWindow]
+defaultValue = "30"
+
+[setting.perpsHoodMinimumPositionMargin]
+defaultValue = "25"
+
+[setting.perpsHoodLockedOiRatio]
+defaultValue = "0.5"
+
+[setting.perpsHoodSynthMaxCollateralAmount]
+defaultValue = "<%= MaxUint256 %>"
+
+[setting.perpsHoodMaxLiquidationPd]
+defaultValue = "0.0005"
+
+[setting.perpsHoodRolloverFee]
+defaultValue = "3170979199"
+
+[setting.perpsHoodEndorsedLiquidator]
+defaultValue = "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"

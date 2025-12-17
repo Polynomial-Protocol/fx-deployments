@@ -1,0 +1,65 @@
+[setting.pythGoogFeedId]
+defaultValue = "0xe65ff435be42630439c96396653a342829e877e2aafaeaf1a10d0ee5fd2cf3f2"
+
+[setting.googPerpsMarketId]
+defaultValue = "9300"
+
+[setting.perpsGoogSkewScale]
+defaultValue = "<%= String(275_000) %>"
+
+[setting.perpsGoogMaxFundingVelocity]
+defaultValue = "0"
+
+[setting.perpsGoogLimitOrderMakerFeeRatio]
+defaultValue = "0.0001"
+
+[setting.perpsGoogLimitOrderTakerFeeRatio]
+defaultValue = "0.0002"
+
+[setting.perpsGoogMakerFeeRatio]
+defaultValue = "0.0004"
+
+[setting.perpsGoogTakerFeeRatio]
+defaultValue = "0.0006"
+
+[setting.perpsGoogMaxMarketSize]
+defaultValue = "<%= String(3_350) %>"
+
+[setting.perpsGoogMaxMarketValue]
+defaultValue = "<%= String(1_000_000) %>"
+
+[setting.perpsGoogInitialMarginRatio]
+defaultValue = "0.01"
+
+[setting.perpsGoogMinimumInitialMarginRatio]
+defaultValue = "0.03"
+
+[setting.perpsGoogMaintenanceMarginScalar]
+defaultValue = "0.25"
+
+[setting.perpsGoogFlagRewardRatioD18]
+defaultValue = "0.0003"
+
+[setting.perpsGoogMaxLiquidationLimitAccumulationMultiplier]
+defaultValue = "1.5"
+
+[setting.perpsGoogMaxSecondsInLiquidationWindow]
+defaultValue = "30"
+
+[setting.perpsGoogMinimumPositionMargin]
+defaultValue = "25"
+
+[setting.perpsGoogLockedOiRatio]
+defaultValue = "0.5"
+
+[setting.perpsGoogSynthMaxCollateralAmount]
+defaultValue = "<%= MaxUint256 %>"
+
+[setting.perpsGoogMaxLiquidationPd]
+defaultValue = "0.0005"
+
+[setting.perpsGoogRolloverFee]
+defaultValue = "3170979199"
+
+[setting.perpsGoogEndorsedLiquidator]
+defaultValue = "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"

@@ -1,0 +1,192 @@
+[setting.googPerpsMarketId]
+
+[setting.perpsGoogSkewScale]
+
+[setting.perpsGoogMaxFundingVelocity]
+
+[setting.perpsGoogMakerFeeRatio]
+
+[setting.perpsGoogTakerFeeRatio]
+
+[setting.perpsGoogMaxMarketSize]
+
+[setting.perpsGoogInitialMarginRatio]
+
+[setting.perpsGoogMaintenanceMarginScalar]
+
+[setting.perpsGoogFlagRewardRatioD18]
+
+[setting.perpsGoogMaxLiquidationLimitAccumulationMultiplier]
+
+[setting.perpsGoogMaxSecondsInLiquidationWindow]
+
+[setting.perpsGoogMaxLiquidationPd]
+
+[setting.perpsGoogEndorsedLiquidator]
+
+[setting.perpsGoogMinimumPositionMargin]
+
+[setting.perpsGoogLockedOiRatio]
+
+[invoke.createGoogPerpsMarket]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "createMarket"
+args = ["<%= settings.googPerpsMarketId %>", "Alphabet Inc", "GOOG"]
+depends = ["provision.system", "provision.perpsFactory"]
+
+[invoke.setPerpsPriceGoog]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "updatePriceData"
+args = [
+    "<%= settings.googPerpsMarketId %>",
+    "<%= extras.goog_oracle_id %>",
+    "<%= settings.bigCapStrictStalenessTolerance %>",
+]
+depends = ["invoke.createGoogPerpsMarket"]
+
+# Do not modify this step. Edit [invoke.setPerpsGoogSettlementStrategy] instead.
+[invoke.addPerpsGoogSettlementStrategy]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "addSettlementStrategy"
+args = [
+    "<%= settings.googPerpsMarketId %>",
+    { strategyType = "0", settlementDelay = "0", settlementWindowDuration = "1", priceVerificationContract = "0x0000000000000000000000000000000000000000", feedId = "0x0000000000000000000000000000000000000000000000000000000000000000", settlementReward = "0", disabled = false, commitmentPriceDelay = "0" },
+]
+extra.goog_pyth_settlement_strategy.event = "SettlementStrategyAdded"
+extra.goog_pyth_settlement_strategy.arg = 2
+depends = ["invoke.createGoogPerpsMarket"]
+
+[invoke.setPerpsGoogSettlementStrategy]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setSettlementStrategy"
+args = [
+    "<%= settings.googPerpsMarketId %>",
+    "<%= extras.goog_pyth_settlement_strategy %>",                                                                                                                                                                                                                                                                                                                                                                                  # Settlement Strategy ID
+    { strategyType = "0", settlementDelay = "<%= settings.bigCapSettlementDelay %>", settlementWindowDuration = "<%= settings.bigCapSettlementWindowDuration %>", priceVerificationContract = "<%= imports.pyth_erc7412_wrapper.contracts.PythERC7412Wrapper.address %>", feedId = "<%= settings.pythGoogFeedId %>", settlementReward = "<%= parseEther(settings.settlementReward) %>", disabled = false, commitmentPriceDelay = "2" },
+]
+depends = [
+    'provision.perpsFactory',
+    'setting.googPerpsMarketId',
+    'invoke.addPerpsGoogSettlementStrategy',
+    'provision.pyth_erc7412_wrapper',
+    'setting.bigCapSettlementDelay',
+    'setting.bigCapSettlementWindowDuration',
+    'setting.pythGoogFeedId',
+    'setting.settlementReward',
+]
+
+[invoke.setPerpsGoogFundingParameters]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setFundingParameters"
+args = [
+    "<%= settings.googPerpsMarketId %>",
+    "<%= parseEther(settings.perpsGoogSkewScale) %>",
+    "<%= parseEther(settings.perpsGoogMaxFundingVelocity) %>",
+]
+depends = ["invoke.createGoogPerpsMarket"]
+
+[invoke.setPerpsGoogOrderFees]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setOrderFees"
+args = [
+    "<%= settings.googPerpsMarketId %>",
+    "<%= parseEther(settings.perpsGoogMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsGoogTakerFeeRatio) %>",
+]
+depends = ["invoke.createGoogPerpsMarket"]
+
+[invoke.setPerpsGoogMaxMarketSize]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setMaxMarketSize"
+args = [
+    "<%= settings.googPerpsMarketId %>",
+    "<%= parseEther(settings.perpsGoogMaxMarketSize) %>",
+]
+depends = ["invoke.createGoogPerpsMarket"]
+
+[invoke.setPerpsGoogMaxMarketValue]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setMaxMarketValue"
+args = [
+    "<%= settings.googPerpsMarketId %>",
+    "<%= parseEther(settings.perpsGoogMaxMarketValue) %>",
+]
+depends = ["invoke.createGoogPerpsMarket"]
+
+[invoke.setPerpsGoogMaxLiquidationParameters]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setMaxLiquidationParameters"
+args = [
+    "<%= settings.googPerpsMarketId %>",
+    "<%= parseEther(settings.perpsGoogMaxLiquidationLimitAccumulationMultiplier) %>",
+    "<%= settings.perpsGoogMaxSecondsInLiquidationWindow %>",
+    "<%= parseEther(settings.perpsGoogMaxLiquidationPd) %>",
+    "<%= settings.perpsGoogEndorsedLiquidator %>",
+]
+depends = ["invoke.createGoogPerpsMarket"]
+
+[invoke.setPerpsGoogLiquidationParameters]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setLiquidationParameters"
+args = [
+    "<%= settings.googPerpsMarketId %>",
+    "<%= parseEther(settings.perpsGoogInitialMarginRatio) %>",
+    "<%= parseEther(settings.perpsGoogMinimumInitialMarginRatio) %>",
+    "<%= parseEther(settings.perpsGoogMaintenanceMarginScalar) %>",
+    "<%= parseEther(settings.perpsGoogFlagRewardRatioD18) %>",
+    "<%= parseEther(settings.perpsGoogMinimumPositionMargin) %>",
+]
+depends = ["invoke.createGoogPerpsMarket"]
+
+[invoke.setPerpsGoogLockedOiRatio]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setLockedOiRatio"
+args = [
+    "<%= settings.googPerpsMarketId %>",
+    "<%= parseEther(settings.perpsGoogLockedOiRatio) %>",
+]
+depends = ["invoke.createGoogPerpsMarket"]
+
+[invoke.setperpsGoogLimitOrderFees]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLimitOrderFees"
+args = [
+    "<%= settings.googPerpsMarketId %>",
+    "<%= parseEther(settings.perpsGoogLimitOrderMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsGoogLimitOrderTakerFeeRatio) %>",
+]
+depends = [
+    "invoke.createGoogPerpsMarket",
+]
+
+[invoke.setperpsGoogLimitOrderFees.fromCall]
+func = "owner"
+
+[invoke.setperpsGoogRolloverFee]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setRolloverFee"
+args = [
+    "<%= settings.googPerpsMarketId %>",
+    "<%= settings.perpsGoogRolloverFee %>",
+]
+depends = [
+    "invoke.createGoogPerpsMarket",
+]
+
+[invoke.setperpsGoogRolloverFee.fromCall]
+func = "owner"

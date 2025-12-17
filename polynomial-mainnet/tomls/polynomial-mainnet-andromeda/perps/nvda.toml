@@ -1,0 +1,65 @@
+[setting.pythNvdaFeedId]
+defaultValue = "0xb1073854ed24cbc755dc527418f52b7d271f6cc967bbf8d8129112b18860a593"
+
+[setting.nvdaPerpsMarketId]
+defaultValue = "8900"
+
+[setting.perpsNvdaSkewScale]
+defaultValue = "<%= String(45_000) %>"
+
+[setting.perpsNvdaMaxFundingVelocity]
+defaultValue = "0"
+
+[setting.perpsNvdaLimitOrderMakerFeeRatio]
+defaultValue = "0.0001"
+
+[setting.perpsNvdaLimitOrderTakerFeeRatio]
+defaultValue = "0.0002"
+
+[setting.perpsNvdaMakerFeeRatio]
+defaultValue = "0.0004"
+
+[setting.perpsNvdaTakerFeeRatio]
+defaultValue = "0.0006"
+
+[setting.perpsNvdaMaxMarketSize]
+defaultValue = "<%= String(580) %>"
+
+[setting.perpsNvdaMaxMarketValue]
+defaultValue = "<%= String(1_000_000) %>"
+
+[setting.perpsNvdaInitialMarginRatio]
+defaultValue = "0.01"
+
+[setting.perpsNvdaMinimumInitialMarginRatio]
+defaultValue = "0.03"
+
+[setting.perpsNvdaMaintenanceMarginScalar]
+defaultValue = "0.25"
+
+[setting.perpsNvdaFlagRewardRatioD18]
+defaultValue = "0.0003"
+
+[setting.perpsNvdaMaxLiquidationLimitAccumulationMultiplier]
+defaultValue = "1.5"
+
+[setting.perpsNvdaMaxSecondsInLiquidationWindow]
+defaultValue = "30"
+
+[setting.perpsNvdaMinimumPositionMargin]
+defaultValue = "25"
+
+[setting.perpsNvdaLockedOiRatio]
+defaultValue = "0.5"
+
+[setting.perpsNvdaSynthMaxCollateralAmount]
+defaultValue = "<%= MaxUint256 %>"
+
+[setting.perpsNvdaMaxLiquidationPd]
+defaultValue = "0.0005"
+
+[setting.perpsNvdaRolloverFee]
+defaultValue = "3170979199"
+
+[setting.perpsNvdaEndorsedLiquidator]
+defaultValue = "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"

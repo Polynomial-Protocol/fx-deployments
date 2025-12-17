@@ -1,0 +1,192 @@
+[setting.pltrPerpsMarketId]
+
+[setting.perpsPltrSkewScale]
+
+[setting.perpsPltrMaxFundingVelocity]
+
+[setting.perpsPltrMakerFeeRatio]
+
+[setting.perpsPltrTakerFeeRatio]
+
+[setting.perpsPltrMaxMarketSize]
+
+[setting.perpsPltrInitialMarginRatio]
+
+[setting.perpsPltrMaintenanceMarginScalar]
+
+[setting.perpsPltrFlagRewardRatioD18]
+
+[setting.perpsPltrMaxLiquidationLimitAccumulationMultiplier]
+
+[setting.perpsPltrMaxSecondsInLiquidationWindow]
+
+[setting.perpsPltrMaxLiquidationPd]
+
+[setting.perpsPltrEndorsedLiquidator]
+
+[setting.perpsPltrMinimumPositionMargin]
+
+[setting.perpsPltrLockedOiRatio]
+
+[invoke.createPltrPerpsMarket]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "createMarket"
+args = ["<%= settings.pltrPerpsMarketId %>", "Palantir Technologies Inc", "PLTR"]
+depends = ["provision.system", "provision.perpsFactory"]
+
+[invoke.setPerpsPricePltr]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "updatePriceData"
+args = [
+    "<%= settings.pltrPerpsMarketId %>",
+    "<%= extras.pltr_oracle_id %>",
+    "<%= settings.bigCapStrictStalenessTolerance %>",
+]
+depends = ["invoke.createPltrPerpsMarket"]
+
+# Do not modify this step. Edit [invoke.setPerpsPltrSettlementStrategy] instead.
+[invoke.addPerpsPltrSettlementStrategy]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "addSettlementStrategy"
+args = [
+    "<%= settings.pltrPerpsMarketId %>",
+    { strategyType = "0", settlementDelay = "0", settlementWindowDuration = "1", priceVerificationContract = "0x0000000000000000000000000000000000000000", feedId = "0x0000000000000000000000000000000000000000000000000000000000000000", settlementReward = "0", disabled = false, commitmentPriceDelay = "0" },
+]
+extra.pltr_pyth_settlement_strategy.event = "SettlementStrategyAdded"
+extra.pltr_pyth_settlement_strategy.arg = 2
+depends = ["invoke.createPltrPerpsMarket"]
+
+[invoke.setPerpsPltrSettlementStrategy]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setSettlementStrategy"
+args = [
+    "<%= settings.pltrPerpsMarketId %>",
+    "<%= extras.pltr_pyth_settlement_strategy %>",                                                                                                                                                                                                                                                                                                                                                                                  # Settlement Strategy ID
+    { strategyType = "0", settlementDelay = "<%= settings.bigCapSettlementDelay %>", settlementWindowDuration = "<%= settings.bigCapSettlementWindowDuration %>", priceVerificationContract = "<%= imports.pyth_erc7412_wrapper.contracts.PythERC7412Wrapper.address %>", feedId = "<%= settings.pythPltrFeedId %>", settlementReward = "<%= parseEther(settings.settlementReward) %>", disabled = false, commitmentPriceDelay = "2" },
+]
+depends = [
+    'provision.perpsFactory',
+    'setting.pltrPerpsMarketId',
+    'invoke.addPerpsPltrSettlementStrategy',
+    'provision.pyth_erc7412_wrapper',
+    'setting.bigCapSettlementDelay',
+    'setting.bigCapSettlementWindowDuration',
+    'setting.pythPltrFeedId',
+    'setting.settlementReward',
+]
+
+[invoke.setPerpsPltrFundingParameters]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setFundingParameters"
+args = [
+    "<%= settings.pltrPerpsMarketId %>",
+    "<%= parseEther(settings.perpsPltrSkewScale) %>",
+    "<%= parseEther(settings.perpsPltrMaxFundingVelocity) %>",
+]
+depends = ["invoke.createPltrPerpsMarket"]
+
+[invoke.setPerpsPltrOrderFees]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setOrderFees"
+args = [
+    "<%= settings.pltrPerpsMarketId %>",
+    "<%= parseEther(settings.perpsPltrMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsPltrTakerFeeRatio) %>",
+]
+depends = ["invoke.createPltrPerpsMarket"]
+
+[invoke.setPerpsPltrMaxMarketSize]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setMaxMarketSize"
+args = [
+    "<%= settings.pltrPerpsMarketId %>",
+    "<%= parseEther(settings.perpsPltrMaxMarketSize) %>",
+]
+depends = ["invoke.createPltrPerpsMarket"]
+
+[invoke.setPerpsPltrMaxMarketValue]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setMaxMarketValue"
+args = [
+    "<%= settings.pltrPerpsMarketId %>",
+    "<%= parseEther(settings.perpsPltrMaxMarketValue) %>",
+]
+depends = ["invoke.createPltrPerpsMarket"]
+
+[invoke.setPerpsPltrMaxLiquidationParameters]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setMaxLiquidationParameters"
+args = [
+    "<%= settings.pltrPerpsMarketId %>",
+    "<%= parseEther(settings.perpsPltrMaxLiquidationLimitAccumulationMultiplier) %>",
+    "<%= settings.perpsPltrMaxSecondsInLiquidationWindow %>",
+    "<%= parseEther(settings.perpsPltrMaxLiquidationPd) %>",
+    "<%= settings.perpsPltrEndorsedLiquidator %>",
+]
+depends = ["invoke.createPltrPerpsMarket"]
+
+[invoke.setPerpsPltrLiquidationParameters]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setLiquidationParameters"
+args = [
+    "<%= settings.pltrPerpsMarketId %>",
+    "<%= parseEther(settings.perpsPltrInitialMarginRatio) %>",
+    "<%= parseEther(settings.perpsPltrMinimumInitialMarginRatio) %>",
+    "<%= parseEther(settings.perpsPltrMaintenanceMarginScalar) %>",
+    "<%= parseEther(settings.perpsPltrFlagRewardRatioD18) %>",
+    "<%= parseEther(settings.perpsPltrMinimumPositionMargin) %>",
+]
+depends = ["invoke.createPltrPerpsMarket"]
+
+[invoke.setPerpsPltrLockedOiRatio]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setLockedOiRatio"
+args = [
+    "<%= settings.pltrPerpsMarketId %>",
+    "<%= parseEther(settings.perpsPltrLockedOiRatio) %>",
+]
+depends = ["invoke.createPltrPerpsMarket"]
+
+[invoke.setperpsPltrLimitOrderFees]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLimitOrderFees"
+args = [
+    "<%= settings.pltrPerpsMarketId %>",
+    "<%= parseEther(settings.perpsPltrLimitOrderMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsPltrLimitOrderTakerFeeRatio) %>",
+]
+depends = [
+    "invoke.createPltrPerpsMarket",
+]
+
+[invoke.setperpsPltrLimitOrderFees.fromCall]
+func = "owner"
+
+[invoke.setperpsPltrRolloverFee]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setRolloverFee"
+args = [
+    "<%= settings.pltrPerpsMarketId %>",
+    "<%= settings.perpsPltrRolloverFee %>",
+]
+depends = [
+    "invoke.createPltrPerpsMarket",
+]
+
+[invoke.setperpsPltrRolloverFee.fromCall]
+func = "owner"

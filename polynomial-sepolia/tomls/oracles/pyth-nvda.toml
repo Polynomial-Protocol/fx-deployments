@@ -1,0 +1,56 @@
+[invoke.registerperpsNvdaPythOracleNode]
+target = [
+    "system.oracle_manager.Proxy",
+]
+func = "registerNode"
+args = [
+    5,
+    "<%= defaultAbiCoder.encode(['address', 'bytes32', 'bool'], [settings.pyth_price_verification_address, settings.pythNvdaFeedId, false]) %>",
+    [],
+]
+depends = [
+    "provision.system",
+]
+
+[invoke.registerperpsNvdaPythOracleNode.extra.perpsNvda_pyth_oracle_id]
+event = "NodeRegistered"
+arg = 0
+
+[invoke.registerperpsNvdaLookupOracleNode]
+target = [
+    "system.oracle_manager.Proxy",
+]
+func = "registerNode"
+args = [
+    9,
+    "<%= defaultAbiCoder.encode(['address', 'bytes32', 'uint256'], [imports.pyth_erc7412_wrapper.contracts.PythERC7412Wrapper.address, settings.pythNvdaFeedId, settings.bigCapDefaultStalenessTolerance]) %>",
+    [],
+]
+depends = [
+    "provision.system",
+]
+
+[invoke.registerperpsNvdaLookupOracleNode.extra.perpsNvda_lookup_oracle_id]
+event = "NodeRegistered"
+arg = 0
+
+[invoke.registerperpsNvdaOracleNode]
+target = [
+    "system.oracle_manager.Proxy",
+]
+func = "registerNode"
+args = [
+    7,
+    "<%= defaultAbiCoder.encode(['uint256'], [settings.bigCapDefaultStalenessTolerance]) %>",
+    [
+        "<%= extras.perpsNvda_pyth_oracle_id %>",
+        "<%= extras.perpsNvda_lookup_oracle_id %>",
+    ],
+]
+depends = [
+    "provision.system",
+]
+
+[invoke.registerperpsNvdaOracleNode.extra.nvda_oracle_id]
+event = "NodeRegistered"
+arg = 0

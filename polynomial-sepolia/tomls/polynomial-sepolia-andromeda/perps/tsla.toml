@@ -1,0 +1,65 @@
+[setting.pythTslaFeedId]
+defaultValue = "0x16dad506d7db8da01c87581c87ca897a012a153557d4d578c3b9c9e1bc0632f1"
+
+[setting.tslaPerpsMarketId]
+defaultValue = "9000"
+
+[setting.perpsTslaSkewScale]
+defaultValue = "<%= String(175_000) %>"
+
+[setting.perpsTslaMaxFundingVelocity]
+defaultValue = "0"
+
+[setting.perpsTslaLimitOrderMakerFeeRatio]
+defaultValue = "0.0001"
+
+[setting.perpsTslaLimitOrderTakerFeeRatio]
+defaultValue = "0.0002"
+
+[setting.perpsTslaMakerFeeRatio]
+defaultValue = "0.0004"
+
+[setting.perpsTslaTakerFeeRatio]
+defaultValue = "0.0006"
+
+[setting.perpsTslaMaxMarketSize]
+defaultValue = "<%= String(2200) %>"
+
+[setting.perpsTslaMaxMarketValue]
+defaultValue = "<%= String(1_000_000) %>"
+
+[setting.perpsTslaInitialMarginRatio]
+defaultValue = "0.01"
+
+[setting.perpsTslaMinimumInitialMarginRatio]
+defaultValue = "0.035"
+
+[setting.perpsTslaMaintenanceMarginScalar]
+defaultValue = "0.25"
+
+[setting.perpsTslaFlagRewardRatioD18]
+defaultValue = "0.0003"
+
+[setting.perpsTslaMaxLiquidationLimitAccumulationMultiplier]
+defaultValue = "1.5"
+
+[setting.perpsTslaMaxSecondsInLiquidationWindow]
+defaultValue = "30"
+
+[setting.perpsTslaMinimumPositionMargin]
+defaultValue = "25"
+
+[setting.perpsTslaLockedOiRatio]
+defaultValue = "0.5"
+
+[setting.perpsTslaSynthMaxCollateralAmount]
+defaultValue = "<%= MaxUint256 %>"
+
+[setting.perpsTslaMaxLiquidationPd]
+defaultValue = "0.0005"
+
+[setting.perpsTslaRolloverFee]
+defaultValue = "3170979199"
+
+[setting.perpsTslaEndorsedLiquidator]
+defaultValue = "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"

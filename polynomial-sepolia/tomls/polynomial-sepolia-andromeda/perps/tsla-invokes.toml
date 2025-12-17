@@ -1,0 +1,192 @@
+[setting.tslaPerpsMarketId]
+
+[setting.perpsTslaSkewScale]
+
+[setting.perpsTslaMaxFundingVelocity]
+
+[setting.perpsTslaMakerFeeRatio]
+
+[setting.perpsTslaTakerFeeRatio]
+
+[setting.perpsTslaMaxMarketSize]
+
+[setting.perpsTslaInitialMarginRatio]
+
+[setting.perpsTslaMaintenanceMarginFraction]
+
+[setting.perpsTslaFlagRewardRatioD18]
+
+[setting.perpsTslaMaxLiquidationLimitAccumulationMultiplier]
+
+[setting.perpsTslaMaxSecondsInLiquidationWindow]
+
+[setting.perpsTslaMaxLiquidationPd]
+
+[setting.perpsTslaEndorsedLiquidator]
+
+[setting.perpsTslaMinimumPositionMargin]
+
+[setting.perpsTslaLockedOiRatio]
+
+[invoke.createTslaPerpsMarket]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "createMarket"
+args = ["<%= settings.tslaPerpsMarketId %>", "Tesla, Inc.", "TSLA"]
+depends = ["provision.system", "provision.perpsFactory"]
+
+[invoke.setPerpsPriceTsla]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "updatePriceData"
+args = [
+    "<%= settings.tslaPerpsMarketId %>",
+    "<%= extras.tsla_oracle_id %>",
+    "<%= settings.bigCapStrictStalenessTolerance %>",
+]
+depends = ["invoke.createTslaPerpsMarket"]
+
+# Do not modify this step. Edit [invoke.setPerpsTslaSettlementStrategy] instead.
+[invoke.addPerpsTslaSettlementStrategy]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "addSettlementStrategy"
+args = [
+    "<%= settings.tslaPerpsMarketId %>",
+    { strategyType = "0", settlementDelay = "0", settlementWindowDuration = "1", priceVerificationContract = "0x0000000000000000000000000000000000000000", feedId = "0x0000000000000000000000000000000000000000000000000000000000000000", settlementReward = "0", disabled = false, commitmentPriceDelay = "0" },
+]
+extra.tsla_pyth_settlement_strategy.event = "SettlementStrategyAdded"
+extra.tsla_pyth_settlement_strategy.arg = 2
+depends = ["invoke.createTslaPerpsMarket"]
+
+[invoke.setPerpsTslaSettlementStrategy]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setSettlementStrategy"
+args = [
+    "<%= settings.tslaPerpsMarketId %>",
+    "<%= extras.tsla_pyth_settlement_strategy %>",                                                                                                                                                                                                                                                                                                                                                                                  # Settlement Strategy ID
+    { strategyType = "0", settlementDelay = "<%= settings.bigCapSettlementDelay %>", settlementWindowDuration = "<%= settings.bigCapSettlementWindowDuration %>", priceVerificationContract = "<%= imports.pyth_erc7412_wrapper.contracts.PythERC7412Wrapper.address %>", feedId = "<%= settings.pythTslaFeedId %>", settlementReward = "<%= parseEther(settings.settlementReward) %>", disabled = false, commitmentPriceDelay = "2" },
+]
+depends = [
+    'provision.perpsFactory',
+    'setting.tslaPerpsMarketId',
+    'invoke.addPerpsTslaSettlementStrategy',
+    'provision.pyth_erc7412_wrapper',
+    'setting.bigCapSettlementDelay',
+    'setting.bigCapSettlementWindowDuration',
+    'setting.pythTslaFeedId',
+    'setting.settlementReward',
+]
+
+[invoke.setPerpsTslaFundingParameters]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setFundingParameters"
+args = [
+    "<%= settings.tslaPerpsMarketId %>",
+    "<%= parseEther(settings.perpsTslaSkewScale) %>",
+    "<%= parseEther(settings.perpsTslaMaxFundingVelocity) %>",
+]
+depends = ["invoke.createTslaPerpsMarket"]
+
+[invoke.setPerpsTslaOrderFees]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setOrderFees"
+args = [
+    "<%= settings.tslaPerpsMarketId %>",
+    "<%= parseEther(settings.perpsTslaMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsTslaTakerFeeRatio) %>",
+]
+depends = ["invoke.createTslaPerpsMarket"]
+
+[invoke.setPerpsTslaMaxMarketSize]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setMaxMarketSize"
+args = [
+    "<%= settings.tslaPerpsMarketId %>",
+    "<%= parseEther(settings.perpsTslaMaxMarketSize) %>",
+]
+depends = ["invoke.createTslaPerpsMarket"]
+
+[invoke.setPerpsTslaMaxMarketValue]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setMaxMarketValue"
+args = [
+    "<%= settings.tslaPerpsMarketId %>",
+    "<%= parseEther(settings.perpsTslaMaxMarketValue) %>",
+]
+depends = ["invoke.createTslaPerpsMarket"]
+
+[invoke.setPerpsTslaMaxLiquidationParameters]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setMaxLiquidationParameters"
+args = [
+    "<%= settings.tslaPerpsMarketId %>",
+    "<%= parseEther(settings.perpsTslaMaxLiquidationLimitAccumulationMultiplier) %>",
+    "<%= settings.perpsTslaMaxSecondsInLiquidationWindow %>",
+    "<%= parseEther(settings.perpsTslaMaxLiquidationPd) %>",
+    "<%= settings.perpsTslaEndorsedLiquidator %>",
+]
+depends = ["invoke.createTslaPerpsMarket"]
+
+[invoke.setPerpsTslaLiquidationParameters]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setLiquidationParameters"
+args = [
+    "<%= settings.tslaPerpsMarketId %>",
+    "<%= parseEther(settings.perpsTslaInitialMarginRatio) %>",
+    "<%= parseEther(settings.perpsTslaMinimumInitialMarginRatio) %>",
+    "<%= parseEther(settings.perpsTslaMaintenanceMarginScalar) %>",
+    "<%= parseEther(settings.perpsTslaFlagRewardRatioD18) %>",
+    "<%= parseEther(settings.perpsTslaMinimumPositionMargin) %>",
+]
+depends = ["invoke.createTslaPerpsMarket"]
+
+[invoke.setPerpsTslaLockedOiRatio]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setLockedOiRatio"
+args = [
+    "<%= settings.tslaPerpsMarketId %>",
+    "<%= parseEther(settings.perpsTslaLockedOiRatio) %>",
+]
+depends = ["invoke.createTslaPerpsMarket"]
+
+[invoke.setperpsTslaLimitOrderFees]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setLimitOrderFees"
+args = [
+    "<%= settings.tslaPerpsMarketId %>",
+    "<%= parseEther(settings.perpsTslaLimitOrderMakerFeeRatio) %>",
+    "<%= parseEther(settings.perpsTslaLimitOrderTakerFeeRatio) %>",
+]
+depends = [
+    "invoke.createTslaPerpsMarket",
+]
+
+[invoke.setperpsTslaLimitOrderFees.fromCall]
+func = "owner"
+
+[invoke.setperpsTslaRolloverFee]
+target = [
+    "perpsFactory.PerpsMarketProxy",
+]
+func = "setRolloverFee"
+args = [
+    "<%= settings.tslaPerpsMarketId %>",
+    "<%= settings.perpsTslaRolloverFee %>",
+]
+depends = [
+    "invoke.createTslaPerpsMarket",
+]
+
+[invoke.setperpsTslaRolloverFee.fromCall]
+func = "owner"

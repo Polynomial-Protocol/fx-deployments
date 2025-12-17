@@ -1,0 +1,65 @@
+[setting.pythCoinFeedId]
+defaultValue = "0xfee33f2a978bf32dd6b662b65ba8083c6773b494f8401194ec1870c640860245"
+
+[setting.coinPerpsMarketId]
+defaultValue = "9400"
+
+[setting.perpsCoinSkewScale]
+defaultValue = "<%= String(250_000) %>"
+
+[setting.perpsCoinMaxFundingVelocity]
+defaultValue = "0"
+
+[setting.perpsCoinLimitOrderMakerFeeRatio]
+defaultValue = "0.0001"
+
+[setting.perpsCoinLimitOrderTakerFeeRatio]
+defaultValue = "0.0002"
+
+[setting.perpsCoinMakerFeeRatio]
+defaultValue = "0.0004"
+
+[setting.perpsCoinTakerFeeRatio]
+defaultValue = "0.0006"
+
+[setting.perpsCoinMaxMarketSize]
+defaultValue = "<%= String(3_750) %>"
+
+[setting.perpsCoinMaxMarketValue]
+defaultValue = "<%= String(1_000_000) %>"
+
+[setting.perpsCoinInitialMarginRatio]
+defaultValue = "0.02"
+
+[setting.perpsCoinMinimumInitialMarginRatio]
+defaultValue = "0.04"
+
+[setting.perpsCoinMaintenanceMarginScalar]
+defaultValue = "0.27"
+
+[setting.perpsCoinFlagRewardRatioD18]
+defaultValue = "0.0003"
+
+[setting.perpsCoinMaxLiquidationLimitAccumulationMultiplier]
+defaultValue = "1.5"
+
+[setting.perpsCoinMaxSecondsInLiquidationWindow]
+defaultValue = "30"
+
+[setting.perpsCoinMinimumPositionMargin]
+defaultValue = "25"
+
+[setting.perpsCoinLockedOiRatio]
+defaultValue = "0.5"
+
+[setting.perpsCoinSynthMaxCollateralAmount]
+defaultValue = "<%= MaxUint256 %>"
+
+[setting.perpsCoinMaxLiquidationPd]
+defaultValue = "0.0005"
+
+[setting.perpsCoinRolloverFee]
+defaultValue = "3170979199"
+
+[setting.perpsCoinEndorsedLiquidator]
+defaultValue = "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"
