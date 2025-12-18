@@ -29,10 +29,10 @@ defaultValue = "<%= String(5_500) %>"
 defaultValue = "<%= String(1_000_000) %>"
 
 [setting.perpsPltrInitialMarginRatio]
-defaultValue = "0.02"
+defaultValue = "0.04"
 
 [setting.perpsPltrMinimumInitialMarginRatio]
-defaultValue = "0.04"
+defaultValue = "0.02"
 
 [setting.perpsPltrMaintenanceMarginScalar]
 defaultValue = "0.28"

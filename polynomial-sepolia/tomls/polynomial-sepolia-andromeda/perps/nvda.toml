@@ -29,10 +29,10 @@ defaultValue = "<%= String(580) %>"
 defaultValue = "<%= String(1_000_000) %>"
 
 [setting.perpsNvdaInitialMarginRatio]
-defaultValue = "0.01"
+defaultValue = "0.03"
 
 [setting.perpsNvdaMinimumInitialMarginRatio]
-defaultValue = "0.03"
+defaultValue = "0.01"
 
 [setting.perpsNvdaMaintenanceMarginScalar]
 defaultValue = "0.25"

@@ -29,10 +29,10 @@ defaultValue = "<%= String(2200) %>"
 defaultValue = "<%= String(1_000_000) %>"
 
 [setting.perpsTslaInitialMarginRatio]
-defaultValue = "0.01"
+defaultValue = "0.035"
 
 [setting.perpsTslaMinimumInitialMarginRatio]
-defaultValue = "0.035"
+defaultValue = "0.01"
 
 [setting.perpsTslaMaintenanceMarginScalar]
 defaultValue = "0.25"

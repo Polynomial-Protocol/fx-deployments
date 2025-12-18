@@ -29,10 +29,10 @@ defaultValue = "<%= String(8_400) %>"
 defaultValue = "<%= String(1_000_000) %>"
 
 [setting.perpsHoodInitialMarginRatio]
-defaultValue = "0.02"
+defaultValue = "0.05"
 
 [setting.perpsHoodMinimumInitialMarginRatio]
-defaultValue = "0.05"
+defaultValue = "0.02"
 
 [setting.perpsHoodMaintenanceMarginScalar]
 defaultValue = "0.28"

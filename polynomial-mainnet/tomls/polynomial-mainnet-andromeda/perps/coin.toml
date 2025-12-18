@@ -29,10 +29,10 @@ defaultValue = "<%= String(3_750) %>"
 defaultValue = "<%= String(1_000_000) %>"
 
 [setting.perpsCoinInitialMarginRatio]
-defaultValue = "0.02"
+defaultValue = "0.04"
 
 [setting.perpsCoinMinimumInitialMarginRatio]
-defaultValue = "0.04"
+defaultValue = "0.02"
 
 [setting.perpsCoinMaintenanceMarginScalar]
 defaultValue = "0.27"

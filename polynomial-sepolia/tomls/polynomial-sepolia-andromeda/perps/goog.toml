@@ -29,10 +29,10 @@ defaultValue = "<%= String(3_350) %>"
 defaultValue = "<%= String(1_000_000) %>"
 
 [setting.perpsGoogInitialMarginRatio]
-defaultValue = "0.01"
+defaultValue = "0.03"
 
 [setting.perpsGoogMinimumInitialMarginRatio]
-defaultValue = "0.03"
+defaultValue = "0.01"
 
 [setting.perpsGoogMaintenanceMarginScalar]
 defaultValue = "0.25"
