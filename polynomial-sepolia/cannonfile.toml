@@ -351,6 +351,9 @@ include = [
     "tomls/polynomial-sepolia-andromeda/perps/coin-invokes.toml",
     "tomls/oracles/pyth-coin.toml",
     "tomls/polynomial-sepolia-andromeda/perps/coin.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/lit-invokes.toml",
+    "tomls/oracles/pyth-lit.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/lit.toml",
 ]
 
 [setting.commitmentPriceDelay]
