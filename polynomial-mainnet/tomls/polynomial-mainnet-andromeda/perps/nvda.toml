@@ -23,7 +23,7 @@ defaultValue = "0.0004"
 defaultValue = "0.0006"
 
 [setting.perpsNvdaMaxMarketSize]
-defaultValue = "<%= String(580) %>"
+defaultValue = "<%= String(5_800) %>"
 
 [setting.perpsNvdaMaxMarketValue]
 defaultValue = "<%= String(1_000_000) %>"
