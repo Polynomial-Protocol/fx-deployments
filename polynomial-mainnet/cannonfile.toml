@@ -1,5 +1,5 @@
 name = "polynomial-mainnet"
-version = "1.0.51"
+version = "1.0.52"
 description = "Andromeda dev deployment"
 preset = "main"
 include = [
@@ -396,7 +396,7 @@ defaultValue = "0x9f76043B23125024Ce5f0Fb4AE707482107dd2a8"
 defaultValue = "<%= parseEther('1.25') %>"
 
 [setting.account_timeout_withdraw]
-defaultValue = "86400"
+defaultValue = "3600"
 
 [setting.main_pool_id]
 defaultValue = "1"
