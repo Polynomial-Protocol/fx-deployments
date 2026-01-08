@@ -62,7 +62,7 @@ target = [
 func = "updatePriceData"
 args = [
     "<%= settings.perpsB3MarketId %>",
-    "<%= extras.perpsB3_oracle_id %>",
+    "<%= extras.eth_oracle_id %>",
     "<%= settings.bigCapStrictStalenessTolerance %>",
 ]
 depends = [

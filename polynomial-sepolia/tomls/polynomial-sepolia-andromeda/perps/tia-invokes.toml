@@ -46,7 +46,7 @@ fromCall.func = "owner"
 func = "updatePriceData"
 args = [
     "<%= settings.perpsTiaMarketId %>",
-    "<%= extras.tia_oracle_id %>",
+    "<%= extras.eth_oracle_id %>",
     "<%= settings.bigCapStrictStalenessTolerance %>",
 ]
 depends = ["invoke.createTiaPerpsMarket"]

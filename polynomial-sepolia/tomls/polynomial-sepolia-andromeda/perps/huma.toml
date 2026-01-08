@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsHumaMaxMarketSize]
-defaultValue = "<%= String(2_199_465) %>"
+defaultValue = "<%= String(0) %>"
 
 [setting.perpsHumaMaxMarketValue]
-defaultValue = "<%= String(72_547) %>"
+defaultValue = "<%= String(0) %>"
 
 [setting.perpsHumaInitialMarginRatio]
 defaultValue = "0.10512942735986823"

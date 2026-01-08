@@ -17,6 +17,7 @@ include = [
     "tomls/polynomial-sepolia-andromeda/perps/global.toml",
     "tomls/polynomial-sepolia-andromeda/spot/global.toml",
     "tomls/polynomial-sepolia-andromeda/perps/fee-tier.toml",
+    "tomls/polynomial-sepolia-andromeda/perps/keeper-fees.toml",
     "tomls/oracles/perps-keeper-cost.toml",
     "tomls/polynomial-sepolia-andromeda/spot/eth.toml",
     "tomls/polynomial-sepolia-andromeda/spot/op.toml",

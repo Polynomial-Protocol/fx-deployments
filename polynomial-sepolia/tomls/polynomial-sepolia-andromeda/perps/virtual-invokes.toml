@@ -51,7 +51,7 @@ target = ["perpsFactory.PerpsMarketProxy"]
 func = "updatePriceData"
 args = [
     "<%= settings.perpsVirtualMarketId %>",
-    "<%= extras.perpsVirtual_oracle_id %>",
+    "<%= extras.eth_oracle_id %>",
     "<%= settings.bigCapStrictStalenessTolerance %>",
 ]
 depends = ["invoke.createperpsVirtualMarket"]

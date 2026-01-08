@@ -1,0 +1,6 @@
+[invoke.setPerpsKeeperSettlementRewardOverride]
+target = ["perpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setSettlementRewardOverride"
+args = ["1990877800", true]
+depends = ["provision.perpsFactory"]
