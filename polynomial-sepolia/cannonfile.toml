@@ -358,6 +358,7 @@ include = [
     # Prediction Markets (FxOracle-based)
     "tomls/prediction-markets/settings.toml",
     "tomls/markets/prediction-perps-factory.toml",
+    "tomls/prediction-markets/permit-prediction-perps.toml",
 ]
 
 [setting.commitmentPriceDelay]
@@ -403,6 +404,10 @@ defaultValue = "0xACeA761c27A909d4D3895128EBe6370FDE2dF481"
 defaultValue = "0x9cE261A041424c3a71c79A94Ee31958e3AF4cB01"
 description = "FxOracle contract address for prediction markets"
 
+[setting.prediction_market_creator_admin]
+defaultValue = "0x2b02AAd6f1694E7D9c934B7b3Ec444541286cF0f"
+description = "Initial admin for PredictionMarketCreator contract"
+
 [setting.owner]
 defaultValue = "0x2b02AAd6f1694E7D9c934B7b3Ec444541286cF0f"
 
@@ -447,6 +452,30 @@ targetPreset = "<%= settings.target_preset %>"
 [provision.fx_oracle_erc7412_wrapper.options]
 salt = "<%= settings.salt %>"
 fxOracleAddress = "<%= settings.fx_oracle_address %>"
+
+[provision.prediction_market_creator]
+source = "prediction-market-creator:0.0.1"
+targetPreset = "<%= settings.target_preset %>"
+
+[provision.prediction_market_creator.options]
+perpsMarketProxy = "<%= imports.predictionPerpsFactory.contracts.PerpsMarketProxy.address %>"
+admin = "<%= settings.prediction_market_creator_admin %>"
+
+# Transfer prediction perps factory ownership to PredictionMarketCreator (Step 1: Nominate)
+[invoke.nominatePredictionMarketCreatorAsOwner]
+target = ["predictionPerpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "nominateNewOwner"
+args = ["<%= imports.prediction_market_creator.contracts.PredictionMarketCreator.address %>"]
+depends = ["provision.predictionPerpsFactory", "provision.prediction_market_creator"]
+
+# Step 2: Accept ownership - Call PredictionMarketCreator.acceptOwnership() as admin
+# This is done by having the admin (deployer) call the function
+# Note: This only works if the deployer has access to prediction_market_creator_admin
+[invoke.acceptPredictionPerpsOwnership]
+target = ["prediction_market_creator.PredictionMarketCreator"]
+func = "acceptOwnership"
+depends = ["invoke.nominatePredictionMarketCreatorAsOwner"]
 
 [invoke.setMainPoolConfig]
 target = [
