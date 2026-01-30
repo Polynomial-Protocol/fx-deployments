@@ -1,0 +1,128 @@
+[setting.fxFusdcMaxMarketCollateral]
+defaultValue = "<%= parseEther(String(10_000_000)) %>"
+
+[setting.fxFusdcSkewScale]
+defaultValue = "<%= parseEther(String(0)) %>"
+
+[setting.spotStrictStalenessTolerance]
+defaultValue = "300"
+
+[setting.pyth_feed_id_fusdc]
+defaultValue = "0x22c0d03a3fff6ce4c82caa81121f4a7f5c4924d2a0030c682dba8a294858e4dc"
+
+[setting.pyth_feed_url_fusdc]
+defaultValue = "https://hermes.pyth.network/v2/updates/price/latest?ids[]=<%= settings.pyth_feed_id_fusdc %>"
+
+[setting.fusdc_address]
+defaultValue = "0x353068079D803543a8bb94358F4CA072566fca19"
+
+[invoke.createFusdcSynth]
+target = ["spotFactory.SpotMarketProxy"]
+fromCall.func = "owner"
+func = "createSynth"
+args = ["Polynomial Fluid USD Coin", "fxFUSDC", "<%= settings.owner %>"]
+extra.fx_fusdc_market_id.event = "SynthRegistered"
+extra.fx_fusdc_market_id.arg = 0
+extra.fx_fusdc_token_address.event = "SynthRegistered"
+extra.fx_fusdc_token_address.arg = 1
+
+[invoke.setSynthPriceFusdc]
+target = ["spotFactory.SpotMarketProxy"]
+fromCall.func = "getMarketOwner"
+fromCall.args = ["<%= extras.fx_fusdc_market_id %>"]
+func = "updatePriceData"
+args = [
+    "<%= extras.fx_fusdc_market_id %>",
+    "<%= extras.fusdc_oracle_id %>",
+    "<%= extras.fusdc_oracle_id %>",
+    "<%= settings.spotStrictStalenessTolerance %>",
+]
+
+[invoke.setSynthMaxMarketCollateralFusdc]
+target = ["system.CoreProxy"]
+fromCall.func = "owner"
+fromCall.args = []
+func = "configureMaximumMarketCollateral"
+args = [
+    "<%= extras.fx_fusdc_market_id %>",
+    "<%= settings.fusdc_address %>",
+    "<%= settings.fxFusdcMaxMarketCollateral %>",
+]
+
+[invoke.setSkewScaleFusdc]
+target = ["spotFactory.SpotMarketProxy"]
+fromCall.func = "getMarketOwner"
+fromCall.args = ["<%= extras.fx_fusdc_market_id %>"]
+func = "setMarketSkewScale"
+args = ["<%= extras.fx_fusdc_market_id %>", "<%= settings.fxFusdcSkewScale %>"]
+
+
+[invoke.configureSynthWrapperFusdc]
+target = ["spotFactory.SpotMarketProxy"]
+fromCall.func = "getMarketOwner"
+fromCall.args = ["<%= extras.fx_fusdc_market_id %>"]
+func = "setWrapper"
+args = [
+    "<%= extras.fx_fusdc_market_id %>",
+    "<%= settings.fusdc_address %>",
+    "<%= settings.fxFusdcMaxMarketCollateral %>",
+]
+
+# NOTE set disabled = true to addSettlementStrategy call before initial mainnet deployment
+[invoke.SpotMarketProxy_addSettlementStrategy_fusdc]
+target = ["spotFactory.SpotMarketProxy"]
+fromCall.func = "getMarketOwner"
+fromCall.args = ["<%= extras.fx_fusdc_market_id %>"]
+func = "addSettlementStrategy"
+args = [
+    "<%= extras.fx_fusdc_market_id %>",
+    { strategyType = "1", settlementDelay = "0", settlementWindowDuration = "1", priceVerificationContract = "0x0000000000000000000000000000000000000000", feedId = "0x0000000000000000000000000000000000000000000000000000000000000000", url = "", settlementReward = 0, minimumUsdExchangeAmount = "0", maxRoundingLoss = "1", priceDeviationTolerance = "0", disabled = false },
+]
+extra.fx_fusdc_settlement_strategy_id.event = "SettlementStrategyAdded"
+extra.fx_fusdc_settlement_strategy_id.arg = 1
+
+[invoke.SpotMarketProxy_setSettlementStrategy_fxFusdc]
+target = ["spotFactory.SpotMarketProxy"]
+fromCall.func = "getMarketOwner"
+fromCall.args = ["<%= extras.fx_fusdc_market_id %>"]
+func = "setSettlementStrategy"
+args = [
+    "<%= extras.fx_fusdc_market_id %>",
+    "<%= extras.fx_fusdc_settlement_strategy_id %>",
+    { strategyType = "1", settlementDelay = "<%= settings.big_cap_settlement_delay %>", settlementWindowDuration = "<%= settings.big_cap_settlement_window_duration %>", priceVerificationContract = "<%= imports.pyth_erc7412_wrapper.contracts.PythERC7412Wrapper.address %>", feedId = "<%= settings.pyth_feed_id_fusdc %>", url = "<%= settings.pyth_feed_url_fusdc %>", settlementReward = "<%= settings.settlement_reward %>", minimumUsdExchangeAmount = "<%= settings.settlement_minimum_usd_exchange_amount %>", maxRoundingLoss = "<%= settings.settlement_max_rounding_loss %>", priceDeviationTolerance = "<%= settings.price_deviation_tolerance %>", disabled = true },
+]
+
+[invoke.SpotMarketProxy_setAtomicFixedFee_fxFusdc]
+target = ["spotFactory.SpotMarketProxy"]
+fromCall.func = "getMarketOwner"
+fromCall.args = ["<%= extras.fx_fusdc_market_id %>"]
+func = "setAtomicFixedFee"
+args = ["<%= extras.fx_fusdc_market_id %>", "<%= parseEther(String(0.001)) %>"]
+
+[invoke.configure_fusdc_collateral]
+target = ["system.CoreProxy"]
+fromCall.func = "owner"
+func = "configureCollateral"  # "args" see below in the multiline block
+
+[[invoke.configure_fusdc_collateral.args]]
+tokenAddress = "<%= settings.fusdc_address %>"
+oracleNodeId = "<%= extras.fusdc_oracle_id %>"
+issuanceRatioD18 = "<%= parseEther('2') %>"
+liquidationRatioD18 = "<%= parseEther('1.1') %>"
+liquidationRewardD18 = "<%= parseEther('0.0001') %>"
+minDelegationD18 = "<%= parseEther('0.1') %>"
+depositingEnabled = false
+
+[invoke.configure_fxfusdc_collateral]
+target = ["system.CoreProxy"]
+fromCall.func = "owner"
+func = "configureCollateral"  # "args" see below in the multiline block
+
+[[invoke.configure_fxfusdc_collateral.args]]
+tokenAddress = "<%= extras.fx_fusdc_token_address %>"
+oracleNodeId = "<%= extras.fusdc_oracle_id %>"
+issuanceRatioD18 = "<%= parseEther('2') %>"
+liquidationRatioD18 = "<%= parseEther('1.1') %>"
+liquidationRewardD18 = "<%= parseEther('0.0001') %>"
+minDelegationD18 = "<%= parseEther('0.1') %>"
+depositingEnabled = false

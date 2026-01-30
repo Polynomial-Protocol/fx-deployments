@@ -1,0 +1,47 @@
+[setting.yield_market_package]
+
+[setting.backend_caller]
+defaultValue = "0x45B80743A5fC165f904c865cA6ecD7AE14113c55"
+
+[provision.yieldMarketFactory]
+source = "<%= settings.yield_market_package %>"
+targetPreset = "<%= settings.target_preset %>"
+options.owner = "<%= settings.owner %>"
+options.salt = "<%= settings.salt %>"
+depends = ["provision.system"]
+
+[invoke.whitelistBackendCaller]
+target = ["yieldMarketFactory.YieldMarketProxy"]
+fromCall.func = "owner"
+func = "whitelistCaller"
+args = ["<%= settings.backend_caller %>"]
+
+[invoke.whitelistOwnerAsCaller]
+target = ["yieldMarketFactory.YieldMarketProxy"]
+fromCall.func = "owner"
+func = "whitelistCaller"
+args = ["<%= settings.owner %>"]
+
+[invoke.setUnsecuredGlobalCap]
+target = ["system.CoreProxy"]
+fromCall.func = "owner"
+func = "setGlobalCap"
+args = ["<%= parseEther('1000000') %>"]
+
+[invoke.setUnsecuredGlobalPause]
+target = ["system.CoreProxy"]
+fromCall.func = "owner"
+func = "setGlobalPause"
+args = [false]
+
+[invoke.configureUnsecuredMarket]
+target = ["system.CoreProxy"]
+fromCall.func = "owner"
+func = "configureMarket"
+args = ["<%= imports.yieldMarketFactory.extras.yieldMarketId %>", { isWhitelisted = true, marketPaused = false, debtCapD18 = "<%= parseEther('1000000') %>", ratePerSecondD18 = "317097920", epochLength = 0, epochLimitD18 = 0 }]
+
+[invoke.setUnsecuredConfig]
+target = ["yieldMarketFactory.YieldMarketProxy"]
+fromCall.func = "owner"
+func = "setUnsecuredConfig"
+args = [true]

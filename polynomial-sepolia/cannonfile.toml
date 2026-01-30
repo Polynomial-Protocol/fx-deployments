@@ -11,6 +11,7 @@ include = [
     "tomls/markets/spot-factory.toml",
     "tomls/markets/perps-factory.toml",
     "tomls/markets/strategy-market.toml",
+    "tomls/markets/yield-market.toml",
     "tomls/polynomial-sepolia-andromeda/spot/usdc.toml",
     "tomls/permit-all-perps-perpsSystem.toml",
     "tomls/polynomial-sepolia-andromeda/perps/referrers.toml",
@@ -31,6 +32,7 @@ include = [
     "tomls/polynomial-sepolia-andromeda/spot/sdai.toml",
     "tomls/polynomial-sepolia-andromeda/spot/susde.toml",
     "tomls/polynomial-sepolia-andromeda/spot/usd0++.toml",
+    "tomls/polynomial-sepolia-andromeda/spot/fusdc.toml",
     "tomls/polynomial-sepolia-andromeda/collaterals/susdc.toml",
     "tomls/collaterals/susdc.toml",
     "tomls/polynomial-sepolia-andromeda/collaterals/sdai.toml",
@@ -73,6 +75,7 @@ include = [
     "tomls/oracles/pyth-usdt.toml",
     "tomls/oracles/pyth-usds.toml",
     "tomls/oracles/pyth-rseth.toml",
+    "tomls/oracles/pyth-fusdc.toml",
     "tomls/oracles/pyth-btc.toml",
     "tomls/polynomial-sepolia-andromeda/perps/btc.toml",
     "tomls/polynomial-sepolia-andromeda/perps/eth-invokes.toml",
@@ -375,6 +378,9 @@ defaultValue = "fx-perps-market:3.10.1"
 [setting.strategy_market_package]
 defaultValue = "fx-strategy-market:1.0.0"
 
+[setting.yield_market_package]
+defaultValue = "fx-yield-market:1.0.0"
+
 [setting.strategy_market_id]
 defaultValue = "12"
 
@@ -400,7 +406,7 @@ defaultValue = "0x2b02AAd6f1694E7D9c934B7b3Ec444541286cF0f"
 defaultValue = "<%= parseEther('1.25') %>"
 
 [setting.account_timeout_withdraw]
-defaultValue = "3600"
+defaultValue = "600"
 
 [setting.main_pool_id]
 defaultValue = "1"
@@ -437,6 +443,7 @@ args = [
     [
         { marketId = "<%= imports.perpsFactory.extras.superMarketId %>", weightD18 = 1, maxDebtShareValueD18 = "<%= parseEther('1') %>" },
         { marketId = "<%= settings.strategy_market_id %>", weightD18 = 1, maxDebtShareValueD18 = "<%= parseEther('1') %>" },
+        { marketId = "<%= imports.yieldMarketFactory.extras.yieldMarketId %>", weightD18 = 1, maxDebtShareValueD18 = "<%= parseEther('1') %>" },
     ],
 ]
 

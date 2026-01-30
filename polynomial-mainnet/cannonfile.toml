@@ -1,5 +1,5 @@
 name = "polynomial-mainnet"
-version = "1.0.56"
+version = "1.0.60"
 description = "Andromeda dev deployment"
 preset = "main"
 include = [
@@ -11,6 +11,7 @@ include = [
     "tomls/markets/spot-factory.toml",
     "tomls/markets/perps-factory.toml",
     "tomls/markets/strategy-market.toml",
+    "tomls/markets/yield-market.toml",
     "tomls/markets/common/bigcap-settings.toml",
     "tomls/polynomial-mainnet-andromeda/spot/usdc.toml",
     "tomls/permit-all-perps-perpsSystem.toml",
@@ -32,6 +33,7 @@ include = [
     "tomls/polynomial-mainnet-andromeda/spot/sdai.toml",
     "tomls/polynomial-mainnet-andromeda/spot/susde.toml",
     "tomls/polynomial-mainnet-andromeda/spot/usd0++.toml",
+    "tomls/polynomial-mainnet-andromeda/spot/fusdc.toml",
     "tomls/polynomial-mainnet-andromeda/collaterals/susdc.toml",
     "tomls/collaterals/susdc.toml",
     "tomls/polynomial-mainnet-andromeda/collaterals/sdai.toml",
@@ -74,6 +76,7 @@ include = [
     "tomls/oracles/pyth-usdt.toml",
     "tomls/oracles/pyth-usds.toml",
     "tomls/oracles/pyth-rseth.toml",
+    "tomls/oracles/pyth-fusdc.toml",
     "tomls/oracles/pyth-btc.toml",
     "tomls/polynomial-mainnet-andromeda/perps/btc.toml",
     "tomls/polynomial-mainnet-andromeda/perps/eth-invokes.toml",
@@ -375,6 +378,9 @@ defaultValue = "fx-perps-market:3.10.1"
 [setting.strategy_market_package]
 defaultValue = "fx-strategy-market:1.0.0"
 
+[setting.yield_market_package]
+defaultValue = "fx-yield-market:1.0.0"
+
 [setting.salt]
 defaultValue = "andromeda-dev"
 
@@ -434,6 +440,7 @@ args = [
     [
         { marketId = "<%= imports.perpsFactory.extras.superMarketId %>", weightD18 = 1, maxDebtShareValueD18 = "<%= parseEther('1') %>" },
         { marketId = "<%= imports.strategyFactory.extras.strategyMarketId %>", weightD18 = 1, maxDebtShareValueD18 = "<%= parseEther('1') %>" },
+        { marketId = "<%= imports.yieldMarketFactory.extras.yieldMarketId %>", weightD18 = 1, maxDebtShareValueD18 = "<%= parseEther('1') %>" },
     ],
 ]
 
