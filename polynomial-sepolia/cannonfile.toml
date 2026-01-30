@@ -470,10 +470,9 @@ args = ["<%= imports.prediction_market_creator.contracts.PredictionMarketCreator
 depends = ["provision.predictionPerpsFactory", "provision.prediction_market_creator"]
 
 # Step 2: Accept ownership - Call PredictionMarketCreator.acceptOwnership() as admin
-# This is done by having the admin (deployer) call the function
-# Note: This only works if the deployer has access to prediction_market_creator_admin
 [invoke.acceptPredictionPerpsOwnership]
 target = ["prediction_market_creator.PredictionMarketCreator"]
+fromCall.func = "initialAdmin"
 func = "acceptOwnership"
 depends = ["invoke.nominatePredictionMarketCreatorAsOwner"]
 
