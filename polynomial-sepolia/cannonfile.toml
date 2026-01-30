@@ -355,6 +355,9 @@ include = [
     "tomls/polynomial-sepolia-andromeda/perps/coin-invokes.toml",
     "tomls/oracles/pyth-coin.toml",
     "tomls/polynomial-sepolia-andromeda/perps/coin.toml",
+    # Prediction Markets (FxOracle-based)
+    "tomls/prediction-markets/settings.toml",
+    "tomls/markets/prediction-perps-factory.toml",
 ]
 
 [setting.commitmentPriceDelay]
@@ -396,6 +399,10 @@ defaultValue = "0x23f0e8FAeE7bbb405E7A7C3d60138FCfd43d7509"
 [setting.pyth_lazer_price_verification_address]
 defaultValue = "0xACeA761c27A909d4D3895128EBe6370FDE2dF481"
 
+[setting.fx_oracle_address]
+defaultValue = "0x9cE261A041424c3a71c79A94Ee31958e3AF4cB01"
+description = "FxOracle contract address for prediction markets"
+
 [setting.owner]
 defaultValue = "0x2b02AAd6f1694E7D9c934B7b3Ec444541286cF0f"
 
@@ -433,6 +440,14 @@ targetPreset = "<%= settings.target_preset %>"
 salt = "<%= settings.salt %>"
 pythAddress = "<%= settings.pyth_lazer_price_verification_address %>"
 
+[provision.fx_oracle_erc7412_wrapper]
+source = "fx-oracle-erc7412-wrapper:0.0.1"
+targetPreset = "<%= settings.target_preset %>"
+
+[provision.fx_oracle_erc7412_wrapper.options]
+salt = "<%= settings.salt %>"
+fxOracleAddress = "<%= settings.fx_oracle_address %>"
+
 [invoke.setMainPoolConfig]
 target = [
     "system.CoreProxy",
@@ -444,6 +459,7 @@ args = [
         { marketId = "<%= imports.perpsFactory.extras.superMarketId %>", weightD18 = 1, maxDebtShareValueD18 = "<%= parseEther('1') %>" },
         { marketId = "<%= settings.strategy_market_id %>", weightD18 = 1, maxDebtShareValueD18 = "<%= parseEther('1') %>" },
         { marketId = "<%= imports.yieldMarketFactory.extras.yieldMarketId %>", weightD18 = 1, maxDebtShareValueD18 = "<%= parseEther('1') %>" },
+        { marketId = "<%= imports.predictionPerpsFactory.extras.superMarketId %>", weightD18 = 1, maxDebtShareValueD18 = "<%= parseEther('1') %>" },
     ],
 ]
 

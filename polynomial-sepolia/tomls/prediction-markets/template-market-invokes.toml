@@ -1,0 +1,274 @@
+# Prediction Market Template
+# =========================
+# This file serves as a template for creating new prediction markets
+#
+# To create a new market (e.g., TRUMP):
+# 1. Create a new folder: tomls/prediction-markets/trump/
+# 2. Copy this template to: tomls/prediction-markets/trump/market.toml
+# 3. Create oracle file: tomls/prediction-markets/trump/oracle.toml
+# 4. Replace all ${MARKET} with TRUMP (uppercase)
+# 5. Replace all ${market} with trump (lowercase)
+# 6. Set the feedId from FxOracle backend
+# 7. Add both files to cannonfile.toml includes
+#
+# ============================================================
+# TEMPLATE - DO NOT USE DIRECTLY
+# ============================================================
+
+# include = [
+#     "./oracle.toml",
+#     "../settings.toml",
+# ]
+
+# ============================================================
+# ORACLE FILE (oracle.toml) - Copy this section to oracle.toml
+# ============================================================
+
+# [setting.fxOracle${MARKET}FeedId]
+# defaultValue = "0x..."  # feedId from FxOracle backend (keccak256 of asset name)
+
+# FxOracle direct price node (type 12)
+# [invoke.registerFxOracle${MARKET}Node]
+# target = ["system.oracle_manager.Proxy"]
+# func = "registerNode"
+# args = [
+#     12,
+#     "<%= defaultAbiCoder.encode(['address', 'bytes32'], [settings.fx_oracle_address, settings.fxOracle${MARKET}FeedId]) %>",
+#     [],
+# ]
+# depends = ["provision.system", "setting.fx_oracle_address", "setting.fxOracle${MARKET}FeedId"]
+# extra.${market}_fx_oracle_id.event = "NodeRegistered"
+# extra.${market}_fx_oracle_id.arg = 0
+
+# FxOracle offchain lookup node (type 13)
+# [invoke.registerFxOracleLookup${MARKET}Node]
+# target = ["system.oracle_manager.Proxy"]
+# func = "registerNode"
+# args = [
+#     13,
+#     "<%= defaultAbiCoder.encode(['address', 'bytes32', 'uint256'], [imports.fx_oracle_erc7412_wrapper.contracts.FxOracleERC7412Wrapper.address, settings.fxOracle${MARKET}FeedId, settings.predictionStalenessTolerance]) %>",
+#     [],
+# ]
+# depends = ["provision.system", "provision.fx_oracle_erc7412_wrapper", "setting.fxOracle${MARKET}FeedId"]
+# extra.${market}_fx_lookup_oracle_id.event = "NodeRegistered"
+# extra.${market}_fx_lookup_oracle_id.arg = 0
+
+# Staleness circuit breaker (type 7)
+# [invoke.register${MARKET}OracleNode]
+# target = ["system.oracle_manager.Proxy"]
+# func = "registerNode"
+# args = [
+#     7,
+#     "<%= defaultAbiCoder.encode(['uint256'], [settings.predictionStalenessTolerance]) %>",
+#     [
+#         "<%= extras.${market}_fx_oracle_id %>",
+#         "<%= extras.${market}_fx_lookup_oracle_id %>",
+#     ],
+# ]
+# depends = ["invoke.registerFxOracle${MARKET}Node", "invoke.registerFxOracleLookup${MARKET}Node"]
+# extra.${market}_oracle_id.event = "NodeRegistered"
+# extra.${market}_oracle_id.arg = 0
+
+# ============================================================
+# MARKET FILE (market.toml) - Copy this section to market.toml
+# ============================================================
+
+# [setting.${market}PerpsMarketId]
+# defaultValue = "1000"  # Unique market ID (start from 1000 for prediction markets)
+
+# [setting.perps${MARKET}SkewScale]
+# defaultValue = "100000"
+
+# [setting.perps${MARKET}MaxFundingVelocity]
+# defaultValue = "3"
+
+# [setting.perps${MARKET}MakerFeeRatio]
+# defaultValue = "0.001"
+
+# [setting.perps${MARKET}TakerFeeRatio]
+# defaultValue = "0.002"
+
+# [setting.perps${MARKET}LimitOrderMakerFeeRatio]
+# defaultValue = "0.0005"
+
+# [setting.perps${MARKET}LimitOrderTakerFeeRatio]
+# defaultValue = "0.001"
+
+# [setting.perps${MARKET}MaxMarketSize]
+# defaultValue = "100000"
+
+# [setting.perps${MARKET}MaxMarketValue]
+# defaultValue = "1000000"
+
+# [setting.perps${MARKET}InitialMarginRatio]
+# defaultValue = "5.0"
+
+# [setting.perps${MARKET}MaintenanceMarginScalar]
+# defaultValue = "0.5"
+
+# [setting.perps${MARKET}MinimumInitialMarginRatio]
+# defaultValue = "0.1"
+
+# [setting.perps${MARKET}FlagRewardRatioD18]
+# defaultValue = "0.0003"
+
+# [setting.perps${MARKET}MaxLiquidationLimitAccumulationMultiplier]
+# defaultValue = "1.5"
+
+# [setting.perps${MARKET}MaxSecondsInLiquidationWindow]
+# defaultValue = "30"
+
+# [setting.perps${MARKET}MinimumPositionMargin]
+# defaultValue = "25"
+
+# [setting.perps${MARKET}LockedOiRatio]
+# defaultValue = "0.5"
+
+# [setting.perps${MARKET}MaxLiquidationPd]
+# defaultValue = "0.0005"
+
+# [setting.perps${MARKET}EndorsedLiquidator]
+# defaultValue = "0x38D4200767628f4197C5d5FdDA24927C28dDadeF"
+
+# Market creation
+# [invoke.create${MARKET}PerpsMarket]
+# target = ["predictionPerpsFactory.PerpsMarketProxy"]
+# fromCall.func = "owner"
+# func = "createMarket"
+# args = ["<%= settings.${market}PerpsMarketId %>", "${MARKET} Prediction", "${MARKET}"]
+# depends = ["provision.predictionPerpsFactory"]
+
+# Set oracle price data
+# [invoke.setPerpsPrice${MARKET}]
+# target = ["predictionPerpsFactory.PerpsMarketProxy"]
+# fromCall.func = "owner"
+# func = "updatePriceData"
+# args = [
+#     "<%= settings.${market}PerpsMarketId %>",
+#     "<%= extras.${market}_oracle_id %>",
+#     "<%= settings.predictionStalenessTolerance %>",
+# ]
+# depends = ["invoke.create${MARKET}PerpsMarket", "invoke.register${MARKET}OracleNode"]
+
+# Add settlement strategy placeholder
+# [invoke.addPerps${MARKET}SettlementStrategy]
+# target = ["predictionPerpsFactory.PerpsMarketProxy"]
+# fromCall.func = "owner"
+# func = "addSettlementStrategy"
+# args = [
+#     "<%= settings.${market}PerpsMarketId %>",
+#     { strategyType = "0", settlementDelay = "0", settlementWindowDuration = "1", priceVerificationContract = "0x0000000000000000000000000000000000000000", feedId = "0x0000000000000000000000000000000000000000000000000000000000000000", settlementReward = "0", disabled = false, commitmentPriceDelay = "0" },
+# ]
+# extra.${market}_settlement_strategy.event = "SettlementStrategyAdded"
+# extra.${market}_settlement_strategy.arg = 2
+# depends = ["invoke.create${MARKET}PerpsMarket"]
+
+# Configure settlement strategy with FxOracle
+# [invoke.setPerps${MARKET}SettlementStrategy]
+# target = ["predictionPerpsFactory.PerpsMarketProxy"]
+# fromCall.func = "owner"
+# func = "setSettlementStrategy"
+# args = [
+#     "<%= settings.${market}PerpsMarketId %>",
+#     "<%= extras.${market}_settlement_strategy %>",
+#     { strategyType = "0", settlementDelay = "<%= settings.predictionSettlementDelay %>", settlementWindowDuration = "<%= settings.predictionSettlementWindow %>", priceVerificationContract = "<%= imports.fx_oracle_erc7412_wrapper.contracts.FxOracleERC7412Wrapper.address %>", feedId = "<%= settings.fxOracle${MARKET}FeedId %>", settlementReward = "<%= parseEther(settings.predictionSettlementReward) %>", disabled = false, commitmentPriceDelay = "2" },
+# ]
+# depends = ["invoke.addPerps${MARKET}SettlementStrategy", "provision.fx_oracle_erc7412_wrapper"]
+
+# Funding parameters
+# [invoke.setPerps${MARKET}FundingParameters]
+# target = ["predictionPerpsFactory.PerpsMarketProxy"]
+# fromCall.func = "owner"
+# func = "setFundingParameters"
+# args = [
+#     "<%= settings.${market}PerpsMarketId %>",
+#     "<%= parseEther(settings.perps${MARKET}SkewScale) %>",
+#     "<%= parseEther(settings.perps${MARKET}MaxFundingVelocity) %>",
+# ]
+# depends = ["invoke.create${MARKET}PerpsMarket"]
+
+# Order fees
+# [invoke.setPerps${MARKET}OrderFees]
+# target = ["predictionPerpsFactory.PerpsMarketProxy"]
+# fromCall.func = "owner"
+# func = "setOrderFees"
+# args = [
+#     "<%= settings.${market}PerpsMarketId %>",
+#     "<%= parseEther(settings.perps${MARKET}MakerFeeRatio) %>",
+#     "<%= parseEther(settings.perps${MARKET}TakerFeeRatio) %>",
+# ]
+# depends = ["invoke.create${MARKET}PerpsMarket"]
+
+# Limit order fees
+# [invoke.setPerps${MARKET}LimitOrderFees]
+# target = ["predictionPerpsFactory.PerpsMarketProxy"]
+# fromCall.func = "owner"
+# func = "setLimitOrderFees"
+# args = [
+#     "<%= settings.${market}PerpsMarketId %>",
+#     "<%= parseEther(settings.perps${MARKET}LimitOrderMakerFeeRatio) %>",
+#     "<%= parseEther(settings.perps${MARKET}LimitOrderTakerFeeRatio) %>",
+# ]
+# depends = ["invoke.create${MARKET}PerpsMarket"]
+
+# Max market size
+# [invoke.setPerps${MARKET}MaxMarketSize]
+# target = ["predictionPerpsFactory.PerpsMarketProxy"]
+# fromCall.func = "owner"
+# func = "setMaxMarketSize"
+# args = [
+#     "<%= settings.${market}PerpsMarketId %>",
+#     "<%= parseEther(settings.perps${MARKET}MaxMarketSize) %>",
+# ]
+# depends = ["invoke.create${MARKET}PerpsMarket"]
+
+# Max market value
+# [invoke.setPerps${MARKET}MaxMarketValue]
+# target = ["predictionPerpsFactory.PerpsMarketProxy"]
+# fromCall.func = "owner"
+# func = "setMaxMarketValue"
+# args = [
+#     "<%= settings.${market}PerpsMarketId %>",
+#     "<%= parseEther(settings.perps${MARKET}MaxMarketValue) %>",
+# ]
+# depends = ["invoke.create${MARKET}PerpsMarket"]
+
+# Max liquidation parameters
+# [invoke.setPerps${MARKET}MaxLiquidationParameters]
+# target = ["predictionPerpsFactory.PerpsMarketProxy"]
+# fromCall.func = "owner"
+# func = "setMaxLiquidationParameters"
+# args = [
+#     "<%= settings.${market}PerpsMarketId %>",
+#     "<%= parseEther(settings.perps${MARKET}MaxLiquidationLimitAccumulationMultiplier) %>",
+#     "<%= settings.perps${MARKET}MaxSecondsInLiquidationWindow %>",
+#     "<%= parseEther(settings.perps${MARKET}MaxLiquidationPd) %>",
+#     "<%= settings.perps${MARKET}EndorsedLiquidator %>",
+# ]
+# depends = ["invoke.create${MARKET}PerpsMarket"]
+
+# Liquidation parameters
+# [invoke.setPerps${MARKET}LiquidationParameters]
+# target = ["predictionPerpsFactory.PerpsMarketProxy"]
+# fromCall.func = "owner"
+# func = "setLiquidationParameters"
+# args = [
+#     "<%= settings.${market}PerpsMarketId %>",
+#     "<%= parseEther(settings.perps${MARKET}InitialMarginRatio) %>",
+#     "<%= parseEther(settings.perps${MARKET}MinimumInitialMarginRatio) %>",
+#     "<%= parseEther(settings.perps${MARKET}MaintenanceMarginScalar) %>",
+#     "<%= parseEther(settings.perps${MARKET}FlagRewardRatioD18) %>",
+#     "<%= parseEther(settings.perps${MARKET}MinimumPositionMargin) %>",
+# ]
+# depends = ["invoke.create${MARKET}PerpsMarket"]
+
+# Locked OI ratio
+# [invoke.setPerps${MARKET}LockedOiRatio]
+# target = ["predictionPerpsFactory.PerpsMarketProxy"]
+# fromCall.func = "owner"
+# func = "setLockedOiRatio"
+# args = [
+#     "<%= settings.${market}PerpsMarketId %>",
+#     "<%= parseEther(settings.perps${MARKET}LockedOiRatio) %>",
+# ]
+# depends = ["invoke.create${MARKET}PerpsMarket"]

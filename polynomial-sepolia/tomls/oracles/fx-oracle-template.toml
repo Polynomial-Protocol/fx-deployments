@@ -1,0 +1,60 @@
+# FxOracle Node Registration Template
+# This file serves as a template for creating FxOracle-based price feeds
+# Copy and modify for each prediction market asset
+#
+# Replace ${ASSET} with uppercase asset name (e.g., TRUMP)
+# Replace ${asset} with lowercase asset name (e.g., trump)
+#
+# Example usage for TRUMP market:
+# 1. Copy this file to fx-trump.toml
+# 2. Replace all ${ASSET} with TRUMP
+# 3. Replace all ${asset} with trump
+# 4. Set the fxOracleTrumpFeedId setting
+
+# ============================================================
+# TEMPLATE - DO NOT USE DIRECTLY
+# ============================================================
+
+# FxOracle direct price node (type 12)
+# Parameters: (address fxOracleAddress, bytes32 feedId)
+# [invoke.registerFxOracle${ASSET}Node]
+# target = ["system.oracle_manager.Proxy"]
+# func = "registerNode"
+# args = [
+#     12,
+#     "<%= defaultAbiCoder.encode(['address', 'bytes32'], [settings.fx_oracle_address, settings.fxOracle${ASSET}FeedId]) %>",
+#     [],
+# ]
+# depends = ["provision.system", "setting.fx_oracle_address", "setting.fxOracle${ASSET}FeedId"]
+# extra.${asset}_fx_oracle_id.event = "NodeRegistered"
+# extra.${asset}_fx_oracle_id.arg = 0
+
+# FxOracle offchain lookup node (type 13)
+# Parameters: (address wrapperAddress, bytes32 feedId, uint256 stalenessTolerance)
+# [invoke.registerFxOracleLookup${ASSET}Node]
+# target = ["system.oracle_manager.Proxy"]
+# func = "registerNode"
+# args = [
+#     13,
+#     "<%= defaultAbiCoder.encode(['address', 'bytes32', 'uint256'], [imports.fx_oracle_erc7412_wrapper.contracts.FxOracleERC7412Wrapper.address, settings.fxOracle${ASSET}FeedId, settings.predictionStalenessTolerance]) %>",
+#     [],
+# ]
+# depends = ["provision.system", "provision.fx_oracle_erc7412_wrapper", "setting.fxOracle${ASSET}FeedId"]
+# extra.${asset}_fx_lookup_oracle_id.event = "NodeRegistered"
+# extra.${asset}_fx_lookup_oracle_id.arg = 0
+
+# Staleness circuit breaker (type 7) combining both nodes
+# [invoke.register${ASSET}OracleNode]
+# target = ["system.oracle_manager.Proxy"]
+# func = "registerNode"
+# args = [
+#     7,
+#     "<%= defaultAbiCoder.encode(['uint256'], [settings.predictionStalenessTolerance]) %>",
+#     [
+#         "<%= extras.${asset}_fx_oracle_id %>",
+#         "<%= extras.${asset}_fx_lookup_oracle_id %>",
+#     ],
+# ]
+# depends = ["invoke.registerFxOracle${ASSET}Node", "invoke.registerFxOracleLookup${ASSET}Node"]
+# extra.${asset}_oracle_id.event = "NodeRegistered"
+# extra.${asset}_oracle_id.arg = 0
