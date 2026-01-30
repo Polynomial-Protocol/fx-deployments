@@ -1,0 +1,15 @@
+[setting.prediction_perps_market_package]
+defaultValue = "fx-perps-market:3.10.1"
+
+[setting.predictionStalenessTolerance]
+defaultValue = "300"
+description = "Staleness tolerance for prediction market oracles (5 minutes)"
+
+[setting.predictionSettlementDelay]
+defaultValue = "2"
+
+[setting.predictionSettlementWindow]
+defaultValue = "60"
+
+[setting.predictionSettlementReward]
+defaultValue = "0.01"

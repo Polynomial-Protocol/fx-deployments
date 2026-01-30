@@ -1,0 +1,37 @@
+# Feature Flags for Prediction Perps Factory
+# ===========================================
+
+# Enable perpsSystem for all users (trading, account creation, etc.)
+[invoke.allowAllPredictionPerpsSystem]
+target = ["predictionPerpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setFeatureFlagAllowAll"
+args = ["<%= formatBytes32String('perpsSystem') %>", true]
+depends = ["provision.predictionPerpsFactory"]
+
+# Enable limit orders for all users
+[invoke.allowAllPredictionLimitOrder]
+target = ["predictionPerpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setFeatureFlagAllowAll"
+args = ["<%= formatBytes32String('limitOrder') %>", true]
+depends = ["provision.predictionPerpsFactory"]
+
+# Enable account creation for all users
+[invoke.enablePredictionCreateAccount]
+target = ["predictionPerpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setFeatureFlagAllowAll"
+args = ["<%= formatBytes32String('createAccount') %>", true]
+depends = ["provision.predictionPerpsFactory"]
+
+# Add prediction perps market to core registerMarket feature flag
+[invoke.addPredictionPerpsMarketToFeatureFlag]
+target = ["system.CoreProxy"]
+func = "addToFeatureFlagAllowlist"
+fromCall.func = "owner"
+args = [
+    "<%= formatBytes32String('registerMarket') %>",
+    "<%= imports.predictionPerpsFactory.contracts.PerpsMarketProxy.address %>",
+]
+depends = ["provision.predictionPerpsFactory"]

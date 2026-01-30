@@ -1,0 +1,21 @@
+[setting.prediction_perps_market_package]
+
+[setting.prediction_perps_super_market_name]
+defaultValue = "Prediction Markets"
+
+[provision.predictionPerpsFactory]
+source = "<%= settings.prediction_perps_market_package %>"
+targetPreset = "<%= settings.target_preset %>"
+options.coreProxyOwner = "<%= settings.owner %>"
+options.owner = "<%= settings.owner %>"
+options.salt = "prediction-<%= settings.salt %>"
+options.synthetixPackage = "<%= settings.snx_package %>@<%= settings.target_preset %>"
+options.spotMarketPackage = "<%= settings.spot_market_package %>@<%= settings.target_preset %>"
+
+depends = ["provision.spotFactory"]
+
+[invoke.setPredictionPerpsMarketName]
+target = ["predictionPerpsFactory.PerpsMarketProxy"]
+fromCall.func = "owner"
+func = "setPerpsMarketName"
+args = ["<%= settings.prediction_perps_super_market_name %>"]
