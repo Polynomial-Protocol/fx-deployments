@@ -418,7 +418,7 @@ defaultValue = "0x2b02AAd6f1694E7D9c934B7b3Ec444541286cF0f"
 defaultValue = "<%= parseEther('1.25') %>"
 
 [setting.account_timeout_withdraw]
-defaultValue = "600"
+defaultValue = "120"
 
 [setting.main_pool_id]
 defaultValue = "1"
