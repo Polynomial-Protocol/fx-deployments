@@ -23,10 +23,10 @@ defaultValue = "0.0004"
 defaultValue = "0.0006"
 
 [setting.perpsDiaMaxMarketSize]
-defaultValue = "<%= String(2_250) %>"
+defaultValue = "<%= String(0) %>"
 
 [setting.perpsDiaMaxMarketValue]
-defaultValue = "<%= String(1_000_000) %>"
+defaultValue = "<%= String(0) %>"
 
 [setting.perpsDiaInitialMarginRatio]
 defaultValue = "0.07"

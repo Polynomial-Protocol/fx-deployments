@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsFilMaxMarketSize]
-defaultValue = "<%= String(51_427) %>"
+defaultValue = "<%= String(0) %>"
 
 [setting.perpsFilMaxMarketValue]
-defaultValue = "<%= String(80_000) %>"
+defaultValue = "<%= String(0) %>"
 
 [setting.perpsFilInitialMarginRatio]
 defaultValue = "0.18549962976575665"

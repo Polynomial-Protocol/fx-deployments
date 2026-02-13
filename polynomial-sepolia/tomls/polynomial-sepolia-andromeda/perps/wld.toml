@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsWldMaxMarketSize]
-defaultValue = "<%= String(67_421) %>"
+defaultValue = "<%= String(0) %>"
 
 [setting.perpsWldMaxMarketValue]
-defaultValue = "<%= String(63_089) %>"
+defaultValue = "<%= String(0) %>"
 
 [setting.perpsWldInitialMarginRatio]
 defaultValue = "0.527830243876547"

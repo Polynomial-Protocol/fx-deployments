@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsTonMaxMarketSize]
-defaultValue = "<%= String(19_754) %>"
+defaultValue = "<%= String(0) %>"
 
 [setting.perpsTonMaxMarketValue]
-defaultValue = "<%= String(64_793) %>"
+defaultValue = "<%= String(0) %>"
 
 [setting.perpsTonInitialMarginRatio]
 defaultValue = "0.4474045654612778"

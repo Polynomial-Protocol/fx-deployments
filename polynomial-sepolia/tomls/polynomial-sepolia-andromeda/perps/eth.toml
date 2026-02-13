@@ -26,10 +26,10 @@ defaultValue = "0.0000"
 defaultValue = "0.0000"
 
 [setting.perpsEthMaxMarketSize]
-defaultValue = "<%= String(950) %>"
+defaultValue = "<%= String(0) %>"
 
 [setting.perpsEthMaxMarketValue]
-defaultValue = "<%= String(4_005_751) %>"
+defaultValue = "<%= String(0) %>"
 
 [setting.perpsEthInitialMarginRatio]
 defaultValue = "1.16"

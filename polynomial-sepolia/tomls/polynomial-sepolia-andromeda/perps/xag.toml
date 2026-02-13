@@ -23,10 +23,10 @@ defaultValue = "0.0004"
 defaultValue = "0.0006"
 
 [setting.perpsXagMaxMarketSize]
-defaultValue = "<%= String(19_300) %>"
+defaultValue = "<%= String(0) %>"
 
 [setting.perpsXagMaxMarketValue]
-defaultValue = "<%= String(1_000_000) %>"
+defaultValue = "<%= String(0) %>"
 
 [setting.perpsXagInitialMarginRatio]
 defaultValue = "0.31"

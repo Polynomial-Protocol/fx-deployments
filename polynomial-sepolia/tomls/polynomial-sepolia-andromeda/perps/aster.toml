@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsAsterMaxMarketSize]
-defaultValue = "<%= String(72_000) %>"
+defaultValue = "<%= String(0) %>"
 
 [setting.perpsAsterMaxMarketValue]
-defaultValue = "<%= String(120_000) %>"
+defaultValue = "<%= String(0) %>"
 
 [setting.perpsAsterInitialMarginRatio]
 defaultValue = "0.347"

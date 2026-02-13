@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsBeraMaxMarketSize]
-defaultValue = "<%= String(51_660) %>"
+defaultValue = "<%= String(0) %>"
 
 [setting.perpsBeraMaxMarketValue]
-defaultValue = "<%= String(100_000) %>"
+defaultValue = "<%= String(0) %>"
 
 [setting.perpsBeraInitialMarginRatio]
 defaultValue = "0.6490037609541629"

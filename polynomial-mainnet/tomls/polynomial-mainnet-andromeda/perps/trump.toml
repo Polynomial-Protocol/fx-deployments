@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsTrumpMaxMarketSize]
-defaultValue = "<%= String(8_750) %>"
+defaultValue = "<%= String(0) %>"
 
 [setting.perpsTrumpMaxMarketValue]
-defaultValue = "<%= String(80_000) %>"
+defaultValue = "<%= String(0) %>"
 
 [setting.perpsTrumpInitialMarginRatio]
 defaultValue = "3.055555555555555"

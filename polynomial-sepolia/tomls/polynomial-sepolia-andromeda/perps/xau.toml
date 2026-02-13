@@ -24,10 +24,10 @@ defaultValue = "0.0004"
 defaultValue = "0.0006"
 
 [setting.perpsXauMaxMarketSize]
-defaultValue = "<%= String(400) %>"
+defaultValue = "<%= String(0) %>"
 
 [setting.perpsXauMaxMarketValue]
-defaultValue = "<%= String(1_200_000) %>"
+defaultValue = "<%= String(0) %>"
 
 [setting.perpsXauInitialMarginRatio]
 defaultValue = "0.1"

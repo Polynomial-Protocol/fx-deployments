@@ -26,10 +26,10 @@ defaultValue = "0.0000"
 defaultValue = "0.0000"
 
 [setting.perpsBtcMaxMarketSize]
-defaultValue = "<%= String(100) %>"
+defaultValue = "<%= String(0) %>"
 
 [setting.perpsBtcMaxMarketValue]
-defaultValue = "<%= String(11_370_437) %>"
+defaultValue = "<%= String(0) %>"
 
 [setting.perpsBtcInitialMarginRatio]
 defaultValue = "1.54"

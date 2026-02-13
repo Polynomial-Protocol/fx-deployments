@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsSMaxMarketSize]
-defaultValue = "<%= String(216_619) %>"
+defaultValue = "<%= String(0) %>"
 
 [setting.perpsSMaxMarketValue]
-defaultValue = "<%= String(67_745) %>"
+defaultValue = "<%= String(0) %>"
 
 [setting.perpsSInitialMarginRatio]
 defaultValue = "1.3215493999027703"

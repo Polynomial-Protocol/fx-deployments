@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsAltMaxMarketSize]
-defaultValue = "0"
+defaultValue = "<%= String(0) %>"
 
 [setting.perpsAltMaxMarketValue]
-defaultValue = "0"
+defaultValue = "<%= String(0) %>"
 
 [setting.perpsAltInitialMarginRatio]
 defaultValue = "0.004773244626266784"

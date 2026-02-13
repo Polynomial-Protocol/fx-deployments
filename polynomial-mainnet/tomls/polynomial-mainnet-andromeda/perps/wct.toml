@@ -23,10 +23,10 @@ defaultValue = "0.0001"
 defaultValue = "0.0002"
 
 [setting.perpsWctMaxMarketSize]
-defaultValue = "<%= String(475_567) %>"
+defaultValue = "<%= String(0) %>"
 
 [setting.perpsWctMaxMarketValue]
-defaultValue = "<%= String(80_000) %>"
+defaultValue = "<%= String(0) %>"
 
 [setting.perpsWctInitialMarginRatio]
 defaultValue = "0.33130411671353793"

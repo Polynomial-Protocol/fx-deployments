@@ -23,10 +23,10 @@ defaultValue = "0.0004"
 defaultValue = "0.0006"
 
 [setting.perpsCoinMaxMarketSize]
-defaultValue = "<%= String(3_750) %>"
+defaultValue = "<%= String(0) %>"
 
 [setting.perpsCoinMaxMarketValue]
-defaultValue = "<%= String(1_000_000) %>"
+defaultValue = "<%= String(0) %>"
 
 [setting.perpsCoinInitialMarginRatio]
 defaultValue = "0.04"
