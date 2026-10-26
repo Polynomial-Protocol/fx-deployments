@@ -6,7 +6,7 @@ authors = ["mubaris <hello@mubaris.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.10"
 web3 = "^7.6.0"
 python-dotenv = "^1.0.1"
 tomli = "^2.2.1"
