@@ -46,7 +46,9 @@ def get_current_markets_data():
 
             raw_data[market_id] = {"setting": data}
 
-            skew_scale = int(extract_val(data, skew_scale_regex))
+            # Some configs store it with decimals ("531914.8936"); the writers
+            # (replace_market_data, add_new_market) round it to an int anyway.
+            skew_scale = int(float(extract_val(data, skew_scale_regex)))
             max_market_size = float(extract_val(data, max_market_size_regex))
             max_market_value = int(extract_val(data, max_market_value_regex))
 
