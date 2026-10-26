@@ -18,7 +18,11 @@ from scripts import (
 
 load_dotenv()
 
-client = Client(os.getenv("BINANCE_API_KEY"), os.getenv("BINANCE_API_SECRET"))
+# .env.example used to call the secret BINANCE_SECRET_KEY; accept both.
+client = Client(
+    os.getenv("BINANCE_API_KEY"),
+    os.getenv("BINANCE_API_SECRET") or os.getenv("BINANCE_SECRET_KEY"),
+)
 
 constants = read_constants()
 current_tvl = round_up(get_current_tvl(), 5) * 2
